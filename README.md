@@ -1,0 +1,68 @@
+# Dyslexic Writer
+
+A lightweight writing tool for dyslexic kids that helps with spelling without doing the work for them.
+
+## Philosophy
+
+Most spell checkers either auto-correct (removing the learning opportunity) or just underline errors in red (triggering anxiety). This tool takes a different approach:
+
+- **Phonetic understanding** - Accepts "enuff", "sed", "fone" and figures out what the child meant
+- **Hints, not corrections** - Shows definitions and lets the child choose
+- **Retype, don't click** - No click-to-replace; retyping builds muscle memory
+- **Audio feedback** - Read words aloud to distinguish similar-looking words
+- **No red underlines** - Uses soft purple dots to avoid failure signals
+
+## How It Works
+
+1. Child types: "I want to go to the stor and by sum fud"
+2. System highlights uncertain words with purple dots
+3. Child clicks a word to see suggestions with audio
+4. Child **deletes and retypes** the correct spelling (building motor memory)
+
+## Tech Stack
+
+| Component | Choice | Why |
+|-----------|--------|-----|
+| App Shell | Tauri v2 | Lightweight (~10MB vs Electron's 150MB) |
+| Editor | TipTap | Headless, full control over UI |
+| Spelling | SymSpell + LLM | Fast fuzzy matching + context awareness |
+| LLM | Phi-4 Mini (via Ollama) | 96.7% accuracy on phonetic spelling, runs locally |
+| TTS | Piper | Neural voices, works offline |
+
+## Current Status
+
+**Prototype phase** - Testing LLM models for phonetic spelling correction.
+
+Benchmark results (Phi-4 Mini):
+- Phonetic spelling: **96.7% accuracy** @ 0.25s response
+- Homophones: 70% accuracy @ 1.2s response
+
+## Setup
+
+```bash
+# Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Pull the model
+ollama pull phi4-mini
+
+# Test the prototype
+python3 prototype/benchmark_phonetic.py
+```
+
+## Project Structure
+
+```
+dyslexic-writer/
+├── PLAN.md                    # Full development plan
+├── dictionaries/
+│   └── homophones.json        # Homophone definitions
+└── prototype/
+    ├── homophone_hint.py      # Interactive homophone tester
+    ├── benchmark_models.py    # Model comparison (homophones)
+    └── benchmark_phonetic.py  # Phonetic spelling benchmark
+```
+
+## License
+
+MIT
