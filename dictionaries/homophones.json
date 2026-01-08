@@ -1,0 +1,232 @@
+{
+  "homophones": [
+    {
+      "words": ["there", "their", "they're"],
+      "definitions": {
+        "there": "a place (over there)",
+        "their": "belonging to them",
+        "they're": "they are (contraction)"
+      },
+      "examples": {
+        "there": "Put it over there.",
+        "their": "That is their house.",
+        "they're": "They're coming soon."
+      }
+    },
+    {
+      "words": ["to", "too", "two"],
+      "definitions": {
+        "to": "direction (go to school)",
+        "too": "also, or very much",
+        "two": "the number 2"
+      },
+      "examples": {
+        "to": "I went to the park.",
+        "too": "I want to come too!",
+        "two": "I have two apples."
+      }
+    },
+    {
+      "words": ["your", "you're"],
+      "definitions": {
+        "your": "belonging to you",
+        "you're": "you are (contraction)"
+      },
+      "examples": {
+        "your": "Is this your book?",
+        "you're": "You're my best friend."
+      }
+    },
+    {
+      "words": ["its", "it's"],
+      "definitions": {
+        "its": "belonging to it",
+        "it's": "it is (contraction)"
+      },
+      "examples": {
+        "its": "The dog wagged its tail.",
+        "it's": "It's a sunny day."
+      }
+    },
+    {
+      "words": ["here", "hear"],
+      "definitions": {
+        "here": "this place",
+        "hear": "to listen with ears"
+      },
+      "examples": {
+        "here": "Come over here!",
+        "hear": "I can hear music."
+      }
+    },
+    {
+      "words": ["where", "wear", "were"],
+      "definitions": {
+        "where": "asking about place",
+        "wear": "to put on clothes",
+        "were": "past tense of are"
+      },
+      "examples": {
+        "where": "Where are you going?",
+        "wear": "I will wear my blue shirt.",
+        "were": "They were at the park."
+      }
+    },
+    {
+      "words": ["no", "know"],
+      "definitions": {
+        "no": "opposite of yes",
+        "know": "to understand something"
+      },
+      "examples": {
+        "no": "No, thank you.",
+        "know": "I know the answer."
+      }
+    },
+    {
+      "words": ["by", "buy", "bye"],
+      "definitions": {
+        "by": "near, or done by someone",
+        "buy": "to purchase something",
+        "bye": "short for goodbye"
+      },
+      "examples": {
+        "by": "Sit by me.",
+        "buy": "I want to buy candy.",
+        "bye": "Bye, see you later!"
+      }
+    },
+    {
+      "words": ["right", "write"],
+      "definitions": {
+        "right": "correct, or direction",
+        "write": "to put words on paper"
+      },
+      "examples": {
+        "right": "Turn right at the corner.",
+        "write": "Please write your name."
+      }
+    },
+    {
+      "words": ["which", "witch"],
+      "definitions": {
+        "which": "asking about choice",
+        "witch": "magical person in stories"
+      },
+      "examples": {
+        "which": "Which color do you like?",
+        "witch": "The witch flew on a broom."
+      }
+    },
+    {
+      "words": ["weather", "whether"],
+      "definitions": {
+        "weather": "rain, sun, snow, etc.",
+        "whether": "if (making a choice)"
+      },
+      "examples": {
+        "weather": "The weather is nice today.",
+        "whether": "I don't know whether to go."
+      }
+    },
+    {
+      "words": ["piece", "peace"],
+      "definitions": {
+        "piece": "a part of something",
+        "peace": "calm, no fighting"
+      },
+      "examples": {
+        "piece": "Can I have a piece of cake?",
+        "peace": "I want peace and quiet."
+      }
+    },
+    {
+      "words": ["new", "knew"],
+      "definitions": {
+        "new": "not old, just made",
+        "knew": "past tense of know"
+      },
+      "examples": {
+        "new": "I got new shoes!",
+        "knew": "I knew the answer already."
+      }
+    },
+    {
+      "words": ["for", "four"],
+      "definitions": {
+        "for": "meant for someone",
+        "four": "the number 4"
+      },
+      "examples": {
+        "for": "This gift is for you.",
+        "four": "I am four years old."
+      }
+    },
+    {
+      "words": ["ate", "eight"],
+      "definitions": {
+        "ate": "past tense of eat",
+        "eight": "the number 8"
+      },
+      "examples": {
+        "ate": "I ate breakfast.",
+        "eight": "There are eight cookies."
+      }
+    },
+    {
+      "words": ["one", "won"],
+      "definitions": {
+        "one": "the number 1",
+        "won": "past tense of win"
+      },
+      "examples": {
+        "one": "I have one cookie left.",
+        "won": "We won the game!"
+      }
+    },
+    {
+      "words": ["see", "sea"],
+      "definitions": {
+        "see": "to look with eyes",
+        "sea": "the ocean"
+      },
+      "examples": {
+        "see": "I can see the bird.",
+        "sea": "We went to the sea."
+      }
+    },
+    {
+      "words": ["be", "bee"],
+      "definitions": {
+        "be": "to exist (I want to be)",
+        "bee": "flying insect, makes honey"
+      },
+      "examples": {
+        "be": "I want to be a teacher.",
+        "bee": "The bee buzzed around."
+      }
+    },
+    {
+      "words": ["wood", "would"],
+      "definitions": {
+        "wood": "material from trees",
+        "would": "wanting to do something"
+      },
+      "examples": {
+        "wood": "The table is made of wood.",
+        "would": "I would like some water."
+      }
+    },
+    {
+      "words": ["are", "our"],
+      "definitions": {
+        "are": "verb (we are, they are)",
+        "our": "belonging to us"
+      },
+      "examples": {
+        "are": "We are going home.",
+        "our": "This is our house."
+      }
+    }
+  ]
+}

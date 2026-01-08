@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# Models (downloaded on first run)
+models/
+*.gguf
+*.onnx
+
+# Build outputs
+dist/
+target/
+build/
+*.app
+*.exe
+*.dmg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tauri
+src-tauri/target/
+
+# Logs
+*.log
+slurm-*.out
+
+# Temp files
+.claude/
+/tmp/
