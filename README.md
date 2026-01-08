@@ -39,15 +39,34 @@ Benchmark results (Phi-4 Mini):
 
 ## Setup
 
+### Requirements
+
+- Python 3.8+
+- ~3GB disk space for Phi-4 Mini model
+- GPU with 4GB+ VRAM recommended (runs on CPU too, just slower)
+
+### Install Ollama & Phi-4 Mini
+
 ```bash
-# Install Ollama
+# 1. Install Ollama (Linux/Mac)
 curl -fsSL https://ollama.com/install.sh | sh
 
-# Pull the model
+# 2. Pull Phi-4 Mini (~2.5GB download)
 ollama pull phi4-mini
 
-# Test the prototype
+# 3. Verify it's working
+ollama run phi4-mini "What word did they mean: 'I have enuff food'"
+# Should respond: "enough"
+```
+
+### Run the Prototype
+
+```bash
+# Test phonetic spelling correction
 python3 prototype/benchmark_phonetic.py
+
+# Interactive homophone testing
+python3 prototype/homophone_hint.py
 ```
 
 ## Project Structure
