@@ -7,10 +7,19 @@ A lightweight writing tool for dyslexic kids that helps with spelling without do
 Most spell checkers either auto-correct (removing the learning opportunity) or just underline errors in red (triggering anxiety). This tool takes a different approach:
 
 - **Phonetic understanding** - Accepts "enuff", "sed", "fone" and figures out what the child meant
-- **Hints, not corrections** - Shows definitions and lets the child choose
-- **Retype, don't click** - No click-to-replace; retyping builds muscle memory
+- **Hints with definitions** - Shows what each word means so the child learns, not just fixes
+- **Two modes** - Click-to-replace for getting work done, or retype-only for practice
 - **Audio feedback** - Read words aloud to distinguish similar-looking words
 - **No red underlines** - Uses soft purple dots to avoid failure signals
+
+### Correction Modes
+
+| Mode | How it works | Best for |
+|------|--------------|----------|
+| **Get It Done** (default) | Click dropdown to replace, like MS Word | Homework, longer documents |
+| **Learning Mode** | Must delete and retype the word | Practice sessions, building muscle memory |
+
+Toggle in Settings: "Enable click-to-replace" (uncheck for learning mode)
 
 ## How It Works
 

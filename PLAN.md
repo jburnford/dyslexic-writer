@@ -168,10 +168,38 @@ User types: "I went to the stor to by sum fud"
 
 1. **No red underlines** - Red signals failure/anxiety. Use soft purple under-dots instead.
 2. **OpenDyslexic font default** - Weighted letter bottoms prevent visual flipping (b/d, p/q).
-3. **Retype, don't click** - No click-to-replace. Child must delete and retype to build muscle memory.
+3. **Two correction modes** - User chooses their workflow (see below).
 4. **Hints, not answers** - Show definitions/context clues, never auto-correct.
 5. **2-second pause trigger** - LLM only invoked after child stops typing (not per-keystroke).
 6. **Bubble menu hijack** - Use TipTap's formatting menu pattern for spelling suggestions.
+
+### Correction Modes (Settings Toggle)
+
+Users can choose their correction workflow in Settings:
+
+**Get It Done Mode** (default)
+- Click dropdown to select correct spelling (like MS Word)
+- Practical for homework, longer documents
+- Still shows hints/definitions to reinforce learning
+
+**Learning Mode** (toggle: "Disable click-to-replace")
+- Dropdown disabled - must delete and retype the word
+- Builds muscle memory through motor practice
+- Best for dedicated practice sessions
+- Parents/teachers can enable this for practice time
+
+Both modes:
+- Show the same suggestions with audio
+- Display definitions so child understands the difference
+- Track which words were corrected (optional progress feature)
+
+Settings UI:
+```
+☑ Enable click-to-replace (uncheck for learning mode)
+☑ Play sound on correction
+☑ Show word definitions
+☐ Track my progress
+```
 
 ### Writing Flow
 
@@ -183,11 +211,11 @@ User types: "I went to the stor to by sum fud"
                       ↓
 3. Child clicks "brd" (or selects word)
                       ↓
-4. Bubble popup appears (hijacked TipTap formatting menu):
+4. Dropdown popup appears:
    ┌────────────────────────────────────────┐
-   │  Sounds like...                        │
+   │  Did you mean...                       │
    │                                        │
-   │  🔊 bird - an animal with feathers     │
+   │  🔊 bird - an animal with feathers  ←  │
    │  🔊 bred - past tense of breed         │
    │  🔊 bard - a poet who tells stories    │
    │                                        │
@@ -196,8 +224,8 @@ User types: "I went to the stor to by sum fud"
                       ↓
 5. Child taps 🔊 next to "bird" - hears it spoken clearly
                       ↓
-6. Child DELETES "brd" and RETYPES "bird"
-   ⚠️  NO click-to-replace! Must retype for muscle memory.
+6. GET IT DONE MODE: Child clicks "bird" - word is replaced
+   LEARNING MODE: Child must delete "brd" and retype "bird"
                       ↓
 7. Purple dot disappears. Subtle positive feedback.
 ```
