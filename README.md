@@ -1,96 +1,203 @@
 # Dyslexic Writer
 
-A lightweight writing tool for dyslexic kids that helps with spelling without doing the work for them.
+A free, open-source writing tool for dyslexic kids that helps with spelling without doing the work for them.
 
-## Philosophy
+**Goal**: Create a free alternative to expensive commercial dyslexia tools.
 
-Most spell checkers either auto-correct (removing the learning opportunity) or just underline errors in red (triggering anxiety). This tool takes a different approach:
+## Current Status: Prototype
 
-- **Phonetic understanding** - Accepts "enuff", "sed", "fone" and figures out what the child meant
-- **Hints with definitions** - Shows what each word means so the child learns, not just fixes
-- **Two modes** - Click-to-replace for getting work done, or retype-only for practice
-- **Audio feedback** - Read words aloud to distinguish similar-looking words
-- **No red underlines** - Uses soft purple dots to avoid failure signals
+Working editor with:
+- Hybrid phonetic + LLM spelling correction
+- Dark mode default (white on black) with light mode option
+- OpenDyslexic font default with standard font option
+- Large font size (20px vs Word's 12pt)
+- Purple dot underlines (not anxiety-inducing red)
+- Text-to-speech for words and sentences
+- Learning mode (must retype) vs Get It Done mode (click to replace)
+- Logging for analysis and model improvement
 
-### Correction Modes
+## Architecture
 
-| Mode | How it works | Best for |
-|------|--------------|----------|
-| **Get It Done** (default) | Click dropdown to replace, like MS Word | Homework, longer documents |
-| **Learning Mode** | Must delete and retype the word | Practice sessions, building muscle memory |
+```
+User types sentence
+        │
+    Ends with period
+        ▼
+┌─────────────────────────┐
+│  Hybrid Spell Check     │
+│                         │
+│  1. Cache lookup        │ → instant
+│  2. Phonetic matching   │ → <1ms (Double Metaphone)
+│  3. LLM fallback        │ → ~1-2s (phi4-mini via Ollama)
+└─────────────────────────┘
+        │
+        ▼
+   Purple dot highlights
+        │
+        ▼
+   Click word → suggestion popup with audio
+```
 
-Toggle in Settings: "Enable click-to-replace" (uncheck for learning mode)
+### Why Hybrid?
 
-## How It Works
+Traditional spell checkers use edit distance, which fails for dyslexic spelling:
+- "becuase" → edit distance says "because" is 2 edits away, but so is "becalms"
+- "gameing" → might match "gaming" or "gamine"
+- "enuff" → nowhere near "enough" by edit distance
 
-1. Child types: "I want to go to the stor and by sum fud"
-2. System highlights uncertain words with purple dots
-3. Child clicks a word to see suggestions with audio
-4. Child **deletes and retypes** the correct spelling (building motor memory)
+Our approach:
+1. **Phonetic matching** catches most dyslexic spellings because kids spell how words SOUND
+2. **LLM fallback** uses sentence context for ambiguous cases
 
 ## Tech Stack
 
 | Component | Choice | Why |
 |-----------|--------|-----|
-| App Shell | Tauri v2 | Lightweight (~10MB vs Electron's 150MB) |
-| Editor | TipTap | Headless, full control over UI |
-| Spelling | SymSpell + LLM | Fast fuzzy matching + context awareness |
-| LLM | Phi-4 Mini (via Ollama) | 96.7% accuracy on phonetic spelling, runs locally |
-| TTS | Piper | Neural voices, works offline |
+| Frontend | React + Vite | Fast dev, hot reload |
+| Editor | TipTap | Headless, full control |
+| Phonetics | Double Metaphone | Matches words by sound |
+| LLM | Ollama + phi4-mini | Local, private, no API costs |
+| TTS | Web Speech API | Built-in, works offline |
 
-## Current Status
+## Training Data
 
-**Prototype phase** - Testing LLM models for phonetic spelling correction.
+We've collected 78,739 misspelling → correct word pairs for fine-tuning:
 
-Benchmark results (Phi-4 Mini):
-- Phonetic spelling: **96.7% accuracy** @ 0.25s response
-- Homophones: 70% accuracy @ 1.2s response
+| Source | Pairs | Description |
+|--------|-------|-------------|
+| Birkbeck corpus | 36,058 | Poor spellers, native English |
+| Holbrook corpus | 1,791 | Schoolchildren's writing |
+| Extra misspellings | 40,890 | Various sources |
+
+Located in `training-data/`:
+- `combined_instruction.jsonl` - For instruction fine-tuning
+- `combined_changes.jsonl` - In our CHANGES format
+- `combined_sentences.jsonl` - With sentence context
+
+## Development Plan
+
+### Phase 1: Working Prototype ✅
+- [x] TipTap editor with dyslexia-friendly styling
+- [x] Ollama integration for LLM spelling
+- [x] Phonetic matching with Double Metaphone
+- [x] Suggestion popup with audio
+- [x] Logging for analysis
+- [x] Dark mode, font options
+
+### Phase 2: Fine-tuned Model (Next)
+- [ ] Fine-tune small model on spelling data (H100 training run)
+- [ ] Evaluate accuracy vs phi4-mini
+- [ ] Integrate fine-tuned model
+
+### Phase 3: Polish
+- [ ] Piper TTS (better voices than Web Speech API)
+- [ ] File save/load
+- [ ] Progress tracking (optional)
+- [ ] Tauri packaging for desktop app
+
+### Phase 4: Ship
+- [ ] Package for Windows/Mac/Linux
+- [ ] Landing page at dyslexi.co
+- [ ] User testing with real dyslexic kids
 
 ## Setup
 
 ### Requirements
+- Node.js 18+
+- Ollama with phi4-mini model
 
-- Python 3.8+
-- ~3GB disk space for Phi-4 Mini model
-- GPU with 4GB+ VRAM recommended (runs on CPU too, just slower)
-
-### Install Ollama & Phi-4 Mini
+### Install
 
 ```bash
-# 1. Install Ollama (Linux/Mac)
+# Install Ollama
 curl -fsSL https://ollama.com/install.sh | sh
 
-# 2. Pull Phi-4 Mini (~2.5GB download)
+# Pull the model
 ollama pull phi4-mini
 
-# 3. Verify it's working
-ollama run phi4-mini "What word did they mean: 'I have enuff food'"
-# Should respond: "enough"
+# Install dependencies
+npm install
+
+# Run dev server
+npm run dev
 ```
 
-### Run the Prototype
+Open http://localhost:3000
 
-```bash
-# Test phonetic spelling correction
-python3 prototype/benchmark_phonetic.py
+### Testing the Spell Checker
 
-# Interactive homophone testing
-python3 prototype/homophone_hint.py
+Type a sentence ending with a period:
 ```
+I have enuff food becuase Im hungrey.
+```
+
+Expected corrections:
+- enuff → enough (phonetic match)
+- becuase → because (phonetic match)
+- Im → I'm (LLM)
+- hungrey → hungry (phonetic match)
 
 ## Project Structure
 
 ```
 dyslexic-writer/
-├── PLAN.md                    # Full development plan
-├── dictionaries/
-│   └── homophones.json        # Homophone definitions
-└── prototype/
-    ├── homophone_hint.py      # Interactive homophone tester
-    ├── benchmark_models.py    # Model comparison (homophones)
-    └── benchmark_phonetic.py  # Phonetic spelling benchmark
+├── src/
+│   ├── components/
+│   │   └── Editor.tsx      # Main editor component
+│   ├── services/
+│   │   ├── spelling.ts     # Hybrid spell checker
+│   │   └── phonetic.ts     # Double Metaphone matching
+│   ├── styles/
+│   │   └── editor.css      # Dyslexia-friendly styles
+│   ├── App.tsx
+│   └── main.tsx
+├── training-data/
+│   ├── birkbeck.dat        # Birkbeck corpus (raw)
+│   ├── holbrook.dat        # Holbrook corpus (raw)
+│   ├── combined_*.jsonl    # Training data formats
+│   └── prepare_training_data.py
+├── prototype/
+│   └── tiered_spelling.py  # Python prototype
+└── dictionaries/
+    └── homophones.json     # Homophone definitions
 ```
+
+## Key Design Decisions
+
+### Why not just use LLM for everything?
+- Too slow for real-time typing (~1-2s per check)
+- Sometimes hallucinates corrections
+- Overkill for obvious phonetic matches
+
+### Why phonetic matching?
+Dyslexic kids spell phonetically. "becuase" sounds like "because". Traditional edit-distance spell checkers miss this because they only count character differences.
+
+### Why dark mode default?
+Feedback from a dyslexic kid: white on black is easier to read. Many dyslexic users prefer high contrast and find bright white backgrounds harder.
+
+### Why purple dots instead of red underlines?
+Red signals failure and triggers anxiety. Purple is neutral and less stressful.
+
+### Why OpenDyslexic font?
+Weighted letter bottoms help prevent visual letter-flipping (b/d, p/q confusion). But some kids don't like it, so we offer a toggle.
+
+## Resources
+
+- [Birkbeck Spelling Corpora](https://titan.dcs.bbk.ac.uk/~roger/corpora.html)
+- [Double Metaphone Algorithm](https://en.wikipedia.org/wiki/Metaphone#Double_Metaphone)
+- [TipTap Editor](https://tiptap.dev/)
+- [Ollama](https://ollama.com/)
 
 ## License
 
 MIT
+
+## Contributing
+
+This is a science fair project that aims to become a free tool for dyslexic kids everywhere. Contributions welcome!
+
+Areas where we need help:
+- More training data (especially from dyslexic writers)
+- Fine-tuning experiments
+- UI/UX improvements
+- Testing with real users

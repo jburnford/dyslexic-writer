@@ -1,0 +1,358 @@
+/* Dyslexic Writer - Styles based on real user feedback */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Default: Dark mode (white on black) */
+  --bg-color: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-color: #f0f0f0;
+  --text-muted: #aaa;
+  --border-color: #444;
+  --accent-color: #9370db;
+  --accent-hover: #a88bde;
+  --highlight-bg: rgba(147, 112, 219, 0.3);
+
+  /* Font size - bigger than MS Word 12pt */
+  --font-size: 20px;
+  --font-family: 'OpenDyslexic', sans-serif;
+}
+
+/* Light mode option */
+.light-mode {
+  --bg-color: #fdf6e3;
+  --bg-secondary: #ffffff;
+  --text-color: #333;
+  --text-muted: #666;
+  --border-color: #e0d5c1;
+}
+
+/* Standard font option */
+.standard-font {
+  --font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.8;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+/* Settings */
+.settings {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.toggle input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--accent-color);
+}
+
+/* Main editor area */
+.main {
+  flex: 1;
+}
+
+.editor-wrapper {
+  position: relative;
+}
+
+.editor-container {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  min-height: 450px;
+}
+
+.editor-content {
+  outline: none;
+  font-size: var(--font-size);
+  line-height: 2;
+  color: var(--text-color);
+}
+
+.editor-content p {
+  margin: 0 0 1em 0;
+}
+
+/* Misspelled words - purple dots, NOT red underlines */
+.misspelled {
+  background-image: radial-gradient(circle, var(--accent-color) 2px, transparent 2px);
+  background-size: 5px 5px;
+  background-position: 0 100%;
+  background-repeat: repeat-x;
+  padding-bottom: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.misspelled:hover {
+  background-color: var(--highlight-bg);
+  border-radius: 4px;
+}
+
+/* Word that needs to be retyped (learning mode) */
+.needs-retype {
+  background-color: rgba(255, 165, 0, 0.25);
+  border-radius: 4px;
+}
+
+/* Word that was corrected */
+.corrected {
+  background-color: rgba(144, 238, 144, 0.25);
+  border-radius: 4px;
+  animation: fadeCorrection 2s forwards;
+}
+
+@keyframes fadeCorrection {
+  from { background-color: rgba(144, 238, 144, 0.25); }
+  to { background-color: transparent; }
+}
+
+/* Suggestion popup */
+.suggestion-popup {
+  position: fixed;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  padding: 18px;
+  min-width: 220px;
+  z-index: 100;
+  border: 2px solid var(--accent-color);
+}
+
+.suggestion-header {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.suggestion-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--highlight-bg);
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background-color 0.2s;
+}
+
+.suggestion-option:hover {
+  background: rgba(147, 112, 219, 0.4);
+}
+
+.speak-button {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.speak-button:hover {
+  background: var(--highlight-bg);
+}
+
+.suggestion-word {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.learning-hint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 10px;
+  background: rgba(255, 165, 0, 0.15);
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.close-button {
+  width: 100%;
+  padding: 10px;
+  background: var(--border-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background: #555;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.toolbar-button {
+  padding: 14px 24px;
+  font-size: 1rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.toolbar-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.toolbar-button:active {
+  transform: translateY(0);
+}
+
+.toolbar-button.secondary {
+  background: var(--border-color);
+}
+
+.toolbar-button.secondary:hover {
+  background: #555;
+}
+
+/* Checking indicator */
+.checking-indicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent-color);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Footer */
+.footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px solid var(--border-color);
+  text-align: center;
+}
+
+.footer p {
+  margin: 0 0 12px 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.footer-button {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  background: var(--border-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  transition: background-color 0.2s;
+}
+
+.footer-button:hover {
+  background: #555;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  :root {
+    --font-size: 18px;
+  }
+
+  .app {
+    padding: 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .editor-container {
+    padding: 20px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+  }
+
+  .toolbar-button {
+    width: 100%;
+  }
+}

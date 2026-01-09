@@ -37,3 +37,9 @@ slurm-*.out
 # Temp files
 .claude/
 /tmp/
+
+# Spelling cache
+.spelling_cache.json
+
+# Package lock (optional, can include if you want)
+# package-lock.json
