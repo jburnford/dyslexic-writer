@@ -61,18 +61,19 @@ Our approach:
 
 ## Training Data
 
-We've collected 78,739 misspelling → correct word pairs for fine-tuning:
+We've collected **93,115 unique** misspelling → correct word pairs for fine-tuning:
 
 | Source | Pairs | Description |
 |--------|-------|-------------|
-| Birkbeck corpus | 36,058 | Poor spellers, native English |
-| Holbrook corpus | 1,791 | Schoolchildren's writing |
-| Extra misspellings | 40,890 | Various sources |
+| GitHub Typo Corpus | 51,140 | Real typos from commit messages |
+| Birkbeck corpus | 35,995 | Poor spellers, native English |
+| Extra misspellings | 4,200 | Various sources |
+| Holbrook corpus | 1,780 | Schoolchildren's writing |
 
 Located in `training-data/`:
-- `combined_instruction.jsonl` - For instruction fine-tuning
-- `combined_changes.jsonl` - In our CHANGES format
-- `combined_sentences.jsonl` - With sentence context
+- `all_instruction.jsonl` - Combined dataset for instruction fine-tuning
+- `all_changes.jsonl` - In our CHANGES format
+- `all_pairs.csv` - Raw pairs with source attribution
 
 ## Development Plan
 
