@@ -120,7 +120,7 @@ def train_model(
         bf16=True,
         dataloader_num_workers=4,
         report_to="none",  # Disable wandb etc
-        max_seq_length=max_seq_length,
+        max_length=max_seq_length,  # renamed from max_seq_length in trl 0.26+
         packing=True,  # Pack short sequences for efficiency
     )
 
