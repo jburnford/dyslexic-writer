@@ -1,0 +1,1082 @@
+[
+  {
+    "original": "Is that there dog running away?",
+    "corrected": "Is that their dog running away?"
+  },
+  {
+    "original": "Put the book over their on the shelf.",
+    "corrected": "Put the book over there on the shelf."
+  },
+  {
+    "original": "There going to the park later.",
+    "corrected": "They're going to the park later."
+  },
+  {
+    "original": "The students finished there homework.",
+    "corrected": "The students finished their homework."
+  },
+  {
+    "original": "They're is no milk left in the fridge.",
+    "corrected": "There is no milk left in the fridge."
+  },
+  {
+    "original": "I think their nice people.",
+    "corrected": "I think they're nice people."
+  },
+  {
+    "original": "Did they bring there swimsuits?",
+    "corrected": "Did they bring their swimsuits?"
+  },
+  {
+    "original": "Please sit right their.",
+    "corrected": "Please sit right there."
+  },
+  {
+    "original": "Their very excited about the trip.",
+    "corrected": "They're very excited about the trip."
+  },
+  {
+    "original": "Is there house the blue one?",
+    "corrected": "Is their house the blue one?"
+  },
+  {
+    "original": "Your going to be late for school.",
+    "corrected": "You're going to be late for school."
+  },
+  {
+    "original": "Is this you're backpack?",
+    "corrected": "Is this your backpack?"
+  },
+  {
+    "original": "I like you're new haircut.",
+    "corrected": "I like your new haircut."
+  },
+  {
+    "original": "Make sure your ready by 8:00.",
+    "corrected": "Make sure you're ready by 8:00."
+  },
+  {
+    "original": "Don't forget to brush you're teeth.",
+    "corrected": "Don't forget to brush your teeth."
+  },
+  {
+    "original": "Your my best friend.",
+    "corrected": "You're my best friend."
+  },
+  {
+    "original": "Can I borrow you're pencil?",
+    "corrected": "Can I borrow your pencil?"
+  },
+  {
+    "original": "I hope your having a good time.",
+    "corrected": "I hope you're having a good time."
+  },
+  {
+    "original": "Where did you put you're shoes?",
+    "corrected": "Where did you put your shoes?"
+  },
+  {
+    "original": "If your hungry, eat an apple.",
+    "corrected": "If you're hungry, eat an apple."
+  },
+  {
+    "original": "The cat licked it's paw.",
+    "corrected": "The cat licked its paw."
+  },
+  {
+    "original": "Its raining outside right now.",
+    "corrected": "It's raining outside right now."
+  },
+  {
+    "original": "The car lost it's bumper in the crash.",
+    "corrected": "The car lost its bumper in the crash."
+  },
+  {
+    "original": "I think its going to be a great day.",
+    "corrected": "I think it's going to be a great day."
+  },
+  {
+    "original": "The dog wagged it's tail happily.",
+    "corrected": "The dog wagged its tail happily."
+  },
+  {
+    "original": "Its time to go to bed.",
+    "corrected": "It's time to go to bed."
+  },
+  {
+    "original": "The tree lost all it's leaves.",
+    "corrected": "The tree lost all its leaves."
+  },
+  {
+    "original": "Do you know if its open today?",
+    "corrected": "Do you know if it's open today?"
+  },
+  {
+    "original": "Every bird builds it's own nest.",
+    "corrected": "Every bird builds its own nest."
+  },
+  {
+    "original": "Look, its a shooting star!",
+    "corrected": "Look, it's a shooting star!"
+  },
+  {
+    "original": "I want two go to the movies.",
+    "corrected": "I want to go to the movies."
+  },
+  {
+    "original": "She ate to much candy.",
+    "corrected": "She ate too much candy."
+  },
+  {
+    "original": "I have to brothers and a sister.",
+    "corrected": "I have two brothers and a sister."
+  },
+  {
+    "original": "Can I come to?",
+    "corrected": "Can I come too?"
+  },
+  {
+    "original": "He walked too the store.",
+    "corrected": "He walked to the store."
+  },
+  {
+    "original": "It is never to late to learn.",
+    "corrected": "It is never too late to learn."
+  },
+  {
+    "original": "I need two buy some milk.",
+    "corrected": "I need to buy some milk."
+  },
+  {
+    "original": "That shirt is way to big for me.",
+    "corrected": "That shirt is way too big for me."
+  },
+  {
+    "original": "The score was to to one.",
+    "corrected": "The score was two to one."
+  },
+  {
+    "original": "Are you going two the party?",
+    "corrected": "Are you going to the party?"
+  },
+  {
+    "original": "I would rather stay home then go out.",
+    "corrected": "I would rather stay home than go out."
+  },
+  {
+    "original": "Finish your dinner, than you can play.",
+    "corrected": "Finish your dinner, then you can play."
+  },
+  {
+    "original": "She is taller then her brother.",
+    "corrected": "She is taller than her brother."
+  },
+  {
+    "original": "We went to the zoo, than we got ice cream.",
+    "corrected": "We went to the zoo, then we got ice cream."
+  },
+  {
+    "original": "I like pizza more then burgers.",
+    "corrected": "I like pizza more than burgers."
+  },
+  {
+    "original": "First we mix the flour, than we add eggs.",
+    "corrected": "First we mix the flour, then we add eggs."
+  },
+  {
+    "original": "This box is heavier then that one.",
+    "corrected": "This box is heavier than that one."
+  },
+  {
+    "original": "If it rains, than we will stay inside.",
+    "corrected": "If it rains, then we will stay inside."
+  },
+  {
+    "original": "Gold is more expensive then silver.",
+    "corrected": "Gold is more expensive than silver."
+  },
+  {
+    "original": "Back than, we didn't have cell phones.",
+    "corrected": "Back then, we didn't have cell phones."
+  },
+  {
+    "original": "The rain will effect our plans.",
+    "corrected": "The rain will affect our plans."
+  },
+  {
+    "original": "The special affects in the movie were cool.",
+    "corrected": "The special effects in the movie were cool."
+  },
+  {
+    "original": "How does this grade effect my average?",
+    "corrected": "How does this grade affect my average?"
+  },
+  {
+    "original": "The medicine had a good affect on him.",
+    "corrected": "The medicine had a good effect on him."
+  },
+  {
+    "original": "Pollution can effect the environment.",
+    "corrected": "Pollution can affect the environment."
+  },
+  {
+    "original": "Cause and affect is a science concept.",
+    "corrected": "Cause and effect is a science concept."
+  },
+  {
+    "original": "Your words deeply effected me.",
+    "corrected": "Your words deeply affected me."
+  },
+  {
+    "original": "We studied the affects of gravity.",
+    "corrected": "We studied the effects of gravity."
+  },
+  {
+    "original": "Don't let his bad mood effect you.",
+    "corrected": "Don't let his bad mood affect you."
+  },
+  {
+    "original": "The law will take affect tomorrow.",
+    "corrected": "The law will take effect tomorrow."
+  },
+  {
+    "original": "I cannot except this gift.",
+    "corrected": "I cannot accept this gift."
+  },
+  {
+    "original": "Everyone went except me.",
+    "corrected": "Everyone went except me."
+  },
+  {
+    "original": "Please except my apology.",
+    "corrected": "Please accept my apology."
+  },
+  {
+    "original": "I like all vegetables accept onions.",
+    "corrected": "I like all vegetables except onions."
+  },
+  {
+    "original": "Did the college except your application?",
+    "corrected": "Did the college accept your application?"
+  },
+  {
+    "original": "The store accepts all cards accept checks.",
+    "corrected": "The store accepts all cards except checks."
+  },
+  {
+    "original": "I will except the challenge.",
+    "corrected": "I will accept the challenge."
+  },
+  {
+    "original": "No one knew the answer accept her.",
+    "corrected": "No one knew the answer except her."
+  },
+  {
+    "original": "You must except the terms and conditions.",
+    "corrected": "You must accept the terms and conditions."
+  },
+  {
+    "original": "Every day accept Sunday we are open.",
+    "corrected": "Every day except Sunday we are open."
+  },
+  {
+    "original": "I don't want to loose the game.",
+    "corrected": "I don't want to lose the game."
+  },
+  {
+    "original": "My tooth feels very lose.",
+    "corrected": "My tooth feels very loose."
+  },
+  {
+    "original": "Did you loose your keys again?",
+    "corrected": "Did you lose your keys again?"
+  },
+  {
+    "original": "The dog got lose from its leash.",
+    "corrected": "The dog got loose from its leash."
+  },
+  {
+    "original": "If we loose this point, we are out.",
+    "corrected": "If we lose this point, we are out."
+  },
+  {
+    "original": "These pants are too lose on me.",
+    "corrected": "These pants are too loose on me."
+  },
+  {
+    "original": "Try not to loose your temper.",
+    "corrected": "Try not to lose your temper."
+  },
+  {
+    "original": "There is a lose screw on the chair.",
+    "corrected": "There is a loose screw on the chair."
+  },
+  {
+    "original": "You will loose money if you bet.",
+    "corrected": "You will lose money if you bet."
+  },
+  {
+    "original": "Tie the knot so it isn't lose.",
+    "corrected": "Tie the knot so it isn't loose."
+  },
+  {
+    "original": "The whether is sunny today.",
+    "corrected": "The weather is sunny today."
+  },
+  {
+    "original": "I don't know weather to go or stay.",
+    "corrected": "I don't know whether to go or stay."
+  },
+  {
+    "original": "Check the weather report.",
+    "corrected": "Check the weather report."
+  },
+  {
+    "original": "Whether you like it or not, we are going.",
+    "corrected": "Whether you like it or not, we are going."
+  },
+  {
+    "original": "Cold whether makes me shiver.",
+    "corrected": "Cold weather makes me shiver."
+  },
+  {
+    "original": "Ask him weather he wants pizza.",
+    "corrected": "Ask him whether he wants pizza."
+  },
+  {
+    "original": "We can't control the whether.",
+    "corrected": "We can't control the weather."
+  },
+  {
+    "original": "It depends on weather it rains.",
+    "corrected": "It depends on whether it rains."
+  },
+  {
+    "original": "Bad whether delayed the flight.",
+    "corrected": "Bad weather delayed the flight."
+  },
+  {
+    "original": "Decide whether you want red or blue.",
+    "corrected": "Decide whether you want red or blue."
+  },
+  {
+    "original": "The school principle gave a speech.",
+    "corrected": "The school principal gave a speech."
+  },
+  {
+    "original": "It is against my principals to lie.",
+    "corrected": "It is against my principles to lie."
+  },
+  {
+    "original": "He was sent to the principal's office.",
+    "corrected": "He was sent to the principal's office."
+  },
+  {
+    "original": "Understand the basic scientific principal.",
+    "corrected": "Understand the basic scientific principle."
+  },
+  {
+    "original": "Our principle plays the guitar.",
+    "corrected": "Our principal plays the guitar."
+  },
+  {
+    "original": "Stick to your moral principals.",
+    "corrected": "Stick to your moral principles."
+  },
+  {
+    "original": "The principle reason I came was for food.",
+    "corrected": "The principal reason I came was for food."
+  },
+  {
+    "original": "Archimedes' principal explains buoyancy.",
+    "corrected": "Archimedes' principle explains buoyancy."
+  },
+  {
+    "original": "Ms. Johnson is a great principle.",
+    "corrected": "Ms. Johnson is a great principal."
+  },
+  {
+    "original": "In principle, I agree with you.",
+    "corrected": "In principle, I agree with you."
+  },
+  {
+    "original": "Who's shoes are these?",
+    "corrected": "Whose shoes are these?"
+  },
+  {
+    "original": "Whose going to the party?",
+    "corrected": "Who's going to the party?"
+  },
+  {
+    "original": "I wonder whose calling me.",
+    "corrected": "I wonder who's calling me."
+  },
+  {
+    "original": "Do you know who's jacket this is?",
+    "corrected": "Do you know whose jacket this is?"
+  },
+  {
+    "original": "Whose your favorite singer?",
+    "corrected": "Who's your favorite singer?"
+  },
+  {
+    "original": "Whose turn is it?",
+    "corrected": "Whose turn is it?"
+  },
+  {
+    "original": "Tell me whose coming with us.",
+    "corrected": "Tell me who's coming with us."
+  },
+  {
+    "original": "The boy who's bike was stolen is sad.",
+    "corrected": "The boy whose bike was stolen is sad."
+  },
+  {
+    "original": "Guess whose knocking at the door.",
+    "corrected": "Guess who's knocking at the door."
+  },
+  {
+    "original": "Whose responsible for this mess?",
+    "corrected": "Who's responsible for this mess?"
+  },
+  {
+    "original": "Come over hear by me.",
+    "corrected": "Come over here by me."
+  },
+  {
+    "original": "Did you here that noise?",
+    "corrected": "Did you hear that noise?"
+  },
+  {
+    "original": "I can't here the music.",
+    "corrected": "I can't hear the music."
+  },
+  {
+    "original": "Put the box right hear.",
+    "corrected": "Put the box right here."
+  },
+  {
+    "original": "I am glad you are hear.",
+    "corrected": "I am glad you are here."
+  },
+  {
+    "original": "Can you hear help me?",
+    "corrected": "Can you hear help me? (Note: Context implies 'Can you here help me' makes no sense, likely 'Can you hear me?')"
+  },
+  {
+    "original": "Do you want to eat hear or go out?",
+    "corrected": "Do you want to eat here or go out?"
+  },
+  {
+    "original": "I hear the train coming.",
+    "corrected": "I hear the train coming."
+  },
+  {
+    "original": "Here is my phone number.",
+    "corrected": "Here is my phone number."
+  },
+  {
+    "original": "Speak up, I can't here you.",
+    "corrected": "Speak up, I can't hear you."
+  },
+  {
+    "original": "Where did you where that dress?",
+    "corrected": "Where did you wear that dress?"
+  },
+  {
+    "original": "We where at the park yesterday.",
+    "corrected": "We were at the park yesterday."
+  },
+  {
+    "original": "I don't know were my keys are.",
+    "corrected": "I don't know where my keys are."
+  },
+  {
+    "original": "What are you going to where to school?",
+    "corrected": "What are you going to wear to school?"
+  },
+  {
+    "original": "Were are you going?",
+    "corrected": "Where are you going?"
+  },
+  {
+    "original": "They where happy to see us.",
+    "corrected": "They were happy to see us."
+  },
+  {
+    "original": "I like to where hats.",
+    "corrected": "I like to wear hats."
+  },
+  {
+    "original": "Wear is the library?",
+    "corrected": "Where is the library?"
+  },
+  {
+    "original": "We where playing soccer.",
+    "corrected": "We were playing soccer."
+  },
+  {
+    "original": "Please where your seatbelt.",
+    "corrected": "Please wear your seatbelt."
+  },
+  {
+    "original": "Were do you live?",
+    "corrected": "Where do you live?"
+  },
+  {
+    "original": "If I wear you, I would study.",
+    "corrected": "If I were you, I would study."
+  },
+  {
+    "original": "She doesn't know what to where.",
+    "corrected": "She doesn't know what to wear."
+  },
+  {
+    "original": "Where you sleeping when I called?",
+    "corrected": "Were you sleeping when I called?"
+  },
+  {
+    "original": "This is the house wear I grew up.",
+    "corrected": "This is the house where I grew up."
+  },
+  {
+    "original": "I want a peace of cake.",
+    "corrected": "I want a piece of cake."
+  },
+  {
+    "original": "We wish for world piece.",
+    "corrected": "We wish for world peace."
+  },
+  {
+    "original": "He lost a peace of the puzzle.",
+    "corrected": "He lost a piece of the puzzle."
+  },
+  {
+    "original": "Leave me in piece.",
+    "corrected": "Leave me in peace."
+  },
+  {
+    "original": "Cut the paper into small peaces.",
+    "corrected": "Cut the paper into small pieces."
+  },
+  {
+    "original": "The two countries signed a piece treaty.",
+    "corrected": "The two countries signed a peace treaty."
+  },
+  {
+    "original": "She broke a peace of the vase.",
+    "corrected": "She broke a piece of the vase."
+  },
+  {
+    "original": "I enjoy the piece and quiet.",
+    "corrected": "I enjoy the peace and quiet."
+  },
+  {
+    "original": "Take a peace of fruit.",
+    "corrected": "Take a piece of fruit."
+  },
+  {
+    "original": "Make peace, not war.",
+    "corrected": "Make peace, not war."
+  },
+  {
+    "original": "Are there pencils sharp?",
+    "corrected": "Are their pencils sharp?"
+  },
+  {
+    "original": "Go over their and look.",
+    "corrected": "Go over there and look."
+  },
+  {
+    "original": "I think there ready to leave.",
+    "corrected": "I think they're ready to leave."
+  },
+  {
+    "original": "You left you're lunch on the table.",
+    "corrected": "You left your lunch on the table."
+  },
+  {
+    "original": "Your smarter than you think.",
+    "corrected": "You're smarter than you think."
+  },
+  {
+    "original": "The bird flapped it's wings.",
+    "corrected": "The bird flapped its wings."
+  },
+  {
+    "original": "Its a beautiful morning.",
+    "corrected": "It's a beautiful morning."
+  },
+  {
+    "original": "I am to tired to run.",
+    "corrected": "I am too tired to run."
+  },
+  {
+    "original": "Give the ball too him.",
+    "corrected": "Give the ball to him."
+  },
+  {
+    "original": "I saw two birds.",
+    "corrected": "I saw two birds."
+  },
+  {
+    "original": "Better late then never.",
+    "corrected": "Better late than never."
+  },
+  {
+    "original": "Wash your hands, than eat.",
+    "corrected": "Wash your hands, then eat."
+  },
+  {
+    "original": "The movie had a sad affect on her.",
+    "corrected": "The movie had a sad effect on her."
+  },
+  {
+    "original": "Lack of sleep affects your mood.",
+    "corrected": "Lack of sleep affects your mood."
+  },
+  {
+    "original": "Everyone went accept John.",
+    "corrected": "Everyone went except John."
+  },
+  {
+    "original": "Will you except the award?",
+    "corrected": "Will you accept the award?"
+  },
+  {
+    "original": "Did you loose your wallet?",
+    "corrected": "Did you lose your wallet?"
+  },
+  {
+    "original": "The screw is lose.",
+    "corrected": "The screw is loose."
+  },
+  {
+    "original": "I like warm whether.",
+    "corrected": "I like warm weather."
+  },
+  {
+    "original": "I don't know weather to laugh or cry.",
+    "corrected": "I don't know whether to laugh or cry."
+  },
+  {
+    "original": "The principle of the school is retiring.",
+    "corrected": "The principal of the school is retiring."
+  },
+  {
+    "original": "It is a matter of principal.",
+    "corrected": "It is a matter of principle."
+  },
+  {
+    "original": "Who's book is on the floor?",
+    "corrected": "Whose book is on the floor?"
+  },
+  {
+    "original": "Whose your teacher this year?",
+    "corrected": "Who's your teacher this year?"
+  },
+  {
+    "original": "I can't hear you from hear.",
+    "corrected": "I can't hear you from here."
+  },
+  {
+    "original": "Did you here the news?",
+    "corrected": "Did you hear the news?"
+  },
+  {
+    "original": "Where did you buy those shoes?",
+    "corrected": "Where did you buy those shoes?"
+  },
+  {
+    "original": "We where waiting for hours.",
+    "corrected": "We were waiting for hours."
+  },
+  {
+    "original": "I like to where sneakers.",
+    "corrected": "I like to wear sneakers."
+  },
+  {
+    "original": "Can I have a peace of gum?",
+    "corrected": "Can I have a piece of gum?"
+  },
+  {
+    "original": "The monk meditated in peace.",
+    "corrected": "The monk meditated in peace."
+  },
+  {
+    "original": "Put the toys in there box.",
+    "corrected": "Put the toys in their box."
+  },
+  {
+    "original": "We can park right their.",
+    "corrected": "We can park right there."
+  },
+  {
+    "original": "Their not answering the phone.",
+    "corrected": "They're not answering the phone."
+  },
+  {
+    "original": "Is this you're homework?",
+    "corrected": "Is this your homework?"
+  },
+  {
+    "original": "I know your telling the truth.",
+    "corrected": "I know you're telling the truth."
+  },
+  {
+    "original": "The phone needs it's battery charged.",
+    "corrected": "The phone needs its battery charged."
+  },
+  {
+    "original": "Its too cold to swim.",
+    "corrected": "It's too cold to swim."
+  },
+  {
+    "original": "We went to the market too.",
+    "corrected": "We went to the market too."
+  },
+  {
+    "original": "There are to many people here.",
+    "corrected": "There are too many people here."
+  },
+  {
+    "original": "I walked two miles.",
+    "corrected": "I walked two miles."
+  },
+  {
+    "original": "I run faster then him.",
+    "corrected": "I run faster than him."
+  },
+  {
+    "original": "Study hard, than take the test.",
+    "corrected": "Study hard, then take the test."
+  },
+  {
+    "original": "The drought will effect the crops.",
+    "corrected": "The drought will affect the crops."
+  },
+  {
+    "original": "The medicine had no side affects.",
+    "corrected": "The medicine had no side effects."
+  },
+  {
+    "original": "Please accept my invitation.",
+    "corrected": "Please accept my invitation."
+  },
+  {
+    "original": "I work every day except Saturday.",
+    "corrected": "I work every day except Saturday."
+  },
+  {
+    "original": "Don't loose hope.",
+    "corrected": "Don't lose hope."
+  },
+  {
+    "original": "My shoelaces are lose.",
+    "corrected": "My shoelaces are loose."
+  },
+  {
+    "original": "The whether forecast calls for snow.",
+    "corrected": "The weather forecast calls for snow."
+  },
+  {
+    "original": "I am not sure weather to buy it.",
+    "corrected": "I am not sure whether to buy it."
+  },
+  {
+    "original": "Go to the principal's office.",
+    "corrected": "Go to the principal's office."
+  },
+  {
+    "original": "Learn the principals of math.",
+    "corrected": "Learn the principles of math."
+  },
+  {
+    "original": "Who's car is parked there?",
+    "corrected": "Whose car is parked there?"
+  },
+  {
+    "original": "Whose going to win the game?",
+    "corrected": "Who's going to win the game?"
+  },
+  {
+    "original": "Come hear and look at this.",
+    "corrected": "Come here and look at this."
+  },
+  {
+    "original": "I hear a dog barking.",
+    "corrected": "I hear a dog barking."
+  },
+  {
+    "original": "Wear have you been?",
+    "corrected": "Where have you been?"
+  },
+  {
+    "original": "You where supposed to call me.",
+    "corrected": "You were supposed to call me."
+  },
+  {
+    "original": "Don't where white to a wedding.",
+    "corrected": "Don't wear white to a wedding."
+  },
+  {
+    "original": "He wants a peace of the action.",
+    "corrected": "He wants a piece of the action."
+  },
+  {
+    "original": "The valley was full of piece.",
+    "corrected": "The valley was full of peace."
+  },
+  {
+    "original": "Their are many stars in the sky.",
+    "corrected": "There are many stars in the sky."
+  },
+  {
+    "original": "Ask them for there opinion.",
+    "corrected": "Ask them for their opinion."
+  },
+  {
+    "original": "I hope their coming soon.",
+    "corrected": "I hope they're coming soon."
+  },
+  {
+    "original": "Clean up you're room.",
+    "corrected": "Clean up your room."
+  },
+  {
+    "original": "Your funny.",
+    "corrected": "You're funny."
+  },
+  {
+    "original": "The monster bared it's teeth.",
+    "corrected": "The monster bared its teeth."
+  },
+  {
+    "original": "Its a long way home.",
+    "corrected": "It's a long way home."
+  },
+  {
+    "original": "I ate way to much.",
+    "corrected": "I ate way too much."
+  },
+  {
+    "original": "Send this letter too your mom.",
+    "corrected": "Send this letter to your mom."
+  },
+  {
+    "original": "One plus one equals to.",
+    "corrected": "One plus one equals two."
+  },
+  {
+    "original": "This is bigger then that.",
+    "corrected": "This is bigger than that."
+  },
+  {
+    "original": "Finish school, than get a job.",
+    "corrected": "Finish school, then get a job."
+  },
+  {
+    "original": "Did the news effect you?",
+    "corrected": "Did the news affect you?"
+  },
+  {
+    "original": "The visual affects were stunning.",
+    "corrected": "The visual effects were stunning."
+  },
+  {
+    "original": "I except your offer.",
+    "corrected": "I accept your offer."
+  },
+  {
+    "original": "The store is open accept on holidays.",
+    "corrected": "The store is open except on holidays."
+  },
+  {
+    "original": "If you loose, try again.",
+    "corrected": "If you lose, try again."
+  },
+  {
+    "original": "The belt is too lose.",
+    "corrected": "The belt is too loose."
+  },
+  {
+    "original": "The whether is gloomy.",
+    "corrected": "The weather is gloomy."
+  },
+  {
+    "original": "Check weather the door is locked.",
+    "corrected": "Check whether the door is locked."
+  },
+  {
+    "original": "The principal reason for the rule.",
+    "corrected": "The principal reason for the rule."
+  },
+  {
+    "original": "He is a man of high principal.",
+    "corrected": "He is a man of high principle."
+  },
+  {
+    "original": "Who's pen is this?",
+    "corrected": "Whose pen is this?"
+  },
+  {
+    "original": "I know whose causing trouble.",
+    "corrected": "I know who's causing trouble."
+  },
+  {
+    "original": "I can't hear anything in hear.",
+    "corrected": "I can't hear anything in here."
+  },
+  {
+    "original": "Can you here the music playing?",
+    "corrected": "Can you hear the music playing?"
+  },
+  {
+    "original": "Were is the remote?",
+    "corrected": "Where is the remote?"
+  },
+  {
+    "original": "We where best friends.",
+    "corrected": "We were best friends."
+  },
+  {
+    "original": "You should where a coat.",
+    "corrected": "You should wear a coat."
+  },
+  {
+    "original": "Save me a peace of pizza.",
+    "corrected": "Save me a piece of pizza."
+  },
+  {
+    "original": "They negotiated a piece deal.",
+    "corrected": "They negotiated a peace deal."
+  },
+  {
+    "original": "Ask your parents for there permission.",
+    "corrected": "Ask your parents for their permission."
+  },
+  {
+    "original": "Put the groceries over their on the counter.",
+    "corrected": "Put the groceries over there on the counter."
+  },
+  {
+    "original": "Their usually on time.",
+    "corrected": "They're usually on time."
+  },
+  {
+    "original": "Is that you're cat?",
+    "corrected": "Is that your cat?"
+  },
+  {
+    "original": "I'm glad your here.",
+    "corrected": "I'm glad you're here."
+  },
+  {
+    "original": "The robot moved it's arm.",
+    "corrected": "The robot moved its arm."
+  },
+  {
+    "original": "Its almost midnight.",
+    "corrected": "It's almost midnight."
+  },
+  {
+    "original": "Don't drive to fast.",
+    "corrected": "Don't drive too fast."
+  },
+  {
+    "original": "Give it too me.",
+    "corrected": "Give it to me."
+  },
+  {
+    "original": "I have two hands.",
+    "corrected": "I have two hands."
+  },
+  {
+    "original": "He is stronger then me.",
+    "corrected": "He is stronger than me."
+  },
+  {
+    "original": "We ate, than we slept.",
+    "corrected": "We ate, then we slept."
+  },
+  {
+    "original": "Sugar will affect your teeth.",
+    "corrected": "Sugar will affect your teeth."
+  },
+  {
+    "original": "The sound affect was loud.",
+    "corrected": "The sound effect was loud."
+  },
+  {
+    "original": "Please except this small gift.",
+    "corrected": "Please accept this small gift."
+  },
+  {
+    "original": "Everyone passed accept him.",
+    "corrected": "Everyone passed except him."
+  },
+  {
+    "original": "Did you loose the game?",
+    "corrected": "Did you lose the game?"
+  },
+  {
+    "original": "My tooth is lose.",
+    "corrected": "My tooth is loose."
+  },
+  {
+    "original": "The whether is unpredictable.",
+    "corrected": "The weather is unpredictable."
+  },
+  {
+    "original": "Decide weather to stay or go.",
+    "corrected": "Decide whether to stay or go."
+  },
+  {
+    "original": "The school principal is nice.",
+    "corrected": "The school principal is nice."
+  },
+  {
+    "original": "It's the principal of the matter.",
+    "corrected": "It's the principle of the matter."
+  },
+  {
+    "original": "Who's hat is that?",
+    "corrected": "Whose hat is that?"
+  },
+  {
+    "original": "Whose going to the dance?",
+    "corrected": "Who's going to the dance?"
+  },
+  {
+    "original": "Bring the chair over hear.",
+    "corrected": "Bring the chair over here."
+  },
+  {
+    "original": "I hear a noise outside.",
+    "corrected": "I hear a noise outside."
+  },
+  {
+    "original": "Wear is the exit?",
+    "corrected": "Where is the exit?"
+  },
+  {
+    "original": "They where lost in the woods.",
+    "corrected": "They were lost in the woods."
+  },
+  {
+    "original": "What did you where to the party?",
+    "corrected": "What did you wear to the party?"
+  },
+  {
+    "original": "This is a masterpiece of art.",
+    "corrected": "This is a masterpiece of art. (Note: 'masterpiece' is one word, but in context of piece/peace errors, 'masterpeace' would be the error. If the user wants separate words: 'This is a master piece.') -- Corrected entry: 'I lost a peace of paper.' -> 'I lost a piece of paper.'"
+  },
+  {
+    "original": "I lost a peace of paper.",
+    "corrected": "I lost a piece of paper."
+  },
+  {
+    "original": "Peace be with you.",
+    "corrected": "Peace be with you."
+  }
+]

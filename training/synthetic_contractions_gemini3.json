@@ -1,0 +1,746 @@
+[
+  {
+    "original": "I dont know where the keys are.",
+    "corrected": "I don't know where the keys are."
+  },
+  {
+    "original": "She cant believe what happened.",
+    "corrected": "She can't believe what happened."
+  },
+  {
+    "original": "They wont be attending the meeting.",
+    "corrected": "They won't be attending the meeting."
+  },
+  {
+    "original": "It isn't polite to stare.",
+    "corrected": "It isn't polite to stare."
+  },
+  {
+    "original": "He wasnt feeling well yesterday.",
+    "corrected": "He wasn't feeling well yesterday."
+  },
+  {
+    "original": "We didnt see the sign.",
+    "corrected": "We didn't see the sign."
+  },
+  {
+    "original": "You couldnt have known better.",
+    "corrected": "You couldn't have known better."
+  },
+  {
+    "original": "They wouldnt leave without saying goodbye.",
+    "corrected": "They wouldn't leave without saying goodbye."
+  },
+  {
+    "original": "You shouldnt eat that.",
+    "corrected": "You shouldn't eat that."
+  },
+  {
+    "original": "im going to the store.",
+    "corrected": "I'm going to the store."
+  },
+  {
+    "original": "youre looking great today.",
+    "corrected": "You're looking great today."
+  },
+  {
+    "original": "hes the new manager.",
+    "corrected": "He's the new manager."
+  },
+  {
+    "original": "shes running late.",
+    "corrected": "She's running late."
+  },
+  {
+    "original": "theyre waiting outside.",
+    "corrected": "They're waiting outside."
+  },
+  {
+    "original": "weve been here before.",
+    "corrected": "We've been here before."
+  },
+  {
+    "original": "theyd love to come along.",
+    "corrected": "They'd love to come along."
+  },
+  {
+    "original": "whats the plan for tonight?",
+    "corrected": "What's the plan for tonight?"
+  },
+  {
+    "original": "thats a great idea.",
+    "corrected": "That's a great idea."
+  },
+  {
+    "original": "Is this you're coat?",
+    "corrected": "Is this your coat?"
+  },
+  {
+    "original": "Your going to be late.",
+    "corrected": "You're going to be late."
+  },
+  {
+    "original": "Its a beautiful day.",
+    "corrected": "It's a beautiful day."
+  },
+  {
+    "original": "The dog chased it's tail.",
+    "corrected": "The dog chased its tail."
+  },
+  {
+    "original": "Who's shoes are these?",
+    "corrected": "Whose shoes are these?"
+  },
+  {
+    "original": "Whose coming to the party?",
+    "corrected": "Who's coming to the party?"
+  },
+  {
+    "original": "I dont think that is correct.",
+    "corrected": "I don't think that is correct."
+  },
+  {
+    "original": "He cant lift that heavy box.",
+    "corrected": "He can't lift that heavy box."
+  },
+  {
+    "original": "We wont give up easily.",
+    "corrected": "We won't give up easily."
+  },
+  {
+    "original": "This isnt what I ordered.",
+    "corrected": "This isn't what I ordered."
+  },
+  {
+    "original": "She wasnt ready for the test.",
+    "corrected": "She wasn't ready for the test."
+  },
+  {
+    "original": "I didnt hear the alarm.",
+    "corrected": "I didn't hear the alarm."
+  },
+  {
+    "original": "He couldnt fix the engine.",
+    "corrected": "He couldn't fix the engine."
+  },
+  {
+    "original": "She wouldnt say where she was going.",
+    "corrected": "She wouldn't say where she was going."
+  },
+  {
+    "original": "They shouldnt park here.",
+    "corrected": "They shouldn't park here."
+  },
+  {
+    "original": "im so tired right now.",
+    "corrected": "I'm so tired right now."
+  },
+  {
+    "original": "youre my best friend.",
+    "corrected": "You're my best friend."
+  },
+  {
+    "original": "hes always on time.",
+    "corrected": "He's always on time."
+  },
+  {
+    "original": "shes the smartest person I know.",
+    "corrected": "She's the smartest person I know."
+  },
+  {
+    "original": "theyre going on vacation.",
+    "corrected": "They're going on vacation."
+  },
+  {
+    "original": "weve done enough work for today.",
+    "corrected": "We've done enough work for today."
+  },
+  {
+    "original": "theyd better hurry up.",
+    "corrected": "They'd better hurry up."
+  },
+  {
+    "original": "whats wrong with the computer?",
+    "corrected": "What's wrong with the computer?"
+  },
+  {
+    "original": "thats not what I meant.",
+    "corrected": "That's not what I meant."
+  },
+  {
+    "original": "Can I borrow you're pen?",
+    "corrected": "Can I borrow your pen?"
+  },
+  {
+    "original": "Your responsible for this mess.",
+    "corrected": "You're responsible for this mess."
+  },
+  {
+    "original": "Its time to go home.",
+    "corrected": "It's time to go home."
+  },
+  {
+    "original": "The tree lost all it's leaves.",
+    "corrected": "The tree lost all its leaves."
+  },
+  {
+    "original": "Who's car is parked in the driveway?",
+    "corrected": "Whose car is parked in the driveway?"
+  },
+  {
+    "original": "Whose that guy over there?",
+    "corrected": "Who's that guy over there?"
+  },
+  {
+    "original": "They dont live here anymore.",
+    "corrected": "They don't live here anymore."
+  },
+  {
+    "original": "You cant swim in this river.",
+    "corrected": "You can't swim in this river."
+  },
+  {
+    "original": "The door wont open.",
+    "corrected": "The door won't open."
+  },
+  {
+    "original": "That isnt fair.",
+    "corrected": "That isn't fair."
+  },
+  {
+    "original": "It wasnt my fault.",
+    "corrected": "It wasn't my fault."
+  },
+  {
+    "original": "He didnt finish his homework.",
+    "corrected": "He didn't finish his homework."
+  },
+  {
+    "original": "We couldnt stop laughing.",
+    "corrected": "We couldn't stop laughing."
+  },
+  {
+    "original": "I wouldnt recommend that movie.",
+    "corrected": "I wouldn't recommend that movie."
+  },
+  {
+    "original": "You shouldnt lie to your parents.",
+    "corrected": "You shouldn't lie to your parents."
+  },
+  {
+    "original": "im busy at the moment.",
+    "corrected": "I'm busy at the moment."
+  },
+  {
+    "original": "youre mistaken about the time.",
+    "corrected": "You're mistaken about the time."
+  },
+  {
+    "original": "hes really good at math.",
+    "corrected": "He's really good at math."
+  },
+  {
+    "original": "shes a doctor at the hospital.",
+    "corrected": "She's a doctor at the hospital."
+  },
+  {
+    "original": "theyre moving to a new house.",
+    "corrected": "They're moving to a new house."
+  },
+  {
+    "original": "weve got to leave now.",
+    "corrected": "We've got to leave now."
+  },
+  {
+    "original": "theyd never agree to that.",
+    "corrected": "They'd never agree to that."
+  },
+  {
+    "original": "whats for dinner?",
+    "corrected": "What's for dinner?"
+  },
+  {
+    "original": "thats the last straw.",
+    "corrected": "That's the last straw."
+  },
+  {
+    "original": "Where is you're brother?",
+    "corrected": "Where is your brother?"
+  },
+  {
+    "original": "Your usually right about these things.",
+    "corrected": "You're usually right about these things."
+  },
+  {
+    "original": "Its starting to rain.",
+    "corrected": "It's starting to rain."
+  },
+  {
+    "original": "The company changed it's policy.",
+    "corrected": "The company changed its policy."
+  },
+  {
+    "original": "Who's turn is it to drive?",
+    "corrected": "Whose turn is it to drive?"
+  },
+  {
+    "original": "Whose calling at this hour?",
+    "corrected": "Who's calling at this hour?"
+  },
+  {
+    "original": "We dont need any help.",
+    "corrected": "We don't need any help."
+  },
+  {
+    "original": "I cant reach the top shelf.",
+    "corrected": "I can't reach the top shelf."
+  },
+  {
+    "original": "He wont answer his phone.",
+    "corrected": "He won't answer his phone."
+  },
+  {
+    "original": "There isn't enough time.",
+    "corrected": "There isn't enough time."
+  },
+  {
+    "original": "The movie wasnt very good.",
+    "corrected": "The movie wasn't very good."
+  },
+  {
+    "original": "She didnt bring her umbrella.",
+    "corrected": "She didn't bring her umbrella."
+  },
+  {
+    "original": "They couldnt understand the instructions.",
+    "corrected": "They couldn't understand the instructions."
+  },
+  {
+    "original": "He wouldnt hurt a fly.",
+    "corrected": "He wouldn't hurt a fly."
+  },
+  {
+    "original": "We shouldnt have come here.",
+    "corrected": "We shouldn't have come here."
+  },
+  {
+    "original": "im exciting for the trip.",
+    "corrected": "I'm excited for the trip."
+  },
+  {
+    "original": "youre driving too fast.",
+    "corrected": "You're driving too fast."
+  },
+  {
+    "original": "hes fixing the roof.",
+    "corrected": "He's fixing the roof."
+  },
+  {
+    "original": "shes studying for her exams.",
+    "corrected": "She's studying for her exams."
+  },
+  {
+    "original": "theyre playing soccer.",
+    "corrected": "They're playing soccer."
+  },
+  {
+    "original": "weve seen that show already.",
+    "corrected": "We've seen that show already."
+  },
+  {
+    "original": "theyd be happy to help.",
+    "corrected": "They'd be happy to help."
+  },
+  {
+    "original": "whats the name of that song?",
+    "corrected": "What's the name of that song?"
+  },
+  {
+    "original": "thats totally fine.",
+    "corrected": "That's totally fine."
+  },
+  {
+    "original": "I like you're new haircut.",
+    "corrected": "I like your new haircut."
+  },
+  {
+    "original": "Your the one who called me.",
+    "corrected": "You're the one who called me."
+  },
+  {
+    "original": "Its too late to apologize.",
+    "corrected": "It's too late to apologize."
+  },
+  {
+    "original": "The cat licked it's fur.",
+    "corrected": "The cat licked its fur."
+  },
+  {
+    "original": "Who's idea was this?",
+    "corrected": "Whose idea was this?"
+  },
+  {
+    "original": "Whose the captain of the team?",
+    "corrected": "Who's the captain of the team?"
+  },
+  {
+    "original": "Why dont you join us?",
+    "corrected": "Why don't you join us?"
+  },
+  {
+    "original": "You cant be serious.",
+    "corrected": "You can't be serious."
+  },
+  {
+    "original": "It wont happen again.",
+    "corrected": "It won't happen again."
+  },
+  {
+    "original": "This isnt the right road.",
+    "corrected": "This isn't the right road."
+  },
+  {
+    "original": "He wasnt aware of the rules.",
+    "corrected": "He wasn't aware of the rules."
+  },
+  {
+    "original": "We didnt receive the package.",
+    "corrected": "We didn't receive the package."
+  },
+  {
+    "original": "I couldnt care less.",
+    "corrected": "I couldn't care less."
+  },
+  {
+    "original": "They wouldnt listen to reason.",
+    "corrected": "They wouldn't listen to reason."
+  },
+  {
+    "original": "You shouldnt touch that wire.",
+    "corrected": "You shouldn't touch that wire."
+  },
+  {
+    "original": "im almost finished.",
+    "corrected": "I'm almost finished."
+  },
+  {
+    "original": "youre not making sense.",
+    "corrected": "You're not making sense."
+  },
+  {
+    "original": "hes asleep on the couch.",
+    "corrected": "He's asleep on the couch."
+  },
+  {
+    "original": "shes buying a new car.",
+    "corrected": "She's buying a new car."
+  },
+  {
+    "original": "theyre eating lunch.",
+    "corrected": "They're eating lunch."
+  },
+  {
+    "original": "weve missed the bus.",
+    "corrected": "We've missed the bus."
+  },
+  {
+    "original": "theyd prefer tea over coffee.",
+    "corrected": "They'd prefer tea over coffee."
+  },
+  {
+    "original": "whats going on here?",
+    "corrected": "What's going on here?"
+  },
+  {
+    "original": "thats a lovely dress.",
+    "corrected": "That's a lovely dress."
+  },
+  {
+    "original": "Is that you're final answer?",
+    "corrected": "Is that your final answer?"
+  },
+  {
+    "original": "Your going to regret this.",
+    "corrected": "You're going to regret this."
+  },
+  {
+    "original": "Its been a long week.",
+    "corrected": "It's been a long week."
+  },
+  {
+    "original": "Everything has it's place.",
+    "corrected": "Everything has its place."
+  },
+  {
+    "original": "Who's keys did I find?",
+    "corrected": "Whose keys did I find?"
+  },
+  {
+    "original": "Whose handling the project?",
+    "corrected": "Who's handling the project?"
+  },
+  {
+    "original": "They dont understand the problem.",
+    "corrected": "They don't understand the problem."
+  },
+  {
+    "original": "We cant wait any longer.",
+    "corrected": "We can't wait any longer."
+  },
+  {
+    "original": "She wont admit she was wrong.",
+    "corrected": "She won't admit she was wrong."
+  },
+  {
+    "original": "He isnt feeling very well.",
+    "corrected": "He isn't feeling very well."
+  },
+  {
+    "original": "It wasnt supposed to rain.",
+    "corrected": "It wasn't supposed to rain."
+  },
+  {
+    "original": "I didnt know the answer.",
+    "corrected": "I didn't know the answer."
+  },
+  {
+    "original": "They couldnt find the hotel.",
+    "corrected": "They couldn't find the hotel."
+  },
+  {
+    "original": "He wouldnt dare do that.",
+    "corrected": "He wouldn't dare do that."
+  },
+  {
+    "original": "We shouldnt ignore the warning.",
+    "corrected": "We shouldn't ignore the warning."
+  },
+  {
+    "original": "im not sure about this.",
+    "corrected": "I'm not sure about this."
+  },
+  {
+    "original": "youre extremely talented.",
+    "corrected": "You're extremely talented."
+  },
+  {
+    "original": "hes never been to Paris.",
+    "corrected": "He's never been to Paris."
+  },
+  {
+    "original": "shes writing a novel.",
+    "corrected": "She's writing a novel."
+  },
+  {
+    "original": "theyre arguably the best team.",
+    "corrected": "They're arguably the best team."
+  },
+  {
+    "original": "weve got a surprise for you.",
+    "corrected": "We've got a surprise for you."
+  },
+  {
+    "original": "theyd probably enjoy the show.",
+    "corrected": "They'd probably enjoy the show."
+  },
+  {
+    "original": "whats the weather like?",
+    "corrected": "What's the weather like?"
+  },
+  {
+    "original": "thats impossible.",
+    "corrected": "That's impossible."
+  },
+  {
+    "original": "Don't forget you're lunch.",
+    "corrected": "Don't forget your lunch."
+  },
+  {
+    "original": "Your not allowed in there.",
+    "corrected": "You're not allowed in there."
+  },
+  {
+    "original": "Its not working properly.",
+    "corrected": "It's not working properly."
+  },
+  {
+    "original": "The phone needs it's battery charged.",
+    "corrected": "The phone needs its battery charged."
+  },
+  {
+    "original": "Who's fault was it?",
+    "corrected": "Whose fault was it?"
+  },
+  {
+    "original": "Whose responsible for this?",
+    "corrected": "Who's responsible for this?"
+  },
+  {
+    "original": "I dont want to go out.",
+    "corrected": "I don't want to go out."
+  },
+  {
+    "original": "You cant park in that spot.",
+    "corrected": "You can't park in that spot."
+  },
+  {
+    "original": "The store wont open until nine.",
+    "corrected": "The store won't open until nine."
+  },
+  {
+    "original": "This isnt what we agreed on.",
+    "corrected": "This isn't what we agreed on."
+  },
+  {
+    "original": "She wasnt paying attention.",
+    "corrected": "She wasn't paying attention."
+  },
+  {
+    "original": "They didnt show up.",
+    "corrected": "They didn't show up."
+  },
+  {
+    "original": "We couldnt afford the tickets.",
+    "corrected": "We couldn't afford the tickets."
+  },
+  {
+    "original": "I wouldnt worry about it.",
+    "corrected": "I wouldn't worry about it."
+  },
+  {
+    "original": "You shouldnt skip breakfast.",
+    "corrected": "You shouldn't skip breakfast."
+  },
+  {
+    "original": "im trying to concentrate.",
+    "corrected": "I'm trying to concentrate."
+  },
+  {
+    "original": "youre being very helpful.",
+    "corrected": "You're being very helpful."
+  },
+  {
+    "original": "hes checking the mail.",
+    "corrected": "He's checking the mail."
+  },
+  {
+    "original": "shes looking for a job.",
+    "corrected": "She's looking for a job."
+  },
+  {
+    "original": "theyre loud neighbors.",
+    "corrected": "They're loud neighbors."
+  },
+  {
+    "original": "weve learned a lot.",
+    "corrected": "We've learned a lot."
+  },
+  {
+    "original": "theyd surely know the way.",
+    "corrected": "They'd surely know the way."
+  },
+  {
+    "original": "whats the capital of France?",
+    "corrected": "What's the capital of France?"
+  },
+  {
+    "original": "thats very kind of you.",
+    "corrected": "That's very kind of you."
+  },
+  {
+    "original": "Put it on you're desk.",
+    "corrected": "Put it on your desk."
+  },
+  {
+    "original": "Your looking very sharp.",
+    "corrected": "You're looking very sharp."
+  },
+  {
+    "original": "Its going to be fun.",
+    "corrected": "It's going to be fun."
+  },
+  {
+    "original": "The statue lost it's head.",
+    "corrected": "The statue lost its head."
+  },
+  {
+    "original": "Who's jacket is this?",
+    "corrected": "Whose jacket is this?"
+  },
+  {
+    "original": "Whose hosting the event?",
+    "corrected": "Who's hosting the event?"
+  },
+  {
+    "original": "Please dont touch the glass.",
+    "corrected": "Please don't touch the glass."
+  },
+  {
+    "original": "I cant handle the stress.",
+    "corrected": "I can't handle the stress."
+  },
+  {
+    "original": "It wont matter in the end.",
+    "corrected": "It won't matter in the end."
+  },
+  {
+    "original": "He isnt telling the truth.",
+    "corrected": "He isn't telling the truth."
+  },
+  {
+    "original": "The food wasnt hot enough.",
+    "corrected": "The food wasn't hot enough."
+  },
+  {
+    "original": "We didnt ask for this.",
+    "corrected": "We didn't ask for this."
+  },
+  {
+    "original": "She couldnt believe her eyes.",
+    "corrected": "She couldn't believe her eyes."
+  },
+  {
+    "original": "They wouldnt let us in.",
+    "corrected": "They wouldn't let us in."
+  },
+  {
+    "original": "He shouldnt drive so fast.",
+    "corrected": "He shouldn't drive so fast."
+  },
+  {
+    "original": "im glad you came.",
+    "corrected": "I'm glad you came."
+  },
+  {
+    "original": "youre welcome to stay.",
+    "corrected": "You're welcome to stay."
+  },
+  {
+    "original": "hes got a lot of money.",
+    "corrected": "He's got a lot of money."
+  },
+  {
+    "original": "shes the one in charge.",
+    "corrected": "She's the one in charge."
+  },
+  {
+    "original": "theyre renovating their kitchen.",
+    "corrected": "They're renovating their kitchen."
+  },
+  {
+    "original": "weve got to go.",
+    "corrected": "We've got to go."
+  },
+  {
+    "original": "theyd make a great couple.",
+    "corrected": "They'd make a great couple."
+  },
+  {
+    "original": "whats inside the box?",
+    "corrected": "What's inside the box?"
+  },
+  {
+    "original": "thats a funny joke.",
+    "corrected": "That's a funny joke."
+  }
+]

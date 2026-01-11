@@ -1,0 +1,818 @@
+[
+  {
+    "original": "I don't now the answer to the math problem.",
+    "corrected": "I don't know the answer to the math problem."
+  },
+  {
+    "original": "She scraped her nee when she fell off the bike.",
+    "corrected": "She scraped her knee when she fell off the bike."
+  },
+  {
+    "original": "Please use a nife to cut your steak.",
+    "corrected": "Please use a knife to cut your steak."
+  },
+  {
+    "original": "The brave nite fought the dragon.",
+    "corrected": "The brave knight fought the dragon."
+  },
+  {
+    "original": "Someone is nocking on the front door.",
+    "corrected": "Someone is knocking on the front door."
+  },
+  {
+    "original": "There is a tight not in my shoelace.",
+    "corrected": "There is a tight knot in my shoelace."
+  },
+  {
+    "original": "My grandma likes to nit sweaters for us.",
+    "corrected": "My grandma likes to knit sweaters for us."
+  },
+  {
+    "original": "I turned the door nob to open the room.",
+    "corrected": "I turned the door knob to open the room."
+  },
+  {
+    "original": "He has a bruise on his nuckle from punching the bag.",
+    "corrected": "He has a bruise on his knuckle from punching the bag."
+  },
+  {
+    "original": "Put your lunch inside your napsack.",
+    "corrected": "Put your lunch inside your knapsack."
+  },
+  {
+    "original": "Do you now what time the movie starts?",
+    "corrected": "Do you know what time the movie starts?"
+  },
+  {
+    "original": "He got down on one nee to propose.",
+    "corrected": "He got down on one knee to propose."
+  },
+  {
+    "original": "Be careful, that nife is very sharp.",
+    "corrected": "Be careful, that knife is very sharp."
+  },
+  {
+    "original": "The nite in shining armor saved the princess.",
+    "corrected": "The knight in shining armor saved the princess."
+  },
+  {
+    "original": "Did you hear that loud nock?",
+    "corrected": "Did you hear that loud knock?"
+  },
+  {
+    "original": "Can you help me untie this not?",
+    "corrected": "Can you help me untie this knot?"
+  },
+  {
+    "original": "I want to learn how to nit a scarf.",
+    "corrected": "I want to learn how to knit a scarf."
+  },
+  {
+    "original": "The drawer doesn't have a nob.",
+    "corrected": "The drawer doesn't have a knob."
+  },
+  {
+    "original": "My nuckles cracked when I stretched my hand.",
+    "corrected": "My knuckles cracked when I stretched my hand."
+  },
+  {
+    "original": "Her napsack was heavy with books.",
+    "corrected": "Her knapsack was heavy with books."
+  },
+  {
+    "original": "I need to rite a letter to my friend.",
+    "corrected": "I need to write a letter to my friend."
+  },
+  {
+    "original": "You have the rong answer on question five.",
+    "corrected": "You have the wrong answer on question five."
+  },
+  {
+    "original": "Can you rap the present in blue paper?",
+    "corrected": "Can you wrap the present in blue paper?"
+  },
+  {
+    "original": "I sprained my rist playing tennis.",
+    "corrected": "I sprained my wrist playing tennis."
+  },
+  {
+    "original": "Don't reck the car driving too fast.",
+    "corrected": "Don't wreck the car driving too fast."
+  },
+  {
+    "original": "Hand me the rench so I can fix the pipe.",
+    "corrected": "Hand me the wrench so I can fix the pipe."
+  },
+  {
+    "original": "Iron your shirt so it doesn't have a rinkle.",
+    "corrected": "Iron your shirt so it doesn't have a wrinkle."
+  },
+  {
+    "original": "My brothers like to restle on the floor.",
+    "corrected": "My brothers like to wrestle on the floor."
+  },
+  {
+    "original": "Please rite your name at the top of the page.",
+    "corrected": "Please write your name at the top of the page."
+  },
+  {
+    "original": "I took the rong turn and got lost.",
+    "corrected": "I took the wrong turn and got lost."
+  },
+  {
+    "original": "I will rap the leftovers in foil.",
+    "corrected": "I will wrap the leftovers in foil."
+  },
+  {
+    "original": "She wears a watch on her left rist.",
+    "corrected": "She wears a watch on her left wrist."
+  },
+  {
+    "original": "The ship is a reck at the bottom of the sea.",
+    "corrected": "The ship is a wreck at the bottom of the sea."
+  },
+  {
+    "original": "My dad used a rench to tighten the bolt.",
+    "corrected": "My dad used a wrench to tighten the bolt."
+  },
+  {
+    "original": "Grandma has a deep rinkle on her forehead.",
+    "corrected": "Grandma has a deep wrinkle on her forehead."
+  },
+  {
+    "original": "I don't want to restle with you.",
+    "corrected": "I don't want to wrestle with you."
+  },
+  {
+    "original": "Did you rite the story yet?",
+    "corrected": "Did you write the story yet?"
+  },
+  {
+    "original": "It is rong to steal candy.",
+    "corrected": "It is wrong to steal candy."
+  },
+  {
+    "original": "Lets rap it up and go home.",
+    "corrected": "Let's wrap it up and go home."
+  },
+  {
+    "original": "My rist hurts from typing all day.",
+    "corrected": "My wrist hurts from typing all day."
+  },
+  {
+    "original": "The storm might reck the garden.",
+    "corrected": "The storm might wreck the garden."
+  },
+  {
+    "original": "We looked at the stars late at nite.",
+    "corrected": "We looked at the stars late at night."
+  },
+  {
+    "original": "Please turn off the lite.",
+    "corrected": "Please turn off the light."
+  },
+  {
+    "original": "Turn rite at the stop sign.",
+    "corrected": "Turn right at the stop sign."
+  },
+  {
+    "original": "I don't want to fite with my brother.",
+    "corrected": "I don't want to fight with my brother."
+  },
+  {
+    "original": "The Grand Canyon is a beautiful site.",
+    "corrected": "The Grand Canyon is a beautiful sight."
+  },
+  {
+    "original": "It mite rain tomorrow.",
+    "corrected": "It might rain tomorrow."
+  },
+  {
+    "original": "I thout you were coming with us.",
+    "corrected": "I thought you were coming with us."
+  },
+  {
+    "original": "Mom baut new shoes for me.",
+    "corrected": "Mom bought new shoes for me."
+  },
+  {
+    "original": "I braut my lunch to school today.",
+    "corrected": "I brought my lunch to school today."
+  },
+  {
+    "original": "The dog caut the ball in the air.",
+    "corrected": "The dog caught the ball in the air."
+  },
+  {
+    "original": "My teacher taut us how to divide.",
+    "corrected": "My teacher taught us how to divide."
+  },
+  {
+    "original": "She is the king's dauter.",
+    "corrected": "She is the king's daughter."
+  },
+  {
+    "original": "We walked thru the park.",
+    "corrected": "We walked through the park."
+  },
+  {
+    "original": "Even tho it was cold, we swam.",
+    "corrected": "Even though it was cold, we swam."
+  },
+  {
+    "original": "I have had enuf to eat.",
+    "corrected": "I have had enough to eat."
+  },
+  {
+    "original": "The dog has ruff fur.",
+    "corrected": "The dog has rough fur."
+  },
+  {
+    "original": "This math test is very tuff.",
+    "corrected": "This math test is very tough."
+  },
+  {
+    "original": "Cover your mouth when you coff.",
+    "corrected": "Cover your mouth when you cough."
+  },
+  {
+    "original": "Good nite, sleep tight.",
+    "corrected": "Good night, sleep tight."
+  },
+  {
+    "original": "The sun gives us lite.",
+    "corrected": "The sun gives us light."
+  },
+  {
+    "original": "Is this the rite answer?",
+    "corrected": "Is this the right answer?"
+  },
+  {
+    "original": "The boxers had a big fite.",
+    "corrected": "The boxers had a big fight."
+  },
+  {
+    "original": "His eyesight is not very good, poor site.",
+    "corrected": "His eyesight is not very good, poor sight."
+  },
+  {
+    "original": "We mite go to the beach.",
+    "corrected": "We might go to the beach."
+  },
+  {
+    "original": "I thot about the answer for a long time.",
+    "corrected": "I thought about the answer for a long time."
+  },
+  {
+    "original": "Dad bot a new car yesterday.",
+    "corrected": "Dad bought a new car yesterday."
+  },
+  {
+    "original": "She brot cookies to the party.",
+    "corrected": "She brought cookies to the party."
+  },
+  {
+    "original": "He cot the flu last week.",
+    "corrected": "He caught the flu last week."
+  },
+  {
+    "original": "Who tot you how to dance?",
+    "corrected": "Who taught you how to dance?"
+  },
+  {
+    "original": "Her dauter loves playing dolls.",
+    "corrected": "Her daughter loves playing dolls."
+  },
+  {
+    "original": "The ball went thru the window.",
+    "corrected": "The ball went through the window."
+  },
+  {
+    "original": "Tho he is small, he is strong.",
+    "corrected": "Though he is small, he is strong."
+  },
+  {
+    "original": "That is enuf sugar in your tea.",
+    "corrected": "That is enough sugar in your tea."
+  },
+  {
+    "original": "The road was very ruff and bumpy.",
+    "corrected": "The road was very rough and bumpy."
+  },
+  {
+    "original": "The steak was too tuff to chew.",
+    "corrected": "The steak was too tough to chew."
+  },
+  {
+    "original": "I have a bad coff and a sore throat.",
+    "corrected": "I have a bad cough and a sore throat."
+  },
+  {
+    "original": "Did you see the fireworks last nite?",
+    "corrected": "Did you see the fireworks last night?"
+  },
+  {
+    "original": "This box is very lite to carry.",
+    "corrected": "This box is very light to carry."
+  },
+  {
+    "original": "Raise your rite hand.",
+    "corrected": "Raise your right hand."
+  },
+  {
+    "original": "Mary had a little lam.",
+    "corrected": "Mary had a little lamb."
+  },
+  {
+    "original": "I like to clime trees in the backyard.",
+    "corrected": "I like to climb trees in the backyard."
+  },
+  {
+    "original": "Please com your hair before school.",
+    "corrected": "Please comb your hair before school."
+  },
+  {
+    "original": "I sucked my thum when I was a baby.",
+    "corrected": "I sucked my thumb when I was a baby."
+  },
+  {
+    "original": "That was a dum joke.",
+    "corrected": "That was a dumb joke."
+  },
+  {
+    "original": "My toes are num from the cold.",
+    "corrected": "My toes are numb from the cold."
+  },
+  {
+    "original": "Not a single crum was left on the plate.",
+    "corrected": "Not a single crumb was left on the plate."
+  },
+  {
+    "original": "The soldier diffused the bom.",
+    "corrected": "The soldier diffused the bomb."
+  },
+  {
+    "original": "The mummy was in the toom.",
+    "corrected": "The mummy was in the tomb."
+  },
+  {
+    "original": "A tree lim fell on the roof.",
+    "corrected": "A tree limb fell on the roof."
+  },
+  {
+    "original": "The plumber came to fix the plum.",
+    "corrected": "The plumber came to fix the plumb."
+  },
+  {
+    "original": "The lam has soft white wool.",
+    "corrected": "The lamb has soft white wool."
+  },
+  {
+    "original": "Don't clime on the furniture.",
+    "corrected": "Don't climb on the furniture."
+  },
+  {
+    "original": "I lost my black com.",
+    "corrected": "I lost my black comb."
+  },
+  {
+    "original": "Give me a thumbs up with your thum.",
+    "corrected": "Give me a thumbs up with your thumb."
+  },
+  {
+    "original": "I felt dum when I forgot my keys.",
+    "corrected": "I felt dumb when I forgot my keys."
+  },
+  {
+    "original": "The dentist made my mouth feel num.",
+    "corrected": "The dentist made my mouth feel numb."
+  },
+  {
+    "original": "The cookie crumbled into a small crum.",
+    "corrected": "The cookie crumbled into a small crumb."
+  },
+  {
+    "original": "We learned about the atomic bom in history.",
+    "corrected": "We learned about the atomic bomb in history."
+  },
+  {
+    "original": "It was dark inside the toom.",
+    "corrected": "It was dark inside the tomb."
+  },
+  {
+    "original": "He broke a lim skiing.",
+    "corrected": "He broke a limb skiing."
+  },
+  {
+    "original": "The sunset was a beautiful sene.",
+    "corrected": "The sunset was a beautiful scene."
+  },
+  {
+    "original": "The sent of the flowers is lovely.",
+    "corrected": "The scent of the flowers is lovely."
+  },
+  {
+    "original": "Use sissors to cut the paper.",
+    "corrected": "Use scissors to cut the paper."
+  },
+  {
+    "original": "We did an experiment in sience class.",
+    "corrected": "We did an experiment in science class."
+  },
+  {
+    "original": "Space stories fasinate me.",
+    "corrected": "Space stories fascinate me."
+  },
+  {
+    "original": "I pulled a mussle in my leg.",
+    "corrected": "I pulled a muscle in my leg."
+  },
+  {
+    "original": "Don't make a sene in the store.",
+    "corrected": "Don't make a scene in the store."
+  },
+  {
+    "original": "The dog followed the sent.",
+    "corrected": "The dog followed the scent."
+  },
+  {
+    "original": "These sissors are dull.",
+    "corrected": "These scissors are dull."
+  },
+  {
+    "original": "Sience is my favorite subject.",
+    "corrected": "Science is my favorite subject."
+  },
+  {
+    "original": "Does magic fasinate you?",
+    "corrected": "Does magic fascinate you?"
+  },
+  {
+    "original": "He flexed his arm mussle.",
+    "corrected": "He flexed his arm muscle."
+  },
+  {
+    "original": "Please lisen to the teacher.",
+    "corrected": "Please listen to the teacher."
+  },
+  {
+    "original": "Don't forget to fasen your seatbelt.",
+    "corrected": "Don't forget to fasten your seatbelt."
+  },
+  {
+    "original": "The princess lived in a big cassel.",
+    "corrected": "The princess lived in a big castle."
+  },
+  {
+    "original": "Can you whisle a tune?",
+    "corrected": "Can you whistle a tune?"
+  },
+  {
+    "original": "The leaves russle in the wind.",
+    "corrected": "The leaves rustle in the wind."
+  },
+  {
+    "original": "There was a lot of bussle in the city.",
+    "corrected": "There was a lot of bustle in the city."
+  },
+  {
+    "original": "I like to lisen to music.",
+    "corrected": "I like to listen to music."
+  },
+  {
+    "original": "Fasen the buttons on your coat.",
+    "corrected": "Fasten the buttons on your coat."
+  },
+  {
+    "original": "We built a sand cassel at the beach.",
+    "corrected": "We built a sand castle at the beach."
+  },
+  {
+    "original": "The referee blew the whisle.",
+    "corrected": "The referee blew the whistle."
+  },
+  {
+    "original": "I heard a russle in the bushes.",
+    "corrected": "I heard a rustle in the bushes."
+  },
+  {
+    "original": "Hoo is your best friend?",
+    "corrected": "Who is your best friend?"
+  },
+  {
+    "original": "I ate the hole apple.",
+    "corrected": "I ate the whole apple."
+  },
+  {
+    "original": "Hoose shoes are these?",
+    "corrected": "Whose shoes are these?"
+  },
+  {
+    "original": "To hoom should I give this letter?",
+    "corrected": "To whom should I give this letter?"
+  },
+  {
+    "original": "Hoo told you that secret?",
+    "corrected": "Who told you that secret?"
+  },
+  {
+    "original": "The hole class went on a trip.",
+    "corrected": "The whole class went on a trip."
+  },
+  {
+    "original": "Hoose turn is it to play?",
+    "corrected": "Whose turn is it to play?"
+  },
+  {
+    "original": "For hoom is the gift?",
+    "corrected": "For whom is the gift?"
+  },
+  {
+    "original": "Guess hoo is coming to dinner.",
+    "corrected": "Guess who is coming to dinner."
+  },
+  {
+    "original": "I want the hole cake to myself.",
+    "corrected": "I want the whole cake to myself."
+  },
+  {
+    "original": "Please sine your name here.",
+    "corrected": "Please sign your name here."
+  },
+  {
+    "original": "I like the desine on your shirt.",
+    "corrected": "I like the design on your shirt."
+  },
+  {
+    "original": "The dog likes to naw on a bone.",
+    "corrected": "The dog likes to gnaw on a bone."
+  },
+  {
+    "original": "A tiny nat flew into my eye.",
+    "corrected": "A tiny gnat flew into my eye."
+  },
+  {
+    "original": "There is a garden nome on the lawn.",
+    "corrected": "There is a garden gnome on the lawn."
+  },
+  {
+    "original": "The stop sine is red.",
+    "corrected": "The stop sign is red."
+  },
+  {
+    "original": "Who created this building desine?",
+    "corrected": "Who created this building design?"
+  },
+  {
+    "original": "Beavers naw on wood.",
+    "corrected": "Beavers gnaw on wood."
+  },
+  {
+    "original": "That nat is very annoying.",
+    "corrected": "That gnat is very annoying."
+  },
+  {
+    "original": "The nome has a pointy red hat.",
+    "corrected": "The gnome has a pointy red hat."
+  },
+  {
+    "original": "Sine the permission slip.",
+    "corrected": "Sign the permission slip."
+  },
+  {
+    "original": "She studies sychology in college.",
+    "corrected": "She studies psychology in college."
+  },
+  {
+    "original": "We read a salm in church.",
+    "corrected": "We read a psalm in church."
+  },
+  {
+    "original": "The author used a seudonym.",
+    "corrected": "The author used a pseudonym."
+  },
+  {
+    "original": "Sychology helps us understand the mind.",
+    "corrected": "Psychology helps us understand the mind."
+  },
+  {
+    "original": "The choir sang a beautiful salm.",
+    "corrected": "The choir sang a beautiful psalm."
+  },
+  {
+    "original": "Mark Twain is a seudonym.",
+    "corrected": "Mark Twain is a pseudonym."
+  },
+  {
+    "original": "I have no dout that you will win.",
+    "corrected": "I have no doubt that you will win."
+  },
+  {
+    "original": "He has a lot of det to pay off.",
+    "corrected": "He has a lot of debt to pay off."
+  },
+  {
+    "original": "The flavor was very suttle.",
+    "corrected": "The flavor was very subtle."
+  },
+  {
+    "original": "Don't dout yourself.",
+    "corrected": "Don't doubt yourself."
+  },
+  {
+    "original": "She paid her det to the bank.",
+    "corrected": "She paid her debt to the bank."
+  },
+  {
+    "original": "There is a suttle difference between the colors.",
+    "corrected": "There is a subtle difference between the colors."
+  },
+  {
+    "original": "Without a dout, this is the best pizza.",
+    "corrected": "Without a doubt, this is the best pizza."
+  },
+  {
+    "original": "I now how to tie my shoes.",
+    "corrected": "I know how to tie my shoes."
+  },
+  {
+    "original": "My nee hurts when I run.",
+    "corrected": "My knee hurts when I run."
+  },
+  {
+    "original": "Put the nife in the dishwasher.",
+    "corrected": "Put the knife in the dishwasher."
+  },
+  {
+    "original": "The nite wore heavy armor.",
+    "corrected": "The knight wore heavy armor."
+  },
+  {
+    "original": "Please nock before entering.",
+    "corrected": "Please knock before entering."
+  },
+  {
+    "original": "The rope has a not in it.",
+    "corrected": "The rope has a knot in it."
+  },
+  {
+    "original": "Mom will nit me a hat.",
+    "corrected": "Mom will knit me a hat."
+  },
+  {
+    "original": "The door nob is loose.",
+    "corrected": "The door knob is loose."
+  },
+  {
+    "original": "I scraped my nuckle on the wall.",
+    "corrected": "I scraped my knuckle on the wall."
+  },
+  {
+    "original": "Pack your napsack for the hike.",
+    "corrected": "Pack your knapsack for the hike."
+  },
+  {
+    "original": "Do you now the way to the park?",
+    "corrected": "Do you know the way to the park?"
+  },
+  {
+    "original": "I have a bandaid on my nee.",
+    "corrected": "I have a bandaid on my knee."
+  },
+  {
+    "original": "Pass me the butter nife.",
+    "corrected": "Pass me the butter knife."
+  },
+  {
+    "original": "The nite rode a white horse.",
+    "corrected": "The knight rode a white horse."
+  },
+  {
+    "original": "I heard a nock at the window.",
+    "corrected": "I heard a knock at the window."
+  },
+  {
+    "original": "Tie a not to hold it together.",
+    "corrected": "Tie a knot to hold it together."
+  },
+  {
+    "original": "Can you nit a blanket?",
+    "corrected": "Can you knit a blanket?"
+  },
+  {
+    "original": "Grab the nob and pull.",
+    "corrected": "Grab the knob and pull."
+  },
+  {
+    "original": "He hit his nuckle on the desk.",
+    "corrected": "He hit his knuckle on the desk."
+  },
+  {
+    "original": "My napsack is blue and green.",
+    "corrected": "My knapsack is blue and green."
+  },
+  {
+    "original": "Rite the date on the paper.",
+    "corrected": "Write the date on the paper."
+  },
+  {
+    "original": "Something feels rong here.",
+    "corrected": "Something feels wrong here."
+  },
+  {
+    "original": "Rap the scarf around your neck.",
+    "corrected": "Wrap the scarf around your neck."
+  },
+  {
+    "original": "My rist watch stopped working.",
+    "corrected": "My wrist watch stopped working."
+  },
+  {
+    "original": "The car was a total reck.",
+    "corrected": "The car was a total wreck."
+  },
+  {
+    "original": "Use the rench to fix the leak.",
+    "corrected": "Use the wrench to fix the leak."
+  },
+  {
+    "original": "There is a rinkle in the rug.",
+    "corrected": "There is a wrinkle in the rug."
+  },
+  {
+    "original": "They like to restle in the yard.",
+    "corrected": "They like to wrestle in the yard."
+  },
+  {
+    "original": "I will rite a poem.",
+    "corrected": "I will write a poem."
+  },
+  {
+    "original": "You went the rong way.",
+    "corrected": "You went the wrong way."
+  },
+  {
+    "original": "Rap the baby in a blanket.",
+    "corrected": "Wrap the baby in a blanket."
+  },
+  {
+    "original": "I broke my rist skating.",
+    "corrected": "I broke my wrist skating."
+  },
+  {
+    "original": "The train reck blocked the tracks.",
+    "corrected": "The train wreck blocked the tracks."
+  },
+  {
+    "original": "Where is the monkey rench?",
+    "corrected": "Where is the monkey wrench?"
+  },
+  {
+    "original": "Smooth out the rinkle.",
+    "corrected": "Smooth out the wrinkle."
+  },
+  {
+    "original": "The bears restle playfully.",
+    "corrected": "The bears wrestle playfully."
+  },
+  {
+    "original": "Did you rite your thank you notes?",
+    "corrected": "Did you write your thank you notes?"
+  },
+  {
+    "original": "Nothing is rong with the computer.",
+    "corrected": "Nothing is wrong with the computer."
+  },
+  {
+    "original": "Please rap this carefully.",
+    "corrected": "Please wrap this carefully."
+  },
+  {
+    "original": "Grab my rist and pull me up.",
+    "corrected": "Grab my wrist and pull me up."
+  },
+  {
+    "original": "Don't reck the surprise.",
+    "corrected": "Don't wreck the surprise."
+  },
+  {
+    "original": "Tighten it with a rench.",
+    "corrected": "Tighten it with a wrench."
+  },
+  {
+    "original": "Your shirt has a big rinkle.",
+    "corrected": "Your shirt has a big wrinkle."
+  },
+  {
+    "original": "Do not restle in the house.",
+    "corrected": "Do not wrestle in the house."
+  },
+  {
+    "original": "The stars shine at nite.",
+    "corrected": "The stars shine at night."
+  },
+  {
+    "original": "Turn on the hall lite.",
+    "corrected": "Turn on the hall light."
+  }
+]

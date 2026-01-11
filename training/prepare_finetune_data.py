@@ -54,8 +54,17 @@ def main():
     changes_data = load_jsonl(data_dir / "all_changes.jsonl")
     print(f"  Loaded {len(changes_data)} sentence context examples")
 
-    # Combine both
-    combined = instruction_data + changes_data
+    # Synthetic data (Gemini 3 Pro generated)
+    synthetic_path = data_dir / "synthetic_all.jsonl"
+    if synthetic_path.exists():
+        synthetic_data = load_jsonl(synthetic_path)
+        print(f"  Loaded {len(synthetic_data)} synthetic examples")
+    else:
+        synthetic_data = []
+        print("  No synthetic data found (run convert_synthetic_data.py first)")
+
+    # Combine all
+    combined = instruction_data + changes_data + synthetic_data
     print(f"\nTotal combined: {len(combined)} examples")
 
     # Shuffle

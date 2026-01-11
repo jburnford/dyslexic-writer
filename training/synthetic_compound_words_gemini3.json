@@ -1,0 +1,846 @@
+[
+  {
+    "original": "I get lonely some times.",
+    "corrected": "I get lonely sometimes."
+  },
+  {
+    "original": "Every one needs to sit down.",
+    "corrected": "Everyone needs to sit down."
+  },
+  {
+    "original": "We are going to the zoo to day.",
+    "corrected": "We are going to the zoo today."
+  },
+  {
+    "original": "I don't want any thing to eat.",
+    "corrected": "I don't want anything to eat."
+  },
+  {
+    "original": "She left with out her coat.",
+    "corrected": "She left without her coat."
+  },
+  {
+    "original": "May be we can play later.",
+    "corrected": "Maybe we can play later."
+  },
+  {
+    "original": "I have alot of homework.",
+    "corrected": "I have a lot of homework."
+  },
+  {
+    "original": "Please stand infront of the line.",
+    "corrected": "Please stand in front of the line."
+  },
+  {
+    "original": "They smiled at eachother.",
+    "corrected": "They smiled at each other."
+  },
+  {
+    "original": "Can I come aswell?",
+    "corrected": "Can I come as well?"
+  },
+  {
+    "original": "Thankyou for the present.",
+    "corrected": "Thank you for the present."
+  },
+  {
+    "original": "Goodnight, sweet dreams.",
+    "corrected": "Good night, sweet dreams."
+  },
+  {
+    "original": "Some times I walk to school.",
+    "corrected": "Sometimes I walk to school."
+  },
+  {
+    "original": "Hello every one!",
+    "corrected": "Hello everyone!"
+  },
+  {
+    "original": "To day is my birthday.",
+    "corrected": "Today is my birthday."
+  },
+  {
+    "original": "Did you see any thing interesting?",
+    "corrected": "Did you see anything interesting?"
+  },
+  {
+    "original": "I can't do it with out you.",
+    "corrected": "I can't do it without you."
+  },
+  {
+    "original": "May be it will snow.",
+    "corrected": "Maybe it will snow."
+  },
+  {
+    "original": "Thanks alot for helping.",
+    "corrected": "Thanks a lot for helping."
+  },
+  {
+    "original": "The car is parked infront of the house.",
+    "corrected": "The car is parked in front of the house."
+  },
+  {
+    "original": "We help eachother study.",
+    "corrected": "We help each other study."
+  },
+  {
+    "original": "He wants ice cream aswell.",
+    "corrected": "He wants ice cream as well."
+  },
+  {
+    "original": "I said thankyou to the teacher.",
+    "corrected": "I said thank you to the teacher."
+  },
+  {
+    "original": "Mom said goodnight to us.",
+    "corrected": "Mom said good night to us."
+  },
+  {
+    "original": "My dog barks some times.",
+    "corrected": "My dog barks sometimes."
+  },
+  {
+    "original": "Has every one finished the test?",
+    "corrected": "Has everyone finished the test?"
+  },
+  {
+    "original": "What are you doing to day?",
+    "corrected": "What are you doing today?"
+  },
+  {
+    "original": "Is there any thing I can do?",
+    "corrected": "Is there anything I can do?"
+  },
+  {
+    "original": "Don't go out with out shoes.",
+    "corrected": "Don't go out without shoes."
+  },
+  {
+    "original": "May be he forgot the time.",
+    "corrected": "Maybe he forgot the time."
+  },
+  {
+    "original": "There is alot of dust here.",
+    "corrected": "There is a lot of dust here."
+  },
+  {
+    "original": "Don't sit infront of the TV.",
+    "corrected": "Don't sit in front of the TV."
+  },
+  {
+    "original": "Brothers should love eachother.",
+    "corrected": "Brothers should love each other."
+  },
+  {
+    "original": "She likes soccer aswell.",
+    "corrected": "She likes soccer as well."
+  },
+  {
+    "original": "We sent a thankyou card.",
+    "corrected": "We sent a thank you card."
+  },
+  {
+    "original": "He gave me a goodnight hug.",
+    "corrected": "He gave me a good night hug."
+  },
+  {
+    "original": "It rains some times in the desert.",
+    "corrected": "It rains sometimes in the desert."
+  },
+  {
+    "original": "Tell every one the news.",
+    "corrected": "Tell everyone the news."
+  },
+  {
+    "original": "To day is a sunny day.",
+    "corrected": "Today is a sunny day."
+  },
+  {
+    "original": "I didn't buy any thing.",
+    "corrected": "I didn't buy anything."
+  },
+  {
+    "original": "Coffee with out sugar is bitter.",
+    "corrected": "Coffee without sugar is bitter."
+  },
+  {
+    "original": "May be you are right.",
+    "corrected": "Maybe you are right."
+  },
+  {
+    "original": "We had alot of fun.",
+    "corrected": "We had a lot of fun."
+  },
+  {
+    "original": "Look infront of you.",
+    "corrected": "Look in front of you."
+  },
+  {
+    "original": "They talked to eachother all night.",
+    "corrected": "They talked to each other all night."
+  },
+  {
+    "original": "I am hungry aswell.",
+    "corrected": "I am hungry as well."
+  },
+  {
+    "original": "Remember to say thankyou.",
+    "corrected": "Remember to say thank you."
+  },
+  {
+    "original": "It is time to say goodnight.",
+    "corrected": "It is time to say good night."
+  },
+  {
+    "original": "I feel happy some times.",
+    "corrected": "I feel happy sometimes."
+  },
+  {
+    "original": "Is every one ready to go?",
+    "corrected": "Is everyone ready to go?"
+  },
+  {
+    "original": "I have school to day.",
+    "corrected": "I have school today."
+  },
+  {
+    "original": "He didn't say any thing.",
+    "corrected": "He didn't say anything."
+  },
+  {
+    "original": "She walked past with out looking.",
+    "corrected": "She walked past without looking."
+  },
+  {
+    "original": "May be we should leave.",
+    "corrected": "Maybe we should leave."
+  },
+  {
+    "original": "That is alot of money.",
+    "corrected": "That is a lot of money."
+  },
+  {
+    "original": "Who is standing infront of me?",
+    "corrected": "Who is standing in front of me?"
+  },
+  {
+    "original": "Be kind to eachother.",
+    "corrected": "Be kind to each other."
+  },
+  {
+    "original": "My brother came aswell.",
+    "corrected": "My brother came as well."
+  },
+  {
+    "original": "Thankyou for the help.",
+    "corrected": "Thank you for the help."
+  },
+  {
+    "original": "Kiss the baby goodnight.",
+    "corrected": "Kiss the baby good night."
+  },
+  {
+    "original": "Noone knows the answer.",
+    "corrected": "No one knows the answer."
+  },
+  {
+    "original": "I want atleast two cookies.",
+    "corrected": "I want at least two cookies."
+  },
+  {
+    "original": "She is my bestfriend.",
+    "corrected": "She is my best friend."
+  },
+  {
+    "original": "We are going to highschool next year.",
+    "corrected": "We are going to high school next year."
+  },
+  {
+    "original": "I love chocolate icecream.",
+    "corrected": "I love chocolate ice cream."
+  },
+  {
+    "original": "The schoolbus was late.",
+    "corrected": "The school bus was late."
+  },
+  {
+    "original": "I did my home work early.",
+    "corrected": "I did my homework early."
+  },
+  {
+    "original": "Clean your bed room.",
+    "corrected": "Clean your bedroom."
+  },
+  {
+    "original": "Where is the bath room?",
+    "corrected": "Where is the bathroom?"
+  },
+  {
+    "original": "Let's play out side.",
+    "corrected": "Let's play outside."
+  },
+  {
+    "original": "It is raining, stay in side.",
+    "corrected": "It is raining, stay inside."
+  },
+  {
+    "original": "Meet me at the play ground.",
+    "corrected": "Meet me at the playground."
+  },
+  {
+    "original": "Happy birth day!",
+    "corrected": "Happy birthday!"
+  },
+  {
+    "original": "Tell me every thing.",
+    "corrected": "Tell me everything."
+  },
+  {
+    "original": "Is any one home?",
+    "corrected": "Is anyone home?"
+  },
+  {
+    "original": "Some body is knocking at the door.",
+    "corrected": "Somebody is knocking at the door."
+  },
+  {
+    "original": "No body likes mosquitos.",
+    "corrected": "Nobody likes mosquitos."
+  },
+  {
+    "original": "Go up stairs to bed.",
+    "corrected": "Go upstairs to bed."
+  },
+  {
+    "original": "The kitchen is down stairs.",
+    "corrected": "The kitchen is downstairs."
+  },
+  {
+    "original": "We sat in the livingroom.",
+    "corrected": "We sat in the living room."
+  },
+  {
+    "original": "Dinner is in the diningroom.",
+    "corrected": "Dinner is in the dining room."
+  },
+  {
+    "original": "I like to play foot ball.",
+    "corrected": "I like to play football."
+  },
+  {
+    "original": "Hit the base ball hard.",
+    "corrected": "Hit the baseball hard."
+  },
+  {
+    "original": "Shoot the basket ball.",
+    "corrected": "Shoot the basketball."
+  },
+  {
+    "original": "He rode his skate board.",
+    "corrected": "He rode his skateboard."
+  },
+  {
+    "original": "The sun light is bright.",
+    "corrected": "The sunlight is bright."
+  },
+  {
+    "original": "We watched the fire works.",
+    "corrected": "We watched the fireworks."
+  },
+  {
+    "original": "My grand father is kind.",
+    "corrected": "My grandfather is kind."
+  },
+  {
+    "original": "I love my grand mother.",
+    "corrected": "I love my grandmother."
+  },
+  {
+    "original": "I can do it my self.",
+    "corrected": "I can do it myself."
+  },
+  {
+    "original": "Be proud of your self.",
+    "corrected": "Be proud of yourself."
+  },
+  {
+    "original": "Noone was in the room.",
+    "corrected": "No one was in the room."
+  },
+  {
+    "original": "You need atleast five dollars.",
+    "corrected": "You need at least five dollars."
+  },
+  {
+    "original": "He is my bestfriend.",
+    "corrected": "He is my best friend."
+  },
+  {
+    "original": "My sister is in highschool.",
+    "corrected": "My sister is in high school."
+  },
+  {
+    "original": "The icecream is melting.",
+    "corrected": "The ice cream is melting."
+  },
+  {
+    "original": "Ride the yellow schoolbus.",
+    "corrected": "Ride the yellow school bus."
+  },
+  {
+    "original": "Finish your math home work.",
+    "corrected": "Finish your math homework."
+  },
+  {
+    "original": "My bed room has a window.",
+    "corrected": "My bedroom has a window."
+  },
+  {
+    "original": "Wash your hands in the bath room.",
+    "corrected": "Wash your hands in the bathroom."
+  },
+  {
+    "original": "It is cold out side.",
+    "corrected": "It is cold outside."
+  },
+  {
+    "original": "Go in side the house.",
+    "corrected": "Go inside the house."
+  },
+  {
+    "original": "The slide is on the play ground.",
+    "corrected": "The slide is on the playground."
+  },
+  {
+    "original": "We ate birth day cake.",
+    "corrected": "We ate birthday cake."
+  },
+  {
+    "original": "Every thing will be okay.",
+    "corrected": "Everything will be okay."
+  },
+  {
+    "original": "Does any one have a pen?",
+    "corrected": "Does anyone have a pen?"
+  },
+  {
+    "original": "Did some body call me?",
+    "corrected": "Did somebody call me?"
+  },
+  {
+    "original": "No body answered the phone.",
+    "corrected": "Nobody answered the phone."
+  },
+  {
+    "original": "Run up stairs quickly.",
+    "corrected": "Run upstairs quickly."
+  },
+  {
+    "original": "The basement is down stairs.",
+    "corrected": "The basement is downstairs."
+  },
+  {
+    "original": "The TV is in the livingroom.",
+    "corrected": "The TV is in the living room."
+  },
+  {
+    "original": "Set the table in the diningroom.",
+    "corrected": "Set the table in the dining room."
+  },
+  {
+    "original": "The foot ball game is tonight.",
+    "corrected": "The football game is tonight."
+  },
+  {
+    "original": "Catch the base ball.",
+    "corrected": "Catch the baseball."
+  },
+  {
+    "original": "Pass the basket ball.",
+    "corrected": "Pass the basketball."
+  },
+  {
+    "original": "Don't fall off the skate board.",
+    "corrected": "Don't fall off the skateboard."
+  },
+  {
+    "original": "Plants need sun light.",
+    "corrected": "Plants need sunlight."
+  },
+  {
+    "original": "Loud fire works scared the dog.",
+    "corrected": "Loud fireworks scared the dog."
+  },
+  {
+    "original": "My grand father likes fishing.",
+    "corrected": "My grandfather likes fishing."
+  },
+  {
+    "original": "Grand mother bakes cookies.",
+    "corrected": "Grandmother bakes cookies."
+  },
+  {
+    "original": "I hurt my self playing.",
+    "corrected": "I hurt myself playing."
+  },
+  {
+    "original": "Take care of your self.",
+    "corrected": "Take care of yourself."
+  },
+  {
+    "original": "I told noone about the surprise.",
+    "corrected": "I told no one about the surprise."
+  },
+  {
+    "original": "Sleep for atleast eight hours.",
+    "corrected": "Sleep for at least eight hours."
+  },
+  {
+    "original": "Playing with my bestfriend.",
+    "corrected": "Playing with my best friend."
+  },
+  {
+    "original": "Highschool starts at 8am.",
+    "corrected": "High school starts at 8am."
+  },
+  {
+    "original": "Do you want vanilla icecream?",
+    "corrected": "Do you want vanilla ice cream?"
+  },
+  {
+    "original": "Don't miss the schoolbus.",
+    "corrected": "Don't miss the school bus."
+  },
+  {
+    "original": "Home work is important.",
+    "corrected": "Homework is important."
+  },
+  {
+    "original": "Is your bed room clean?",
+    "corrected": "Is your bedroom clean?"
+  },
+  {
+    "original": "The bath room door is closed.",
+    "corrected": "The bathroom door is closed."
+  },
+  {
+    "original": "Wait out side for me.",
+    "corrected": "Wait outside for me."
+  },
+  {
+    "original": "Come in side for dinner.",
+    "corrected": "Come inside for dinner."
+  },
+  {
+    "original": "Recess is on the play ground.",
+    "corrected": "Recess is on the playground."
+  },
+  {
+    "original": "When is his birth day?",
+    "corrected": "When is his birthday?"
+  },
+  {
+    "original": "I ate every thing on my plate.",
+    "corrected": "I ate everything on my plate."
+  },
+  {
+    "original": "Can any one help me?",
+    "corrected": "Can anyone help me?"
+  },
+  {
+    "original": "Some body ate my lunch.",
+    "corrected": "Somebody ate my lunch."
+  },
+  {
+    "original": "No body was home.",
+    "corrected": "Nobody was home."
+  },
+  {
+    "original": "My room is up stairs on the left.",
+    "corrected": "My room is upstairs on the left."
+  },
+  {
+    "original": "I heard a noise down stairs.",
+    "corrected": "I heard a noise downstairs."
+  },
+  {
+    "original": "The sofa is in the livingroom.",
+    "corrected": "The sofa is in the living room."
+  },
+  {
+    "original": "The diningroom table is large.",
+    "corrected": "The dining room table is large."
+  },
+  {
+    "original": "He threw the foot ball.",
+    "corrected": "He threw the football."
+  },
+  {
+    "original": "We watched the base ball game.",
+    "corrected": "We watched the baseball game."
+  },
+  {
+    "original": "Dribble the basket ball.",
+    "corrected": "Dribble the basketball."
+  },
+  {
+    "original": "A new skate board costs money.",
+    "corrected": "A new skateboard costs money."
+  },
+  {
+    "original": "Block the sun light with curtains.",
+    "corrected": "Block the sunlight with curtains."
+  },
+  {
+    "original": "The fire works were beautiful.",
+    "corrected": "The fireworks were beautiful."
+  },
+  {
+    "original": "Visit your grand father.",
+    "corrected": "Visit your grandfather."
+  },
+  {
+    "original": "Call your grand mother.",
+    "corrected": "Call your grandmother."
+  },
+  {
+    "original": "I bought a gift for my self.",
+    "corrected": "I bought a gift for myself."
+  },
+  {
+    "original": "Look at your self in the mirror.",
+    "corrected": "Look at yourself in the mirror."
+  },
+  {
+    "original": "There was noone to talk to.",
+    "corrected": "There was no one to talk to."
+  },
+  {
+    "original": "Read atleast one book.",
+    "corrected": "Read at least one book."
+  },
+  {
+    "original": "Who is your bestfriend?",
+    "corrected": "Who is your best friend?"
+  },
+  {
+    "original": "After highschool, I will work.",
+    "corrected": "After high school, I will work."
+  },
+  {
+    "original": "Buy some icecream.",
+    "corrected": "Buy some ice cream."
+  },
+  {
+    "original": "The schoolbus stops here.",
+    "corrected": "The school bus stops here."
+  },
+  {
+    "original": "I forgot my home work.",
+    "corrected": "I forgot my homework."
+  },
+  {
+    "original": "Paint the bed room green.",
+    "corrected": "Paint the bedroom green."
+  },
+  {
+    "original": "The bath room sink is leaking.",
+    "corrected": "The bathroom sink is leaking."
+  },
+  {
+    "original": "Look out side the window.",
+    "corrected": "Look outside the window."
+  },
+  {
+    "original": "Is the dog in side?",
+    "corrected": "Is the dog inside?"
+  },
+  {
+    "original": "The play ground is fun.",
+    "corrected": "The playground is fun."
+  },
+  {
+    "original": "A birth day present.",
+    "corrected": "A birthday present."
+  },
+  {
+    "original": "Every thing is ready.",
+    "corrected": "Everything is ready."
+  },
+  {
+    "original": "Any one can join.",
+    "corrected": "Anyone can join."
+  },
+  {
+    "original": "Some body help him.",
+    "corrected": "Somebody help him."
+  },
+  {
+    "original": "No body saw the ghost.",
+    "corrected": "Nobody saw the ghost."
+  },
+  {
+    "original": "Bring the laundry up stairs.",
+    "corrected": "Bring the laundry upstairs."
+  },
+  {
+    "original": "Go down stairs to the garage.",
+    "corrected": "Go downstairs to the garage."
+  },
+  {
+    "original": "Clean the livingroom.",
+    "corrected": "Clean the living room."
+  },
+  {
+    "original": "Eat in the diningroom.",
+    "corrected": "Eat in the dining room."
+  },
+  {
+    "original": "This is a leather foot ball.",
+    "corrected": "This is a leather football."
+  },
+  {
+    "original": "Sign the base ball.",
+    "corrected": "Sign the baseball."
+  },
+  {
+    "original": "Spin the basket ball.",
+    "corrected": "Spin the basketball."
+  },
+  {
+    "original": "Skate board tricks are cool.",
+    "corrected": "Skateboard tricks are cool."
+  },
+  {
+    "original": "Avoid direct sun light.",
+    "corrected": "Avoid direct sunlight."
+  },
+  {
+    "original": "Bright fire works lit the sky.",
+    "corrected": "Bright fireworks lit the sky."
+  },
+  {
+    "original": "Grand father reads the paper.",
+    "corrected": "Grandfather reads the paper."
+  },
+  {
+    "original": "Grand mother knits sweaters.",
+    "corrected": "Grandmother knits sweaters."
+  },
+  {
+    "original": "Noone came to the party.",
+    "corrected": "No one came to the party."
+  },
+  {
+    "original": "Wait atleast ten minutes.",
+    "corrected": "Wait at least ten minutes."
+  },
+  {
+    "original": "She is my new bestfriend.",
+    "corrected": "She is my new best friend."
+  },
+  {
+    "original": "The highschool football team.",
+    "corrected": "The high school football team."
+  },
+  {
+    "original": "I dropped my icecream.",
+    "corrected": "I dropped my ice cream."
+  },
+  {
+    "original": "Run to the schoolbus.",
+    "corrected": "Run to the school bus."
+  },
+  {
+    "original": "Did you finish your home work?",
+    "corrected": "Did you finish your homework?"
+  },
+  {
+    "original": "My bed room is small.",
+    "corrected": "My bedroom is small."
+  },
+  {
+    "original": "There is a spider in the bath room.",
+    "corrected": "There is a spider in the bathroom."
+  },
+  {
+    "original": "The birds are out side.",
+    "corrected": "The birds are outside."
+  },
+  {
+    "original": "Let's go in side now.",
+    "corrected": "Let's go inside now."
+  },
+  {
+    "original": "Swing on the play ground.",
+    "corrected": "Swing on the playground."
+  },
+  {
+    "original": "It is my birth day.",
+    "corrected": "It is my birthday."
+  },
+  {
+    "original": "Pick up every thing.",
+    "corrected": "Pick up everything."
+  },
+  {
+    "original": "Did you tell any one?",
+    "corrected": "Did you tell anyone?"
+  },
+  {
+    "original": "I need some body to talk to.",
+    "corrected": "I need somebody to talk to."
+  },
+  {
+    "original": "No body knows the secret.",
+    "corrected": "Nobody knows the secret."
+  },
+  {
+    "original": "My sister is up stairs.",
+    "corrected": "My sister is upstairs."
+  },
+  {
+    "original": "The dog ran down stairs.",
+    "corrected": "The dog ran downstairs."
+  },
+  {
+    "original": "A cozy livingroom.",
+    "corrected": "A cozy living room."
+  },
+  {
+    "original": "A formal diningroom.",
+    "corrected": "A formal dining room."
+  },
+  {
+    "original": "A foot ball helmet.",
+    "corrected": "A football helmet."
+  },
+  {
+    "original": "A base ball cap.",
+    "corrected": "A baseball cap."
+  },
+  {
+    "original": "A basket ball court.",
+    "corrected": "A basketball court."
+  },
+  {
+    "original": "My skate board is broken.",
+    "corrected": "My skateboard is broken."
+  },
+  {
+    "original": "Morning sun light.",
+    "corrected": "Morning sunlight."
+  },
+  {
+    "original": "Exploding fire works.",
+    "corrected": "Exploding fireworks."
+  },
+  {
+    "original": "Grand father is sleeping.",
+    "corrected": "Grandfather is sleeping."
+  },
+  {
+    "original": "Grand mother is cooking.",
+    "corrected": "Grandmother is cooking."
+  }
+]

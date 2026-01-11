@@ -1,0 +1,626 @@
+[
+  {
+    "original": "The dog ran awey from home yestday.",
+    "corrected": "The dog ran away from home yesterday."
+  },
+  {
+    "original": "I wunt to go to the park with my frens.",
+    "corrected": "I want to go to the park with my friends."
+  },
+  {
+    "original": "The techer said we hav a test on fryday.",
+    "corrected": "The teacher said we have a test on Friday."
+  },
+  {
+    "original": "My faverit coler is blew becus it looks like the sky.",
+    "corrected": "My favorite color is blue because it looks like the sky."
+  },
+  {
+    "original": "Wen I grow up I wul be a sientist.",
+    "corrected": "When I grow up I will be a scientist."
+  },
+  {
+    "original": "The elefant is the bigest animul in the zoo.",
+    "corrected": "The elephant is the biggest animal in the zoo."
+  },
+  {
+    "original": "Plese turn off the lites wen you leav the room.",
+    "corrected": "Please turn off the lights when you leave the room."
+  },
+  {
+    "original": "I hurd a lowd noys comin frum the kichen.",
+    "corrected": "I heard a loud noise coming from the kitchen."
+  },
+  {
+    "original": "She dident now the anser to the qwestin.",
+    "corrected": "She didn't know the answer to the question."
+  },
+  {
+    "original": "We are going on a feild trip to the moseum.",
+    "corrected": "We are going on a field trip to the museum."
+  },
+  {
+    "original": "The bog was barking at the mailman.",
+    "corrected": "The dog was barking at the mailman."
+  },
+  {
+    "original": "My bruther is older then me by tow yers.",
+    "corrected": "My brother is older than me by two years."
+  },
+  {
+    "original": "I lik eating piza for diner evry saterday.",
+    "corrected": "I like eating pizza for dinner every Saturday."
+  },
+  {
+    "original": "Look at that bueatiful buterfly on the flowr.",
+    "corrected": "Look at that beautiful butterfly on the flower."
+  },
+  {
+    "original": "It is imporant to brush yor teet twice a day.",
+    "corrected": "It is important to brush your teeth twice a day."
+  },
+  {
+    "original": "The soljer fawt bravley in the war.",
+    "corrected": "The soldier fought bravely in the war."
+  },
+  {
+    "original": "Can I boro a pensil I lost mine.",
+    "corrected": "Can I borrow a pencil? I lost mine."
+  },
+  {
+    "original": "Whatever happend to the lost treasure?",
+    "corrected": "Whatever happened to the lost treasure?"
+  },
+  {
+    "original": "Sience is my hardest subjeck in scool.",
+    "corrected": "Science is my hardest subject in school."
+  },
+  {
+    "original": "My mom bougt me a new par of shoos.",
+    "corrected": "My mom bought me a new pair of shoes."
+  },
+  {
+    "original": "The wether is vry cold in the winter.",
+    "corrected": "The weather is very cold in the winter."
+  },
+  {
+    "original": "They went to there grandmas house for the holidays.",
+    "corrected": "They went to their grandma's house for the holidays."
+  },
+  {
+    "original": "The docter gave me medisin for my coff.",
+    "corrected": "The doctor gave me medicine for my cough."
+  },
+  {
+    "original": "Who is the presdent of the united stats?",
+    "corrected": "Who is the president of the United States?"
+  },
+  {
+    "original": "I hop you hav a grate birthday party.",
+    "corrected": "I hope you have a great birthday party."
+  },
+  {
+    "original": "The polis ofiser stoped the car.",
+    "corrected": "The police officer stopped the car."
+  },
+  {
+    "original": "Mathmatiks can be very difikult to lern.",
+    "corrected": "Mathematics can be very difficult to learn."
+  },
+  {
+    "original": "I am so tierd I need to go to bed erly.",
+    "corrected": "I am so tired I need to go to bed early."
+  },
+  {
+    "original": "Did you recive the leter I sent you?",
+    "corrected": "Did you receive the letter I sent you?"
+  },
+  {
+    "original": "The mountin was so hy we coud touch the clowds.",
+    "corrected": "The mountain was so high we could touch the clouds."
+  },
+  {
+    "original": "My sisster loves to riden horses on the weekend.",
+    "corrected": "My sister loves to ride horses on the weekend."
+  },
+  {
+    "original": "The oshun water was to salty to drink.",
+    "corrected": "The ocean water was too salty to drink."
+  },
+  {
+    "original": "Are you going to the schol dance tonite?",
+    "corrected": "Are you going to the school dance tonight?"
+  },
+  {
+    "original": "The car mekanic fixed the flat tier.",
+    "corrected": "The car mechanic fixed the flat tire."
+  },
+  {
+    "original": "Wun day I wil travel arownd the werld.",
+    "corrected": "One day I will travel around the world."
+  },
+  {
+    "original": "Keep yor room cleen and tidey.",
+    "corrected": "Keep your room clean and tidy."
+  },
+  {
+    "original": "The resturant servs the best burgers in town.",
+    "corrected": "The restaurant serves the best burgers in town."
+  },
+  {
+    "original": "Naborhood kids play socer in the street.",
+    "corrected": "Neighborhood kids play soccer in the street."
+  },
+  {
+    "original": "Becus it was raning we stayed insid.",
+    "corrected": "Because it was raining we stayed inside."
+  },
+  {
+    "original": "She wos werring a red dress to the party.",
+    "corrected": "She was wearing a red dress to the party."
+  },
+  {
+    "original": "My stumick herts after eating all that candy.",
+    "corrected": "My stomach hurts after eating all that candy."
+  },
+  {
+    "original": "Dont forget to sine your nam on the paper.",
+    "corrected": "Don't forget to sign your name on the paper."
+  },
+  {
+    "original": "The libary is a qwiet place to reed books.",
+    "corrected": "The library is a quiet place to read books."
+  },
+  {
+    "original": "Saterday is the best day of the week.",
+    "corrected": "Saturday is the best day of the week."
+  },
+  {
+    "original": "We watched a movie abowt a magik draggon.",
+    "corrected": "We watched a movie about a magic dragon."
+  },
+  {
+    "original": "The computr scren went black sudenly.",
+    "corrected": "The computer screen went black suddenly."
+  },
+  {
+    "original": "Evryone shoud do thier part to help the envirment.",
+    "corrected": "Everyone should do their part to help the environment."
+  },
+  {
+    "original": "I cant beleve you won the game!",
+    "corrected": "I can't believe you won the game!"
+  },
+  {
+    "original": "The yung girl sat on the chare reading.",
+    "corrected": "The young girl sat on the chair reading."
+  },
+  {
+    "original": "Witch way is the train stashun from here?",
+    "corrected": "Which way is the train station from here?"
+  },
+  {
+    "original": "My uncle owns a farm with lots of aminals.",
+    "corrected": "My uncle owns a farm with lots of animals."
+  },
+  {
+    "original": "Wait untill the lite turns green to cross.",
+    "corrected": "Wait until the light turns green to cross."
+  },
+  {
+    "original": "The goverment maks laws for the peeple.",
+    "corrected": "The government makes laws for the people."
+  },
+  {
+    "original": "Are we aloud to chew gum in class?",
+    "corrected": "Are we allowed to chew gum in class?"
+  },
+  {
+    "original": "The astronat walked on the moon serface.",
+    "corrected": "The astronaut walked on the moon's surface."
+  },
+  {
+    "original": "I dont understan the math probem at all.",
+    "corrected": "I don't understand the math problem at all."
+  },
+  {
+    "original": "Plase put the dishs in the sink.",
+    "corrected": "Please put the dishes in the sink."
+  },
+  {
+    "original": "Thier are many difrent typs of birds.",
+    "corrected": "There are many different types of birds."
+  },
+  {
+    "original": "The yung boy fell off his bicyle.",
+    "corrected": "The young boy fell off his bicycle."
+  },
+  {
+    "original": "Januery is the frist month of the year.",
+    "corrected": "January is the first month of the year."
+  },
+  {
+    "original": "Try to be more carful with the glass.",
+    "corrected": "Try to be more careful with the glass."
+  },
+  {
+    "original": "My cozins are coming to visit next week.",
+    "corrected": "My cousins are coming to visit next week."
+  },
+  {
+    "original": "The movey was relly funny and I laffed alot.",
+    "corrected": "The movie was really funny and I laughed a lot."
+  },
+  {
+    "original": "Wots for diner tonight mom?",
+    "corrected": "What's for dinner tonight, Mom?"
+  },
+  {
+    "original": "The flowrs in the gardin smell so good.",
+    "corrected": "The flowers in the garden smell so good."
+  },
+  {
+    "original": "He tried to cach the ball but missed.",
+    "corrected": "He tried to catch the ball but missed."
+  },
+  {
+    "original": "Lissening to music helps me focas on homework.",
+    "corrected": "Listening to music helps me focus on homework."
+  },
+  {
+    "original": "The princepal of the scool is vry strick.",
+    "corrected": "The principal of the school is very strict."
+  },
+  {
+    "original": "Sodenly the door opend and a man walked in.",
+    "corrected": "Suddenly the door opened and a man walked in."
+  },
+  {
+    "original": "I wud like a peice of chocalate cake.",
+    "corrected": "I would like a piece of chocolate cake."
+  },
+  {
+    "original": "Dislexia makes reading and riting hard for me.",
+    "corrected": "Dyslexia makes reading and writing hard for me."
+  },
+  {
+    "original": "The captin of the ship stered the bote.",
+    "corrected": "The captain of the ship steered the boat."
+  },
+  {
+    "original": "Where did you put my basebal glov?",
+    "corrected": "Where did you put my baseball glove?"
+  },
+  {
+    "original": "We saw a bare in the woods while camping.",
+    "corrected": "We saw a bear in the woods while camping."
+  },
+  {
+    "original": "Its not far to cheet on the test.",
+    "corrected": "It's not fair to cheat on the test."
+  },
+  {
+    "original": "The wizurd cast a spel on the frawg.",
+    "corrected": "The wizard cast a spell on the frog."
+  },
+  {
+    "original": "My naybor has a vary lowd dog that barks.",
+    "corrected": "My neighbor has a very loud dog that barks."
+  },
+  {
+    "original": "Is it posibel to fly to mars yet?",
+    "corrected": "Is it possible to fly to Mars yet?"
+  },
+  {
+    "original": "The jurnalist rote a storee for the papr.",
+    "corrected": "The journalist wrote a story for the paper."
+  },
+  {
+    "original": "I need to by a new notbook for sience class.",
+    "corrected": "I need to buy a new notebook for science class."
+  },
+  {
+    "original": "The traffic was tirrible on the hiway.",
+    "corrected": "The traffic was terrible on the highway."
+  },
+  {
+    "original": "She wisperd a secrit in my ear.",
+    "corrected": "She whispered a secret in my ear."
+  },
+  {
+    "original": "The yunger childern played on the swings.",
+    "corrected": "The younger children played on the swings."
+  },
+  {
+    "original": "Wait a minit I am not redy to go.",
+    "corrected": "Wait a minute, I am not ready to go."
+  },
+  {
+    "original": "The artic is hom to poler bears.",
+    "corrected": "The Arctic is home to polar bears."
+  },
+  {
+    "original": "My granfather told us storys about the war.",
+    "corrected": "My grandfather told us stories about the war."
+  },
+  {
+    "original": "Did you see the firewirks on the forth of july?",
+    "corrected": "Did you see the fireworks on the Fourth of July?"
+  },
+  {
+    "original": "The yung dog chewed on the funiture.",
+    "corrected": "The young dog chewed on the furniture."
+  },
+  {
+    "original": "I have to practis my piana lesons today.",
+    "corrected": "I have to practice my piano lessons today."
+  },
+  {
+    "original": "The helthy food is good for yor boddy.",
+    "corrected": "The healthy food is good for your body."
+  },
+  {
+    "original": "Saterday monring cartoons are the best.",
+    "corrected": "Saturday morning cartoons are the best."
+  },
+  {
+    "original": "The owside tempature is droping fast.",
+    "corrected": "The outside temperature is dropping fast."
+  },
+  {
+    "original": "Can we go to the moves this weeknd?",
+    "corrected": "Can we go to the movies this weekend?"
+  },
+  {
+    "original": "The rober stole muny from the bank.",
+    "corrected": "The robber stole money from the bank."
+  },
+  {
+    "original": "I promiss I wil klean my room tomorow.",
+    "corrected": "I promise I will clean my room tomorrow."
+  },
+  {
+    "original": "The vehical was parkd in the driveway.",
+    "corrected": "The vehicle was parked in the driveway."
+  },
+  {
+    "original": "She wore a prity necklas to the dance.",
+    "corrected": "She wore a pretty necklace to the dance."
+  },
+  {
+    "original": "I gess the anser is forty two.",
+    "corrected": "I guess the answer is forty-two."
+  },
+  {
+    "original": "The solarsystem has eigt planits.",
+    "corrected": "The solar system has eight planets."
+  },
+  {
+    "original": "We need oxigen to brethe and live.",
+    "corrected": "We need oxygen to breathe and live."
+  },
+  {
+    "original": "My sholder hurts from carring my backpack.",
+    "corrected": "My shoulder hurts from carrying my backpack."
+  },
+  {
+    "original": "The histery of the world is verry long.",
+    "corrected": "The history of the world is very long."
+  },
+  {
+    "original": "Dont tuch the stove it is hot.",
+    "corrected": "Don't touch the stove, it is hot."
+  },
+  {
+    "original": "The audence claped after the proformance.",
+    "corrected": "The audience clapped after the performance."
+  },
+  {
+    "original": "We saw a hary spider in the basment.",
+    "corrected": "We saw a hairy spider in the basement."
+  },
+  {
+    "original": "The yung gril was skared of the dark.",
+    "corrected": "The young girl was scared of the dark."
+  },
+  {
+    "original": "I lik to swim in the pool in sumer.",
+    "corrected": "I like to swim in the pool in summer."
+  },
+  {
+    "original": "The mountin peek was cuvered in sno.",
+    "corrected": "The mountain peak was covered in snow."
+  },
+  {
+    "original": "We bilt a sandcasle on the bech.",
+    "corrected": "We built a sandcastle on the beach."
+  },
+  {
+    "original": "The horse galoped across the feild.",
+    "corrected": "The horse galloped across the field."
+  },
+  {
+    "original": "Witch book are we sposed to reed?",
+    "corrected": "Which book are we supposed to read?"
+  },
+  {
+    "original": "The vaction was over to soon.",
+    "corrected": "The vacation was over too soon."
+  },
+  {
+    "original": "My favrit sport to wach is baskitball.",
+    "corrected": "My favorite sport to watch is basketball."
+  },
+  {
+    "original": "The lion is the king of the jungel.",
+    "corrected": "The lion is the king of the jungle."
+  },
+  {
+    "original": "Be quiet the baby is sleping.",
+    "corrected": "Be quiet, the baby is sleeping."
+  },
+  {
+    "original": "The teem won the champeonship game.",
+    "corrected": "The team won the championship game."
+  },
+  {
+    "original": "I forgot my lunch money on the tabul.",
+    "corrected": "I forgot my lunch money on the table."
+  },
+  {
+    "original": "We need to by groserys for the week.",
+    "corrected": "We need to buy groceries for the week."
+  },
+  {
+    "original": "The storm cawsed a power owtage.",
+    "corrected": "The storm caused a power outage."
+  },
+  {
+    "original": "The news paper is deliverd evry morning.",
+    "corrected": "The newspaper is delivered every morning."
+  },
+  {
+    "original": "I want to lern how to play gatar.",
+    "corrected": "I want to learn how to play guitar."
+  },
+  {
+    "original": "The rode is very slipery when wet.",
+    "corrected": "The road is very slippery when wet."
+  },
+  {
+    "original": "She has a beatifull singin voice.",
+    "corrected": "She has a beautiful singing voice."
+  },
+  {
+    "original": "The detektiv solvd the mistrey.",
+    "corrected": "The detective solved the mystery."
+  },
+  {
+    "original": "We are lerning about anshunt egipt.",
+    "corrected": "We are learning about ancient Egypt."
+  },
+  {
+    "original": "The climit is changing all over the erth.",
+    "corrected": "The climate is changing all over the Earth."
+  },
+  {
+    "original": "I cant wate for cristmas to come.",
+    "corrected": "I can't wait for Christmas to come."
+  },
+  {
+    "original": "The dog chaysed the squirl up the tree.",
+    "corrected": "The dog chased the squirrel up the tree."
+  },
+  {
+    "original": "My best frend moved to a nother city.",
+    "corrected": "My best friend moved to another city."
+  },
+  {
+    "original": "The cafateria food is not very tastie.",
+    "corrected": "The cafeteria food is not very tasty."
+  },
+  {
+    "original": "I saw a shoting star in the sky last nite.",
+    "corrected": "I saw a shooting star in the sky last night."
+  },
+  {
+    "original": "The bilding is very tall and moderin.",
+    "corrected": "The building is very tall and modern."
+  },
+  {
+    "original": "We had to rite an esay for english class.",
+    "corrected": "We had to write an essay for English class."
+  },
+  {
+    "original": "The bus driver drove past my stop.",
+    "corrected": "The bus driver drove past my stop."
+  },
+  {
+    "original": "I am afrade of hights.",
+    "corrected": "I am afraid of heights."
+  },
+  {
+    "original": "The gardner planted roses in the yurd.",
+    "corrected": "The gardener planted roses in the yard."
+  },
+  {
+    "original": "Please excus my bad hand riting.",
+    "corrected": "Please excuse my bad handwriting."
+  },
+  {
+    "original": "The water in the lake is frezing cold.",
+    "corrected": "The water in the lake is freezing cold."
+  },
+  {
+    "original": "I got a stumack ake from eating to mutch.",
+    "corrected": "I got a stomach ache from eating too much."
+  },
+  {
+    "original": "The rainbo has seven diffrent colers.",
+    "corrected": "The rainbow has seven different colors."
+  },
+  {
+    "original": "We are going to vilit my ant and unkle.",
+    "corrected": "We are going to visit my aunt and uncle."
+  },
+  {
+    "original": "The clock on the wall is brokin.",
+    "corrected": "The clock on the wall is broken."
+  },
+  {
+    "original": "My dad is a firfighter in the sity.",
+    "corrected": "My dad is a firefighter in the city."
+  },
+  {
+    "original": "I need help fixin my bicicle chain.",
+    "corrected": "I need help fixing my bicycle chain."
+  },
+  {
+    "original": "The muzeum has dinosor bones on display.",
+    "corrected": "The museum has dinosaur bones on display."
+  },
+  {
+    "original": "I wud rather stay home then go owt.",
+    "corrected": "I would rather stay home than go out."
+  },
+  {
+    "original": "The snake slitherd thru the grass.",
+    "corrected": "The snake slithered through the grass."
+  },
+  {
+    "original": "Tomorow is a holliday so no scool.",
+    "corrected": "Tomorrow is a holiday so no school."
+  },
+  {
+    "original": "The ballun floated up into the air.",
+    "corrected": "The balloon floated up into the air."
+  },
+  {
+    "original": "He is the fasest runer on the trak teem.",
+    "corrected": "He is the fastest runner on the track team."
+  },
+  {
+    "original": "My throte is sore and I cant swallow.",
+    "corrected": "My throat is sore and I can't swallow."
+  },
+  {
+    "original": "The valcano errupted smoke and ash.",
+    "corrected": "The volcano erupted smoke and ash."
+  },
+  {
+    "original": "I lost my glasess and cant see well.",
+    "corrected": "I lost my glasses and can't see well."
+  },
+  {
+    "original": "The wulves howled at the full moon.",
+    "corrected": "The wolves howled at the full moon."
+  },
+  {
+    "original": "We are studing geogaphy in scool now.",
+    "corrected": "We are studying geography in school now."
+  },
+  {
+    "original": "The airplan flew abuv the clowds.",
+    "corrected": "The airplane flew above the clouds."
+  }
+]

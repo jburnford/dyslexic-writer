@@ -15,11 +15,15 @@ We train 4 small models that can run on MacBook Air / Windows laptops:
 
 ## Training Data
 
-93,115 examples from:
+~99K unique examples (~192K with sentence context variants) from:
 - GitHub Typo Corpus (51K real typos)
 - Birkbeck corpus (36K from poor spellers)
 - Holbrook corpus (1.8K from schoolchildren)
 - Extra misspellings (4.2K various)
+- Synthetic data (6.1K Gemini 3 Pro generated):
+  - Kids/elementary writing patterns (3,968 sentences)
+  - Word pairs for K-3 vocabulary (2,149 pairs)
+  - Covers: homophones, contractions, dyslexia reversals, compound words, silent letters
 
 ## Quick Start on DARC Cluster
 
@@ -41,8 +45,8 @@ python prepare_finetune_data.py
 ```
 
 Creates:
-- `train.jsonl` - 90% of data (167K examples)
-- `eval.jsonl` - 10% of data (18K examples)
+- `train.jsonl` - 90% of data (~173K examples)
+- `eval.jsonl` - 10% of data (~19K examples)
 
 ### 2. Train Models
 
