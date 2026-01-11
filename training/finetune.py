@@ -83,7 +83,7 @@ def train_model(
         model_name,
         torch_dtype=torch.bfloat16,
         trust_remote_code=True,
-        attn_implementation="flash_attention_2",  # Use Flash Attention on H100
+        attn_implementation="sdpa",  # Use PyTorch native SDPA (includes Flash Attention)
     )
 
     # Prepare datasets
