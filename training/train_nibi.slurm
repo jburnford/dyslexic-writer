@@ -3,7 +3,7 @@
 #SBATCH --output=logs/spelling-%j.out
 #SBATCH --error=logs/spelling-%j.err
 #SBATCH --time=12:00:00
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:h100:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 
