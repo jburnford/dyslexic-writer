@@ -85,10 +85,12 @@ Located in `training-data/`:
 - [x] Logging for analysis
 - [x] Dark mode, font options
 
-### Phase 2: Fine-tuned Model (Next)
-- [ ] Fine-tune small model on spelling data (H100 training run)
-- [ ] Evaluate accuracy vs phi4-mini
-- [ ] Integrate fine-tuned model
+### Phase 2: Fine-tuned Model (In Progress)
+- [x] Fine-tune small models on spelling data (H100 training run)
+- [x] Evaluate accuracy - SmolLM2-1.7B achieves 97%
+- [ ] Integrate fine-tuned model into app
+
+See [TRAINING_PROGRESS.md](TRAINING_PROGRESS.md) for detailed results.
 
 ### Phase 3: Polish
 - [ ] Piper TTS (better voices than Web Speech API)

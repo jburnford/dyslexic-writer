@@ -68,7 +68,14 @@ python evaluate.py --all --output-dir ./outputs
 python evaluate.py --model-dir ./outputs/Qwen2.5-0.5B-Instruct
 ```
 
-## Expected Results
+## Test Results (January 2026)
+
+| Model | Accuracy | Notes |
+|-------|----------|-------|
+| **SmolLM2-1.7B** | **97.0%** | Best performer, production ready |
+| Qwen2.5-1.5B | 89.9% | Good but some hallucinations |
+| SmolLM2-360M | 89.9% | Too conservative (misses contractions) |
+| Qwen2.5-0.5B | 82.8% | Most hallucinations |
 
 Training time on H100 80GB (~4-6 hours total for all 4 models):
 - SmolLM2-360M: ~30 min
@@ -76,7 +83,7 @@ Training time on H100 80GB (~4-6 hours total for all 4 models):
 - Qwen2.5-1.5B: ~1.5 hours
 - SmolLM2-1.7B: ~1.5 hours
 
-Target accuracy: >90% on spelling correction task
+See [../TRAINING_PROGRESS.md](../TRAINING_PROGRESS.md) for detailed analysis.
 
 ## Output Files
 

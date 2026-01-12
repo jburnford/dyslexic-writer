@@ -143,7 +143,7 @@ def load_model(model_path: str):
     return model, tokenizer
 
 
-def generate_correction(model, tokenizer, text: str, max_new_tokens: int = 128) -> str:
+def generate_correction(model, tokenizer, text: str, max_new_tokens: int = 128, model_name: str = "") -> str:
     """Generate spelling correction for input text."""
     # Format as instruction
     if hasattr(tokenizer, 'apply_chat_template'):
@@ -151,7 +151,19 @@ def generate_correction(model, tokenizer, text: str, max_new_tokens: int = 128) 
             {"role": "system", "content": "You are a spelling correction assistant."},
             {"role": "user", "content": f"Fix the spelling mistakes in this sentence. Only output the corrected sentence.\n\n{text}"}
         ]
-        prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        # For Qwen3 models, disable thinking mode
+        is_qwen3 = "qwen3" in model_name.lower() or "Qwen3" in model_name
+        try:
+            if is_qwen3:
+                prompt = tokenizer.apply_chat_template(
+                    messages, tokenize=False, add_generation_prompt=True,
+                    enable_thinking=False  # Disable Qwen3 thinking mode
+                )
+            else:
+                prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        except TypeError:
+            # Fallback if enable_thinking not supported
+            prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     else:
         prompt = f"### Instruction:\nFix the spelling mistakes in this sentence. Only output the corrected sentence.\n\n### Input:\n{text}\n\n### Response:\n"
 
@@ -173,6 +185,16 @@ def generate_correction(model, tokenizer, text: str, max_new_tokens: int = 128) 
 
     # Clean up response - take first line/sentence
     response = response.strip()
+
+    # Handle Qwen3 thinking mode output (if still present)
+    if '<think>' in response:
+        # Extract content after </think> tag
+        if '</think>' in response:
+            response = response.split('</think>')[-1].strip()
+        else:
+            # Thinking tag not closed, try to find actual response
+            response = response.split('<think>')[0].strip()
+
     if '\n' in response:
         response = response.split('\n')[0]
 
@@ -206,7 +228,7 @@ def run_tests(model, tokenizer, model_name: str) -> dict:
     # 1. Pass-through tests
     print("\n1. Pass-through tests (correct text should stay unchanged):")
     for text in PASS_THROUGH_TESTS:
-        output = generate_correction(model, tokenizer, text)
+        output = generate_correction(model, tokenizer, text, model_name=model_name)
         sim = similarity(output, text)
         passed = sim > 0.95
 
@@ -230,7 +252,7 @@ def run_tests(model, tokenizer, model_name: str) -> dict:
     # 2. Known corrections
     print("\n2. Known corrections (should fix misspellings):")
     for input_text, expected in KNOWN_CORRECTIONS:
-        output = generate_correction(model, tokenizer, input_text)
+        output = generate_correction(model, tokenizer, input_text, model_name=model_name)
         sim = similarity(output, expected)
         passed = sim > 0.90
 
@@ -253,7 +275,7 @@ def run_tests(model, tokenizer, model_name: str) -> dict:
     # 3. Edge cases
     print("\n3. Edge cases (proper nouns, tech terms):")
     for input_text, expected in EDGE_CASES:
-        output = generate_correction(model, tokenizer, input_text)
+        output = generate_correction(model, tokenizer, input_text, model_name=model_name)
         sim = similarity(output, expected)
         passed = sim > 0.95
 
@@ -279,7 +301,7 @@ def run_tests(model, tokenizer, model_name: str) -> dict:
     print("\n4. Dyslexia reversals (b/d, p/q, letter swaps):")
     results["dyslexia"] = {"passed": 0, "failed": 0, "details": []}
     for input_text, expected in DYSLEXIA_REVERSALS:
-        output = generate_correction(model, tokenizer, input_text)
+        output = generate_correction(model, tokenizer, input_text, model_name=model_name)
         sim = similarity(output, expected)
         passed = sim > 0.90
 
@@ -303,7 +325,7 @@ def run_tests(model, tokenizer, model_name: str) -> dict:
     print("\n5. Word preservation (no words added/deleted):")
     test_texts = PASS_THROUGH_TESTS[:5] + [t[0] for t in KNOWN_CORRECTIONS[:5]]
     for text in test_texts:
-        output = generate_correction(model, tokenizer, text)
+        output = generate_correction(model, tokenizer, text, model_name=model_name)
         input_words = count_words(text)
         output_words = count_words(output)
         diff = abs(input_words - output_words)
