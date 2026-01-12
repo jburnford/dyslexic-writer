@@ -25,16 +25,94 @@ PASS_THROUGH_TESTS = [
 ]
 
 KNOWN_CORRECTIONS = [
+    # Basic typos
     ("I went to teh store.", "I went to the store."),
     ("She is my freind.", "She is my friend."),
     ("The wheather is nice.", "The weather is nice."),
     ("I recieved your message.", "I received your message."),
     ("This is definately correct.", "This is definitely correct."),
+
+    # Contractions - CRITICAL for dyslexic writers
     ("I dont know.", "I don't know."),
     ("Its a nice day.", "It's a nice day."),
+    ("Im going home.", "I'm going home."),
+    ("Shes my sister.", "She's my sister."),
+    ("Hes very tall.", "He's very tall."),
+    ("Were going out.", "We're going out."),
+    ("Theyre coming too.", "They're coming too."),
+    ("Youre welcome.", "You're welcome."),
+    ("Cant do that.", "Can't do that."),
+    ("Wont be long.", "Won't be long."),
+    ("Didnt see it.", "Didn't see it."),
+    ("Doesnt matter.", "Doesn't matter."),
+    ("Wouldnt help.", "Wouldn't help."),
+    ("Couldnt find it.", "Couldn't find it."),
+    ("Shouldnt go.", "Shouldn't go."),
+    ("Lets go now.", "Let's go now."),
+    ("Thats great.", "That's great."),
+    ("Whats up.", "What's up."),
+    ("Whos there.", "Who's there."),
+    ("Theres a cat.", "There's a cat."),
+    ("Heres your book.", "Here's your book."),
+
+    # Homophones - CRITICAL for dyslexic writers
     ("Your the best.", "You're the best."),
     ("I went their yesterday.", "I went there yesterday."),
+    ("There dog is big.", "Their dog is big."),
+    ("Its over they're.", "It's over there."),
+    ("I no the answer.", "I know the answer."),
+    ("He through the ball.", "He threw the ball."),
+    ("I want to by a car.", "I want to buy a car."),
+    ("The whether is cold.", "The weather is cold."),
+    ("I herd a noise.", "I heard a noise."),
+    ("She past the test.", "She passed the test."),
+    ("The plain landed.", "The plane landed."),
+    ("I need a brake.", "I need a break."),
+    ("The dear ran away.", "The deer ran away."),
+    ("I eight lunch.", "I ate lunch."),
+    ("The son is bright.", "The sun is bright."),
+    ("I red the book.", "I read the book."),
+    ("The knight was dark.", "The night was dark."),
+    ("I sea the ocean.", "I see the ocean."),
+    ("The flour is white.", "The flour is white."),  # This one is tricky - could be flower
+    ("He one the game.", "He won the game."),
+    ("The hole team came.", "The whole team came."),
+    ("I weight too much.", "I weigh too much."),
+    ("She has blond hare.", "She has blond hair."),
+    ("The pear of shoes.", "The pair of shoes."),
+
+    # Compound words / word boundaries
     ("alot of people came.", "a lot of people came."),
+    ("I need to goto the store.", "I need to go to the store."),
+    ("Thankyou for helping.", "Thank you for helping."),
+    ("I went infront of him.", "I went in front of him."),
+    ("Its apart of life.", "It's a part of life."),
+    ("Everyday I wake up.", "Every day I wake up."),  # When used as adverb
+    ("Infact its true.", "In fact it's true."),
+    ("Nevermind that.", "Never mind that."),
+    ("Noone came.", "No one came."),
+    ("Atleast try.", "At least try."),
+]
+
+DYSLEXIA_REVERSALS = [
+    # b/d confusion
+    ("The dag barked.", "The dog barked."),
+    ("I went to bed.", "I went to bed."),  # Correct - should pass through
+    ("The boor is open.", "The door is open."),
+    ("He has a big doard.", "He has a big board."),
+
+    # p/q confusion
+    ("She is puite tall.", "She is quite tall."),
+    ("I have a puestion.", "I have a question."),
+
+    # m/w confusion
+    ("The water is marm.", "The water is warm."),
+    ("I mant to go.", "I want to go."),
+
+    # Letter order reversals
+    ("Form vs from.", "From vs from."),  # form/from
+    ("I saw tow cats.", "I saw two cats."),
+    ("The gril ran fast.", "The girl ran fast."),
 ]
 
 EDGE_CASES = [
@@ -43,6 +121,10 @@ EDGE_CASES = [
     ("The API endpoint returns JSON.", "The API endpoint returns JSON."),
     ("Run pip install numpy.", "Run pip install numpy."),
     ("The CEO and CFO met today.", "The CEO and CFO met today."),
+    # More edge cases
+    ("My iPhone is broken.", "My iPhone is broken."),
+    ("I use macOS daily.", "I use macOS daily."),
+    ("The URL is https://example.com.", "The URL is https://example.com."),
 ]
 
 
@@ -193,8 +275,32 @@ def run_tests(model, tokenizer, model_name: str) -> dict:
         if not passed:
             print(f"       Got: {output[:40]}...")
 
-    # 4. Word preservation
-    print("\n4. Word preservation (no words added/deleted):")
+    # 4. Dyslexia reversals
+    print("\n4. Dyslexia reversals (b/d, p/q, letter swaps):")
+    results["dyslexia"] = {"passed": 0, "failed": 0, "details": []}
+    for input_text, expected in DYSLEXIA_REVERSALS:
+        output = generate_correction(model, tokenizer, input_text)
+        sim = similarity(output, expected)
+        passed = sim > 0.90
+
+        if passed:
+            results["dyslexia"]["passed"] += 1
+            status = "✓"
+        else:
+            results["dyslexia"]["failed"] += 1
+            status = "✗"
+
+        results["dyslexia"]["details"].append({
+            "input": input_text,
+            "expected": expected,
+            "output": output,
+            "similarity": sim,
+            "passed": passed
+        })
+        print(f"  {status} [{sim:.2f}] {input_text[:30]}... → {output[:30]}...")
+
+    # 5. Word preservation
+    print("\n5. Word preservation (no words added/deleted):")
     test_texts = PASS_THROUGH_TESTS[:5] + [t[0] for t in KNOWN_CORRECTIONS[:5]]
     for text in test_texts:
         output = generate_correction(model, tokenizer, text)
@@ -234,6 +340,7 @@ def run_tests(model, tokenizer, model_name: str) -> dict:
     print(f"  Pass-through: {results['pass_through']['passed']}/{results['pass_through']['passed']+results['pass_through']['failed']}")
     print(f"  Corrections:  {results['corrections']['passed']}/{results['corrections']['passed']+results['corrections']['failed']}")
     print(f"  Edge cases:   {results['edge_cases']['passed']}/{results['edge_cases']['passed']+results['edge_cases']['failed']}")
+    print(f"  Dyslexia:     {results['dyslexia']['passed']}/{results['dyslexia']['passed']+results['dyslexia']['failed']}")
     print(f"  Word preservation: {results['word_preservation']['passed']}/{results['word_preservation']['passed']+results['word_preservation']['failed']}")
 
     return results
