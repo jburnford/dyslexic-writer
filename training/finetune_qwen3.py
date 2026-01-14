@@ -165,6 +165,8 @@ def main():
     parser = argparse.ArgumentParser(description="Fine-tune Qwen3 spelling correction models")
     parser.add_argument("--model", type=str, help="Specific model to train (or 'all')")
     parser.add_argument("--output-dir", type=str, default="./outputs_qwen3", help="Output directory")
+    parser.add_argument("--train-file", type=str, default="train.jsonl", help="Training data file")
+    parser.add_argument("--eval-file", type=str, default="eval.jsonl", help="Eval data file")
     parser.add_argument("--epochs", type=int, default=3, help="Number of epochs")
     parser.add_argument("--batch-size", type=int, default=8, help="Batch size per device")
     parser.add_argument("--lr", type=float, default=2e-5, help="Learning rate")
@@ -176,8 +178,8 @@ def main():
 
     # Load training data
     print("Loading training data...")
-    train_data = load_jsonl(script_dir / "train.jsonl")
-    eval_data = load_jsonl(script_dir / "eval.jsonl")
+    train_data = load_jsonl(script_dir / args.train_file)
+    eval_data = load_jsonl(script_dir / args.eval_file)
     print(f"Loaded {len(train_data)} train, {len(eval_data)} eval examples")
 
     # Determine which models to train

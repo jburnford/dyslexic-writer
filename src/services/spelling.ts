@@ -9,32 +9,9 @@
 import { findPhoneticMatches, isLikelyMisspelled } from './phonetic'
 
 const OLLAMA_URL = 'http://localhost:11434/api/generate'
-const MODEL = 'phi4-mini'
+const MODEL = 'dyslexic-speller'
 
-const SYSTEM_PROMPT = `Fix spelling mistakes for a dyslexic child.
-
-FIND AND FIX:
-- Phonetic spellings: enuff->enough, fone->phone, becuase->because
-- Missing letters: gameing->gaming, settup->setup, helllo->hello
-- Missing apostrophes: Im->I'm, dont->don't, cant->can't
-- Letter swaps: teh->the, freind->friend
-
-RULES:
-- ONLY output words that need fixing
-- Keep original case (lowercase stays lowercase)
-- Never add "(no change needed)" or explanations
-- Never fix capitalization or grammar
-
-FORMAT (exactly like this):
-CHANGES: wrong1->right1, wrong2->right2
-
-If nothing to fix:
-CHANGES: none
-
-EXAMPLES:
-"i have enuff fud" -> CHANGES: enuff->enough, fud->food
-"gameing settup becuase" -> CHANGES: gameing->gaming, settup->setup, becuase->because
-"hello world" -> CHANGES: none`
+const SYSTEM_PROMPT = `You are a spelling correction assistant.`
 
 // Valid words that should never be "corrected"
 const VALID_WORDS = new Set([
@@ -231,13 +208,12 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: MODEL,
-        prompt: `Fix spelling: "${sentence}"`,
+        prompt: `Fix the spelling mistakes in this sentence. Only output the corrected sentence.\n\n${sentence}`,
         system: SYSTEM_PROMPT,
         stream: false,
         options: {
           temperature: 0.1,
           num_predict: 150,
-          num_gpu: 20,
         },
       }),
     })
@@ -248,12 +224,12 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
     }
 
     const data = await response.json()
-    const result = data.response || ''
+    const correctedSentence = (data.response || '').trim()
 
-    // Parse the response
-    const changes = parseResponse(result)
+    // Compare input and output to find corrections
+    const changes = findDifferences(sentence, correctedSentence)
 
-    // Find positions and build corrections
+    // Build corrections with positions
     for (const [original, corrected] of changes) {
       const pos = sentence.toLowerCase().indexOf(original.toLowerCase())
       if (pos !== -1) {
@@ -263,7 +239,7 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
       }
     }
 
-    return { corrections, response: result }
+    return { corrections, response: correctedSentence }
   } catch (error) {
     console.error('Spelling check failed:', error)
     return { corrections: [], response: String(error) }
@@ -271,54 +247,121 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
 }
 
 /**
- * Parse LLM response into corrections
+ * Find word-level differences between original and corrected sentences
+ * Uses fuzzy matching to handle slight position shifts
  */
-function parseResponse(response: string): [string, string][] {
+function findDifferences(original: string, corrected: string): [string, string][] {
   const changes: [string, string][] = []
 
-  // Only look at first line containing CHANGES
-  const lines = response.split('\n')
-  let changesLine = ''
-  for (const line of lines) {
-    if (line.toUpperCase().includes('CHANGES:')) {
-      changesLine = line
-      break
-    }
+  // Clean up model output - strip common prefixes
+  let cleanCorrected = corrected
+    .replace(/^(here'?s?\s+(the\s+)?corrected\s+(sentence|text)[:\s]*)/i, '')
+    .replace(/^(corrected[:\s]*)/i, '')
+    .trim()
+
+  // Split into words
+  const originalWords = original.split(/\s+/)
+  const correctedWords = cleanCorrected.split(/\s+/)
+
+  // If word counts differ too much, model may have hallucinated
+  if (Math.abs(originalWords.length - correctedWords.length) > 3) {
+    console.warn('[LLM] Word count mismatch, skipping corrections')
+    return changes
   }
 
-  const match = changesLine.match(/CHANGES:\s*(.+)/i)
-  if (!match) return changes
+  // For each original word, find its best match in corrected sentence
+  for (let i = 0; i < originalWords.length; i++) {
+    const origWord = originalWords[i]
+    const origClean = origWord.replace(/^[^\w']+|[^\w']+$/g, '').toLowerCase()
 
-  const changesStr = match[1].trim()
-  if (changesStr.toLowerCase() === 'none') return changes
+    if (!origClean || origClean.length < 2) continue
+    if (VALID_WORDS.has(origClean)) continue
 
-  // Parse "word1->correction1, word2->correction2"
-  for (const change of changesStr.split(',')) {
-    if (change.includes('->')) {
-      const parts = change.trim().split('->')
-      if (parts.length === 2) {
-        let original = parts[0].trim()
-        let corrected = parts[1].trim()
+    // Look for the corresponding word in corrected (allow position drift of ±2)
+    const searchStart = Math.max(0, i - 2)
+    const searchEnd = Math.min(correctedWords.length, i + 3)
 
-        // Remove any parenthetical notes like "(no change needed)"
-        corrected = corrected.replace(/\s*\(.*\).*$/, '').trim()
+    let bestMatch: string | null = null
+    let bestScore = 0
 
-        // Strip punctuation from edges
-        original = original.replace(/^[^\w']+|[^\w']+$/g, '')
-        corrected = corrected.replace(/^[^\w']+|[^\w']+$/g, '')
+    for (let j = searchStart; j < searchEnd; j++) {
+      const corrWord = correctedWords[j]
+      const corrClean = corrWord.replace(/^[^\w']+|[^\w']+$/g, '').toLowerCase()
 
-        // Skip invalid corrections
-        if (!original || !corrected) continue
-        if (original.toLowerCase() === corrected.toLowerCase()) continue
-        if (original.includes(' ')) continue // Skip multi-word "corrections"
-        if (VALID_WORDS.has(original.toLowerCase())) continue
+      if (!corrClean) continue
 
-        changes.push([original, corrected])
+      // Calculate similarity score
+      const similarity = stringSimilarity(origClean, corrClean)
+
+      // Prefer words at same position, but accept similar words nearby
+      const positionBonus = (i === j) ? 0.1 : 0
+      const score = similarity + positionBonus
+
+      if (score > bestScore && similarity > 0.3) {
+        bestScore = score
+        bestMatch = corrClean
+      }
+    }
+
+    // If we found a match that's different from original, it's a correction
+    if (bestMatch && bestMatch !== origClean) {
+      // Extract word including common punctuation mistakes (comma for apostrophe)
+      const origText = origWord.match(/[a-zA-Z',]+/)
+      if (origText) {
+        // Preserve original case pattern in correction
+        const corrText = matchCase(origText[0], bestMatch)
+        changes.push([origText[0], corrText])
       }
     }
   }
 
   return changes
+}
+
+/**
+ * Calculate string similarity (0-1) using Levenshtein-based metric
+ */
+function stringSimilarity(a: string, b: string): number {
+  if (a === b) return 1
+  if (!a || !b) return 0
+
+  const maxLen = Math.max(a.length, b.length)
+  if (maxLen === 0) return 1
+
+  // Simple Levenshtein distance
+  const matrix: number[][] = []
+  for (let i = 0; i <= a.length; i++) {
+    matrix[i] = [i]
+  }
+  for (let j = 0; j <= b.length; j++) {
+    matrix[0][j] = j
+  }
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1
+      matrix[i][j] = Math.min(
+        matrix[i - 1][j] + 1,
+        matrix[i][j - 1] + 1,
+        matrix[i - 1][j - 1] + cost
+      )
+    }
+  }
+
+  const distance = matrix[a.length][b.length]
+  return 1 - distance / maxLen
+}
+
+/**
+ * Match the case pattern of the original word
+ */
+function matchCase(original: string, corrected: string): string {
+  if (original === original.toUpperCase()) {
+    return corrected.toUpperCase()
+  }
+  if (original[0] === original[0].toUpperCase()) {
+    return corrected.charAt(0).toUpperCase() + corrected.slice(1)
+  }
+  return corrected
 }
 
 /**
