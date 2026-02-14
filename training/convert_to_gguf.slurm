@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name=convert-gguf
-#SBATCH --output=logs/convert-gguf-%j.out
-#SBATCH --error=logs/convert-gguf-%j.err
-#SBATCH --time=04:00:00
+#SBATCH --output=/scratch/jic823/dyslexic-writer/logs/convert-gguf-%j.out
+#SBATCH --error=/scratch/jic823/dyslexic-writer/logs/convert-gguf-%j.err
+#SBATCH --time=01:00:00
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=128G
+#SBATCH --mem=64G
 
 # No GPU needed for conversion - CPU only
 
@@ -13,7 +13,7 @@ echo "Converting models to GGUF format"
 echo "Job started: $(date)"
 echo "=========================================="
 
-mkdir -p logs
+mkdir -p /scratch/jic823/dyslexic-writer/logs
 
 cd ~/projects/def-jic823
 
@@ -26,7 +26,7 @@ fi
 cd llama.cpp
 
 # Load modules
-module load python/3.11
+module load python/3.11 cmake gcc/12.3
 
 # Create venv for conversion
 VENV_DIR=$SLURM_TMPDIR/venv
@@ -41,22 +41,18 @@ pip install gguf  # May need internet for this one
 pip install gguf 2>/dev/null || pip install --user gguf
 
 # Output directory for GGUF files
-GGUF_DIR=~/projects/def-jic823/dyslexic-writer/training/gguf_models
+GGUF_DIR=/scratch/jic823/dyslexic-writer/gguf_models
 mkdir -p $GGUF_DIR
 
-# Models to convert (top 3 + Qwen3-0.6B for low-resource testing)
+# Models to convert - v2 best + v3 7B
 MODELS=(
-    "outputs_qwen3/Qwen3-0.6B"
-    "outputs_qwen3/Qwen3-4B"
-    "outputs_qwen3/Qwen3-8B"
-    "outputs/SmolLM2-1.7B-Instruct"
+    "v2-SmolLM2-1.7B|/scratch/jic823/dyslexic-writer/outputs_v2/SmolLM2-1.7B-Instruct"
+    "v3-Qwen2.5-7B|/scratch/jic823/dyslexic-writer/outputs_v3/Qwen2.5-7B-Instruct"
 )
 
-MODEL_BASE=~/projects/def-jic823/dyslexic-writer/training
-
-for model_path in "${MODELS[@]}"; do
-    model_name=$(basename $model_path)
-    full_path="$MODEL_BASE/$model_path"
+for entry in "${MODELS[@]}"; do
+    model_name="${entry%%|*}"
+    full_path="${entry##*|}"
 
     echo ""
     echo "============================================"
