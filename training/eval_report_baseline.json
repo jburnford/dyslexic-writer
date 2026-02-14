@@ -1,0 +1,147 @@
+{
+  "exact_match_rate": 0.0,
+  "word_accuracy": 0.7184,
+  "false_positive_rate": 0.0,
+  "false_negative_rate": 1.0,
+  "hallucination_rate": 0.0,
+  "total_errors": 26,
+  "total_corrections": 0,
+  "total_words": 103,
+  "category_accuracy": {
+    "phonological": 0.0,
+    "morphological": 0.0,
+    "orthographic": 0.0
+  },
+  "sentences": [
+    {
+      "input": "Bob was a Bowring guy, he never went to a party he didn't need to for work.",
+      "target": "Bob was a boring guy, he never went to a party he didn't need to for work.",
+      "predicted": "Bob was a Bowring guy, he never went to a party he didn't need to for work.",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 1,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "he walked out on to his belkany to get some fresh air",
+      "target": "he walked out on to his balcony to get some fresh air",
+      "predicted": "he walked out on to his belkany to get some fresh air",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 1,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "he hate going outside",
+      "target": "he hated going outside",
+      "predicted": "he hate going outside",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 1,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "he skremed at the hights",
+      "target": "he screamed at the heights",
+      "predicted": "he skremed at the hights",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 2,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "the ailens falled from the selen",
+      "target": "the aliens fell from the ceiling",
+      "predicted": "the ailens falled from the selen",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 3,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "he fented and the he got up agan",
+      "target": "he fainted and then he got up again",
+      "predicted": "he fented and the he got up agan",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 3,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "he hered skreming from the hights",
+      "target": "he heard screaming from the heights",
+      "predicted": "he hered skreming from the hights",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 3,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "he see a man fall from a bailden",
+      "target": "he saw a man fell from a building",
+      "predicted": "he see a man fall from a bailden",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 3,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "the bird flaw fast and gab him",
+      "target": "the bird flew fast and grabbed him",
+      "predicted": "the bird flaw fast and gab him",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 2,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "he drope him on the roof and he was safe",
+      "target": "he dropped him on the roof and he was safe",
+      "predicted": "he drope him on the roof and he was safe",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 1,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "thats how Bob fall from the hights",
+      "target": "that's how Bob fell from the heights",
+      "predicted": "thats how Bob fall from the hights",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 3,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "he tried bugy-juming from the belkany",
+      "target": "he tried bungee jumping from the balcony",
+      "predicted": "he tried bugy-juming from the belkany",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 2,
+      "false_positives": 0,
+      "hallucinations": 0
+    },
+    {
+      "input": "Mow he is broken but safe",
+      "target": "Now he is broken but safe",
+      "predicted": "Mow he is broken but safe",
+      "exact_match": false,
+      "errors_fixed": 0,
+      "errors_expected": 1,
+      "false_positives": 0,
+      "hallucinations": 0
+    }
+  ]
+}

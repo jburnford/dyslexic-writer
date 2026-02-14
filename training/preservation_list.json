@@ -1,0 +1,59 @@
+{
+  "_comment": "Words that should NEVER be corrupted by the error injection engine",
+
+  "dolch_sight_words": [
+    "a", "all", "am", "an", "and", "are", "at", "ate", "away",
+    "be", "big", "black", "blue", "brown", "but", "by",
+    "call", "came", "can", "come", "could",
+    "day", "did", "do", "does", "done", "down",
+    "eat", "every",
+    "far", "find", "first", "fly", "for", "from", "funny",
+    "gave", "get", "give", "go", "going", "good", "got",
+    "had", "has", "have", "he", "help", "her", "here", "him", "his", "hold", "hot", "how",
+    "I", "if", "in", "into", "is", "it", "its",
+    "jump", "just",
+    "keep", "kind", "know",
+    "let", "like", "little", "live", "long", "look",
+    "made", "make", "many", "may", "me", "much", "must", "my",
+    "never", "new", "no", "not", "now",
+    "of", "off", "old", "on", "once", "one", "only", "open", "or", "our", "out", "over", "own",
+    "pick", "play", "please", "pretty", "pull", "put",
+    "ran", "read", "red", "ride", "right", "round", "run",
+    "said", "saw", "say", "see", "shall", "she", "show", "sit", "six", "sleep", "small", "so", "some", "soon", "start", "stop",
+    "take", "tell", "ten", "thank", "that", "the", "their", "them", "then", "there", "these", "they", "think", "this", "those", "three", "to", "today", "together", "too", "try", "two",
+    "under", "up", "upon", "us", "use",
+    "very",
+    "walk", "want", "was", "wash", "we", "well", "went", "were", "what", "when", "where", "which", "white", "who", "why", "will", "wish", "with", "work", "would",
+    "yes", "you", "your"
+  ],
+
+  "common_proper_nouns": [
+    "Mom", "Dad", "Grandma", "Grandpa", "Nana", "Papa",
+    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",
+    "Christmas", "Halloween", "Easter", "Thanksgiving",
+    "America", "Canada", "England", "Australia",
+    "Mr", "Mrs", "Ms", "Dr"
+  ],
+
+  "game_and_media_names": [
+    "Minecraft", "Roblox", "Fortnite", "Pokemon", "Pikachu", "Mario",
+    "Luigi", "Zelda", "Enderman", "Creeper", "Steve", "Sonic",
+    "Spider-Man", "Batman", "Superman", "Avengers",
+    "YouTube", "iPad", "Xbox", "PlayStation", "Nintendo"
+  ],
+
+  "numbers_and_symbols": [
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+    "100", "1000"
+  ],
+
+  "bob_story_correct_words": [
+    "guy", "went", "party", "work", "morning", "walked", "apartment",
+    "fresh", "air", "got", "friend", "joked", "bird", "boy", "called",
+    "start", "flying", "stared", "floating", "feet", "help", "ground",
+    "yelled", "fast", "broke", "fell", "float", "say", "foot", "stop",
+    "word", "ran", "man", "falling", "across", "street", "spikes",
+    "roof", "tried", "safe", "broken"
+  ]
+}

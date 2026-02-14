@@ -1,0 +1,197 @@
+[
+  {
+    "id": "story_00000",
+    "text": "I was playing my favorite video game last night. It is about pirates and treasure and fighting monsters. I swam through a dark cave to find gold. My character fought a giant crab with a sword. It was really hard but I didn't give up.\n\n\"Look out behind you!\" my brother yelled at me.\n\n\"I see him, don't worry,\" I said back quickly.\n\nI checked my compass to get my bearing right. The needle pointed north to the secret island meeting spot. A storm brewed in the sky and it grew dark. I had to search for the key in the sand. Finally I found the chest and opened it up. I won the level and got a million points!",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "swam",
+      "bearing",
+      "fought",
+      "needle",
+      "meeting",
+      "grew",
+      "search",
+      "brewed"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00001",
+    "text": "My friend Tommy and I went exploring in the woods. We were looking for a secret hidden base. We reached a big fence and started climbing over it. Suddenly we heard a loud ringing noise like an alarm.\n\n\"Run away fast!\" I screamed at Tommy.\n\nWe ran but kept bumping into big trees. It felt like we were in a foreign land. We saw a strange light floating in the air. It was scary so we hid behind a bush.\n\n\"Do you have the scissors to cut the wires?\" Tommy whispered.\n\nI shook my head no. We were simply stuck there. Then we heard a soft baa like a baby lamb. It was just a little goat eating grass! We were not loading our Nerf guns anymore. We were safe and walked home.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "bumping",
+      "screaming",
+      "league",
+      "reached",
+      "foreign",
+      "screamed",
+      "climbing",
+      "ringing",
+      "scissors",
+      "loading",
+      "simply",
+      "lamb",
+      "floating"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00002",
+    "text": "My dog Buster is not very smart. He has a tiny brain. Yesterday, we went exploring in the woods for an hour. The trees surrounding us were super tall and scary. Buster saw a squirrel and he ran very fast. He crashed right into a big bush!\n\n\"Oh no, Buster, you look silly,\" I grinned.\n\nBuster barked and shook the leaves off his fur. He tried to wrap his leash around my legs. It was a total failure. Then he saw a butterfly and chased it. He thinks he can reign over the whole forest.\n\n\"Come here or you are getting a grounding!\" I grumbled.\n\nHe didn't listen to me either. He just wagged his tail. We walked home and he was tired. I love my silly dog.",
+    "genre": "animals_nature",
+    "vocab_targets": [
+      "brain",
+      "wrap",
+      "hour",
+      "surrounding",
+      "failure",
+      "grounding",
+      "reign",
+      "crashed",
+      "grinned",
+      "grumbled",
+      "either"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00003",
+    "text": "One day a giant green beetle landed in my yard. It was as big as my dad's car on the ground. I feared it would eat me immediately! But then the beetle opened a little door. A tiny purple alien walked out and he looked sad.\n\n\"I cannot fix my ship,\" he grumbled loudly.\n\n\"I can help you,\" I said to the alien.\n\nI used my superpower to lift the heavy beetle ship. I flew it up to the top of a mountain. The alien fixed the engine and gave me a space coin. I was earning money for saving the day!\n\n\"Do you understand how to fly it?\" I asked him.\n\nThe alien did a giant sneeze and zoomed away fast. It was enough excitement for one day.",
+    "genre": "fantasy_scifi",
+    "vocab_targets": [
+      "earning",
+      "ground",
+      "feared",
+      "immediately",
+      "beetle",
+      "understand",
+      "enough",
+      "mountain",
+      "sneeze",
+      "grumbled"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00004",
+    "text": "I went to my friend Sarah\u2019s house for a sleepover. It was my birthday and I was so excited! We played in the backyard for a long time. Sarah is really good at climbing trees but I am not. I tried to climb the big oak tree but it felt impossible.\n\n\"Come on, you are stronger than you look!\" Sarah yelled.\n\n\"I don't think I can do it either,\" I said back.\n\nMy neighbor Mr. Jones was watching us from his beautiful garden. He waved and threw a ball for his dog. Suddenly it started raining very hard. We ran inside because my mom said I could get pneumonia. We pushed the couch and made a big fort with blankets. We ate enough pizza for ten people. It was the best birthday that ever happened.",
+    "genre": "family_friends",
+    "vocab_targets": [
+      "either",
+      "nephew",
+      "climbing",
+      "beautiful",
+      "pneumonia",
+      "enough",
+      "neighbor",
+      "happened",
+      "stronger",
+      "threw",
+      "impossible",
+      "pushed"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00005",
+    "text": "Yesterday was the best day at school ever. I usually complain about math class, but Mrs. Lee made it fun. We were earning stars for finishing our homework early. I reached five stars first! Then it was lunchtime and I was so hungry. I opened my lunchbox and saw a plain sandwich. Unfortunately, my mom forgot the cheese, but the bread was toasted nicely.\n\nAt recess, we all ran to the big playground. I love climbing on the monkey bars especially. My friend Sam moved really fast and crossed the whole thing.\n\n\"Look at me, I'm like a bungee jumper!\" Sam yelled.\n\nWe played tag until the bell rang.\n\n\"I understood the math homework today,\" I told Sam.\n\nMy coaching paid off because my brain grew smarter. I didn't even have to search for the answers. It was a super good day.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "toasted",
+      "bungee",
+      "moved",
+      "search",
+      "earning",
+      "especially",
+      "plain",
+      "unfortunately",
+      "coaching",
+      "climbing",
+      "complain",
+      "understood",
+      "crossed",
+      "grew",
+      "reached"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00006",
+    "text": "I was playing Mario Kart with my big brother. He is really good at steering the little cars. I feared the Rainbow Road track because I always fall off. I heard him laughing when I crashed into a banana.\n\n\"You are going the wrong way!\" he yelled at me.\n\nI tried hard but kept seeing his car go faster. My dad started coaching me from the couch.\n\n\"Turn left now, buddy!\" my dad said loudly.\n\nI finally passed my brother for a certain win. He started to complain, but I crossed the finish line first. That was the reason I love that game so much. I feared I would lose, but I actually won!",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "feared",
+      "feared",
+      "heard",
+      "seeing",
+      "coaching",
+      "steering",
+      "reason",
+      "complain",
+      "certain"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00007",
+    "text": "My neighbor told me about a hidden treasure map. He said it was fourteen years old and hidden nearby. We decided to search for it in the old woods. I feared the dark trees but I jumped over a log. We walked through some tall grass and reached a cave.\n\n\"Do not sneeze or you might wake the bear!\" I whispered.\n\nMy friend nodded and we went inside the dark cave. We treated the cave like a secret castle. Suddenly we saw a shiny box but a rock crushed it. We often look for treasure but we never receive any gold.\n\n\"I will write a new map for us,\" my friend said.\n\nWe ran home fast without speaking because we were scared.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "neighbor",
+      "write",
+      "receive",
+      "fourteen",
+      "treated",
+      "search",
+      "often",
+      "jumped",
+      "crushed",
+      "speaking",
+      "reached",
+      "feared",
+      "sneeze",
+      "through"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00008",
+    "text": "I started playing my new video game on Saturday. It was a boating game about racing fast boats. My little nephew sat next to me and watched. The screen showed a bar that said loading. Then the game opened and I grasped the controller hard. I saw the finish line and went super fast!\n\n\"You are going to crash!\" my nephew yelled loudly.\n\n\"No way, I play this often,\" I told him.\n\nI was growing tired but I did not stop. I simply wanted to win the big gold cup. I sent my boat over a huge jump. It flew high like a plane. I managed to complete the race in first place! I ran to the bathroom to get a comb. I fixed my hair because I felt like a winner.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "started",
+      "sent",
+      "opened",
+      "saw",
+      "comb",
+      "complete",
+      "loading",
+      "nephew",
+      "often",
+      "growing",
+      "simply",
+      "grasped",
+      "boating"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00009",
+    "text": "Me and my friend Sam played a new video game. It was about space aliens on a foreign planet. The aliens looked weird and they crawled on the ground. I tried to jump over a rock, but I pressed the wrong button. My character twisted his ankle and fell down.\n\n\"Oh no, you landed in the slime!\" Sam yelled.\n\nI did not understand how to win this level. The alien king began his reign over the galaxy. Then my mom walked in and turned off the TV.\n\n\"You have school tomorrow,\" she said. \"Go to bed.\"\n\nI was sad but I know I will beat Sam next time.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "foreign",
+      "wrong",
+      "reign",
+      "weird",
+      "landed",
+      "understand",
+      "twisted",
+      "walked",
+      "tomorrow",
+      "crawled"
+    ],
+    "type": "clean_for_injection"
+  }
+]

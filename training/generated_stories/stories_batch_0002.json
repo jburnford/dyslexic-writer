@@ -1,0 +1,952 @@
+[
+  {
+    "id": "story_00100",
+    "text": "One day my friends and I went to the old castle. It was dark and cold inside the stone walls. We wanted to find the king\u2019s lost treasure. Tim looked up at the high ceiling and saw bats. Suddenly a big green monster appeared in the doorway! It screeched very loud and started tearing at the door.\n\n\"Run away fast!\" yelled Sarah as she grabbed my arm.\n\nWe ran down the hall and escaped through a window. The monster could not catch us. We were safe outside in the bright sun.\n\n\"That was the greatest adventure ever,\" I said.\n\nTim grinned at me and we walked home. The monster can keep his reign over the dark castle.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "grinned",
+      "ceiling",
+      "reign",
+      "escaped",
+      "greatest",
+      "tearing",
+      "screeched",
+      "appeared"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00101",
+    "text": "I really wanted to win the big soccer game today. My dad paid for extra coaching so I could get better. I put on my cleats and felt like I was floating. The game started and I ran very fast down the field. I saw the ball and I thought about kicking it hard.\n\n\"Pass it to me!\" yelled my friend Sam.\n\nI did not pass it and neither did the other team. The ball felt heavy like a big weight. I kicked it but the goalie found it and grabbed it. It was sad but I remember what my dad said.\n\n\"Having fun is the most important thing,\" he told me.\n\nSo I smiled and ran back to play some more.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "thought",
+      "neither",
+      "weight",
+      "remember",
+      "paid",
+      "coaching",
+      "floating",
+      "found",
+      "important"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00102",
+    "text": "I had a huge mountain of homework to do. My teacher said it should be a breeze, but she was wrong. I kept trying to fix my math, but I realized I made a mistake.\n\n\"This is taking too long!\" I yelled at my paper.\n\nMy mom came in holding her old guitar. She saw my face and sat down.\n\n\"Did you see the beetle roaming outside?\" she asked.\n\nI jumped up and ran to the window. A big black bug was loading a piece of leaf on its back. It was a good sign. If he could do hard work, I could too.\n\nI sat back down and my heart sank a little, but I picked up my pencil. I had enough energy to remain in my chair and finish.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "enough",
+      "breeze",
+      "mountain",
+      "loading",
+      "sign",
+      "kept",
+      "guitar",
+      "beetle",
+      "jumped",
+      "wrong",
+      "sank",
+      "realized",
+      "remain",
+      "roaming"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00103",
+    "text": "My friend Sam and I were playing a new video game. It was about aliens roaming in space. We knew we had to win or the aliens would spread everywhere. Suddenly my screen froze and it was freezing in the game too.\n\n\"Oh no! My character is trapped in the ice!\" I yelled.\n\nSam treated me to a power-up potion and I grew bigger. We followed the alien boss into a dark science lab.\n\n\"Watch out for the sleeping guards,\" Sam whispered loudly.\n\nI remembered the secret code and we unlocked the big door. The surrounding walls started shaking and groaning like a monster. We ran out fast, leaving the bad guys behind. We high-fived because we saved the whole galaxy. Then my neighbor knocked on the door to play soccer outside.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "remembered",
+      "roaming",
+      "knew",
+      "grew",
+      "sleeping",
+      "followed",
+      "trapped",
+      "science",
+      "surrounding",
+      "spread",
+      "freezing",
+      "treated",
+      "groaning",
+      "leaving",
+      "neighbor"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00104",
+    "text": "Yesterday at recess we played a fun game. Tim chose to be the knight. I was the guard leading everyone to the big slide. The slide was actually a hidden castle.\n\n\"Halt right there!\" I yelled at Tim. He stopped and looked at the scenery.\n\n\"I am here for the lost jewel,\" Tim said back.\n\nThen the wind blew really hard and my hat flew off. I ran after it but I tripped and fell. My heart sank because everyone laughed. But then Tim helped me up. We found a shiny rock in the sand.\n\n\"Look, it is the treasure!\" he screeched.\n\nWe put the rock in our pocket and ran inside. It was the best recess ever.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "knight",
+      "screeched",
+      "scenery",
+      "blew",
+      "chose",
+      "leading",
+      "jewel",
+      "sank",
+      "treasure",
+      "guard"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00105",
+    "text": "Me and my friend Sam went exploring in the woods. We found a weird cave behind some bushes. It was dark but we walked through it. Suddenly a big rock fell down with a loud groaning sound!\n\n\"Run!\" I shouted and I grabbed Sam\u2019s arm.\n\nWe ran fast but then a monster appeared. It looked scary and had green skin. It blocked the way to a magic fountain. We threw stones at it but they did not help. The monster was huge and had a lot of weight.\n\n\"We have to remain brave,\" Sam whispered to me.\n\nI found a torch on the wall. The fire roasted the monster\u2019s tail and it ran away. We were safe! We didn't learn much but we toasted marshmallows later to celebrate. It was the best adventure ever.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "grabbed",
+      "remain",
+      "learn",
+      "through",
+      "toasted",
+      "appeared",
+      "roasted",
+      "weight",
+      "groaning",
+      "fountain",
+      "weird"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00106",
+    "text": "It was raining very hard outside my house. My friend Max stood by the window and looked sad.\n\n\"I am afraid of the storm,\" Max said quietly.\n\n\"Don't worry, we can have an adventure inside,\" I told him.\n\nWe pretended the floor was a big blue ocean. We swam across the rug to get to the kitchen. Then we brewed a magic potion with orange juice and milk. It tasted funny but we drank it all. Suddenly, a monster appeared! It was just my dog, Buster. He grumbled at us because he wanted a treat. Max grasped my hand tight. We drew a map to find the hidden treasure box. Inside was a beautiful shiny rock I found at the park. We played until we got tired. Nobody had to go to the hospital today. It was the best quest ever.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "swam",
+      "grumbled",
+      "raining",
+      "afraid",
+      "beautiful",
+      "hospital",
+      "drew",
+      "grasped",
+      "brewed",
+      "stood"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00107",
+    "text": "Recess is usually my favorite part of the day. But today it was a big adventure. I was swinging on the chain swing and feeling very happy. It was a pleasant day and the sun was hot. Then I felt a giant sneeze coming.\n\n\"Ah-choo!\" I screeched really loud.\n\nMy sandwich flew out of my hand and scattered everywhere. The bread went near the water fountain. The cheese landed on my shoe. I was sad about the meaning of this mess. It meant no lunch for me!\n\n\"Do you want half of my cookie?\" my friend Leo asked.\n\nI smiled and took the cookie. It was the best cookie ever.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "adventure",
+      "meaning",
+      "feeling",
+      "screeched",
+      "fountain",
+      "scattered",
+      "chain",
+      "pleasant",
+      "sneeze"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00108",
+    "text": "My friends and I went into the woods for a meeting. We had a really important mission to find the lost treasure. Sam brought scissors to cut the vines and I brought rope. We walked for a long time and my backpack had too much weight.\n\nSuddenly we heard a loud screaming noise behind a big tree. It was a giant squirrel guarding a shiny box!\n\n\"I guarantee that squirrel wants to eat us for protein!\" yelled Sam.\n\nI was scared but I grabbed a pine needle like a sword. The squirrel looked at us and then ran away fast. We opened the box and found gold coins inside. We were the best company of explorers ever.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "needle",
+      "guarantee",
+      "scissors",
+      "weight",
+      "screaming",
+      "important",
+      "meeting",
+      "protein",
+      "company"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00109",
+    "text": "One day I was walking in the woods. I saw a huge metal beetle on the ground. It was shiny like a green jewel. I picked it up but it got hot. Suddenly, the beetle stood up on tiny legs!\n\n\"Put me down right now!\" the beetle yelled.\n\nI was so scared I dropped it. It grew bigger and bigger. It was incredible and scary. It grew fourteen feet tall.\n\n\"I am a robot king,\" it said with a speaking voice.\n\nI knew I had to be brave. I kept my legs steady. We fought with laser beams from my eyes. I have superpowers too! I won and he turned back into a toy. I put him in my pocket.",
+    "genre": "fantasy_scifi",
+    "vocab_targets": [
+      "suddenly",
+      "ground",
+      "fourteen",
+      "steady",
+      "beetle",
+      "fought",
+      "jewel",
+      "incredible",
+      "speaking",
+      "stood",
+      "knew",
+      "growing"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00110",
+    "text": "I was playing my favorite video game about racing cars. I moved my blue car super fast around the track. I had to watch the speed needle go way up. My friend Sam was playing too and he was winning.\n\n\"You can't beat me today!\" Sam yelled at me.\n\nI remembered a secret shortcut I saw on YouTube yesterday. I drove off the road and jumped over a hill. Suddenly I was in first place and earning lots of points. I had fourteen big coins and Sam had zero.\n\n\"Wait, what is the meaning of this?\" Sam asked loudly.\n\nIt was a total pleasure to see him so surprised. Then I heard the finish line music play for me. I won the race and it was awesome.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "moved",
+      "fourteen",
+      "needle",
+      "earning",
+      "remembered",
+      "pleasure",
+      "heard",
+      "meaning"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00111",
+    "text": "We woke up early because we had a big plan. My brother Tim and I walked to the old cave. We heard a loud noise inside and I felt scared. Tim said, \"Maybe it is a ghost or a monster.\" \n\nWe squeezed through the tiny hole in the rocks. It was dark but I had my flashlight ready. Suddenly something scratched my leg and I screamed very loud! \n\n\"Don't worry, it's just a cat,\" Tim told me.\n\nWe saw an old sailor hat on the ground. We were pleased because it looked like real treasure. We feared the cave but we were brave explorers. It was thirteen minutes past noon on my watch. We ran home because we had a schedule to keep. Mom was waiting with lunch and we were hungry.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "woke",
+      "waiting",
+      "pleased",
+      "thirteen",
+      "feared",
+      "heard",
+      "scratched",
+      "screamed",
+      "sailor",
+      "schedule",
+      "squeeze"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00112",
+    "text": "My neighbor Tom came over to play video games. We picked the boating game because I am the captain. The game was still loading, so we played rock paper scissors. I won because rock crushes scissors every time.\n\n\"You can't beat me,\" I said with a big smile.\n\n\"Just wait until the boat race starts!\" Tom yelled.\n\nThe game started and we went straight through the big fountain. I was dumping water on his boat to slow him down. It was simply the best trick ever. I counted to three and then I zoomed past him. I scratched my nose because it was itchy, but I didn't stop. I didn't lose either because I am the fastest racer. Tom was mad but he still ate my snacks.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "dumping",
+      "scissors",
+      "boating",
+      "counted",
+      "through",
+      "loading",
+      "simply",
+      "fountain",
+      "neighbor",
+      "captain",
+      "straight",
+      "scratched",
+      "either"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00113",
+    "text": "Yesterday my friend Sam came over to play video games. We played a racing game called Super Speed Cars. I was steering my red car really fast around the track. Sam picked a big green truck that looked like a tank.\n\n\"I am going to win this time!\" yelled Sam.\n\n\"No way, my car is incredible!\" I shouted back.\n\nMy heart was thumping hard because we were tied. Suddenly Sam hit a bump and went flying off the earth. His truck was dumping smoke everywhere on the screen. I crossed the finish line first and I felt great.\n\n\"I guess I need to learn how to drive better,\" said Sam.\n\n\"Maybe you need some psychology to be calm,\" I joked.\n\nAfter that we played a game about a soldier named Colonel Zoom. But then my dad said to stop because my baby sister was sleeping.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "yesterday",
+      "incredible",
+      "colonel",
+      "learn",
+      "thumping",
+      "sleeping",
+      "steering",
+      "dumping",
+      "earth",
+      "psychology"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00114",
+    "text": "I was dreaming about winning the big race all night. My dad pulled me out of bed early. \"Get up, champ!\" he yelled loudly. I was so tired I needed caffeine, but I am too young. We drove to the track and saw the sign. My dog tried to gnaw on my shoe. He chewed the laces, but I tied them anyway.\n\nThe race started and I flew down the track. I was tearing up the dirt. A boy from a foreign country was next to me. I dropped my water bottle, but I kept running fast. I had to learn to be faster. I crossed the line first! \"You did it!\" my dad screamed. I was so happy I almost cried.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "flew",
+      "learn",
+      "caffeine",
+      "tearing",
+      "dreaming",
+      "dropped",
+      "sign",
+      "pulled",
+      "gnaw",
+      "foreign",
+      "chewed"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00115",
+    "text": "My friends and I built a secret fort in the woods. We were teaching my dog Max how to explore. Suddenly we heard a loud noise near the old river.\n\n\"What was that sound?\" asked my friend Sam.\n\nWe ran fast and saw a big, twisted tree. It had crashed down on the path. But then we saw something scary behind it. A strange creature was stuck in the branches! It looked like a big raccoon but blue. It was caught in a vine like a bungee cord.\n\n\"It is in danger!\" I yelled.\n\nI climbed the tree carefully and pulled the vine. The creature jumped down and ran away fast. We saved the day and felt like heroes.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "caught",
+      "danger",
+      "crashed",
+      "twisted",
+      "built",
+      "bungee",
+      "creature",
+      "teaching"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00116",
+    "text": "I was running in the hall at school. My teacher said no running but I did it anyway. I jumped over a big pile of books. Then I crashed right into my friend Billy. He had his scissors and they flew everywhere. We fell on the floor and laughed really loud.\n\nThen it was lunchtime and we went to the cafeteria. The lunch lady made stewed carrots and they smelled bad. I touched the carrots but I did not eat them. Billy blew bubbles in his milk. He said, \"I am Colonel Milk Mustache!\"\n\nI said, \"That is gross Billy, stop it!\"\n\nAfter lunch we went outside to play tag. I ran through the grass and I was very fast. It was like I was on a bungee cord. It was the best day ever.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "crashed",
+      "through",
+      "colonel",
+      "blew",
+      "jumped",
+      "touched",
+      "stewed",
+      "running",
+      "scissors",
+      "bungee"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00117",
+    "text": "We were at my grandpa\u2019s cabin for a sleepover. My cousin Leo wanted to go boating on the lake. We jumped in the boat and my dad helped us. Leo tried to climb onto the front but it was slippery.\n\n\"Sit down and be steady!\" my dad yelled at him.\n\nWe rowed to the small island in the middle. We pretended we were doing science and looked for bugs. Then we heard a weird moaning sound from the trees.\n\n\"Is that a ghost?\" I screamed very loud.\n\nWe searched the bushes and discovered a tiny puppy. It was breathing fast and looked scared.\n\n\"It's just a lost dog!\" Leo said happily.\n\nWe took the puppy back to the cabin. It was the best sleepover ever because we saved a dog.",
+    "genre": "family_friends",
+    "vocab_targets": [
+      "screamed",
+      "climb",
+      "boating",
+      "science",
+      "discovered",
+      "steady",
+      "breathing",
+      "moaning",
+      "ghost",
+      "searched"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00118",
+    "text": "Me and my dog Rex went exploring outside. We walked through the big woods behind my house. Rex was following a squirrel and barking loud. Suddenly he got his paw trapped in a hole.\n\n\"Oh no!\" I shouted. \"Are you okay Rex?\"\n\nHe cried a little bit and looked sad. I feared he needed a hospital or a doctor. But instead I just pulled his leg gently. It popped out and he was complete again. He started stamping his feet and wagging his tail.\n\n\"Good boy!\" I said while coaching him to sit.\n\nWe counted three birds and then went home. I was wearing my blue boots. Rex almost fainted from running so much. Maybe next time we will go boating on the lake. Exploring is fun but earning a nap is better.",
+    "genre": "animals_nature",
+    "vocab_targets": [
+      "complete",
+      "trapped",
+      "boating",
+      "stamping",
+      "counted",
+      "fainted",
+      "instead",
+      "through",
+      "coaching",
+      "wearing",
+      "following",
+      "hospital",
+      "through",
+      "earning",
+      "feared"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00119",
+    "text": "My robot Zog was acting super weird today. He kept bumping into the walls and making loud noises. I knew something was wrong with his battery.\n\n\"Zog, stop spinning around like that!\" I yelled.\n\nHe didn't listen and his metal arms kept pumping up and down. It was raining outside, so we couldn't go play. Zog brewed some hot cocoa, but he spilled it on the ground.\n\n\"Sorry, my circuits are buzzing,\" Zog grumbled quietly.\n\nIt seemed impossible to fix him without my tools. I have to learn how to maintain him better. Mom says swearing at robots doesn't help, though. I guess I will fix him tomorrow when I have enough time.",
+    "genre": "fantasy_scifi",
+    "vocab_targets": [
+      "impossible",
+      "pumping",
+      "raining",
+      "learn",
+      "swearing",
+      "maintain",
+      "ground",
+      "brewed",
+      "knew",
+      "enough",
+      "grumbled",
+      "bumping",
+      "tomorrow",
+      "though"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00120",
+    "text": "We were playing tag at recess and it was incredible. I was running super fast through the playground. Timmy called my name but I didn't stop. I had to climb up the big blue slide. It felt like a jungle gym meeting the sky. Suddenly I slipped and got mud on my pants. It was a huge brown stain right on my knee.\n\n\"Oh no, my mom will be mad!\" I screamed.\n\nTimmy ran over and looked at the stain. \"Use your imagination,\" he said. \"Maybe it is a cool battle scar.\"\n\nI liked that idea even though it was just dirt. We kept playing until the bell rang for class. Now I have to write a story about my day. I hope seeing the mud doesn't make my teacher frown.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "screamed",
+      "meeting",
+      "though",
+      "imagination",
+      "stain",
+      "write",
+      "incredible",
+      "running",
+      "called",
+      "climb",
+      "jungle",
+      "through",
+      "seeing"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00121",
+    "text": "Me and my best friend Sam wanted a big adventure. We went into the old house on the hill. It was scary but we were brave. We climbed up to the dusty balcony.\n\n\"Listen to that noise!\" Sam whispered.\n\nIt sounded like heavy breathing. I pointed my finger at a dark corner. A tiny gnat flew by my ear and made a buzzing sound. Then I saw a blue vein on my hand was shaking. Something jumped out! It was just a cat, but it felt like a stinging bee scaring us.\n\n\"We should be leaving now,\" I said quickly.\n\nWe ran outside fast. My dad was coaching soccer nearby. We felt foreign and strange after the scare. It was the best day ever.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "adventure",
+      "balcony",
+      "vein",
+      "gnat",
+      "finger",
+      "breathing",
+      "leaving",
+      "stinging",
+      "listen",
+      "foreign",
+      "coaching"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00122",
+    "text": "Me and my dog Max went to the spooky forest. Max is trained to find treasure, but he just barked at a squirrel. The wind blew very hard and it was freezing cold outside. We saw a big metal chain on an old gate. \n\n\"Don't go inside, Max!\" I yelled, but he ran in anyway. \n\nI chased him and I almost crashed into a tree. Then I saw a big red stain on a rock. It looked scary like monster blood but it was just old paint. Suddenly, Max bounced over a log and found a box! Inside was an old newspaper from a long time ago. We were not in trouble after all. We took the box home to show my mom.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "chain",
+      "trained",
+      "blew",
+      "crashed",
+      "trouble",
+      "stain",
+      "freezing",
+      "bounced",
+      "newspaper"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00123",
+    "text": "I woke up late and scrambled out of bed really fast. My mom made me a toasted bagel but I couldn't eat it. The bus was already waiting outside my house. I jumped on the bus and sat next to my friend Leo.\n\n\"Did you finish the math homework?\" Leo asked me.\n\n\"No, I forgot all about it!\" I said back.\n\nWe looked out the window at the passing scenery. The bus stopped at school and we ran to class. My teacher Mrs. Green appeared at the door smiling. I crossed my finger behind my back for good luck. Just then the bell started ringing for lunch. I was so hungry. I felt like my brain was still loading. It was a crazy morning!",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "toasted",
+      "ringing",
+      "jumped",
+      "loading",
+      "finger",
+      "scrambled",
+      "appeared",
+      "scenery"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00124",
+    "text": "Me and my best friend Tim were explorers. We found a big map in my attic yesterday. It showed a secret path to a magic jungle. \n\n\"We have to go tomorrow!\" Tim yelled loud.\n\nWe packed our bags with snacks and flashlights. We walked for a long time until we saw a giant grey elephant. It was drinking from a sparkly blue fountain. Suddenly, a weird flying ship crashed right next to us! A funny sailor climbed out and looked dizzy.\n\n\"Is this heaven?\" he asked us and rubbed his head.\n\n\"No, it's just the jungle,\" I said.\n\nThe sailor fainted and fell on the soft grass. We pulled him up and counted to three. He woke up and gave us a gold coin. It was very important to help him. Our mission was complete!",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "crashed",
+      "tomorrow",
+      "complete",
+      "heaven",
+      "measure",
+      "important",
+      "elephant",
+      "counted",
+      "fountain",
+      "sailor",
+      "fainted",
+      "pulled"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00125",
+    "text": "I loved playing basketball in my driveway. My neighbor Tim came over to play a game. I feared he would win because he is very tall. We started jumping and running very fast.\n\nSuddenly, a giant black beetle flew right at my face!\n\n\"Get it away!\" I screamed loudly.\n\nI was so scared that I threw the ball hard. It bounced off Tim's head and broke the garage window. My mom shouted from inside the house.\n\n\"What was that noise?\" she asked.\n\nWe ran inside to hide. It will be impossible to fix it before dad gets home. I hope I don't have to go to the hospital. I need to learn how to squeeze the ball better. Tim just bought me ice cream because he felt bad. His reign as the best player is over now.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "feared",
+      "shouted",
+      "bought",
+      "impossible",
+      "broke",
+      "bounced",
+      "neighbor",
+      "jumping",
+      "beetle",
+      "scared",
+      "screamed",
+      "learn",
+      "hospital",
+      "reign",
+      "squeeze"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00126",
+    "text": "My robot named Beep got really sick last week. He got a computer virus that was like robot pneumonia. He kept coughing sparks and feeling very hot. I tried to help him but I didn\u2019t understand the problem. So I took him to a meeting with the alien doctor. The alien greeted us and used a magic wand on Beep. Beep\u2019s screen turned green and he stopped coughing sparks.\n\n\"I am so grateful for your help,\" Beep said happily.\n\n\"You are welcome, little robot,\" the alien said.\n\nNow Beep is better and he can be my guide again. We are going camping on Mars tomorrow!",
+    "genre": "fantasy_scifi",
+    "vocab_targets": [
+      "pneumonia",
+      "grateful",
+      "computer",
+      "understand",
+      "meeting",
+      "feeling",
+      "guide",
+      "camping",
+      "greeted"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00127",
+    "text": "Yesterday me and my friend Sam went to the dark forest. We wanted to find a wonderful treasure but we got lost. Suddenly we heard a loud groaning sound behind a big rock.\n\n\"Listen to that scary noise!\" Sam whispered.\n\nI was shaking and very scared but I looked anyway. It was a giant green creature hanging from a tree! It was stuck on a bungee cord. The monster was crying instead of screaming.\n\n\"Please help me down!\" the creature yelled.\n\nWe cut the rope and he fell down with a thump. He was so grateful he gave us a giant cookie crumb. We ran home cheering because we made a monster friend. It was the best adventure ever.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "bungee",
+      "crumb",
+      "shook",
+      "yesterday",
+      "wonderful",
+      "hanging",
+      "cheering",
+      "scared",
+      "instead",
+      "grateful",
+      "bungee",
+      "screaming",
+      "groaning",
+      "listen",
+      "creature"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00128",
+    "text": "One day I went exploring outside in the woods. I saw a huge tree that looked perfect for climbing. I grasped a low branch and pulled myself up. It felt like gravity was pulling me down hard. I found a shiny green beetle on the bark.\n\n\"Look at that cool bug!\" I shouted to my dog.\n\nMy dog barked back and wagged his tail fast. I caught the beetle gently in my hand. It was important not to squash it. I brought it down to the ground. Instead of keeping it, I treated it nicely and let it go. It walked straight into the grass.\n\n\"Be careful, little beetle,\" I said quietly.\n\nExploring is fun but sometimes it can be dangerous. I didn't see the spider web and almost walked into it! Being outside is the best thing ever.",
+    "genre": "animals_nature",
+    "vocab_targets": [
+      "important",
+      "bringing",
+      "climbing",
+      "beetle",
+      "found",
+      "treated",
+      "gravity",
+      "grasped",
+      "caught",
+      "straight",
+      "brought",
+      "instead",
+      "dangerous",
+      "bungee"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00129",
+    "text": "We had a big test today and I was scared. I woke up super early because I thought I would fail. My tummy felt like a volcano or a big mountain. At school, my friend Tim was bearing a huge bag of chips.\n\n\"Do you want some?\" Tim asked me at recess.\n\n\"No thanks, I might sneeze,\" I said.\n\nThen something weird happened on the playground. A bee was following us and it looked very dangerous! Tim started running and his vein popped out on his forehead. He ran into the closed gym doors. Everyone started cheering because he didn't get stung. It was funny but also scary. I was glad when the bell rang for lunch.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "happened",
+      "following",
+      "thought",
+      "dangerous",
+      "cheering",
+      "sneeze",
+      "early",
+      "bearing",
+      "mountain",
+      "vein",
+      "closed"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00130",
+    "text": "One day me and my friend Tom went exploring. We saw a big scary castle on a dark hill. The castle looked strange and almost foreign to us.\n\n\"Let's go inside,\" I said to Tom bravely.\n\n\"I am scared but okay,\" Tom whispered back.\n\nWe walked in and suddenly the gravity felt weird. We started floating up towards the high ceiling! The air surrounding us grew very cold and foggy. I grasped Tom\u2019s hand so he wouldn't fly away. We knew we had to find the magic button. I reached out and pushed a red button on the wall. We fell down but landed on soft pillows. Thirteen little elves were cheering for us loudly.\n\n\"You were brave enough to save us!\" they yelled.\n\nWe were happy and we went home for lunch.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "foreign",
+      "gravity",
+      "knew",
+      "surrounding",
+      "enough",
+      "grasped",
+      "reached",
+      "grew",
+      "cheering",
+      "castle",
+      "thirteen"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00131",
+    "text": "My robot friend Zip woke me up very early. He was beeping loudly and speaking fast. Zip loves teaching me space tricks especially on Saturdays. I jumped out of bed and followed him outside. The sky was bright green today!\n\n\"Look at the spaceship!\" yelled Zip.\n\nA big silver ship landed on the grass. Everyone in my house ran out to see it. A green alien walked out and waved his hand. The smoke cleared away from the ship slowly.\n\n\"Do you want to fly?\" asked the alien.\n\nI nodded my head yes very fast. We went to space and saw purple stars. It was the best day ever.",
+    "genre": "fantasy_scifi",
+    "vocab_targets": [
+      "speaking",
+      "especially",
+      "everyone",
+      "yelled",
+      "cleared",
+      "followed",
+      "teaching",
+      "early"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00132",
+    "text": "Me and my neighbor Sam went to the dark forest. We were bringing my dog Max on a super secret quest. We heard a loud groaning sound behind a big tree.\n\n\"What was that scary noise?\" asked Sam quietly.\n\n\"I think it is a zombie,\" I whispered back.\n\nWe started running fast but Max stopped to smell something. He held a giant bone in his mouth. Then a man walked out and blew a whistle. It was just the mailman eating a protein bar! He laughed and gave us a toasted bagel.\n\n\"You kids almost stole my lunch,\" he joked.\n\nWe ate the bagel and walked home safely.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "running",
+      "groaning",
+      "toasted",
+      "held",
+      "neighbor",
+      "protein",
+      "bringing",
+      "stole",
+      "whistle"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00133",
+    "text": "Yesterday me and my friend Sam played soccer at the park. We were on different teams and everyone wanted to win. Sam is really fast and he stole the ball from me. I searched for an open spot and ran down the field. I knew I needed all my strength to kick it far.\n\n\"Pass it here!\" yelled my teammate loud and clear.\n\nI crossed the ball to him and he kicked it high. The ball landed right near the water fountain by the goal. The goalie scrambled to grab it but he was too slow. We scored a goal and I felt so happy.\n\n\"Good game,\" Sam said but he looked a little sad.\n\nWe played throughout the afternoon until it got dark. I was scared we lost, but we won by one point. My pants had a tearing sound, but I didn't care. It was the best game ever.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "stole",
+      "searched",
+      "yesterday",
+      "throughout",
+      "strength",
+      "fountain",
+      "crossed",
+      "everyone",
+      "landed",
+      "scared",
+      "sounding",
+      "lost",
+      "tearing",
+      "certain",
+      "scrambled"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00134",
+    "text": "One day me and Tim went into the dark woods. We were looking for a secret cave. The trees grew very tall and blocked the sun.\n\n\"I think we are lost,\" I said.\n\nTim grumbled because he was tired and hungry. Suddenly a weird bug flew right at my face. It was a giant gnat! I tried to swat it but it was too fast.\n\n\"Did you hear that whistle?\" asked Tim.\n\nWe stopped walking and the air cleared up. We saw a hole in the earth. It was glowing green and looked scary. I needed energy like my mom's caffeine. We jumped in the hole and started falling down. The hole was growing bigger and bigger. We landed on soft grass and saw a dragon sleeping there. We ran away fast!",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "grew",
+      "grumbled",
+      "growing",
+      "whistle",
+      "gnat",
+      "cleared",
+      "flew",
+      "earth",
+      "caffeine",
+      "weird"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00135",
+    "text": "Yesterday I had a super big math test at school. I was scared because math is hard to learn. My stomach felt like it was bumping around inside. I reached into my backpack for my lucky pencil. I searched everywhere but it was gone! I knew this was going to be a total failure.\n\nMy friend Sam saw me looking sad. \"Do you need a pencil?\" Sam asked me.\n\n\"Yes please, I can't find my lucky one,\" I said.\n\nHe gave me a yellow pencil with a blue feather on top. The test was just beginning so I started writing fast. I did my best and remained calm. When recess came, we played camping near the slide. My worry grew smaller and smaller. I hope I got a good grade!",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "reached",
+      "yesterday",
+      "beginning",
+      "reached",
+      "knew",
+      "searched",
+      "remain",
+      "camping",
+      "learn",
+      "bumping",
+      "grew",
+      "feather",
+      "failure"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00136",
+    "text": "One sunny day, Max and I went to the forest. We wanted to find the old hidden cave. A cool breeze blew through the trees. We walked for a long time on the rocky ground.\n\nSuddenly, we saw a big hole in a hill. It was the cave! We went inside and it was very dark. I was scared but Max was brave.\n\n\"Do you have the flashlight?\" asked Max.\n\n\"Yes, I know it is in my bag,\" I said.\n\nI turned it on and we saw a shiny thing. It was a silver comb on a rock. We grabbed it and ran out fast. We were grateful to be safe outside. The scene was beautiful and sunny again. We had enough adventure for one day.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "comb",
+      "grateful",
+      "scene",
+      "breeze",
+      "enough",
+      "ground",
+      "know",
+      "seeing"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00137",
+    "text": "Sam and I walked straight into the dark forest. We were looking for the lost jewel of King Arthur. I grasped my flashlight tight and Sam held the map.\n\n\"Did you hear that noise?\" whispered Sam.\n\nI heard a thumping rhythm on the ground. Maybe it was a monster roaming around. We hid behind a big rock and waited.\n\n\"I am scared,\" I said.\n\nThen a plain brown dog jumped out. It had a newspaper in its mouth! We laughed and grinned at the dog. We sat down and ate toasted sandwiches for lunch. I used my scissors to open a bag of chips. We didn't find the jewel but it was a fun day.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "straight",
+      "scissors",
+      "roaming",
+      "toasted",
+      "plain",
+      "newspaper",
+      "grasped",
+      "rhythm",
+      "jewel",
+      "grinned"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00138",
+    "text": "My class went outside for recess and it was awesome. We played kickball on the big field behind the school. Tommy is the greatest kicker but I have lots of strength. I kicked the red ball really hard and everyone started cheering.\n\nI ran fast and crossed home plate before the ball came back. Then my friend Sarah fell down and got a cut. It looked like a tiny red vein on her knee.\n\n\"Are you okay?\" I asked her.\n\n\"It hurts like a needle poked me,\" Sarah said.\n\nWe helped her up and walked to the nurse. The cut stopped growing bigger and she got a cool bandage. We learned a foreign word for bandage in Spanish class later. It was a pretty good day.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "growing",
+      "greatest",
+      "crossed",
+      "needle",
+      "strength",
+      "cheering",
+      "foreign",
+      "vein"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00139",
+    "text": "I was dreaming about winning the big swimming race. I rode my bike to the pool for the meeting. My coach was speaking to us about being fast. He was coaching us to kick hard. The water felt cold and I saw a bug floating. I jumped in and swam as fast as a shark. My eyes were stinging from the water but I didn't stop.\n\n\"You are bringing home the trophy!\" my dad yelled.\n\nI touched the wall first and I was so happy.\n\n\"To be honest, I was scared,\" I told my friend.\n\nAfter the race, I was so tired I felt like sleeping forever. I cut my celebratory cake with a plastic knife. It was the best day ever.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "meeting",
+      "speaking",
+      "dreaming",
+      "sleeping",
+      "stinging",
+      "bringing",
+      "rode",
+      "knife",
+      "coaching",
+      "honest",
+      "floating",
+      "swam"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00140",
+    "text": "It was my birthday and I wanted to go to the park. My dad said it was impossible because of the rain. I grumbled and sat on the floor with my dog. I thought my party was ruined but then the doorbell rang. It was my friends and they were singing loudly.\n\n\"Surprise!\" they screeched when I opened the door.\n\nWe played inside instead and pretended the couch was an island. We grasped pillows and started jumping over the lava floor. My uncle acted like a strict army colonel.\n\n\"Climb that mountain right now!\" he yelled at us.\n\nWe flew across the room and counted to ten. The scenery outside grew dark but we had fun anyway. I did not need psychology to know I was happy.",
+    "genre": "family_friends",
+    "vocab_targets": [
+      "grew",
+      "colonel",
+      "thought",
+      "grumbled",
+      "jumping",
+      "grasped",
+      "impossible",
+      "island",
+      "climb",
+      "scenery",
+      "screeched",
+      "psychology",
+      "flew",
+      "counted",
+      "singing"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00141",
+    "text": "Last Wednesday I went to my friend Sam's apartment. We love playing video games and we picked a racing game. It was the greatest game ever but the track was super hard.\n\n\"You are going down!\" I yelled at Sam.\n\nHe just laughed and shook his head at me. The race started and my car screeched around the corners. The road twisted like a snake and it felt impossible to win. Suddenly my controller broke and fell on the floor. I picked it up but Sam was winning.\n\n\"I won!\" Sam shouted and jumped up.\n\nI was not thrilled but we played rock paper scissors next. I used scissors and I beat his paper. Even though I lost the race, I won the real game. Science says you can't win them all!",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "greatest",
+      "screeched",
+      "impossible",
+      "twisted",
+      "science",
+      "apartment",
+      "broke",
+      "thrilled",
+      "Wednesday",
+      "shook",
+      "scissors"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00142",
+    "text": "I was playing my favorite video game with my friend Sam. We were roaming a big green forest looking for treasure. Sam is very good, so he was my guide. Suddenly a giant monster jumped out!\n\n\"Watch out!\" I yelled and grasped my controller tight.\n\n\"I can handle it,\" Sam said, but he looked worried.\n\nMy heart was beating so fast in every vein. I felt a heavy weight on my shoulders. I used a special psychology trick to trick the monster. It ran away and we won! I was so grateful we didn't lose.\n\n\"How did you do that?\" Sam asked me.\n\n\"I can explain later,\" I said, \"let's eat toasted bread!\" We were happy because we were safe.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "psychology",
+      "guide",
+      "roaming",
+      "vein",
+      "grateful",
+      "weight",
+      "explain",
+      "toasted",
+      "grasped"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00143",
+    "text": "We were following a secret map to Monster Island. My backpack had a heavy weight because of all the snacks. We needed protein bars for energy.\n\nSuddenly, a giant storm struck our boat! We crawled onto the sand and saw a dark cave. Inside, a weird smell was brewing like old soup.\n\n\"I don't understand where we are,\" whispered my friend Leo.\n\n\"Look at that thing in the corner!\" I yelled.\n\nA mummy started to wrap itself in old newspaper. It looked scary but kind of funny. We ran away fast back to the boat. Next time we will just play video games at home.",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "understand",
+      "struck",
+      "weight",
+      "following",
+      "island",
+      "protein",
+      "wrap",
+      "newspaper",
+      "brewed",
+      "crawled"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00144",
+    "text": "Me and my best friend Sam went to the old park. It was February so the ground was hard and cold. We wanted to find the secret fort in the woods. People said it was impossible to find. We walked for a long time bumping into trees. Suddenly I saw a big metal chain hanging from a branch.\n\n\"Look at that weird chain!\" I shouted.\n\nSam looked scared but I was thrilled. We crossed a small stream by jumping on rocks. I almost fell but Sam caught my arm. We found a wooden door behind some bushes. It was locked tight.\n\n\"This feels like a failure,\" Sam said sadly.\n\nBut then I saw a key under a rock. We opened the door and saw a treasure box inside. We were so happy!",
+    "genre": "adventure_action",
+    "vocab_targets": [
+      "thrilled",
+      "February",
+      "failure",
+      "impossible",
+      "bumping",
+      "caught",
+      "jumping",
+      "hanging",
+      "crossed",
+      "chain"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00145",
+    "text": "I had a sleepover with my best friend Sam. We wanted to build a fort in the living room. We were keeping it a secret from my mom. Throughout the night we used blankets and pillows everywhere.\n\n\"This is the best fort ever!\" Sam shouted happily.\n\nWe feared the dark so we brought a flashlight inside. Suddenly, we heard a weird noise like a ghost moaning. I thought we were in danger and got scared. It happened again and it was even louder this time.\n\n\"What was that scary sound?\" I asked Sam quietly.\n\nThen Sam let out a giant sneeze. It wasn't a ghost at all! We discovered my dog was sleeping under the leather chair. He just wanted some of our roasted marshmallows. We played longer and ate snacks until we fell asleep.",
+    "genre": "family_friends",
+    "vocab_targets": [
+      "keeping",
+      "throughout",
+      "danger",
+      "feared",
+      "happened",
+      "sneeze",
+      "moaning",
+      "discovered",
+      "roasted",
+      "longer",
+      "fountain",
+      "leather"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00146",
+    "text": "My neighbor has a big cat named Tiger who loves roaming outside. Yesterday I saw him near the big tree in my yard. I crawled through the grass to see what he was doing. Tiger struck at something with his paw and I screamed really loud!\n\n\"Don't do that, Tiger!\" I yelled at him.\n\nHe looked at me and then a tiny feather came floating down. It landed right on his nose. I think he just wanted to play.\n\n\"You have to learn to be nice,\" I said.\n\nI counted three more feathers on the ground. Tiger cleared his throat and ran away fast. I looked up and saw a bird on the roof. It looked okay so I didn't worry. I went inside and looked at the ceiling because I felt tired. Maybe I almost fainted from running. I have to maintain a watch on Tiger next time.",
+    "genre": "animals_nature",
+    "vocab_targets": [
+      "screamed",
+      "learn",
+      "counted",
+      "crawled",
+      "roaming",
+      "struck",
+      "cleared",
+      "floating",
+      "fainted",
+      "maintain",
+      "neighbor",
+      "feather",
+      "ceiling"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00147",
+    "text": "I was eating breakfast and looking at the clock. I felt afraid because I was waiting for the bus. My mom was using a knife to cut my apple. She saw my face and asked me a question.\n\n\"What is the reason you look so sad?\" she said.\n\nI told her I was trapped in a big problem. I forgot to do my big math homework last night. I felt like I was in danger of getting a zero. My stomach was hurting and I was yearning to stay home.\n\nSuddenly, I saw the big yellow bus outside. I grabbed my bag and ran out the door. Then I saw a sign on the school door. It said school was closed for a snow day! I was thrilled and started tearing up my homework sheet.\n\n\"Yes! No school today!\" I yelled.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "trapped",
+      "afraid",
+      "tearing",
+      "breakfast",
+      "yearning",
+      "danger",
+      "waiting",
+      "knife",
+      "thrilled",
+      "sign",
+      "reason"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00148",
+    "text": "I brought my new toy beetle to school today. It is shiny and green and looks very real. I wanted to show my best friend Sam at recess. But first we had to learn math. I was almost sleeping because math is boring.\n\nThen it was lunchtime and I opened my lunchbox. Sam looked at my sandwich.\n\n\"Did you bring peanut butter?\" Sam asked me.\n\n\"No, my mom made cheese spread,\" I said.\n\nSuddenly a big kid ran by and stole my beetle! He didn't mean to, but he stepped on it. My beetle was crushed on the ground. The big kid said a bad word like swearing. I was really sad especially because I was building a house for it. Sam gave me his cookie to make me feel better.",
+    "genre": "school_daily_life",
+    "vocab_targets": [
+      "spread",
+      "sleeping",
+      "especially",
+      "building",
+      "learn",
+      "crushed",
+      "stole",
+      "swearing",
+      "beetle",
+      "brought"
+    ],
+    "type": "clean_for_injection"
+  },
+  {
+    "id": "story_00149",
+    "text": "I was dreaming about winning the big game all night. The next day, I opened my eyes and ran outside. The weather was perfect for camping, but I had soccer. I trained hard for weeks to beat the other team. We spread out on the grass and the whistle blew. I ran fast and my brain told my feet to kick.\n\n\"Pass the ball to me!\" shouted my friend Sam.\n\nI kicked it to him and he ran like a sailor on a ship. Then he passed it back. I climbed over the goalie and scored a goal! It felt like I swam in a pool of happiness. After the game, I went home and played on my computer.\n\n\"You played great today,\" said my mom.\n\nI was so tired but so happy I won.",
+    "genre": "sports_games",
+    "vocab_targets": [
+      "sailor",
+      "computer",
+      "dreaming",
+      "climbed",
+      "swam",
+      "brain",
+      "trained",
+      "opened",
+      "camping",
+      "weather",
+      "spread"
+    ],
+    "type": "clean_for_injection"
+  }
+]

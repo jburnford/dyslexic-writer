@@ -1,0 +1,302 @@
+[
+  {
+    "id": "negative_00550",
+    "text": "Today was a very fun day. I woke up early and ate toast for breakfast. It had lots of butter on it. Then I went to school on the big yellow bus. We played tag at recess, and I ran really fast. My friend Sam fell down, but he is okay. After school, I watched my favorite show on TV. My mom made pizza for dinner. It was so yummy with extra cheese. Now I am tired and ready for bed. I hope tomorrow is fun too.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00551",
+    "text": "I can\u2019t believe what happened at recess today! We were playing kickball, and Sarah kicked the ball so hard it went over the big fence. Wow! We all just stared at it. No way! Usually, we get in trouble if the ball goes over, but Mr. Jones just laughed. He said, \"That's a home run!\" It\u2019s the first time anyone ever did that. Oh man, Sarah was so happy. We\u2019re definitely going to win the tournament tomorrow if she kicks like that again. Best recess ever.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00552",
+    "text": "I can\u2019t believe what happened at recess today! We were playing kickball, and Sammy kicked the ball so hard it went over the fence. Wow! It\u2019s super high, so usually we just leave it. But then, a squirrel grabbed it! No way! The squirrel tried to roll it up a tree, but the ball was way too big. We were all laughing so hard. Oh man, it was funny. Now we don\u2019t have a ball, but at least we have a crazy story. I hope the squirrel gives it back tomorrow.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00553",
+    "text": "Today was a really good day. I woke up early and ate toast for breakfast. It had lots of butter on it. Then I went to the park with my dad. We played catch with my red ball. I threw it very far! A dog ran over and tried to take the ball, but the owner said no. After that, we went home and had pizza for lunch. It was so yummy. Now I am tired so I will read my book and go to sleep. It was fun.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00554",
+    "text": "My favorite thing to do on Saturdays is play Roblox with my best friend, Sam. We always play this game called Adopt Me where you get cool pets. Last week, I finally got a neon unicorn! It glows bright pink. After we play, I like to watch Pok\u00e9mon on TV. Ash is trying to catch them all, and Pikachu is so funny when he zaps people. My mom said if I finish my homework, I can play Minecraft later and build a huge castle made of diamonds. It is going to be the best day ever.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00555",
+    "text": "My dad and I went fishing on a tiny island in the middle of the lake. I cast my line straight into the water and waited. Suddenly, I felt a huge tug! \"I caught one!\" I yelled. It was super heavy, so Dad had to help me pull it through the weeds. We thought it was going to be a giant bass, but it was just an old boot. \"That's enough fishing for today,\" Dad laughed. We ate sandwiches instead.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00556",
+    "text": "Today was a very good day. I woke up early and ate toast for breakfast. It was sunny outside, so I played in the park with my dog. His name is Spot. We ran very fast on the grass. Then, my mom made pizza for lunch. It had lots of cheese on it. After lunch, I read a book about big trucks. I like trucks a lot. Later, my friend came over to play a game. We had so much fun. Now I am tired and ready for bed.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00557",
+    "text": "My dad and I played a fun game in the backyard. I pretended to be a brave **knight** with a cardboard sword. We ran **straight** towards the big oak tree, which was our secret castle on a hidden **island**. My dad tried to run away, but I **caught** him! He laughed and said, \"Okay, you win, that is **enough** running for today.\" I **thought** it was the best game ever.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00558",
+    "text": "After school, I ran to my room to play Roblox with my best friend, Sam. We played a game where you have to build a giant pizza shop. \"Put the pepperoni on!\" Sam yelled through the headset. \"I am trying!\" I said back. Then my mom came in and said, \"Time for dinner!\" I was sad because we almost won. Later, I watched Pokemon on TV. Ash and Pikachu are so cool. I want to catch them all too. Tomorrow, I think I will play Minecraft instead and build a huge castle made of diamond blocks.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00559",
+    "text": "I couldn\u2019t believe my eyes when I walked into the kitchen. No way! My dog Buster was actually standing on the table. Right on top! He had his nose in the big chocolate cake Mom made for Dad\u2019s birthday. \"Buster, get down!\" I yelled, but he didn't listen. He just wagged his tail like it was a game. Oh man, we're in so much trouble. Mom is going to freak out when she sees the giant bite mark. It\u2019s huge! I grabbed his collar, but he wouldn't budge. He really loves cake.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00560",
+    "text": "I love playing games on the weekend. My favorite game is Minecraft because I can build huge castles and fight zombies at night. Sometimes my friends come over and we play Roblox together on my tablet. We like the game where you have to run away from a giant piggy. It is so scary but really funny too! After that, we usually watch Pokemon on TV. I want to catch Pikachu, but my brother likes Charizard better. It is the best day ever when we win.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00561",
+    "text": "I couldn't believe my eyes when I saw the huge box in the living room. Wow! It was taller than me! My brother shouted, \"No way! Is that for us?\" We tried to peek inside, but Mom said we had to wait until after dinner. Oh man! Dinner took forever. I didn't even want my pizza. Finally, Dad gave us the scissors. Rip! Tear! We opened it up and saw the coolest fort kit ever. It's going to be awesome. We're definitely sleeping in the living room tonight!",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00562",
+    "text": "One day a brave **knight** went on a big boat to a secret **island**. He was looking for treasure but he **caught** a huge fish instead! The fish was so heavy that the knight fell **straight** into the water with a big splash. He swam back to the boat really fast because he **thought** he saw a shark. He decided that one big fish was **enough** for today, so he sailed home to show his **daughter**. She laughed at him because he was soaking wet.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00563",
+    "text": "My favorite thing to do after school is play Roblox on my iPad. Yesterday, I called my friend Sam so we could play \"Adopt Me\" together. I got a legendary pet egg and I was so excited! \"Look Sam!\" I yelled. \"I got a unicorn!\" Sam said he was jealous because he only got a dog. Then we switched games and played Minecraft. We built a huge house made of diamonds, but a creeper blew up the front door. It was funny, but then my mom said, \"Time for dinner!\" and I had to stop.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00564",
+    "text": "Today was a very good day. I woke up early and ate toast for breakfast. Then I went to school on the big yellow bus. We learned about frogs in science class. It was cool. At recess, I played tag with my best friend Sam. I ran very fast and won the game. After school, I went home and played with my dog. His name is Spot. We played ball in the yard. Now I am tired and ready for bed. It was a happy day.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00565",
+    "text": "Today was a very good day. I woke up early and ate toast for breakfast. It was sunny outside, so I played with my dog in the yard. His name is Spot. We ran very fast and had lots of fun. Later, my mom made pizza for lunch. It had extra cheese on it. After lunch, I went to the park with my best friend. We went on the big slide three times. Now I am tired and ready for bed. I hope tomorrow is fun too.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00566",
+    "text": "I love Saturdays because my mom lets me play Roblox for two whole hours. My best friend Leo comes over and we play this game called Adopt Me. \"Look at my neon dog!\" Leo yelled. It was so cool. After that, we switched to Minecraft to build a giant house made of diamonds. \"Watch out for the creeper!\" I shouted, but it blew up our front door. We laughed so hard. Then we took a break to watch Pokemon on TV. Ash is the best trainer ever. I wish I had a Pikachu.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00567",
+    "text": "One day a brave knight went on a big adventure. He rode his horse straight to a magical island in the middle of a lake. He thought he saw a scary dragon, but it was just a big lizard! He caught the lizard in a net because he wanted a pet. Then he walked through the dark woods to get back home. He was super hungry, but he didn't have enough snacks in his bag. Being a hero makes you very tired!",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00568",
+    "text": "We were playing hide-and-seek in the backyard, and it was my turn to count. One, two, three... ready or not! I looked behind the big oak tree first. No way! Nobody was there. Then I heard a tiny giggle coming from the shed. Oh man! I tiptoed over super quietly. I grabbed the handle and\u2014bam!\u2014the door swung open. \"Gotcha!\" I yelled. But it was just my dog, Buster. He wagged his tail like crazy. I can't believe he tricked me. Where is everyone else? Seriously, guys? Come out now!",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00569",
+    "text": "I can\u2019t believe we\u2019re finally going to the water park today! It\u2019s been raining for a whole week, so I thought we\u2019d never go. But when I woke up, the sun was super bright. Wow! I grabbed my towel and ran downstairs fast. \u201cAre we leaving yet?\u201d I yelled. My mom laughed and said, \u201cRelax, we haven't even had breakfast!\u201d Oh man! I don't want cereal, I just want to go on the giant slide. It\u2019s huge! We\u2019re going to get so wet. I hope my dad goes on it too. No way he\u2019s too scared!",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00570",
+    "text": "I can't believe what happened at recess today. It was crazy! We were playing soccer like always, but then Tommy kicked the ball way too hard. Wham! It went right over the fence into the spooky woods. Oh man! Everyone stopped running. Nobody wanted to go get it because we're all scared of the old lady who lives back there. But then, guess what? A huge dog jumped over the fence with the ball in his mouth! No way! He dropped it right at my feet and wagged his tail. It's definitely the coolest thing I've ever seen.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00571",
+    "text": "My best friend Sam and I built the biggest fort ever in his backyard yesterday. It\u2019s huge! We used every single blanket from his house and even some big cardboard boxes. We\u2019re calling it Castle Super Awesome. Oh man, it was so cool inside until his dog, Buster, came running in. No way! He knocked over the main wall with his tail. We can't believe he ruined it so fast. But don't worry, we fixed it up again before dinner. Best fort ever.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00572",
+    "text": "Today was a really good day. I woke up early and had toast for breakfast. It had strawberry jam on it. Then I went to school on the big yellow bus. We played kickball at recess, and my team won the game. After school, I came home and played with my dog, max. He likes to run fast in the grass. For dinner, we had pizza with lots of cheese. Now I am very tired and ready for bed. I hope tomorrow is fun too.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00573",
+    "text": "My big sister and I were playing a game in the backyard. She pretended to be a brave **knight** with a cardboard sword. I was stuck on a magical **island** which was actually just the sandbox.\n\n\"I will save you!\" she yelled. She ran **straight** at the scary dragon, which was our dog, Buster. Buster just barked and wagged his tail.\n\n\"I **caught** him!\" she shouted. Then we ran **through** the sprinkler because it was super hot outside. It was the best day ever.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00574",
+    "text": "I love playing Minecraft with my big brother on the weekends. We built a huge castle out of diamond blocks, but then a Creeper blew up the front door! My brother yelled, \"Oh no, run away!\" After we fixed it, we switched to playing Roblox. We played a game where we had to be pizza delivery drivers. It was so funny because my car kept flipping over. Later, we watched a new Spider-Man cartoon on TV. Spidey had to catch the Green Goblin before he messed up the city. It was the best Saturday ever.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00575",
+    "text": "Today was a very fun day. I woke up early and ate toast for breakfast. Then I went to the park with my dad. We played on the big slide and the swings. I went really high! After that, we saw a cute dog. The dog was black and white. His name was Spot. We played catch with a red ball. When we got home, I was tired. I ate a big sandwich for lunch. Now I am going to draw a picture of the dog. I hope I see him again soon.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00576",
+    "text": "Today was a very fun day. I woke up early because the sun was bright. For breakfast, I ate toast with jam and drank some milk. Then I went to the park with my dad. We played catch with a red ball. I ran very fast. We saw a big dog chasing a stick. After that, we went home for lunch. We had pizza and it was so yummy. I love days like this. Now I am tired and ready for bed. Goodnight!",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00577",
+    "text": "Today was a very good day. I woke up early and ate toast with jam for breakfast. It was sunny outside so I went to the park with my mom. I played on the swings and went down the big slide three times. Then we saw a cute dog. The dog was brown and had a blue collar. After that, we went home for lunch. I ate a ham sandwich and an apple. Now I am tired so I will read my book. It is about a fast car. I like today a lot.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00578",
+    "text": "One time I had a dream that I was a brave knight. I lived on a big island with lots of trees. My job was to save the king\u2019s daughter because a dragon took her. I walked straight to the dragon\u2019s cave. I was scared but I thought I was strong enough. I caught the dragon sleeping and snuck past him. We ran through the forest fast and got back home safe. Then I woke up and had breakfast.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00579",
+    "text": "My favorite thing to do on the weekend is play Roblox with my best friend. We like to build giant houses and then race our fast cars. Sometimes my mom says I have to stop to eat lunch, but I just want to keep playing. After that, I usually watch Spider-Man on TV because he is really cool when he shoots his webs. If my brother is being nice, we might play Minecraft together and try to find diamonds, but he always takes all the gold.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00580",
+    "text": "Yesterday after school, I played Minecraft with my best friend Leo. We built a huge castle out of diamond blocks, but then a creeper blew up the front door! \"Oh no!\" I yelled. Leo laughed and said we could fix it. After that, we switched to Roblox and played a game where we had to run away from a giant piggy. It was super scary but funny too. Then my mom said it was time for dinner, so I had to stop. I really wanted to catch a new Pikachu in Pokemon, but I will do that tomorrow.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00581",
+    "text": "Oh man! I can't believe we found it. It\u2019s huge! We were digging in the backyard for hours, just looking for worms, and then *clink*. My shovel hit something hard. \"No way!\" shouted Leo. He grabbed the hose and sprayed the dirt off. It looked like a giant bone or maybe a dinosaur tooth. Wow! We\u2019re gonna be famous. I bet it\u2019s a T-Rex. Mom said it\u2019s probably just an old rock, but she doesn't know anything about fossils. We\u2019re definitely keeping it forever. Best day ever!",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00582",
+    "text": "My best friend Leo and I ran to the park yesterday because we heard there was a new slide. Wow! It\u2019s huge! It\u2019s bright red and super twisty. \"I bet I can go faster than you,\" Leo said. No way! I climbed up the ladder so fast. But when I got to the top, my stomach felt funny. It was really high up. \"Don't look down!\" Leo yelled from the bottom. Oh man! I took a deep breath and pushed off. Whoosh! We\u2019re definitely coming back tomorrow. Best day ever.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00583",
+    "text": "Yesterday after school, my friend Leo came over to play. We turned on the TV and started playing Minecraft right away. We built a huge castle with secret traps, but then a creeper blew up the front door! \"Oh no!\" yelled Leo. \"Fix it fast!\" After that, we switched to Roblox because Leo wanted to play a hide-and-seek game. It was super funny when he got stuck behind a tree. Then my mom said we had to stop for dinner, but I promised Leo we could watch Pokemon tomorrow. It was the best afternoon ever.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00584",
+    "text": "Yesterday after school, my friend Leo came over to play video games. We turned on the TV and started playing Minecraft first. We built a huge castle out of blue blocks, but then a creeper blew up the front door! \"Oh no!\" yelled Leo. We laughed so hard. Then we switched to Roblox because we wanted to play a racing game. I picked a super fast car, but Leo won anyway. After that, we watched a Pokemon show and ate popcorn. It was the best afternoon ever because we didn't have any homework.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00585",
+    "text": "My dad and I went fishing on a tiny island in the middle of the lake. I cast my line straight into the water and waited. Suddenly, I felt a huge tug! \"I think I caught something big!\" I yelled. I pulled and pulled until I saw a shiny fish come through the water. It was strong enough to almost pull me in! My dad laughed and helped me reel it in. \"Good job,\" he said. It was the best day ever.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00586",
+    "text": "Today was a really fun day. I woke up early and ate toast with jam for breakfast. It was yummy. Then I went to the park with my dad. We played catch with my red ball. I threw it very high! A big dog ran over and licked my hand. It felt funny. After that, we went home and watched a movie about space. I ate popcorn and drank juice. Now I am tired and ready for bed. I hope tomorrow is fun too. Goodnight!",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00587",
+    "text": "Once upon a time there was a brave knight named Sir Bob. He lived on a tiny island in the middle of a big blue lake. One day, he went fishing and caught a giant green fish! The fish was so heavy that Sir Bob almost fell straight into the water. \"That's enough fishing for today,\" he said. He walked through the tall grass back to his castle. He thought about cooking the fish for dinner, but then he let it go because it looked sad.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00588",
+    "text": "Yesterday my friend Sam came over to my house to play. First we played Roblox on my iPad. We built a huge pizza restaurant but then the oven caught on fire! It was so funny. After that, we turned on the TV to watch Spider-Man. Spider-Man is the best superhero because he can shoot webs. My mom said, \"Turn it off, it is time for dinner!\" but we wanted to play one more game of Fortnite. Sam won the match and I came in second place. It was the best day ever.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00589",
+    "text": "My big sister acted like she was a brave **knight** in her game. She ran **straight** at the huge pillow fort in the living room. \"I will save the king's **daughter**!\" she yelled really loud. Then she jumped **through** the blankets and crashed. My mom came in and said, \"That is **enough** noise for today!\" I **thought** my sister was going to get in big trouble, but she just laughed. It was funny until she knocked over the lamp.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00590",
+    "text": "I love playing Roblox with my best friend Sam. Last Saturday, we played a game where you have to run away from a giant piggy. It was so scary! I yelled, \"Run Sam, run!\" but the piggy caught him. Then we switched to Minecraft. We built a huge castle out of blue blocks. I wanted to put a creeper inside, but Sam said, \"No way! It will blow up our house.\" After that, we watched Pokemon on TV. Ash was fighting a gym leader and his Pikachu used a really cool thunder attack. It was the best day ever.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00591",
+    "text": "We were playing kickball at recess and it was super hot outside. Oh man! My face was totally sweating. Then Tommy kicked the ball way too hard. Wham! It went right over the fence and into the spooky woods. No way! Everyone stopped running. \"I'm not going in there,\" said Sarah. \"There's poison ivy.\" I didn't want to go either, but we needed the ball. So I took a deep breath. \"I'll do it,\" I said. Everyone cheered. Wow! I felt really brave, even though my knees were shaking a little bit.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00592",
+    "text": "I couldn't believe my eyes when I walked into the kitchen. No way! My dog Buster was standing on top of the table. Actually standing! He had his nose right in the birthday cake Mom made for me. \"Buster, don't!\" I yelled, but it was too late. Chomp. A huge bite was gone. Oh man! It's ruined. Mom is going to be so mad when she sees this huge hole in the frosting. We're definitely not telling her I left the chair pulled out. That's our secret.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00593",
+    "text": "My brother Timmy is so annoying sometimes. Today he tried to sneak into my room to steal my blue race car, but I caught him. No way! I told him he can't touch my stuff without asking. He started crying, so I felt a little bad. Oh man! It\u2019s hard being the big brother. I let him play with the red car instead, and he stopped crying right away. Wow! He\u2019s actually pretty fast with it. I guess we're playing cars all afternoon now. At least he\u2019s quiet.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00594",
+    "text": "Today was a very good day. I woke up early and ate toast for breakfast. It had strawberry jam on it. Then I went to school on the big yellow bus. My friend Sam sat next to me. We played tag at recess and I ran very fast. After school, I did my homework. Math is hard but I finished it. For dinner, my mom made pizza. It was so yummy. Now I am tired and ready for bed. I hope tomorrow is fun too.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00595",
+    "text": "I love playing Roblox with my best friend Sam. Yesterday, we played a game called Adopt Me. I got a legendary pet dragon! I screamed so loud that my mom came in. \"What is wrong?\" she asked. I told her, \"Nothing! I just got the best pet ever!\" Then we switched to Minecraft. We built a huge castle made of diamond blocks. We pretended Spider-Man lived there to keep the creepers away. It was the best day. Then my dad said, \"Turn it off, it is time for dinner.\" I was sad, but I cannot wait to play again tomorrow.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00596",
+    "text": "I can't believe what happened at recess today! We were playing tag near the big slide, and suddenly Tommy yelled, \"Look out!\" A giant squirrel jumped right out of the trash can. No way! It was holding a whole slice of pizza in its mouth. Oh man, it looked so funny running away with the cheese dragging on the ground. We tried to chase it, but it's way too fast for us. I bet that squirrel is having the best lunch ever right now. Wow! I wish I had pizza too.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00597",
+    "text": "It\u2019s finally summer vacation and we\u2019re going to the beach tomorrow! I can\u2019t wait. I already packed my bucket and my big shovel. Oh man! I almost forgot my snorkel. Mom says if I don\u2019t finish cleaning my room, we can\u2019t go. No way! That would be terrible. My room is a huge mess right now. Clothes everywhere. Toys on the floor. But I\u2019m going to clean it super fast. Zoom! Then we can get ice cream. Wow! It\u2019s going to be the best day ever.",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00598",
+    "text": "One day, my friend Tim and I played a fun game outside. I pretended to be a brave knight with a shiny sword. We ran through the tall grass in the park. \"Look out!\" Tim yelled. \"That tree is a dragon!\" I ran straight at the big tree and poked it with my stick. We played for a long time until I was tired enough to nap. My mom called us for snacks. \"I thought you two got lost on a secret island!\" she laughed. We ate cookies and were happy.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00599",
+    "text": "Yesterday, my friend Sam came over to play video games. We turned on the TV and played Minecraft first. I built a huge castle with lava, but Sam spawned a bunch of zombies and they messed everything up!\n\n\"Hey, stop it!\" I yelled.\n\n\"Okay, let's play Roblox instead,\" Sam said.\n\nWe played a game where we had to run away from a giant Piggy. It was so scary but funny too. After that, we watched a new Spider-Man show while we ate popcorn. It was the best afternoon ever because we beat the hardest level.",
+    "variant": "proper_nouns",
+    "type": "negative_identity"
+  }
+]

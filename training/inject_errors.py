@@ -1,0 +1,873 @@
+#!/usr/bin/env python3
+"""
+Error injection rule engine calibrated to the Bob Story error profile.
+
+Takes clean text and injects dyslexic spelling errors based on empirically-derived
+transformation rules from bob-story-error-profile.md.
+
+Each rule is tagged with provenance (attested, inferred, literature-based) and
+confidence level. Error density follows realistic distributions observed in the
+Bob story (~12% word-level error rate).
+"""
+
+import json
+import random
+import re
+import os
+from dataclasses import dataclass, field
+from typing import Optional
+
+# ---------------------------------------------------------------------------
+# Data structures
+# ---------------------------------------------------------------------------
+
+@dataclass
+class ErrorAnnotation:
+    """Tracks a single error injected into a word."""
+    target_word: str
+    written_as: str
+    rule: str
+    category: str        # phonological, orthographic, morphological
+    provenance: str      # attested, inferred, literature-based
+    confidence: str      # high, medium, low
+    position: int = 0    # word index in sentence
+
+
+@dataclass
+class SentenceResult:
+    """Result of error injection on a single sentence."""
+    original: str
+    corrupted: str
+    errors: list = field(default_factory=list)
+    error_count: int = 0
+    word_error_rate: float = 0.0
+
+
+# ---------------------------------------------------------------------------
+# Load data files
+# ---------------------------------------------------------------------------
+
+_DATA_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def _load_json(filename: str) -> dict:
+    path = os.path.join(_DATA_DIR, filename)
+    with open(path) as f:
+        return json.load(f)
+
+
+def _build_preservation_set() -> set:
+    """Build a flat set of all words that should never be corrupted."""
+    data = _load_json("preservation_list.json")
+    words = set()
+    for key, values in data.items():
+        if key.startswith("_"):
+            continue
+        for w in values:
+            words.add(w.lower())
+    return words
+
+
+PRESERVATION_SET: set = set()  # initialized lazily
+
+
+def _get_preservation_set() -> set:
+    global PRESERVATION_SET
+    if not PRESERVATION_SET:
+        PRESERVATION_SET = _build_preservation_set()
+    return PRESERVATION_SET
+
+
+# ---------------------------------------------------------------------------
+# Transformation rules
+# ---------------------------------------------------------------------------
+# Each rule is a callable: (word: str) -> Optional[tuple[str, ErrorAnnotation]]
+# Returns None if the rule doesn't apply or the random check fails.
+# ---------------------------------------------------------------------------
+
+def _has_pattern(word: str, pattern: str) -> bool:
+    """Check if word contains a pattern (case-insensitive)."""
+    return pattern in word.lower()
+
+
+# --- Tier 1: Vowel digraph reduction (highest frequency, attested) ---
+
+def rule_ea_to_e(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ea -> e: screamed -> skremed, dreaming -> dreming"""
+    lower = word.lower()
+    if "ea" not in lower:
+        return None
+    if random.random() > 0.70:  # 70% application rate (attested: 2/2)
+        return None
+    # Don't apply to 'ea' at word boundaries where it changes pronunciation
+    idx = lower.index("ea")
+    corrupted = word[:idx] + word[idx + 1:]  # remove the 'a' after 'e'
+    if corrupted.lower() == word.lower():
+        return None
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_ea_to_e", category="phonological",
+        provenance="attested", confidence="high"
+    ))
+
+
+def rule_ei_to_i(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ei -> i: heights -> hights"""
+    lower = word.lower()
+    if "ei" not in lower:
+        return None
+    if random.random() > 0.70:  # attested: 2/2
+        return None
+    idx = lower.index("ei")
+    corrupted = word[:idx] + word[idx + 1:]  # remove 'e', keep 'i'
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_ei_to_i", category="phonological",
+        provenance="attested", confidence="high"
+    ))
+
+
+def rule_ai_to_e(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ai -> e: fainted -> fented"""
+    lower = word.lower()
+    if "ai" not in lower:
+        return None
+    if random.random() > 0.45:  # attested: 1/3 for 'e' variant
+        return None
+    idx = lower.index("ai")
+    corrupted = word[:idx] + "e" + word[idx + 2:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_ai_to_e", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_ai_to_a(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ai -> a: again -> agan"""
+    lower = word.lower()
+    if "ai" not in lower:
+        return None
+    if random.random() > 0.45:  # attested: 1/3 for 'a' variant
+        return None
+    idx = lower.index("ai")
+    corrupted = word[:idx] + "a" + word[idx + 2:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_ai_to_a", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_ew_to_aw(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ew -> aw: flew -> flaw"""
+    lower = word.lower()
+    if "ew" not in lower:
+        return None
+    if random.random() > 0.50:  # attested: 1/1
+        return None
+    idx = lower.index("ew")
+    corrupted = word[:idx] + "aw" + word[idx + 2:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_ew_to_aw", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_ear_to_ere(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ear -> ere: heard -> hered"""
+    lower = word.lower()
+    if "ear" not in lower:
+        return None
+    if random.random() > 0.50:  # attested: 1/1
+        return None
+    idx = lower.index("ear")
+    corrupted = word[:idx] + "ere" + word[idx + 3:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_ear_to_ere", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_ee_to_y(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ee -> y: bungee -> bungy (word-final ee)"""
+    lower = word.lower()
+    if not lower.endswith("ee"):
+        return None
+    if random.random() > 0.40:  # attested: 1/1, lower rate
+        return None
+    corrupted = word[:-2] + "y"
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_ee_to_y", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_oa_to_o(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """oa -> o: floating -> floting (inferred from digraph reduction pattern)"""
+    lower = word.lower()
+    if "oa" not in lower:
+        return None
+    if random.random() > 0.40:  # inferred
+        return None
+    idx = lower.index("oa")
+    corrupted = word[:idx] + "o" + word[idx + 2:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_oa_to_o", category="phonological",
+        provenance="inferred", confidence="medium"
+    ))
+
+
+def rule_ou_to_ow(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ou -> ow: shouted -> showted (inferred)"""
+    lower = word.lower()
+    if "ou" not in lower:
+        return None
+    # Skip words where 'ou' has different pronunciation (though, through, etc.)
+    skip_patterns = ["ough", "ould", "ous"]
+    if any(p in lower for p in skip_patterns):
+        return None
+    if random.random() > 0.30:  # inferred, lower confidence
+        return None
+    idx = lower.index("ou")
+    corrupted = word[:idx] + "ow" + word[idx + 2:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="vowel_digraph_ou_to_ow", category="phonological",
+        provenance="inferred", confidence="low"
+    ))
+
+
+# --- Tier 1: Consonant cluster/digraph substitution ---
+
+def rule_sc_to_sk(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """sc -> sk: screamed -> skremed"""
+    lower = word.lower()
+    if not lower.startswith("sc"):
+        return None
+    if random.random() > 0.70:  # attested: 2/2
+        return None
+    corrupted = "sk" + word[2:]
+    # Preserve original capitalization
+    if word[0].isupper():
+        corrupted = "Sk" + word[2:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="consonant_sc_to_sk", category="phonological",
+        provenance="attested", confidence="high"
+    ))
+
+
+def rule_gr_to_g(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """gr -> g: grabbed -> gabed"""
+    lower = word.lower()
+    if not lower.startswith("gr"):
+        return None
+    if random.random() > 0.35:  # attested: 1/~4 gr- words
+        return None
+    corrupted = word[0] + word[2:]  # drop 'r'
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="consonant_cluster_gr_to_g", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_ng_to_g(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ng -> g: jumping -> juming, bungee -> bugee"""
+    lower = word.lower()
+    # Find 'ng' not at position 0
+    idx = lower.find("ng", 1)
+    if idx == -1:
+        return None
+    if random.random() > 0.60:  # attested: 2/2
+        return None
+    corrupted = word[:idx] + word[idx + 1:]  # remove 'n', keep 'g'
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="consonant_cluster_ng_to_g", category="phonological",
+        provenance="attested", confidence="high"
+    ))
+
+
+def rule_mp_to_m(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """mp -> m: jumping -> juming"""
+    lower = word.lower()
+    if "mp" not in lower:
+        return None
+    if random.random() > 0.40:  # attested: 1/1
+        return None
+    idx = lower.index("mp")
+    corrupted = word[:idx + 1] + word[idx + 2:]  # keep 'm', drop 'p'
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="consonant_cluster_mp_to_m", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_initial_cluster_reduction(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Reduce initial consonant clusters: cr->c, tr->t, sp->s, etc."""
+    lower = word.lower()
+    clusters = [
+        ("cr", "c"), ("tr", "t"), ("sp", "s"), ("st", "s"),
+        ("fl", "f"), ("bl", "b"), ("cl", "c"), ("pl", "p"),
+        ("sl", "s"), ("dr", "d"), ("br", "b"), ("fr", "f"),
+        ("pr", "p"), ("spr", "sp"), ("str", "st"),
+    ]
+    for cluster, replacement in clusters:
+        if lower.startswith(cluster):
+            if random.random() > 0.15:  # low rate: attested 1/~4
+                continue
+            if word[0].isupper():
+                corrupted = replacement.capitalize() + word[len(cluster):]
+            else:
+                corrupted = replacement + word[len(cluster):]
+            return (corrupted, ErrorAnnotation(
+                target_word=word, written_as=corrupted,
+                rule="initial_cluster_reduction", category="phonological",
+                provenance="inferred", confidence="low"
+            ))
+    return None
+
+
+# --- Tier 1: Multi-syllable phonetic restructuring ---
+
+def _count_vowel_groups(word: str) -> int:
+    """Rough syllable count by counting vowel groups."""
+    return len(re.findall(r'[aeiouy]+', word.lower()))
+
+
+def rule_multisyllable_vowel_shift(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Shift vowels in multi-syllable words: balcony -> belkany, building -> bailden"""
+    if _count_vowel_groups(word) < 3:
+        return None
+    if len(word) < 6:
+        return None
+    if random.random() > 0.35:  # attested: 5/~8 complex words
+        return None
+
+    lower = word.lower()
+    vowels = "aeiou"
+    # Find vowel positions
+    vowel_positions = [i for i, c in enumerate(lower) if c in vowels]
+    if len(vowel_positions) < 2:
+        return None
+
+    # Swap or shift a random vowel
+    shift_map = {"a": "e", "e": "i", "i": "a", "o": "u", "u": "o"}
+    pos = random.choice(vowel_positions)
+    old_vowel = lower[pos]
+    new_vowel = shift_map.get(old_vowel, old_vowel)
+
+    chars = list(word)
+    chars[pos] = new_vowel if word[pos].islower() else new_vowel.upper()
+    corrupted = "".join(chars)
+
+    if corrupted.lower() == word.lower():
+        return None
+
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="multisyllable_vowel_shift", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+# --- Tier 2: Morphological errors ---
+
+# Irregular past tense lookup: present -> (past, error_form, error_type)
+IRREGULAR_VERBS = {
+    "fall": ("fell", "falled", "over-regularization"),
+    "see": ("saw", "see", "base-form"),
+    "fly": ("flew", "flyed", "over-regularization"),
+    "run": ("ran", "runned", "over-regularization"),
+    "catch": ("caught", "catched", "over-regularization"),
+    "think": ("thought", "thinked", "over-regularization"),
+    "bring": ("brought", "bringed", "over-regularization"),
+    "know": ("knew", "knowed", "over-regularization"),
+    "throw": ("threw", "throwed", "over-regularization"),
+    "break": ("broke", "breaked", "over-regularization"),
+    "choose": ("chose", "choosed", "over-regularization"),
+    "drive": ("drove", "drived", "over-regularization"),
+    "freeze": ("froze", "freezed", "over-regularization"),
+    "grow": ("grew", "growed", "over-regularization"),
+    "hold": ("held", "holded", "over-regularization"),
+    "keep": ("kept", "keeped", "over-regularization"),
+    "leave": ("left", "leaved", "over-regularization"),
+    "lose": ("lost", "losed", "over-regularization"),
+    "send": ("sent", "sended", "over-regularization"),
+    "shake": ("shook", "shaked", "over-regularization"),
+    "speak": ("spoke", "speaked", "over-regularization"),
+    "stand": ("stood", "standed", "over-regularization"),
+    "swim": ("swam", "swimmed", "over-regularization"),
+    "teach": ("taught", "teached", "over-regularization"),
+    "tell": ("told", "telled", "over-regularization"),
+    "wake": ("woke", "waked", "over-regularization"),
+    "win": ("won", "winned", "over-regularization"),
+    "write": ("wrote", "writed", "over-regularization"),
+    "buy": ("bought", "buyed", "over-regularization"),
+    "fight": ("fought", "fighted", "over-regularization"),
+    "find": ("found", "finded", "over-regularization"),
+    "hear": ("heard", "heared", "over-regularization"),
+    "build": ("built", "builded", "over-regularization"),
+    "sing": ("sang", "singed", "over-regularization"),
+    "sit": ("sat", "sitted", "over-regularization"),
+    "sleep": ("slept", "sleeped", "over-regularization"),
+    "ride": ("rode", "rided", "over-regularization"),
+}
+
+# Build reverse lookup: past_form -> (base, error_form, error_type)
+IRREGULAR_PAST_LOOKUP = {}
+for base, (past, error, etype) in IRREGULAR_VERBS.items():
+    IRREGULAR_PAST_LOOKUP[past] = (base, error, etype)
+
+
+def rule_irregular_past_tense(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Replace irregular past tense with over-regularized or base form."""
+    lower = word.lower()
+    if lower not in IRREGULAR_PAST_LOOKUP:
+        return None
+    if random.random() > 0.40:  # attested: 3/~5 irregular verbs
+        return None
+
+    base, error_form, error_type = IRREGULAR_PAST_LOOKUP[lower]
+
+    # 60% over-regularization, 40% base form substitution
+    if error_type == "over-regularization" and random.random() < 0.6:
+        corrupted = error_form
+    else:
+        corrupted = base
+
+    # Preserve capitalization
+    if word[0].isupper():
+        corrupted = corrupted.capitalize()
+
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="irregular_past_tense", category="morphological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_missing_ed_suffix(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Drop -ed/-d suffix: walked -> walk, hated -> hate, grabbed -> grab"""
+    lower = word.lower()
+    if not lower.endswith("ed"):
+        return None
+    if len(lower) < 4:
+        return None
+    if random.random() > 0.20:  # attested: 3/~15 past tense verbs
+        return None
+
+    # Handle doubled consonants: grabbed -> grab, dropped -> drop
+    if len(lower) > 4 and lower[-3] == lower[-4] and lower[-3] not in "aeiouy":
+        corrupted = word[:-3]
+    # Handle consonant+ed: walked -> walk, jumped -> jump
+    elif lower[-3] not in "aeiouy":
+        corrupted = word[:-2]
+    # Handle vowel+d: hated -> hate (where base ends in 'e')
+    elif lower.endswith("ted") or lower.endswith("ded") or lower.endswith("ned"):
+        corrupted = word[:-1]  # just drop the 'd'
+    else:
+        corrupted = word[:-2]
+
+    if not corrupted or corrupted.lower() == word.lower():
+        return None
+
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="missing_ed_suffix", category="morphological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_missing_ing_suffix(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Truncate -ing: running -> run, climbing -> climb"""
+    lower = word.lower()
+    if not lower.endswith("ing"):
+        return None
+    if len(lower) < 5:
+        return None
+    if random.random() > 0.10:  # literature-based, lower rate
+        return None
+
+    # Handle doubled consonant before -ing: running -> run
+    stem = word[:-3]
+    if len(stem) >= 2 and stem[-1] == stem[-2] and stem[-1] not in "aeiouy":
+        corrupted = stem[:-1]
+    # Handle consonant+ing: jumping -> jump
+    else:
+        corrupted = stem
+
+    # Some verbs lost an 'e': making -> mak (should be make)
+    # Add 'e' back if stem ends in consonant and original likely had silent-e
+    if corrupted and corrupted[-1] not in "aeiouy" and len(corrupted) > 2:
+        # Check if adding 'e' makes a real-ish word
+        pass  # keep as-is for realism
+
+    if not corrupted or corrupted.lower() == word.lower():
+        return None
+
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="missing_ing_suffix", category="morphological",
+        provenance="literature-based", confidence="low"
+    ))
+
+
+# --- Tier 2: Orthographic errors ---
+
+def rule_letter_transposition(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Swap two adjacent letters: aliens -> ailens"""
+    if len(word) < 4:
+        return None
+    if random.random() > 0.05:  # ~5% rate on content words
+        return None
+
+    # Pick a random position (not first or last)
+    positions = list(range(1, len(word) - 1))
+    random.shuffle(positions)
+    pos = positions[0]
+
+    chars = list(word)
+    chars[pos], chars[pos + 1] = chars[pos + 1], chars[pos]
+    corrupted = "".join(chars)
+
+    if corrupted.lower() == word.lower():
+        return None
+
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="letter_transposition", category="orthographic",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_final_consonant_drop(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Drop final consonant: then -> the, just -> jus"""
+    if len(word) < 3:
+        return None
+    lower = word.lower()
+    if lower[-1] in "aeiouy":
+        return None
+    if random.random() > 0.03:  # ~3% rate
+        return None
+
+    corrupted = word[:-1]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="final_consonant_drop", category="orthographic",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_missing_apostrophe(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Remove apostrophe: that's -> thats, don't -> dont"""
+    if "'" not in word:
+        return None
+    if random.random() > 0.60:  # common in children's writing
+        return None
+
+    corrupted = word.replace("'", "")
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="missing_apostrophe", category="orthographic",
+        provenance="attested", confidence="high"
+    ))
+
+
+def rule_silent_e_addition(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Add unnecessary silent-e: dropped -> droped/drope"""
+    lower = word.lower()
+    if not lower.endswith("ed") or len(lower) < 5:
+        return None
+    # Only on doubled consonant + ed: dropped, grabbed, etc.
+    if lower[-3] != lower[-4]:
+        return None
+    if random.random() > 0.15:
+        return None
+
+    # Drop one consonant and possibly the 'ed': dropped -> drope
+    corrupted = word[:-3] + "e"
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="silent_e_addition", category="orthographic",
+        provenance="attested", confidence="medium"
+    ))
+
+
+# ---------------------------------------------------------------------------
+# Rule registry
+# ---------------------------------------------------------------------------
+
+# Rules organized by tier priority
+TIER_1_RULES = [
+    rule_ea_to_e,
+    rule_ei_to_i,
+    rule_sc_to_sk,
+    rule_ng_to_g,
+    rule_multisyllable_vowel_shift,
+]
+
+TIER_2_RULES = [
+    rule_ai_to_e,
+    rule_ai_to_a,
+    rule_ew_to_aw,
+    rule_ear_to_ere,
+    rule_ee_to_y,
+    rule_oa_to_o,
+    rule_ou_to_ow,
+    rule_gr_to_g,
+    rule_mp_to_m,
+    rule_initial_cluster_reduction,
+    rule_irregular_past_tense,
+    rule_missing_ed_suffix,
+    rule_missing_ing_suffix,
+]
+
+TIER_3_RULES = [
+    rule_letter_transposition,
+    rule_final_consonant_drop,
+    rule_missing_apostrophe,
+    rule_silent_e_addition,
+]
+
+ALL_RULES = TIER_1_RULES + TIER_2_RULES + TIER_3_RULES
+
+
+# ---------------------------------------------------------------------------
+# Error density controller
+# ---------------------------------------------------------------------------
+
+def choose_error_count() -> int:
+    """
+    Choose number of errors for a sentence based on target distribution:
+    ~30% with 0 errors, ~35% with 1, ~25% with 2, ~10% with 3+
+    """
+    r = random.random()
+    if r < 0.30:
+        return 0
+    elif r < 0.65:
+        return 1
+    elif r < 0.90:
+        return 2
+    else:
+        return random.choice([3, 3, 4])
+
+
+# ---------------------------------------------------------------------------
+# Core injection logic
+# ---------------------------------------------------------------------------
+
+def _is_content_word(word: str) -> bool:
+    """Check if a word is a content word (not a function/sight word)."""
+    clean = re.sub(r'[^a-zA-Z\']', '', word).lower()
+    if len(clean) < 3:
+        return False
+    preservation = _get_preservation_set()
+    return clean not in preservation
+
+
+def _strip_punctuation(word: str) -> tuple[str, str, str]:
+    """Split word into (leading_punct, core, trailing_punct)."""
+    match = re.match(r'^([^a-zA-Z\']*)([a-zA-Z\']+)([^a-zA-Z\']*)$', word)
+    if not match:
+        return ("", word, "")
+    return match.group(1), match.group(2), match.group(3)
+
+
+def _try_rules_on_word(word: str, rules: list) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Try each rule on a word in random order. Return first match or None."""
+    shuffled = list(rules)
+    random.shuffle(shuffled)
+    for rule in shuffled:
+        result = rule(word)
+        if result is not None:
+            return result
+    return None
+
+
+def inject_errors_sentence(
+    sentence: str,
+    target_errors: Optional[int] = None,
+    category_weights: Optional[dict] = None,
+) -> SentenceResult:
+    """
+    Inject errors into a single sentence.
+
+    Args:
+        sentence: Clean input sentence.
+        target_errors: Number of errors to inject. If None, uses density controller.
+        category_weights: Optional dict to bias category distribution.
+            Default targets ~54% phonological, ~25% orthographic, ~21% morphological.
+
+    Returns:
+        SentenceResult with corrupted text and annotations.
+    """
+    if target_errors is None:
+        target_errors = choose_error_count()
+
+    if target_errors == 0:
+        return SentenceResult(
+            original=sentence, corrupted=sentence,
+            errors=[], error_count=0, word_error_rate=0.0
+        )
+
+    words = sentence.split()
+    if not words:
+        return SentenceResult(
+            original=sentence, corrupted=sentence,
+            errors=[], error_count=0, word_error_rate=0.0
+        )
+
+    # Find content word indices eligible for corruption
+    eligible = []
+    for i, w in enumerate(words):
+        lead, core, trail = _strip_punctuation(w)
+        if core and _is_content_word(core):
+            eligible.append(i)
+
+    if not eligible:
+        return SentenceResult(
+            original=sentence, corrupted=sentence,
+            errors=[], error_count=0, word_error_rate=0.0
+        )
+
+    # Don't try to inject more errors than eligible words
+    target_errors = min(target_errors, len(eligible))
+
+    # Shuffle eligible positions and try to inject
+    random.shuffle(eligible)
+    errors_injected = []
+    result_words = list(words)
+
+    for pos in eligible:
+        if len(errors_injected) >= target_errors:
+            break
+
+        lead, core, trail = _strip_punctuation(words[pos])
+
+        # Try rules in tier order with some randomness
+        # Weight toward Tier 1 (phonological) to match observed distribution
+        r = random.random()
+        if r < 0.54:
+            rules_to_try = TIER_1_RULES + TIER_2_RULES + TIER_3_RULES
+        elif r < 0.79:
+            rules_to_try = TIER_3_RULES + TIER_2_RULES + TIER_1_RULES
+        else:
+            rules_to_try = TIER_2_RULES + TIER_1_RULES + TIER_3_RULES
+
+        result = _try_rules_on_word(core, rules_to_try)
+        if result:
+            corrupted_core, annotation = result
+            annotation.position = pos
+            result_words[pos] = lead + corrupted_core + trail
+            errors_injected.append(annotation)
+
+    corrupted_sentence = " ".join(result_words)
+    word_count = len(words)
+
+    return SentenceResult(
+        original=sentence,
+        corrupted=corrupted_sentence,
+        errors=errors_injected,
+        error_count=len(errors_injected),
+        word_error_rate=len(errors_injected) / word_count if word_count > 0 else 0.0
+    )
+
+
+def inject_errors_text(
+    text: str,
+    sentence_split: bool = True,
+) -> list[SentenceResult]:
+    """
+    Inject errors into a full text, sentence by sentence.
+
+    Args:
+        text: Clean input text (one or more sentences).
+        sentence_split: If True, split on sentence boundaries.
+
+    Returns:
+        List of SentenceResult objects, one per sentence.
+    """
+    if sentence_split:
+        # Simple sentence splitter (handles ., !, ?)
+        sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+    else:
+        sentences = [text]
+
+    results = []
+    for sent in sentences:
+        sent = sent.strip()
+        if not sent:
+            continue
+        results.append(inject_errors_sentence(sent))
+
+    return results
+
+
+# ---------------------------------------------------------------------------
+# CLI interface
+# ---------------------------------------------------------------------------
+
+def main():
+    """Command-line interface for testing error injection."""
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Inject dyslexic spelling errors into clean text")
+    parser.add_argument("text", nargs="?", help="Text to corrupt (or use --file)")
+    parser.add_argument("--file", "-f", help="Path to clean text file")
+    parser.add_argument("--errors", "-e", type=int, default=None, help="Target error count per sentence")
+    parser.add_argument("--count", "-n", type=int, default=1, help="Number of variants to generate")
+    parser.add_argument("--json", "-j", action="store_true", help="Output as JSON")
+    parser.add_argument("--seed", "-s", type=int, default=None, help="Random seed for reproducibility")
+    args = parser.parse_args()
+
+    if args.seed is not None:
+        random.seed(args.seed)
+
+    if args.file:
+        with open(args.file) as f:
+            text = f.read()
+    elif args.text:
+        text = args.text
+    else:
+        import sys
+        text = sys.stdin.read()
+
+    for i in range(args.count):
+        results = inject_errors_text(text)
+        for r in results:
+            if args.json:
+                print(json.dumps({
+                    "original": r.original,
+                    "corrupted": r.corrupted,
+                    "error_count": r.error_count,
+                    "word_error_rate": round(r.word_error_rate, 3),
+                    "errors": [
+                        {
+                            "target_word": e.target_word,
+                            "written_as": e.written_as,
+                            "rule": e.rule,
+                            "category": e.category,
+                            "provenance": e.provenance,
+                            "confidence": e.confidence,
+                        }
+                        for e in r.errors
+                    ]
+                }))
+            else:
+                print(f"Original:  {r.original}")
+                print(f"Corrupted: {r.corrupted}")
+                if r.errors:
+                    for e in r.errors:
+                        print(f"  [{e.category}/{e.provenance}] {e.target_word} -> {e.written_as} ({e.rule})")
+                print()
+
+
+if __name__ == "__main__":
+    main()

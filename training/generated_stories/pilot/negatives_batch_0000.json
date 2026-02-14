@@ -1,0 +1,20 @@
+[
+  {
+    "id": "negative_00000",
+    "text": "Today was a very good day. I woke up early and ate toast with jam for breakfast. It was yummy. Then I went to school on the big yellow bus. We learned about frogs in science class. Frogs are cool because they jump high. At recess, I played tag with my best friend Sam. I ran very fast, but Sam caught me. After school, I came home and played with my dog, Spot. Now I am tired and ready for bed. It was a fun day.",
+    "variant": "simple_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00001",
+    "text": "I can't believe what happened at recess today! We were playing kickball, and Sarah kicked the ball so hard it went over the fence. No way! It landed right in the big muddy puddle next to the teacher's parking lot. Oh man! Mr. Henderson looked really mad when he saw it splash his shiny car. We're definitely not getting that ball back. It's totally gone forever. I guess we\u2019ll have to play tag tomorrow instead. What a bummer!",
+    "variant": "informal_correct",
+    "type": "negative_identity"
+  },
+  {
+    "id": "negative_00002",
+    "text": "My big sister acted like a brave knight in our backyard. She held a stick straight up like a sword and yelled, \"I am going to save the princess!\" Then she ran through the bushes to find her. I thought she looked funny in her cape. Suddenly, my mom called us for dinner. \"That is enough playing!\" she shouted. My sister stopped running and said, \"Okay, but the princess is still stuck on the secret island.\" We laughed and went inside to eat pizza.",
+    "variant": "tricky_words",
+    "type": "negative_identity"
+  }
+]

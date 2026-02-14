@@ -1,0 +1,125 @@
+{
+  "_comment": "Words organized by which error injection rules they trigger. Used to target Gemini story prompts.",
+
+  "vowel_digraph_ea": [
+    "screamed", "dreaming", "pleased", "reason", "reached", "treated", "feared",
+    "reading", "beating", "cleaning", "meaning", "speaking", "teaching", "leading",
+    "leaving", "breathing", "creature", "treasure", "pleasant", "weather",
+    "already", "breakfast", "spread", "thread", "sweater", "feather", "leather",
+    "instead", "steady", "meadow", "heaven", "measure", "pleasure"
+  ],
+
+  "vowel_digraph_ei": [
+    "ceiling", "receive", "neither", "either", "weird", "seize",
+    "height", "weight", "eight", "neighbor", "reign", "vein",
+    "protein", "caffeine", "foreign"
+  ],
+
+  "vowel_digraph_ai": [
+    "fainted", "again", "waiting", "raining", "training", "painting",
+    "explain", "complain", "contain", "maintain", "remain", "obtained",
+    "afraid", "straight", "brain", "chain", "plain", "stain", "trail",
+    "sailor", "failure", "mountain", "fountain", "captain", "certain"
+  ],
+
+  "vowel_digraph_ew": [
+    "flew", "threw", "blew", "grew", "drew", "knew", "chewed",
+    "stewed", "brewed", "jewel", "newspaper", "nephew"
+  ],
+
+  "vowel_digraph_ear": [
+    "heard", "feared", "appeared", "cleared", "neared", "disappeared",
+    "early", "earth", "search", "learn", "earning", "yearning",
+    "bearing", "wearing", "tearing", "swearing"
+  ],
+
+  "vowel_digraph_ee": [
+    "bungee", "feeling", "seeing", "meeting", "sleeping", "keeping",
+    "cheering", "steering", "sneeze", "squeeze", "breeze", "freezing",
+    "beetle", "needle", "thirteen", "fourteen"
+  ],
+
+  "vowel_digraph_oa": [
+    "floating", "boating", "coaching", "loading", "roaming",
+    "moaning", "groaning", "approaching", "toasted", "roasted"
+  ],
+
+  "vowel_digraph_ou": [
+    "mountain", "fountain", "shouted", "counted", "bounced",
+    "sounding", "grounding", "surrounding", "trouble", "touched",
+    "enough", "thought", "though", "through", "throughout"
+  ],
+
+  "consonant_cluster_sc": [
+    "screamed", "screaming", "scared", "scattered", "scorched",
+    "scrambled", "scratched", "screeched", "discovered", "escaped",
+    "science", "scissors", "scenery", "schedule"
+  ],
+
+  "consonant_cluster_gr": [
+    "grabbed", "ground", "growing", "greatest", "groaning",
+    "grinned", "gripped", "grasped", "grateful", "gravity",
+    "gradually", "grumbled", "greeted"
+  ],
+
+  "consonant_cluster_ng": [
+    "jumping", "running", "climbing", "singing", "bringing",
+    "swinging", "hanging", "ringing", "stinging", "clinging",
+    "bungee", "finger", "anger", "danger", "longer", "stronger",
+    "younger", "hungry", "jungle", "single"
+  ],
+
+  "consonant_cluster_mp": [
+    "jumping", "bumping", "camping", "stamping", "pumping",
+    "thumping", "dumping", "champion", "complete", "computer",
+    "important", "impossible", "company", "simply"
+  ],
+
+  "consonant_cluster_initial": [
+    "crashed", "crushed", "crawled", "crossed", "sprinted",
+    "spread", "strength", "struggled", "struck", "thrilled",
+    "through", "twisted", "trapped", "trembling", "trained"
+  ],
+
+  "multi_syllable_complex": [
+    "balcony", "building", "apartment", "different", "beautiful",
+    "elephant", "hospital", "important", "remember", "together",
+    "adventure", "dangerous", "suddenly", "yesterday", "tomorrow",
+    "everyone", "everything", "understand", "wonderful", "incredible",
+    "beginning", "following", "carefully", "especially", "impossible",
+    "invisible", "imagination", "immediately", "unfortunately"
+  ],
+
+  "irregular_past_tense": [
+    "fell", "flew", "ran", "caught", "thought", "brought", "knew",
+    "threw", "saw", "broke", "chose", "drove", "froze", "grew",
+    "held", "kept", "left", "lost", "meant", "paid", "sat",
+    "sold", "sent", "shook", "spoke", "stole", "stood", "swept",
+    "swam", "taught", "told", "understood", "woke", "won", "wrote",
+    "built", "bought", "fought", "found", "heard", "hung", "led",
+    "lit", "met", "read", "rode", "rose", "sang", "sank", "slept"
+  ],
+
+  "regular_past_tense_ed": [
+    "walked", "jumped", "grabbed", "dropped", "crashed", "climbed",
+    "screamed", "yelled", "called", "started", "landed", "opened",
+    "closed", "turned", "looked", "moved", "pulled", "pushed",
+    "reached", "searched", "discovered", "appeared", "disappeared",
+    "followed", "happened", "realized", "believed", "remembered"
+  ],
+
+  "silent_letters": [
+    "knight", "knife", "knock", "know", "wrong", "write", "wrap",
+    "climb", "comb", "lamb", "thumb", "crumb", "island", "listen",
+    "castle", "whistle", "often", "honest", "hour", "ghost",
+    "gnat", "gnaw", "design", "sign", "foreign", "reign"
+  ],
+
+  "tricky_correct_words": [
+    "knight", "island", "caught", "through", "enough", "thought",
+    "although", "daughter", "straight", "neighbor", "weight",
+    "tongue", "league", "guarantee", "guard", "guide", "guitar",
+    "receipt", "science", "scene", "scissors", "pneumonia",
+    "psychology", "rhythm", "colonel", "Wednesday", "February"
+  ]
+}

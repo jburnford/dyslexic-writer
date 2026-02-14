@@ -1,45 +1,33 @@
 # Dependencies
 node_modules/
-venv/
-__pycache__/
-*.pyc
-
-# Models (downloaded on first run)
-models/
-*.gguf
-*.onnx
-
-# Build outputs
 dist/
-target/
-build/
-*.app
-*.exe
-*.dmg
 
-# IDE
-.vscode/
-.idea/
+# Environment / secrets
+.env
+training/.env
+
+# OS files
+.DS_Store
 *.swp
 *.swo
 
-# OS
-.DS_Store
-Thumbs.db
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
 
-# Tauri
-src-tauri/target/
+# Large model files
+*.gguf
+*.bin
+*.onnx
+*.safetensors
 
-# Logs
-*.log
-slurm-*.out
+# Training data (too large for git)
+training/*.jsonl
 
-# Temp files
+# SLURM logs
+training/logs/
+
+# Claude config
 .claude/
-/tmp/
-
-# Spelling cache
-.spelling_cache.json
-
-# Package lock (optional, can include if you want)
-# package-lock.json
