@@ -2,14 +2,15 @@
 #SBATCH --job-name=spell-large-v3
 #SBATCH --output=/scratch/jic823/dyslexic-writer/logs/spell-large-%j.out
 #SBATCH --error=/scratch/jic823/dyslexic-writer/logs/spell-large-%j.err
-#SBATCH --time=24:00:00
+#SBATCH --time=02:00:00
 #SBATCH --gres=gpu:h100:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 
 # ============================================================================
-# Dyslexic Writer - v3 Large Model Training
-# Train 3 larger models: Qwen2.5-7B, Llama-3.2-3B, Phi-3.5-mini (3.8B)
+# Dyslexic Writer - v3 Large Model Training (round 2)
+# Train 2 remaining models: Llama-3.2-3B, Phi-3.5-mini (3.8B)
+# Qwen2.5-7B already trained successfully
 # ============================================================================
 
 echo "=========================================="
@@ -24,10 +25,11 @@ OUTPUT_DIR=$WORK_DIR/outputs_v3
 mkdir -p $WORK_DIR/logs
 mkdir -p $OUTPUT_DIR
 
-# Set HF cache to scratch
+# Set HF cache to scratch + auth token for gated models
 export HF_HOME=$WORK_DIR/hf_cache
 export TRANSFORMERS_CACHE=$WORK_DIR/hf_cache
 mkdir -p $HF_HOME
+export HF_TOKEN=$(cat ~/.cache/huggingface/token 2>/dev/null)
 
 # Load modules
 module load python/3.11 cuda/12.6 arrow/21.0.0
@@ -75,7 +77,7 @@ COMMON_ARGS="--train-file synthetic_train_clean_instruction.jsonl \
 # ---- Model 1: Llama-3.2-3B-Instruct ----
 echo ""
 echo "############################################################"
-echo "# Model 1/3: meta-llama/Llama-3.2-3B-Instruct (3B)"
+echo "# Model 1/2: meta-llama/Llama-3.2-3B-Instruct (3B)"
 echo "############################################################"
 python finetune_v2.py \
     --model meta-llama/Llama-3.2-3B-Instruct \
@@ -86,24 +88,13 @@ python finetune_v2.py \
 # ---- Model 2: Phi-3.5-mini-instruct ----
 echo ""
 echo "############################################################"
-echo "# Model 2/3: microsoft/Phi-3.5-mini-instruct (3.8B)"
+echo "# Model 2/2: microsoft/Phi-3.5-mini-instruct (3.8B)"
 echo "############################################################"
 python finetune_v2.py \
     --model microsoft/Phi-3.5-mini-instruct \
     --batch-size 8 \
     --grad-accum 4 \
     $COMMON_ARGS || echo "WARNING: Phi-3.5-mini failed"
-
-# ---- Model 3: Qwen2.5-7B-Instruct ----
-echo ""
-echo "############################################################"
-echo "# Model 3/3: Qwen/Qwen2.5-7B-Instruct (7B)"
-echo "############################################################"
-python finetune_v2.py \
-    --model Qwen/Qwen2.5-7B-Instruct \
-    --batch-size 2 \
-    --grad-accum 16 \
-    $COMMON_ARGS || echo "WARNING: Qwen2.5-7B failed"
 
 echo ""
 echo "=========================================="

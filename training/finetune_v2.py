@@ -75,11 +75,17 @@ def train_model(
     if tokenizer.pad_token is None:
         tokenizer.pad_token = tokenizer.eos_token
 
+    # Phi models don't support SDPA yet, fall back to eager
+    attn_impl = "sdpa"
+    if "phi" in model_name.lower():
+        attn_impl = "eager"
+        print(f"  Using attn_implementation='eager' for Phi model")
+
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         torch_dtype=torch.bfloat16,
         trust_remote_code=True,
-        attn_implementation="sdpa",
+        attn_implementation=attn_impl,
     )
 
     # Prepare datasets
