@@ -2,10 +2,10 @@
 #SBATCH --job-name=bob-eval
 #SBATCH --output=/scratch/jic823/dyslexic-writer/logs/bob-eval-%j.out
 #SBATCH --error=/scratch/jic823/dyslexic-writer/logs/bob-eval-%j.err
-#SBATCH --time=1:00:00
+#SBATCH --time=0:20:00
 #SBATCH --gres=gpu:h100:1
 #SBATCH --cpus-per-task=4
-#SBATCH --mem=32G
+#SBATCH --mem=64G
 
 echo "=========================================="
 echo "Bob Story Evaluation - $(date)"
@@ -95,14 +95,16 @@ BOB_STORY_EVAL = [
 
 SYSTEM_PROMPT = "You are a spelling correction assistant. Fix only spelling and grammar errors. Do not change meaning, names, or correct text. If the text is already correct, return it unchanged."
 
-OUTPUT_DIR = Path("/scratch/jic823/dyslexic-writer/outputs_v2")
+OUTPUT_V2 = Path("/scratch/jic823/dyslexic-writer/outputs_v2")
+OUTPUT_V3 = Path("/scratch/jic823/dyslexic-writer/outputs_v3")
 EVAL_DIR = Path("/scratch/jic823/dyslexic-writer/eval_results")
 
 MODELS = [
-    ("SmolLM2-360M-Instruct", OUTPUT_DIR / "SmolLM2-360M-Instruct"),
-    ("Qwen2.5-0.5B-Instruct", OUTPUT_DIR / "Qwen2.5-0.5B-Instruct"),
-    ("Qwen2.5-1.5B-Instruct", OUTPUT_DIR / "Qwen2.5-1.5B-Instruct"),
-    ("SmolLM2-1.7B-Instruct", OUTPUT_DIR / "SmolLM2-1.7B-Instruct"),
+    ("v2-SmolLM2-360M", OUTPUT_V2 / "SmolLM2-360M-Instruct"),
+    ("v2-Qwen2.5-0.5B", OUTPUT_V2 / "Qwen2.5-0.5B-Instruct"),
+    ("v2-Qwen2.5-1.5B", OUTPUT_V2 / "Qwen2.5-1.5B-Instruct"),
+    ("v2-SmolLM2-1.7B", OUTPUT_V2 / "SmolLM2-1.7B-Instruct"),
+    ("v3-Qwen2.5-7B", OUTPUT_V3 / "Qwen2.5-7B-Instruct"),
 ]
 
 
