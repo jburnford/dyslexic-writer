@@ -8,9 +8,9 @@
 #SBATCH --mem=64G
 
 # ============================================================================
-# Dyslexic Writer - v3 Large Model Training (round 2)
-# Train 2 remaining models: Llama-3.2-3B, Phi-3.5-mini (3.8B)
-# Qwen2.5-7B already trained successfully
+# Dyslexic Writer - v3 Large Model Training (round 3)
+# Train Llama-3.2-3B (gate access now approved)
+# Qwen2.5-7B already trained, Phi-3.5 incompatible with TRL
 # ============================================================================
 
 echo "=========================================="
@@ -74,27 +74,16 @@ COMMON_ARGS="--train-file synthetic_train_clean_instruction.jsonl \
     --lr 5e-5 \
     --gradient-checkpointing"
 
-# ---- Model 1: Llama-3.2-3B-Instruct ----
+# ---- Llama-3.2-3B-Instruct ----
 echo ""
 echo "############################################################"
-echo "# Model 1/2: meta-llama/Llama-3.2-3B-Instruct (3B)"
+echo "# meta-llama/Llama-3.2-3B-Instruct (3B)"
 echo "############################################################"
 python finetune_v2.py \
     --model meta-llama/Llama-3.2-3B-Instruct \
     --batch-size 8 \
     --grad-accum 4 \
-    $COMMON_ARGS || echo "WARNING: Llama-3.2-3B failed (may need HF gate access)"
-
-# ---- Model 2: Phi-3.5-mini-instruct ----
-echo ""
-echo "############################################################"
-echo "# Model 2/2: microsoft/Phi-3.5-mini-instruct (3.8B)"
-echo "############################################################"
-python finetune_v2.py \
-    --model microsoft/Phi-3.5-mini-instruct \
-    --batch-size 8 \
-    --grad-accum 4 \
-    $COMMON_ARGS || echo "WARNING: Phi-3.5-mini failed"
+    $COMMON_ARGS
 
 echo ""
 echo "=========================================="
