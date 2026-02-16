@@ -1,7 +1,7 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import { Mark, mergeAttributes } from '@tiptap/core'
-import { useState, useRef } from 'react'
+import { useState, useRef, forwardRef, useImperativeHandle } from 'react'
 import { checkSpelling, Correction } from '../services/spelling'
 
 // Preserve the case pattern of the original word in the correction
@@ -36,6 +36,10 @@ interface EditorProps {
   learningMode: boolean
 }
 
+export interface EditorRef {
+  insertWord: (word: string) => void
+}
+
 interface Suggestion {
   original: string
   corrected: string
@@ -43,7 +47,7 @@ interface Suggestion {
   range: { from: number; to: number }
 }
 
-export default function Editor({ learningMode }: EditorProps) {
+const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode }, ref) {
   const [activeSuggestion, setActiveSuggestion] = useState<Suggestion | null>(null)
   const [isChecking, setIsChecking] = useState(false)
   const [corrections, setCorrections] = useState<Correction[]>([])
@@ -62,6 +66,15 @@ export default function Editor({ learningMode }: EditorProps) {
       },
     },
   })
+
+  // Expose insertWord method to parent via ref
+  useImperativeHandle(ref, () => ({
+    insertWord(word: string) {
+      if (editor) {
+        editor.chain().focus().insertContent(word + ' ').run()
+      }
+    },
+  }), [editor])
 
   // Check spelling - called manually or on button click
   const runSpellCheck = async () => {
@@ -285,4 +298,6 @@ export default function Editor({ learningMode }: EditorProps) {
       </div>
     </div>
   )
-}
+})
+
+export default Editor

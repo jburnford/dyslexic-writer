@@ -45,7 +45,7 @@ body {
 }
 
 .app {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh;
@@ -98,6 +98,351 @@ body {
 /* Main editor area */
 .main {
   flex: 1;
+}
+
+.main-with-sidebar {
+  display: flex;
+  gap: 20px;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ===== Voice Word Helper Sidebar ===== */
+
+.voice-sidebar {
+  width: 25%;
+  min-width: 250px;
+  max-width: 380px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+  align-self: flex-start;
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+/* Voice input section */
+.voice-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mic-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  transition: background-color 0.2s, transform 0.1s;
+  width: 100%;
+}
+
+.mic-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.mic-button:active {
+  transform: translateY(0);
+}
+
+.mic-button.mic-listening {
+  background: #e04040;
+  animation: mic-pulse 1.2s infinite;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(224, 64, 64, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(224, 64, 64, 0); }
+}
+
+.mic-icon {
+  font-size: 1.4rem;
+}
+
+.mic-label {
+  font-size: 0.95rem;
+}
+
+.voice-unsupported {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.voice-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+  text-align: center;
+  animation: pulse 1.5s infinite;
+}
+
+/* Manual text input */
+.manual-input {
+  display: flex;
+  gap: 8px;
+}
+
+.word-input {
+  flex: 1;
+  padding: 10px 12px;
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.word-input:focus {
+  border-color: var(--accent-color);
+}
+
+.word-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-button {
+  padding: 10px 14px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background: var(--accent-hover);
+}
+
+/* Search info */
+.search-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  background: var(--highlight-bg);
+  border-radius: 6px;
+}
+
+.context-text {
+  font-style: italic;
+}
+
+/* Loading & error */
+.sidebar-loading {
+  text-align: center;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  padding: 12px;
+  animation: pulse 1.5s infinite;
+}
+
+.sidebar-error {
+  font-size: 0.85rem;
+  color: #e04040;
+  background: rgba(224, 64, 64, 0.1);
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+/* Section labels */
+.section-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.word-count {
+  margin-left: 6px;
+  font-weight: normal;
+}
+
+/* Word cards (dictionary results) */
+.matches-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.word-card {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.word-card-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.word-card-word {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.word-card-phonetic {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.word-card-actions {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  line-height: 1;
+}
+
+.icon-btn:hover {
+  background: var(--highlight-bg);
+}
+
+.icon-btn.small {
+  font-size: 0.9rem;
+  padding: 2px 5px;
+}
+
+.word-card-meaning {
+  margin-bottom: 6px;
+}
+
+.part-of-speech {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  font-style: italic;
+  text-transform: capitalize;
+}
+
+.definition-text {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  margin: 4px 0 0 0;
+  line-height: 1.5;
+}
+
+/* Phonetic suggestions */
+.phonetic-suggestion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.suggestion-text {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Saved words ("My Hard Words") */
+.saved-words-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 2px solid var(--border-color);
+  padding-top: 12px;
+}
+
+.empty-saved {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+  text-align: center;
+}
+
+.saved-words-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.saved-word-item {
+  background: var(--bg-color);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.saved-word-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.saved-word-text {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.saved-word-text:hover {
+  text-decoration: underline;
+}
+
+.remove-btn:hover {
+  color: #e04040;
+}
+
+.saved-word-def {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin: 4px 0 0 0;
+  line-height: 1.4;
 }
 
 .editor-wrapper {
@@ -330,6 +675,20 @@ body {
 }
 
 /* Responsive */
+@media (max-width: 768px) {
+  .main-with-sidebar {
+    flex-direction: column;
+  }
+
+  .voice-sidebar {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    max-height: none;
+    position: static;
+  }
+}
+
 @media (max-width: 600px) {
   :root {
     --font-size: 18px;

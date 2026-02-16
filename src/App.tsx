@@ -1,17 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Editor from './components/Editor'
+import { EditorRef } from './components/Editor'
+import VoiceWordHelper from './components/VoiceWordHelper'
 import { exportLog, clearLog } from './services/spelling'
 
 function App() {
   const [learningMode, setLearningMode] = useState(false)
   const [lightMode, setLightMode] = useState(false)
   const [standardFont, setStandardFont] = useState(false)
+  const editorRef = useRef<EditorRef>(null)
 
   // Apply theme classes to body
   useEffect(() => {
     document.body.classList.toggle('light-mode', lightMode)
     document.body.classList.toggle('standard-font', standardFont)
   }, [lightMode, standardFont])
+
+  const handleInsertWord = useCallback((word: string) => {
+    editorRef.current?.insertWord(word)
+  }, [])
 
   return (
     <div className="app">
@@ -45,8 +52,11 @@ function App() {
         </div>
       </header>
 
-      <main className="main">
-        <Editor learningMode={learningMode} />
+      <main className="main main-with-sidebar">
+        <VoiceWordHelper onInsertWord={handleInsertWord} />
+        <div className="main-content">
+          <Editor ref={editorRef} learningMode={learningMode} />
+        </div>
       </main>
 
       <footer className="footer">
