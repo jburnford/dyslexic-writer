@@ -2,12 +2,14 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import Editor from './components/Editor'
 import { EditorRef } from './components/Editor'
 import VoiceWordHelper from './components/VoiceWordHelper'
-import { exportLog, clearLog } from './services/spelling'
+import { exportLog, clearLog, getBackendUrl, setBackendUrl } from './services/spelling'
 
 function App() {
   const [learningMode, setLearningMode] = useState(false)
   const [lightMode, setLightMode] = useState(false)
   const [standardFont, setStandardFont] = useState(false)
+  const [backendUrl, setBackendUrlState] = useState(getBackendUrl)
+  const [backendStatus, setBackendStatus] = useState<'unknown' | 'ok' | 'error'>('unknown')
   const editorRef = useRef<EditorRef>(null)
 
   // Apply theme classes to body
@@ -15,6 +17,21 @@ function App() {
     document.body.classList.toggle('light-mode', lightMode)
     document.body.classList.toggle('standard-font', standardFont)
   }, [lightMode, standardFont])
+
+  // Check backend health on URL change
+  useEffect(() => {
+    setBackendStatus('unknown')
+    const controller = new AbortController()
+    fetch(`${backendUrl}/health`, { signal: controller.signal })
+      .then(r => r.ok ? setBackendStatus('ok') : setBackendStatus('error'))
+      .catch(() => setBackendStatus('error'))
+    return () => controller.abort()
+  }, [backendUrl])
+
+  const handleBackendUrlChange = useCallback((url: string) => {
+    setBackendUrlState(url)
+    setBackendUrl(url)
+  }, [])
 
   const handleInsertWord = useCallback((word: string) => {
     editorRef.current?.insertWord(word)
@@ -49,6 +66,19 @@ function App() {
             />
             <span>Standard font</span>
           </label>
+          <div className="backend-setting">
+            <input
+              type="text"
+              className="backend-url-input"
+              value={backendUrl}
+              onChange={(e) => handleBackendUrlChange(e.target.value)}
+              placeholder="Backend URL"
+            />
+            <span
+              className={`backend-status ${backendStatus}`}
+              title={backendStatus === 'ok' ? 'Connected' : backendStatus === 'error' ? 'Not connected' : 'Checking...'}
+            />
+          </div>
         </div>
       </header>
 

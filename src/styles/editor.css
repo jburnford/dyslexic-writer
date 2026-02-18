@@ -95,6 +95,51 @@ body {
   accent-color: var(--accent-color);
 }
 
+/* Backend URL setting */
+.backend-setting {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.backend-url-input {
+  width: 220px;
+  padding: 4px 8px;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+.backend-url-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+.backend-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #666;
+  flex-shrink: 0;
+}
+
+.backend-status.ok {
+  background: #4caf50;
+}
+
+.backend-status.error {
+  background: #e04040;
+}
+
+.backend-status.unknown {
+  background: #666;
+  animation: pulse 1.5s infinite;
+}
+
 /* Main editor area */
 .main {
   flex: 1;

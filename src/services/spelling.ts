@@ -8,10 +8,18 @@
 
 import { findPhoneticMatches, isLikelyMisspelled } from './phonetic'
 
-const OLLAMA_URL = 'http://localhost:11434/api/generate'
-const MODEL = 'dyslexic-speller'
+// Backend URL - stored in localStorage so user can point to Colab/remote server
+const BACKEND_URL_KEY = 'dyslexic-writer-backend-url'
+const DEFAULT_BACKEND_URL = 'https://dyslexic-writer--dyslexic-writer-web.modal.run'
 
-const SYSTEM_PROMPT = `You are a spelling correction assistant.`
+export function getBackendUrl(): string {
+  return localStorage.getItem(BACKEND_URL_KEY) || DEFAULT_BACKEND_URL
+}
+
+export function setBackendUrl(url: string): void {
+  const cleaned = url.replace(/\/+$/, '') // strip trailing slashes
+  localStorage.setItem(BACKEND_URL_KEY, cleaned)
+}
 
 // Valid words that should never be "corrected"
 const VALID_WORDS = new Set([
@@ -196,45 +204,39 @@ export async function checkSpelling(sentence: string): Promise<Correction[]> {
 }
 
 /**
- * Check spelling using LLM (fallback for phonetic misses)
+ * Check spelling using the backend API (Flask server on localhost, Colab, etc.)
  */
 async function checkWithLLM(sentence: string): Promise<{ corrections: Correction[], response: string }> {
   const corrections: Correction[] = []
+  const backendUrl = getBackendUrl()
 
-  // Call Ollama for spelling check
   try {
-    const response = await fetch(OLLAMA_URL, {
+    const response = await fetch(`${backendUrl}/correct`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: MODEL,
-        prompt: `Fix the spelling mistakes in this sentence. Only output the corrected sentence.\n\n${sentence}`,
-        system: SYSTEM_PROMPT,
-        stream: false,
-        options: {
-          temperature: 0.1,
-          num_predict: 150,
-        },
-      }),
+      body: JSON.stringify({ text: sentence }),
     })
 
     if (!response.ok) {
-      console.error('Ollama error:', response.status)
+      console.error('Backend error:', response.status)
       return { corrections: [], response: '' }
     }
 
     const data = await response.json()
-    const correctedSentence = (data.response || '').trim()
+    const correctedSentence = (data.corrected || '').trim()
 
-    // Compare input and output to find corrections
-    const changes = findDifferences(sentence, correctedSentence)
+    if (!data.changed) {
+      return { corrections: [], response: correctedSentence }
+    }
+
+    // Use changes from server if available, otherwise diff locally
+    const changes: [string, string][] = data.changes || findDifferences(sentence, correctedSentence)
 
     // Build corrections with positions
     for (const [original, corrected] of changes) {
       const pos = sentence.toLowerCase().indexOf(original.toLowerCase())
       if (pos !== -1) {
         corrections.push({ original, corrected, position: pos })
-        // Cache for next time
         cache.set(original.toLowerCase(), corrected)
       }
     }
