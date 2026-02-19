@@ -24,15 +24,23 @@ class Correction:
 
     @property
     def changes(self) -> list[tuple[str, str]]:
-        """Return list of (original_word, corrected_word) pairs that differ."""
+        """Return list of (original_phrase, corrected_phrase) pairs that differ using proper diff matching."""
+        import difflib
+
         orig_words = self.original.split()
         corr_words = self.corrected.split()
         diffs = []
-        # Simple word-level diff
-        max_len = max(len(orig_words), len(corr_words))
-        for i in range(min(len(orig_words), len(corr_words))):
-            if orig_words[i] != corr_words[i]:
-                diffs.append((orig_words[i], corr_words[i]))
+
+        # Use difflib for accurate sequence matching
+        matcher = difflib.SequenceMatcher(None, orig_words, corr_words)
+        for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+            if tag == 'replace':
+                # Words were changed
+                original_phrase = ' '.join(orig_words[i1:i2])
+                corrected_phrase = ' '.join(corr_words[j1:j2])
+                if original_phrase != corrected_phrase:
+                    diffs.append((original_phrase, corrected_phrase))
+
         return diffs
 
 

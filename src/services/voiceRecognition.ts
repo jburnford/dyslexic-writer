@@ -40,38 +40,53 @@ export function isSpeechRecognitionSupported(): boolean {
  *   "spell mountain"
  *   just "mountain" (single word fallback)
  */
+/**
+ * Strip trailing punctuation that speech recognition often adds
+ */
+function cleanWord(word: string): string {
+  return word.replace(/[.,!?;:]+$/, '').trim()
+}
+
 export function parseVoiceCommand(transcript: string): VoiceCommand | null {
   const raw = transcript.trim()
   if (!raw) return null
 
-  // Pattern: "help me spell [word] [context...]"
-  const helpPattern = /help\s+me\s+spell\s+(\w+)(?:\s+(.+))?/i
+  // Pattern: "help me spell [word(s)]; [context...]"
+  // Semicolon separates the target word(s) from the context sentence
+  const helpSemiPattern = /help\s+me\s+spell\s+(.+?)\s*[;.]\s*(.+)/i
+  const helpSemiMatch = raw.match(helpSemiPattern)
+  if (helpSemiMatch) {
+    return {
+      targetWord: cleanWord(helpSemiMatch[1]),
+      context: helpSemiMatch[2].trim(),
+      rawTranscript: raw,
+    }
+  }
+
+  // Pattern: "help me spell [word(s)]" (no context)
+  const helpPattern = /help\s+me\s+spell\s+(.+)/i
   const helpMatch = raw.match(helpPattern)
   if (helpMatch) {
     return {
-      targetWord: helpMatch[1],
-      context: helpMatch[2] || undefined,
+      targetWord: cleanWord(helpMatch[1]),
       rawTranscript: raw,
     }
   }
 
-  // Pattern: "spell [word] [context...]"
-  const spellPattern = /spell\s+(\w+)(?:\s+(.+))?/i
+  // Pattern: "spell [word(s)]"
+  const spellPattern = /spell\s+(.+)/i
   const spellMatch = raw.match(spellPattern)
   if (spellMatch) {
     return {
-      targetWord: spellMatch[1],
-      context: spellMatch[2] || undefined,
+      targetWord: cleanWord(spellMatch[1]),
       rawTranscript: raw,
     }
   }
 
-  // Fallback: treat first word as target
-  const words = raw.split(/\s+/)
-  if (words.length >= 1 && words[0].length > 1) {
+  // Fallback: treat entire input as the target word(s)
+  if (raw.length > 1) {
     return {
-      targetWord: words[0],
-      context: words.length > 1 ? words.slice(1).join(' ') : undefined,
+      targetWord: cleanWord(raw),
       rawTranscript: raw,
     }
   }

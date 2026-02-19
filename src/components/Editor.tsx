@@ -1,8 +1,10 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import Underline from '@tiptap/extension-underline'
 import { Mark, mergeAttributes } from '@tiptap/core'
-import { useState, useRef, forwardRef, useImperativeHandle } from 'react'
+import { useState, useRef, forwardRef, useImperativeHandle, useCallback } from 'react'
 import { checkSpelling, Correction } from '../services/spelling'
+import FormatBar from './FormatBar'
 
 // Preserve the case pattern of the original word in the correction
 function preserveCase(original: string, correction: string): string {
@@ -34,10 +36,16 @@ const Misspelled = Mark.create({
 
 interface EditorProps {
   learningMode: boolean
+  onWordCountChange?: (count: number) => void
 }
 
 export interface EditorRef {
   insertWord: (word: string) => void
+  runSpellCheck: () => void
+  clearHighlights: () => void
+  readMyWriting: () => void
+  getHTML: () => string
+  getText: () => string
 }
 
 interface Suggestion {
@@ -47,15 +55,16 @@ interface Suggestion {
   range: { from: number; to: number }
 }
 
-const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode }, ref) {
+const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode, onWordCountChange }, ref) {
   const [activeSuggestion, setActiveSuggestion] = useState<Suggestion | null>(null)
   const [isChecking, setIsChecking] = useState(false)
   const [corrections, setCorrections] = useState<Correction[]>([])
-  const [lastCheckedText, setLastCheckedText] = useState('')
   const editorRef = useRef<HTMLDivElement>(null)
+  const isCheckingRef = useRef(false)
+  const lastCheckedTextRef = useRef('')
 
   const editor = useEditor({
-    extensions: [StarterKit, Misspelled],
+    extensions: [StarterKit, Underline, Misspelled],
     content: '<p></p>',
     editorProps: {
       attributes: {
@@ -65,26 +74,32 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
         autocapitalize: 'off',
       },
     },
-  })
-
-  // Expose insertWord method to parent via ref
-  useImperativeHandle(ref, () => ({
-    insertWord(word: string) {
-      if (editor) {
-        editor.chain().focus().insertContent(word + ' ').run()
+    onUpdate: ({ editor }) => {
+      if (onWordCountChange) {
+        const text = editor.getText().trim()
+        const count = text ? text.split(/\s+/).length : 0
+        onWordCountChange(count)
       }
     },
-  }), [editor])
+  })
+
+  const handleSpeak = useCallback((text: string) => {
+    window.speechSynthesis.cancel()
+    const utterance = new SpeechSynthesisUtterance(text)
+    utterance.rate = 0.8
+    window.speechSynthesis.speak(utterance)
+  }, [])
 
   // Check spelling - called manually or on button click
-  const runSpellCheck = async () => {
-    if (!editor || isChecking) return
+  const runSpellCheck = useCallback(async () => {
+    if (!editor || isCheckingRef.current) return
 
     const text = editor.getText()
-    if (!text.trim() || text === lastCheckedText) return
+    if (!text.trim() || text === lastCheckedTextRef.current) return
 
+    isCheckingRef.current = true
     setIsChecking(true)
-    setLastCheckedText(text)
+    lastCheckedTextRef.current = text
     console.log('[SpellCheck] Checking:', text)
 
     try {
@@ -94,6 +109,7 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
 
       if (results.length === 0) {
         console.log('[SpellCheck] No corrections needed')
+        isCheckingRef.current = false
         setIsChecking(false)
         return
       }
@@ -148,9 +164,38 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
     } catch (error) {
       console.error('[SpellCheck] Error:', error)
     } finally {
+      isCheckingRef.current = false
       setIsChecking(false)
     }
-  }
+  }, [editor])
+
+  // Expose methods to parent via ref
+  useImperativeHandle(ref, () => ({
+    insertWord(word: string) {
+      if (editor) {
+        editor.chain().focus().insertContent(word + ' ').run()
+      }
+    },
+    runSpellCheck() {
+      runSpellCheck()
+    },
+    clearHighlights() {
+      if (editor) {
+        editor.chain().selectAll().unsetMark('misspelled').setTextSelection(editor.state.doc.content.size).run()
+        setCorrections([])
+        lastCheckedTextRef.current = ''
+      }
+    },
+    readMyWriting() {
+      handleSpeak(editor?.getText() || '')
+    },
+    getHTML() {
+      return editor?.getHTML() || ''
+    },
+    getText() {
+      return editor?.getText() || ''
+    },
+  }), [editor, runSpellCheck, handleSpeak])
 
   // Handle key events to trigger spell check on period
   const handleKeyUp = (e: React.KeyboardEvent) => {
@@ -211,19 +256,13 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
         prev.filter(c => c.original.toLowerCase() !== activeSuggestion.original.toLowerCase())
       )
       setActiveSuggestion(null)
-      setLastCheckedText('') // Allow re-check
+      lastCheckedTextRef.current = '' // Allow re-check
     }
-  }
-
-  const handleSpeak = (text: string) => {
-    window.speechSynthesis.cancel()
-    const utterance = new SpeechSynthesisUtterance(text)
-    utterance.rate = 0.8
-    window.speechSynthesis.speak(utterance)
   }
 
   return (
     <div className="editor-wrapper" ref={editorRef}>
+      <FormatBar editor={editor} />
       <div
         className="editor-container"
         onClick={handleClick}
@@ -269,33 +308,6 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
           </button>
         </div>
       )}
-
-      <div className="toolbar">
-        <button
-          className="toolbar-button"
-          onClick={() => handleSpeak(editor?.getText() || '')}
-        >
-          🔊 Read My Writing
-        </button>
-        <button
-          className="toolbar-button"
-          onClick={runSpellCheck}
-        >
-          ✓ Check Spelling
-        </button>
-        <button
-          className="toolbar-button secondary"
-          onClick={() => {
-            if (editor) {
-              editor.chain().selectAll().unsetMark('misspelled').setTextSelection(editor.state.doc.content.size).run()
-              setCorrections([])
-              setLastCheckedText('')
-            }
-          }}
-        >
-          Clear Highlights
-        </button>
-      </div>
     </div>
   )
 })

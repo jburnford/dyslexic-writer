@@ -8,18 +8,9 @@
 
 import { findPhoneticMatches, isLikelyMisspelled } from './phonetic'
 
-// Backend URL - stored in localStorage so user can point to Colab/remote server
-const BACKEND_URL_KEY = 'dyslexic-writer-backend-url'
-const DEFAULT_BACKEND_URL = 'https://dyslexic-writer--dyslexic-writer-web.modal.run'
+const FLASK_API_URL = 'http://127.0.0.1:5000/correct'
 
-export function getBackendUrl(): string {
-  return localStorage.getItem(BACKEND_URL_KEY) || DEFAULT_BACKEND_URL
-}
-
-export function setBackendUrl(url: string): void {
-  const cleaned = url.replace(/\/+$/, '') // strip trailing slashes
-  localStorage.setItem(BACKEND_URL_KEY, cleaned)
-}
+const SYSTEM_PROMPT = `You are a spelling correction assistant.`
 
 // Valid words that should never be "corrected"
 const VALID_WORDS = new Set([
@@ -108,93 +99,27 @@ export function getLogStats(): { total: number; phonetic: number; llm: number; c
 
 /**
  * Check a sentence for spelling errors
- * Uses phonetic matching first, then LLM for remaining words
+ * Uses Flask API which calls the Ollama model
  */
 export async function checkSpelling(sentence: string): Promise<Correction[]> {
   const corrections: Correction[] = []
-  const wordsNeedingLLM: string[] = []
 
-  // Split into words, keeping track of positions
-  const words = sentence.split(/(\s+)/)
-  let pos = 0
+  // Call Flask API directly for all corrections
+  console.log(`[Spelling] Checking sentence: "${sentence}"`)
+  const { corrections: apiCorrections, response } = await checkWithLLM(sentence)
 
-  for (const word of words) {
-    const clean = word.replace(/[^\w]/g, '').toLowerCase()
+  corrections.push(...apiCorrections)
 
-    if (!clean || clean.length < 2) {
-      pos += word.length
-      continue
-    }
-
-    // Skip valid words
-    if (VALID_WORDS.has(clean)) {
-      pos += word.length
-      continue
-    }
-
-    // Check cache first
-    if (cache.has(clean)) {
-      corrections.push({
-        original: clean,
-        corrected: cache.get(clean)!,
-        position: pos,
-      })
-      pos += word.length
-      continue
-    }
-
-    // Try phonetic matching
-    if (isLikelyMisspelled(clean)) {
-      const match = findPhoneticMatches(clean)
-
-      if (match.bestMatch && match.confidence > 0.5) {
-        // High confidence phonetic match - use it
-        console.log(`[Phonetic] ${clean} -> ${match.bestMatch} (${(match.confidence * 100).toFixed(0)}%)`)
-        corrections.push({
-          original: clean,
-          corrected: match.bestMatch,
-          position: pos,
-        })
-        cache.set(clean, match.bestMatch)
-      } else if (match.candidates.length > 0) {
-        // Low confidence - need LLM to pick from candidates
-        console.log(`[Phonetic] ${clean} -> ambiguous, candidates: ${match.candidates.slice(0, 3).join(', ')}`)
-        wordsNeedingLLM.push(clean)
-      } else {
-        // No phonetic match - need LLM
-        console.log(`[Phonetic] ${clean} -> no match, sending to LLM`)
-        wordsNeedingLLM.push(clean)
-      }
-    }
-
-    pos += word.length
-  }
-
-  // If we have words that need LLM, send the whole sentence
-  let llmResponse = ''
-  if (wordsNeedingLLM.length > 0) {
-    console.log(`[LLM] Checking ${wordsNeedingLLM.length} words: ${wordsNeedingLLM.join(', ')}`)
-    const { corrections: llmCorrections, response } = await checkWithLLM(sentence)
-    llmResponse = response
-    for (const c of llmCorrections) {
-      // Avoid duplicates
-      if (!corrections.find(existing => existing.original.toLowerCase() === c.original.toLowerCase())) {
-        corrections.push(c)
-      }
-    }
-  }
-
-  // Log all corrections with their sources
+  // Log corrections
   if (corrections.length > 0) {
     addLogEntry({
       timestamp: new Date().toISOString(),
       input: sentence,
-      llmResponse: llmResponse,
+      llmResponse: response,
       corrections: corrections.map(c => ({
         original: c.original,
         corrected: c.corrected,
-        source: cache.has(c.original.toLowerCase()) ? 'cache' as const :
-                wordsNeedingLLM.includes(c.original.toLowerCase()) ? 'llm' as const : 'phonetic' as const
+        source: 'llm' as const
       })),
       success: true,
     })
@@ -204,40 +129,36 @@ export async function checkSpelling(sentence: string): Promise<Correction[]> {
 }
 
 /**
- * Check spelling using the backend API (Flask server on localhost, Colab, etc.)
+ * Check spelling using LLM (via Flask API)
  */
 async function checkWithLLM(sentence: string): Promise<{ corrections: Correction[], response: string }> {
   const corrections: Correction[] = []
-  const backendUrl = getBackendUrl()
 
+  // Call Flask API for spelling check
   try {
-    const response = await fetch(`${backendUrl}/correct`, {
+    const response = await fetch(FLASK_API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: sentence }),
     })
 
     if (!response.ok) {
-      console.error('Backend error:', response.status)
+      console.error('Flask API error:', response.status)
       return { corrections: [], response: '' }
     }
 
     const data = await response.json()
-    const correctedSentence = (data.corrected || '').trim()
+    const correctedSentence = data.corrected || ''
 
-    if (!data.changed) {
-      return { corrections: [], response: correctedSentence }
-    }
-
-    // Use changes from server if available, otherwise diff locally
-    const changes: [string, string][] = data.changes || findDifferences(sentence, correctedSentence)
-
-    // Build corrections with positions
-    for (const [original, corrected] of changes) {
-      const pos = sentence.toLowerCase().indexOf(original.toLowerCase())
-      if (pos !== -1) {
-        corrections.push({ original, corrected, position: pos })
-        cache.set(original.toLowerCase(), corrected)
+    // The Flask API already provides the changes array
+    if (data.changes && Array.isArray(data.changes)) {
+      for (const [original, corrected] of data.changes) {
+        const pos = sentence.toLowerCase().indexOf(original.toLowerCase())
+        if (pos !== -1) {
+          corrections.push({ original, corrected, position: pos })
+          // Cache for next time
+          cache.set(original.toLowerCase(), corrected)
+        }
       }
     }
 

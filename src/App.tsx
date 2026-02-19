@@ -2,14 +2,17 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import Editor from './components/Editor'
 import { EditorRef } from './components/Editor'
 import VoiceWordHelper from './components/VoiceWordHelper'
-import { exportLog, clearLog, getBackendUrl, setBackendUrl } from './services/spelling'
+import Toolbar from './components/Toolbar'
+import { exportLog } from './services/spelling'
+import { saveAsMarkdown, saveAsDocx, saveAsPdf } from './services/export'
 
 function App() {
   const [learningMode, setLearningMode] = useState(false)
   const [lightMode, setLightMode] = useState(false)
   const [standardFont, setStandardFont] = useState(false)
-  const [backendUrl, setBackendUrlState] = useState(getBackendUrl)
-  const [backendStatus, setBackendStatus] = useState<'unknown' | 'ok' | 'error'>('unknown')
+  const [zenMode, setZenMode] = useState(false)
+  const [wordCount, setWordCount] = useState(0)
+  const [zenHint, setZenHint] = useState(false)
   const editorRef = useRef<EditorRef>(null)
 
   // Apply theme classes to body
@@ -18,108 +21,101 @@ function App() {
     document.body.classList.toggle('standard-font', standardFont)
   }, [lightMode, standardFont])
 
-  // Check backend health on URL change
+  // Escape key exits zen mode
   useEffect(() => {
-    setBackendStatus('unknown')
-    const controller = new AbortController()
-    fetch(`${backendUrl}/health`, { signal: controller.signal })
-      .then(r => r.ok ? setBackendStatus('ok') : setBackendStatus('error'))
-      .catch(() => setBackendStatus('error'))
-    return () => controller.abort()
-  }, [backendUrl])
+    if (!zenMode) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setZenMode(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [zenMode])
 
-  const handleBackendUrlChange = useCallback((url: string) => {
-    setBackendUrlState(url)
-    setBackendUrl(url)
-  }, [])
+  // Show hint when entering zen mode
+  useEffect(() => {
+    if (zenMode) {
+      setZenHint(true)
+      const timer = setTimeout(() => setZenHint(false), 3000)
+      return () => clearTimeout(timer)
+    }
+    setZenHint(false)
+  }, [zenMode])
 
   const handleInsertWord = useCallback((word: string) => {
     editorRef.current?.insertWord(word)
   }, [])
 
+  const handleSave = useCallback((format: 'md' | 'docx' | 'pdf') => {
+    const html = editorRef.current?.getHTML() || ''
+    if (!html || html === '<p></p>') return
+    switch (format) {
+      case 'md':
+        saveAsMarkdown(html)
+        break
+      case 'docx':
+        saveAsDocx(html)
+        break
+      case 'pdf':
+        saveAsPdf(html)
+        break
+    }
+  }, [])
+
+  const handleExportLog = useCallback(() => {
+    const log = exportLog()
+    const blob = new Blob([log], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `spelling-log-${new Date().toISOString().split('T')[0]}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+  }, [])
+
   return (
-    <div className="app">
-      <header className="header">
-        <h1>Dyslexic Writer</h1>
-        <div className="settings">
-          <label className="toggle">
-            <input
-              type="checkbox"
-              checked={!learningMode}
-              onChange={(e) => setLearningMode(!e.target.checked)}
-            />
-            <span>Click to replace</span>
-          </label>
-          <label className="toggle">
-            <input
-              type="checkbox"
-              checked={lightMode}
-              onChange={(e) => setLightMode(e.target.checked)}
-            />
-            <span>Light mode</span>
-          </label>
-          <label className="toggle">
-            <input
-              type="checkbox"
-              checked={standardFont}
-              onChange={(e) => setStandardFont(e.target.checked)}
-            />
-            <span>Standard font</span>
-          </label>
-          <div className="backend-setting">
-            <input
-              type="text"
-              className="backend-url-input"
-              value={backendUrl}
-              onChange={(e) => handleBackendUrlChange(e.target.value)}
-              placeholder="Backend URL"
-            />
-            <span
-              className={`backend-status ${backendStatus}`}
-              title={backendStatus === 'ok' ? 'Connected' : backendStatus === 'error' ? 'Not connected' : 'Checking...'}
-            />
-          </div>
-        </div>
+    <div className={`app${zenMode ? ' zen' : ''}`}>
+      <header className="header-minimal">
+        <span className="app-title">Dyslexic Writer</span>
       </header>
 
-      <main className="main main-with-sidebar">
-        <VoiceWordHelper onInsertWord={handleInsertWord} />
-        <div className="main-content">
-          <Editor ref={editorRef} learningMode={learningMode} />
-        </div>
-      </main>
+      <div className="workspace">
+        <Toolbar
+          onCheckSpelling={() => editorRef.current?.runSpellCheck()}
+          onReadMyWriting={() => editorRef.current?.readMyWriting()}
+          onClearHighlights={() => editorRef.current?.clearHighlights()}
+          learningMode={learningMode}
+          onToggleLearningMode={() => setLearningMode(m => !m)}
+          lightMode={lightMode}
+          onToggleLightMode={() => setLightMode(m => !m)}
+          standardFont={standardFont}
+          onToggleFont={() => setStandardFont(f => !f)}
+          zenMode={zenMode}
+          onToggleZenMode={() => setZenMode(z => !z)}
+          onSave={handleSave}
+          onExportLog={handleExportLog}
+        />
 
-      <footer className="footer">
-        <p>Type a sentence and end with a period. Misspelled words will be highlighted.</p>
-        <div className="footer-actions">
-          <button
-            className="footer-button"
-            onClick={() => {
-              const log = exportLog()
-              const blob = new Blob([log], { type: 'application/json' })
-              const url = URL.createObjectURL(blob)
-              const a = document.createElement('a')
-              a.href = url
-              a.download = `spelling-log-${new Date().toISOString().split('T')[0]}.json`
-              a.click()
-              URL.revokeObjectURL(url)
-            }}
-          >
-            Export Log
-          </button>
-          <button
-            className="footer-button"
-            onClick={() => {
-              if (confirm('Clear all logged data?')) {
-                clearLog()
-                alert('Log cleared')
-              }
-            }}
-          >
-            Clear Log
-          </button>
+        <main className="editor-panel">
+          <Editor
+            ref={editorRef}
+            learningMode={learningMode}
+            onWordCountChange={setWordCount}
+          />
+          <div className="word-count">
+            {wordCount} {wordCount === 1 ? 'word' : 'words'}
+          </div>
+        </main>
+
+        <VoiceWordHelper onInsertWord={handleInsertWord} />
+      </div>
+
+      {zenMode && zenHint && (
+        <div className="zen-exit-hint">
+          Press Escape to exit Zen Mode
         </div>
-      </footer>
+      )}
     </div>
   )
 }
