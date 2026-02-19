@@ -10,73 +10,53 @@ We have a working dyslexic spelling correction product deployed on GitHub Pages 
 
 ---
 
-## Step 1: Set Up GPT-OSS-120B on DGX Spark
+## Step 1: Set Up GPT-OSS-120B on DGX Spark — DONE
 
 **Goal**: Get the 120B model running with maximum throughput.
 
-**Critical optimization**: Use **MXFP4 format** (not Q4_K_M GGUF) to exploit Blackwell's FP4 tensor cores. Benchmarks show:
-- MXFP4: **~40-60 tok/s** decode → 10K stories in ~7 hours
-- Q4_K_M GGUF: **~4-10 tok/s** decode → 10K stories in 2-4 days
+**What we found**:
+- Model already running via **Ollama** (not llama.cpp) — 100% GPU, 70GB VRAM
+- Measured throughput: **~42 tok/s** decode
+- Effective story generation rate: **~160 stories/hr** (~22s per story including reasoning overhead)
+- Full 21K generation (15K stories + 6K negatives across 3 age bands) = **~130 hours (~5 days)**
 
-**Tasks**:
-1. Check if GPT-OSS-120B is available in MXFP4 format on Hugging Face (NVIDIA's official quantization)
-2. If not, use Q4_K_M GGUF — slower but still workable over a weekend
-3. Build llama.cpp from source targeting Blackwell (`-DCMAKE_CUDA_ARCHITECTURES=121`)
-4. Run as a server (`llama-server`) with flash attention enabled (`-fa 1`, `--no-mmap`)
-5. Verify throughput with a test prompt
+**Critical discovery**: GPT-OSS-120B is a **reasoning model** — it uses internal thinking tokens before producing content. This means:
+- Ollama native `/api/generate` works best (thinking goes in `thinking` field, content in `response`)
+- OpenAI-compatible `/v1/chat/completions` puts reasoning in `reasoning` field, often consuming all `max_tokens` before producing content
+- Need **1536-2048 num_predict** to budget for both reasoning (~500-700 tok) and content (~200-400 tok)
+- Script auto-detects Ollama vs vLLM and uses the appropriate API
 
-**Estimated time**: 2-3 hours setup
+**Also planned**: vLLM on USask Plato cluster as alternative/parallel generation endpoint. Script supports both via `--url` flag.
 
 ---
 
-## Step 2: Expand Vocabulary Targets for Ages 7-17
-
-**Goal**: The current `vocab_targets.json` targets grade 2-3 vocabulary. Expand to cover the full age range.
+## Step 2: Expand Vocabulary Targets for Ages 7-17 — DONE
 
 **File**: `training/vocab_targets.json`
 
-**New age-band categories to add**:
-
-**Young (7-9)** — Already covered. Add:
-- CVC words with short vowel confusion targets (bed/bid, pen/pin, set/sit)
-- Simple consonant clusters (bl, cr, st, sp, fl)
-- High-frequency sight words that get misspelled (because, friend, people, said)
-
-**Middle (10-12)** — New:
-- Double consonant words (running, stopped, beginning, swimming, different)
-- Silent letter words (knight, island, whistle, castle, science)
-- Multi-syllable academic words (experiment, temperature, important, interesting)
-- Homophone pairs in context (their/there/they're, to/too/two, your/you're)
-
-**Teen (13-17)** — New:
-- Latin/Greek root words (government, parliament, psychology, environment)
-- Complex morphology (unnecessary, disappear, definitely, accommodation)
-- Subject-specific vocabulary (photosynthesis, democracy, hypothesis, analysis)
-- Teen-relevant proper nouns (Instagram, PlayStation, TikTok)
-
-**Estimated time**: 1-2 hours to curate word lists
+Added 8 new age-band categories:
+- **Young**: `young_cvc_short_vowel` (40 words), `young_consonant_clusters` (42 words), `young_sight_words` (44 words)
+- **Middle**: `middle_double_consonants` (49 words), `middle_silent_letters` (45 words), `middle_academic_words` (36 words), `middle_homophones` (46 words)
+- **Teen**: `teen_latin_greek_roots` (32 words), `teen_complex_morphology` (32 words), `teen_subject_vocabulary` (36 words), `teen_proper_nouns` (20 words), `teen_word_boundary` (10 phrases)
 
 ---
 
-## Step 3: Create `generate_stories_local.py` — Local LLM Story Generator
+## Step 3: Create `generate_stories_local.py` — Local LLM Story Generator — DONE (script ready, generation pending)
 
-**Goal**: Replace Gemini API with local GPT-OSS-120B inference. Generate 15,000+ clean stories.
+**File**: `training/generate_stories_local.py`
 
-**Base on**: `training/generate_clean_stories.py` (existing Gemini script)
+**Implemented**:
+- Auto-detects Ollama (native API) vs vLLM/OpenAI-compatible backend
+- `--age-band young/middle/teen/all` with age-specific system prompts and genre weights
+- Age-specific negative example prompts (4 variants per age band)
+- Reasoning model handling: extracts stories from `thinking` field when `response` is empty
+- Quality filter: rejects meta-commentary and responses under 40 words
+- `--resume-from` for interrupted runs, `--pilot` for 10-story test batches
+- `--url` and `--model` flags for flexible deployment (DGX Spark, Plato cluster, etc.)
 
-**Key changes**:
-- Replace `google.genai` client with HTTP calls to local llama-server (`http://localhost:8080/completion`)
-- Add `--age-band` parameter: `young` (7-9), `middle` (10-12), `teen` (13-17)
-- Age-specific prompts:
-  - **Young**: "Write as an 8-year-old. Simple plot, short sentences, 80-120 words."
-  - **Middle**: "Write as an 11-year-old doing a school assignment. 100-180 words."
-  - **Teen**: "Write as a 14-year-old. Essay-style or journal entry. 150-250 words."
-- Expand genre weights per age band (teens write more essays, young kids more adventure)
-- Keep negative example generation (correct text that should pass through unchanged)
-- Add resume capability (already exists in base script)
-- No rate limiting needed (local server)
+**Pilot results**: 10/10 stories generated successfully across all 3 age bands. Quality is age-appropriate.
 
-**Generation targets**:
+**Generation targets** (unchanged):
 | Age Band | Clean Stories | Negative Examples | Total |
 |----------|-------------|-------------------|-------|
 | Young (7-9) | 5,000 | 2,000 | 7,000 |
@@ -84,70 +64,48 @@ We have a working dyslexic spelling correction product deployed on GitHub Pages 
 | Teen (13-17) | 5,000 | 2,000 | 7,000 |
 | **Total** | **15,000** | **6,000** | **21,000** |
 
-At ~40 tok/s (MXFP4): ~8-10 hours. At ~5 tok/s (Q4): ~3-4 days.
+**Revised time estimate**: ~130 hours (~5 days) on DGX Spark at 160 stories/hr.
 
-**Estimated dev time**: 2-3 hours
+**To run**: `python3 -u training/generate_stories_local.py --url http://localhost:11434 --model gpt-oss:120b --age-band all --seed 42`
 
 ---
 
-## Step 4: Expand Error Injection Engine for Age Bands
-
-**Goal**: Add age-weighted error profiles to `inject_errors.py`.
+## Step 4: Expand Error Injection Engine for Age Bands — DONE
 
 **File**: `training/inject_errors.py`
 
-**New parameter**: `age_band` controls which rules fire and at what rates.
+**Implemented**:
+- `--age-band young/middle/teen` flag with distinct error profiles
+- Age-band category weights: young=phonological-dominant, middle=orthographic-dominant, teen=morphological-dominant
+- Error density scaling: young ~15%, middle ~10%, teen ~7%
+- `--inconsistency` flag for within-text variation
 
-**Age-band error distributions** (from research):
+**8 new rules added** (all tested and firing at correct rates):
 
-| | Phonological | Orthographic | Morphological |
-|-|-------------|--------------|---------------|
-| Young (7-9) | **65%** | 22% | 13% |
-| Middle (10-12) | 30% | **43%** | 27% |
-| Teen (13-17) | 18% | **37%** | **33%** + 12% real-word |
-
-**New rules to add**:
-
-For **middle** band:
-- Double consonant omission: running→runing, stopped→stoped (rate: 40%)
-- Double consonant insertion: dining→dinning, coming→comming (rate: 20%)
-- Silent letter drop: knife→nife, wrong→rong, island→iland (rate: 50%)
-- Vowel digraph swap: heat→heet, fear→feer (rate: 30%)
-
-For **teen** band:
-- Latin prefix errors: disappear→disapear, unnecessary→unnessary (rate: 35%)
-- Suffix confusion: definitely→definitly, separately→seperately (rate: 40%)
-- Unstressed vowel reduction: government→goverment, different→diffrent (rate: 45%)
-- Real-word substitution: form→from, tried→tired, quiet→quite (rate: 15%)
-- Word boundary errors: a lot→alot, all right→alright (rate: 50%)
-
-**Also add**:
-- **Inconsistency injection**: Same word misspelled differently within one text (~10% chance). This is a hallmark of dyslexic writing that distinguishes it from typical errors.
-- **Error density scaling by age**: Young ~15%, Middle ~10%, Teen ~7% (error rates decrease with age but persist on harder words)
-
-**Estimated dev time**: 3-4 hours
+| Rule | Band | Rate | Example |
+|------|------|------|---------|
+| `double_consonant_omission` | middle | 40% | stopped→stoped |
+| `double_consonant_insertion` | middle | 20% | dining→dinning |
+| `silent_letter_drop` | middle | 50% | knife→nife |
+| `vowel_digraph_swap` | middle | 30% | heat→heet |
+| `latin_prefix_error` | teen | 35% | unnecessary→unecessary |
+| `suffix_confusion` | teen | 40% | definitely→definitly |
+| `unstressed_vowel_reduction` | teen | 45% | government→govrnment |
+| `real_word_substitution` | teen | 15% | quiet→quite |
+| `word_boundary` (text-level) | teen | 50% | a lot→alot |
 
 ---
 
-## Step 5: Build Confusion Matrix from Existing Corpora
+## Step 5: Build Confusion Matrix from Existing Corpora — DONE
 
-**Goal**: Create a character-level confusion matrix for data augmentation (NeuSpell-style noising).
+**Files**: `training/build_confusion_matrix.py` → `training/confusion_matrix.json`
 
-**New script**: `training/build_confusion_matrix.py`
+**Results**: Processed 131,768 pairs → 285,919 error alignments:
+- Substitutions: 151,754
+- Deletions: 88,388
+- Insertions: 45,777
 
-**Input data**:
-- `training-data/all_pairs.csv` (93K pairs with edit distance)
-- `training-data/birkbeck.dat` (36K misspellings)
-- `training-data/holbrook.dat` (1.8K misspellings)
-
-**Output**: `training/confusion_matrix.json` — character substitution probabilities weighted by real dyslexic error frequency.
-
-**Use cases**:
-- Additional data augmentation: apply confusion matrix noising to clean stories as an alternative to rule-based injection
-- Can be combined with rule engine for richer error diversity
-- Validates that rule engine probabilities align with corpus statistics
-
-**Estimated dev time**: 2 hours
+**Top confusions**: z→s (.645), i→e (.304), a→e (.287), c→s (.324), d→t (.221)
 
 ---
 
@@ -172,27 +130,18 @@ For **teen** band:
 
 ---
 
-## Step 7: Assemble Training Dataset and Prepare for Fine-tuning
+## Step 7: Assemble Training Dataset and Prepare for Fine-tuning — DONE (pipeline ready)
 
-**Goal**: Combine all data sources into a unified training set.
+**Files**: `training-data/combine_all.py` and `training/prepare_finetune_data.py` (both updated)
 
-**Reuse existing**: `training-data/combine_all.py` and `training/prepare_finetune_data.py`
+**Pipeline tested** with existing data (before new story generation):
+- `combine_all.py` now loads age-band story batches + negatives from `generated_stories/<age_band>/`
+- `prepare_finetune_data.py` now applies `inject_errors.py` age-band error injection to clean stories automatically
+- Existing 3,498 stories + 750 negatives expanded to **50,955 training examples** via error injection
+- Current total: **237,185 examples** (93K word pairs + 93K sentence context + 51K synthetic)
+- Train/eval split: 213K / 24K
 
-**Final dataset composition target**:
-
-| Source | Type | Approx Count |
-|--------|------|-------------|
-| Birkbeck + Holbrook (existing) | Word pairs | 38K |
-| GitHub Typos (existing) | Word pairs | 51K |
-| Extra misspellings (existing) | Word pairs | 4K |
-| Old synthetic (existing) | Sentences | 6K |
-| **New: Rule-injected stories** | **Sentences** | **~15K** |
-| **New: Negative examples** | **Identity pairs** | **~6K** |
-| **New: Confusion matrix augmented** | **Sentences** | **~10K** |
-| **New: Lancaster LCCPW** | **Real children's writing** | **~500-1K** |
-| **Total** | | **~130-140K** |
-
-With sentence-level data going from ~6K to ~30K+ (5x increase), and the full 7-17 age range covered.
+**After 15K new stories are generated**, re-running the pipeline will produce the final dataset.
 
 **Output formats** (same as existing):
 - `train.jsonl` / `eval.jsonl` (90/10 split)
@@ -231,12 +180,14 @@ With sentence-level data going from ~6K to ~30K+ (5x increase), and the full 7-1
 
 ## File Summary
 
-| Action | File |
-|--------|------|
-| Modify | `training/vocab_targets.json` — add middle/teen word lists |
-| Modify | `training/inject_errors.py` — add age bands, new rules |
-| Create | `training/generate_stories_local.py` — local LLM story generation |
-| Create | `training/build_confusion_matrix.py` — character confusion matrix |
-| Create | `training/scrape_lancaster.py` — LCCPW corpus extraction |
-| Modify | `training-data/combine_all.py` — incorporate new data sources |
-| Modify | `training/prepare_finetune_data.py` — handle new data volume |
+| Status | File | Description |
+|--------|------|-------------|
+| DONE | `training/vocab_targets.json` | Added 8 age-band categories (young/middle/teen) |
+| DONE | `training/inject_errors.py` | Added `--age-band`, 8 new rules, inconsistency injection |
+| DONE | `training/generate_stories_local.py` | Local LLM story gen (Ollama + vLLM auto-detect) |
+| DONE | `training/build_confusion_matrix.py` | Character confusion matrix (131K pairs → 286K alignments) |
+| DONE | `training/confusion_matrix.json` | Output: substitution/deletion/insertion probabilities |
+| DONE | `training-data/combine_all.py` | Updated for age-band story batches |
+| DONE | `training/prepare_finetune_data.py` | Auto-applies error injection to clean stories |
+| TODO | `training/scrape_lancaster.py` | LCCPW corpus extraction (Step 6) |
+| PENDING | Story generation | `python3 -u training/generate_stories_local.py --url http://localhost:11434 --model gpt-oss:120b --age-band all --seed 42` (~5 days) |

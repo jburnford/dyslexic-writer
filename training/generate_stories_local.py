@@ -251,39 +251,157 @@ def build_negative_prompt(age_band: str) -> tuple[str, str]:
 
 
 # ---------------------------------------------------------------------------
-# LLM API (OpenAI-compatible — works with vLLM, Ollama, llama.cpp)
+# LLM API — auto-detects Ollama (native) vs OpenAI-compatible (vLLM etc.)
 # ---------------------------------------------------------------------------
 
-def llm_generate(prompt: str, system: str, temperature: float = 0.9) -> Optional[str]:
-    """Generate text via OpenAI-compatible chat completions API."""
-    try:
-        resp = requests.post(
-            f"{API_URL}/v1/chat/completions",
-            json={
-                "model": API_MODEL,
-                "messages": [
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": prompt},
-                ],
-                "temperature": temperature,
-                "max_tokens": 1024,
-            },
-            timeout=120,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        text = data["choices"][0]["message"]["content"].strip()
+# Budget enough for both reasoning (~500-700 tok) and content (~200-400 tok)
+MAX_TOKENS_BY_AGE = {"young": 1536, "middle": 2048, "teen": 2048}
+_BACKEND = None  # "ollama" or "openai", auto-detected on first call
 
-        # Log throughput from usage stats if available
-        usage = data.get("usage", {})
-        completion_tokens = usage.get("completion_tokens", 0)
-        if completion_tokens:
-            pass  # Could log tokens here if needed
+
+def _detect_backend():
+    """Detect whether server is Ollama (use native API) or vLLM/other (use OpenAI API)."""
+    global _BACKEND
+    if _BACKEND:
+        return _BACKEND
+    try:
+        resp = requests.get(f"{API_URL}/api/tags", timeout=5)
+        if resp.status_code == 200 and "models" in resp.json():
+            _BACKEND = "ollama"
+            print(f"  Backend: Ollama (native API)")
+            return _BACKEND
+    except Exception:
+        pass
+    _BACKEND = "openai"
+    print(f"  Backend: OpenAI-compatible")
+    return _BACKEND
+
+
+def llm_generate(prompt: str, system: str, temperature: float = 0.9,
+                 age_band: str = "young") -> Optional[str]:
+    """Generate text via LLM API. Uses Ollama native API or OpenAI-compatible."""
+    backend = _detect_backend()
+    max_tokens = MAX_TOKENS_BY_AGE.get(age_band, 512)
+
+    try:
+        if backend == "ollama":
+            # Ollama native /api/generate — avoids reasoning token overhead
+            full_prompt = f"{system}\n\n{prompt}"
+            resp = requests.post(
+                f"{API_URL}/api/generate",
+                json={
+                    "model": API_MODEL,
+                    "prompt": full_prompt,
+                    "stream": False,
+                    "options": {
+                        "temperature": temperature,
+                        "num_predict": max_tokens,
+                    },
+                },
+                timeout=120,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            text = data.get("response", "").strip()
+            # Reasoning models may put content in 'thinking' field
+            if not text and data.get("thinking"):
+                text = _extract_story_from_thinking(data["thinking"])
+        else:
+            # OpenAI-compatible (vLLM, llama.cpp server, etc.)
+            resp = requests.post(
+                f"{API_URL}/v1/chat/completions",
+                json={
+                    "model": API_MODEL,
+                    "messages": [
+                        {"role": "system", "content": system},
+                        {"role": "user", "content": prompt},
+                    ],
+                    "temperature": temperature,
+                    "max_tokens": max_tokens,
+                },
+                timeout=120,
+            )
+            resp.raise_for_status()
+            text = resp.json()["choices"][0]["message"].get("content", "").strip()
+
+        # Quality filter: reject meta-commentary or very short responses
+        if text and _is_meta_commentary(text):
+            return None
 
         return text if text else None
     except Exception as e:
         print(f"  LLM API error: {e}")
         return None
+
+
+def _is_meta_commentary(text: str) -> bool:
+    """Detect model meta-commentary that isn't an actual story."""
+    lower = text.strip().lower()
+    meta_starts = [
+        "we'll write", "we will write", "let's write", "let me write",
+        "i'll write", "i will write", "here's a", "here is a",
+        "this story", "the story", "i need to", "i should",
+        "word count", "draft:", "outline:", "structure:",
+        "also \"", "also '", "must use", "must include",
+        "write as", "write a ",
+    ]
+    if any(lower.startswith(p) for p in meta_starts):
+        return True
+    # Reject very short responses (likely truncated or meta)
+    if len(text.split()) < 40:
+        return True
+    return False
+
+
+def _extract_story_from_thinking(thinking: str) -> str:
+    """Extract the actual story from a reasoning model's thinking output.
+
+    The model deliberates first (word count, plan, etc.) then drafts the story.
+    We want the last substantial narrative block.
+    """
+    lines = thinking.strip().split("\n")
+
+    # Strategy: find the last block of 3+ consecutive narrative lines
+    # (not starting with meta-commentary patterns)
+    meta_prefixes = (
+        "we need", "use ", "include", "must ", "will ", "word count",
+        "let's ", "let me", "i need", "i'll ", "now ", "count:",
+        "draft", "plan", "outline", "target", "check", "ok ",
+        "total", "final", "revision", "edit", "hmm", "wait",
+        "---", "===", "***",
+    )
+
+    blocks = []
+    current_block = []
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            if current_block:
+                blocks.append(current_block)
+                current_block = []
+            continue
+        lower = stripped.lower()
+        is_meta = any(lower.startswith(p) for p in meta_prefixes)
+        if is_meta:
+            if current_block:
+                blocks.append(current_block)
+                current_block = []
+        else:
+            # Clean up quote wrapping
+            if stripped.startswith('"'):
+                stripped = stripped[1:]
+            if stripped.endswith('"'):
+                stripped = stripped[:-1]
+            current_block.append(stripped)
+    if current_block:
+        blocks.append(current_block)
+
+    # Find the longest block (most likely the actual story)
+    if not blocks:
+        return ""
+    best = max(blocks, key=lambda b: sum(len(l) for l in b))
+    result = "\n".join(best).strip()
+    return result if len(result.split()) >= 30 else ""
 
 
 # ---------------------------------------------------------------------------
@@ -317,7 +435,8 @@ def generate_stories(
     vocab = load_vocab_targets()
     system_prompt = SYSTEM_PROMPTS[age_band]
 
-    print(f"=== Generating {age_band} band (ages {{'young':'7-9','middle':'10-12','teen':'13-17'}[age_band]}) ===")
+    age_ranges = {"young": "7-9", "middle": "10-12", "teen": "13-17"}
+    print(f"=== Generating {age_band} band (ages {age_ranges[age_band]}) ===")
     print(f"Model: {API_MODEL} @ {API_URL}")
     print(f"Stories: {num_stories}, Negatives: {num_negative}")
     print(f"Output: {output_dir}")
@@ -346,7 +465,7 @@ def generate_stories(
         vocab_words = select_vocab_targets(vocab, age_band, count=random.randint(8, 15))
         prompt = build_story_prompt(genre, vocab_words, age_band)
 
-        text = llm_generate(prompt, system_prompt, temperature=0.9)
+        text = llm_generate(prompt, system_prompt, temperature=0.9, age_band=age_band)
 
         if not text:
             failed += 1
@@ -394,7 +513,7 @@ def generate_stories(
     for i in range(num_negative):
         variant, prompt = build_negative_prompt(age_band)
 
-        text = llm_generate(prompt, system_prompt, temperature=0.8)
+        text = llm_generate(prompt, system_prompt, temperature=0.8, age_band=age_band)
 
         if not text:
             continue
@@ -478,11 +597,11 @@ def main():
     )
     parser.add_argument(
         "--model", type=str, default=None,
-        help=f"Model name for API (default: {API_MODEL})"
+        help="Model name for API (default: from LLM_MODEL env or gpt-oss-120b)"
     )
     parser.add_argument(
         "--url", type=str, default=None,
-        help=f"OpenAI-compatible API URL (default: {API_URL})"
+        help="OpenAI-compatible API URL (default: from LLM_API_URL env or http://localhost:8000)"
     )
     parser.add_argument(
         "--seed", type=int, default=None,
@@ -492,12 +611,7 @@ def main():
 
     if args.seed is not None:
         random.seed(args.seed)
-    if args.model:
-        global API_MODEL
-        API_MODEL = args.model
-    if args.url:
-        global API_URL
-        API_URL = args.url
+    _apply_overrides(args.model, args.url)
 
     bands = ["young", "middle", "teen"] if args.age_band == "all" else [args.age_band]
 
@@ -514,6 +628,14 @@ def main():
                 output_dir=out,
                 resume_from=args.resume_from,
             )
+
+
+def _apply_overrides(model: Optional[str], url: Optional[str]):
+    global API_MODEL, API_URL
+    if model:
+        API_MODEL = model
+    if url:
+        API_URL = url
 
 
 if __name__ == "__main__":
