@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
 Combine all spelling correction datasets into unified training files.
+
+Supports both word-level pairs (CSV) and sentence-level examples (JSON batches
+from generate_stories_local.py + inject_errors.py).
 """
 
 import json
@@ -38,12 +41,36 @@ def load_jsonl_pairs(filepath: Path) -> list[tuple[str, str]]:
                 continue
     return pairs
 
+def load_story_batches(story_dir: Path) -> list[dict]:
+    """Load generated story batches (JSON files from generate_stories_local.py)."""
+    stories = []
+    if not story_dir.exists():
+        return stories
+    for json_file in sorted(story_dir.glob("stories_batch_*.json")):
+        with open(json_file) as f:
+            batch = json.load(f)
+            stories.extend(batch)
+    return stories
+
+def load_negative_batches(story_dir: Path) -> list[dict]:
+    """Load negative example batches."""
+    negatives = []
+    if not story_dir.exists():
+        return negatives
+    for json_file in sorted(story_dir.glob("negatives_batch_*.json")):
+        with open(json_file) as f:
+            batch = json.load(f)
+            negatives.extend(batch)
+    return negatives
+
 def main():
     script_dir = Path(__file__).parent
+    training_dir = script_dir.parent / "training"
 
     all_pairs = []
     seen = set()
 
+    # --- Word-level pairs ---
     sources = {
         'birkbeck_pairs.csv': 'Birkbeck',
         'holbrook_pairs.csv': 'Holbrook',
@@ -71,7 +98,7 @@ def main():
         stats[source] = added
         print(f"{source}: {len(pairs):,} total, {added:,} unique new")
 
-    print(f"\nTotal unique pairs: {len(all_pairs):,}")
+    print(f"\nTotal unique word pairs: {len(all_pairs):,}")
 
     # Save combined CSV
     csv_path = script_dir / "all_pairs.csv"
@@ -106,9 +133,86 @@ def main():
             f.write(json.dumps(entry) + '\n')
     print(f"Saved to {changes_path}")
 
+    # --- Sentence-level data from generated stories ---
+    story_dir = training_dir / "generated_stories"
+    sentence_count = 0
+
+    synthetic_path = script_dir / "synthetic_all.jsonl"
+    synthetic_f = open(synthetic_path, 'w')
+
+    for age_band in ["young", "middle", "teen"]:
+        band_dir = story_dir / age_band
+        stories = load_story_batches(band_dir)
+        negatives = load_negative_batches(band_dir)
+
+        if stories:
+            print(f"\n{age_band} stories: {len(stories):,}")
+            for story in stories:
+                text = story.get("text", "")
+                if not text:
+                    continue
+                # Stories are clean — they need error injection applied separately
+                # Store as synthetic data for the injection pipeline
+                entry = {
+                    "text": text,
+                    "age_band": age_band,
+                    "genre": story.get("genre", ""),
+                    "type": "clean_for_injection",
+                }
+                synthetic_f.write(json.dumps(entry) + '\n')
+                sentence_count += 1
+
+        if negatives:
+            print(f"{age_band} negatives: {len(negatives):,}")
+            for neg in negatives:
+                text = neg.get("text", "")
+                if not text:
+                    continue
+                # Negative examples are identity pairs (correct -> correct)
+                entry = {
+                    "instruction": "Fix any spelling mistakes in this text. If there are no mistakes, output the text unchanged.",
+                    "input": text,
+                    "output": text,
+                }
+                synthetic_f.write(json.dumps(entry) + '\n')
+                sentence_count += 1
+
+    # Also load stories from flat directory (no age band subdirs)
+    flat_stories = load_story_batches(story_dir)
+    flat_negatives = load_negative_batches(story_dir)
+    if flat_stories:
+        print(f"\nFlat stories: {len(flat_stories):,}")
+        for story in flat_stories:
+            text = story.get("text", "")
+            if text:
+                entry = {
+                    "text": text,
+                    "age_band": story.get("age_band", "young"),
+                    "genre": story.get("genre", ""),
+                    "type": "clean_for_injection",
+                }
+                synthetic_f.write(json.dumps(entry) + '\n')
+                sentence_count += 1
+    if flat_negatives:
+        print(f"Flat negatives: {len(flat_negatives):,}")
+        for neg in flat_negatives:
+            text = neg.get("text", "")
+            if text:
+                entry = {
+                    "instruction": "Fix any spelling mistakes in this text. If there are no mistakes, output the text unchanged.",
+                    "input": text,
+                    "output": text,
+                }
+                synthetic_f.write(json.dumps(entry) + '\n')
+                sentence_count += 1
+
+    synthetic_f.close()
+    print(f"\nTotal sentence-level examples: {sentence_count:,}")
+    print(f"Saved to {synthetic_path}")
+
     print("\nBreakdown by source:")
     for source, count in sorted(stats.items(), key=lambda x: -x[1]):
-        pct = count / len(all_pairs) * 100
+        pct = count / len(all_pairs) * 100 if all_pairs else 0
         print(f"  {source}: {count:,} ({pct:.1f}%)")
 
 if __name__ == "__main__":

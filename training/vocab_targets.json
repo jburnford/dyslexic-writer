@@ -1,5 +1,6 @@
 {
-  "_comment": "Words organized by which error injection rules they trigger. Used to target Gemini story prompts.",
+  "_comment": "Words organized by error injection rules and age bands. Used to target story prompts.",
+  "_age_bands": "young (7-9), middle (10-12), teen (13-17). Original rule categories cover young band.",
 
   "vowel_digraph_ea": [
     "screamed", "dreaming", "pleased", "reason", "reached", "treated", "feared",
@@ -121,5 +122,148 @@
     "tongue", "league", "guarantee", "guard", "guide", "guitar",
     "receipt", "science", "scene", "scissors", "pneumonia",
     "psychology", "rhythm", "colonel", "Wednesday", "February"
+  ],
+
+  "_young_comment": "Young (7-9) — CVC words, simple clusters, high-frequency sight words",
+
+  "young_cvc_short_vowel": [
+    "bed", "bid", "bad", "bud", "pen", "pin", "pan", "pun",
+    "set", "sit", "sat", "cut", "hit", "hot", "hut", "hat",
+    "pet", "pit", "pot", "put", "net", "nit", "not", "nut",
+    "red", "rid", "rod", "rug", "run", "ran", "big", "bag",
+    "bug", "dog", "dig", "dug", "fog", "fig", "fun", "fan"
+  ],
+
+  "young_consonant_clusters": [
+    "black", "block", "blow", "blue", "clap", "class", "clean",
+    "cream", "cross", "crowd", "start", "stand", "step", "stop",
+    "spend", "spell", "spot", "spill", "flag", "flat", "flip",
+    "float", "frog", "fresh", "free", "from", "grass", "green",
+    "grand", "slip", "slow", "small", "smell", "smile", "snap",
+    "snow", "still", "stone", "street", "strong", "swim", "swing"
+  ],
+
+  "young_sight_words": [
+    "because", "friend", "people", "said", "could", "would",
+    "should", "their", "there", "where", "were", "what", "when",
+    "which", "while", "about", "again", "always", "before",
+    "every", "first", "going", "house", "little", "many",
+    "other", "right", "school", "water", "world", "after",
+    "does", "done", "enough", "great", "heard", "once", "only",
+    "really", "sure", "thought", "through", "together", "very"
+  ],
+
+  "_middle_comment": "Middle (10-12) — Double consonants, silent letters, academic words, homophones",
+
+  "middle_double_consonants": [
+    "running", "stopped", "beginning", "swimming", "different",
+    "happened", "getting", "sitting", "putting", "letting",
+    "hitting", "cutting", "dropping", "shopping", "planning",
+    "winning", "spinning", "slipping", "snapping", "stepping",
+    "tripping", "wrapping", "hopping", "chopping", "clapping",
+    "digging", "hugging", "rubbing", "setting", "tipping",
+    "acceptable", "accidentally", "accommodate", "apparatus",
+    "broccoli", "committee", "necessary", "occasion", "occurrence",
+    "parallel", "possess", "possible", "success", "supposed",
+    "terrible", "tomorrow", "village", "communication", "connect"
+  ],
+
+  "middle_silent_letters": [
+    "knight", "island", "whistle", "castle", "science",
+    "scissors", "knock", "kneel", "knit", "knowledge",
+    "wreck", "wrestle", "wrist", "written", "wrong",
+    "answer", "build", "column", "crumb", "debt",
+    "doubt", "dumb", "fasten", "gnaw", "guard",
+    "guess", "guilty", "half", "honest", "lamb",
+    "limb", "listen", "muscle", "plumber", "psalm",
+    "receipt", "scene", "solemn", "sword", "thumb",
+    "tongue", "whole", "autumn", "calm", "palm"
+  ],
+
+  "middle_academic_words": [
+    "experiment", "temperature", "important", "interesting",
+    "information", "paragraph", "dictionary", "electricity",
+    "explanation", "illustration", "instruction", "measurement",
+    "observation", "population", "preparation", "competition",
+    "concentration", "determination", "imagination", "particular",
+    "professional", "temperature", "anniversary", "appreciate",
+    "calculation", "celebration", "civilization", "communication",
+    "certificate", "characteristic", "approximately", "curiosity",
+    "description", "development", "environment", "equipment"
+  ],
+
+  "middle_homophones": [
+    "their", "there", "they're",
+    "to", "too", "two",
+    "your", "you're",
+    "its", "it's",
+    "hear", "here",
+    "write", "right",
+    "know", "no",
+    "weather", "whether",
+    "peace", "piece",
+    "passed", "past",
+    "break", "brake",
+    "weak", "week",
+    "flower", "flour",
+    "allowed", "aloud",
+    "board", "bored",
+    "caught", "court",
+    "choose", "chews",
+    "bare", "bear",
+    "principal", "principle",
+    "stationary", "stationery",
+    "affect", "effect",
+    "accept", "except",
+    "advice", "advise",
+    "practice", "practise"
+  ],
+
+  "_teen_comment": "Teen (13-17) — Latin/Greek roots, complex morphology, subject vocabulary",
+
+  "teen_latin_greek_roots": [
+    "government", "parliament", "psychology", "environment",
+    "philosophy", "democracy", "bureaucracy", "archaeology",
+    "phenomenon", "catastrophe", "curriculum", "gymnasium",
+    "anniversary", "Mediterranean", "extraordinary", "pronunciation",
+    "contemporary", "independent", "opportunity", "recommendation",
+    "representative", "responsibility", "significance", "temperature",
+    "acknowledge", "coincidence", "consequence", "controversy",
+    "correspondence", "interference", "perseverance", "surveillance"
+  ],
+
+  "teen_complex_morphology": [
+    "unnecessary", "disappear", "definitely", "accommodation",
+    "embarrassment", "exaggerate", "immediately", "occasionally",
+    "recommendation", "unfortunately", "acknowledgement", "beginning",
+    "commitment", "correspondence", "disagreement", "disappointment",
+    "encouragement", "independence", "mischievous", "miscellaneous",
+    "noticeable", "occurrence", "possession", "prejudice",
+    "privilege", "profession", "questionnaire", "reassurance",
+    "separate", "sincerely", "successfully", "sufficient"
+  ],
+
+  "teen_subject_vocabulary": [
+    "photosynthesis", "democracy", "hypothesis", "analysis",
+    "algorithm", "biodiversity", "chromosome", "circumference",
+    "coefficient", "combustion", "condensation", "constitution",
+    "evaporation", "equilibrium", "frequency", "gravitational",
+    "infrastructure", "legislature", "metabolism", "mitochondria",
+    "multiplication", "neutralisation", "onomatopoeia", "oxidation",
+    "parallelogram", "perpendicular", "precipitation", "quadrilateral",
+    "Renaissance", "respiration", "Shakespeare", "soliloquy",
+    "sustainability", "thermometer", "totalitarian", "trigonometry"
+  ],
+
+  "teen_proper_nouns": [
+    "Instagram", "PlayStation", "TikTok", "YouTube", "Snapchat",
+    "Netflix", "Spotify", "WhatsApp", "Wikipedia", "Nintendo",
+    "Minecraft", "Fortnite", "Roblox", "Pokemon", "Disney",
+    "Amazon", "Microsoft", "Samsung", "Bluetooth", "Firefox"
+  ],
+
+  "teen_word_boundary": [
+    "a lot", "all right", "in fact", "at least", "no one",
+    "each other", "even though", "as well", "in case", "up to"
   ]
 }

@@ -5,9 +5,14 @@ Error injection rule engine calibrated to the Bob Story error profile.
 Takes clean text and injects dyslexic spelling errors based on empirically-derived
 transformation rules from bob-story-error-profile.md.
 
+Supports three age bands with distinct error profiles:
+  - young  (7-9):  phonological-dominant (65%), higher error density (~15%)
+  - middle (10-12): orthographic-dominant (43%), medium density (~10%)
+  - teen   (13-17): morphological-dominant (33%), lower density (~7%)
+
 Each rule is tagged with provenance (attested, inferred, literature-based) and
 confidence level. Error density follows realistic distributions observed in the
-Bob story (~12% word-level error rate).
+Bob story (~12% word-level error rate for young band).
 """
 
 import json
@@ -75,6 +80,32 @@ def _get_preservation_set() -> set:
     if not PRESERVATION_SET:
         PRESERVATION_SET = _build_preservation_set()
     return PRESERVATION_SET
+
+
+# ---------------------------------------------------------------------------
+# Age-band configuration
+# ---------------------------------------------------------------------------
+
+AGE_BAND_CONFIG = {
+    "young": {
+        "category_weights": {"phonological": 0.65, "orthographic": 0.22, "morphological": 0.13},
+        "error_density": 0.15,  # ~15% of words get errors
+        "error_distribution": [(0, 0.25), (1, 0.35), (2, 0.25), (3, 0.15)],
+    },
+    "middle": {
+        "category_weights": {"phonological": 0.30, "orthographic": 0.43, "morphological": 0.27},
+        "error_density": 0.10,
+        "error_distribution": [(0, 0.30), (1, 0.35), (2, 0.25), (3, 0.10)],
+    },
+    "teen": {
+        "category_weights": {"phonological": 0.18, "orthographic": 0.37, "morphological": 0.33, "real_word": 0.12},
+        "error_density": 0.07,
+        "error_distribution": [(0, 0.35), (1, 0.35), (2, 0.20), (3, 0.10)],
+    },
+}
+
+# Default (original) config matches young band
+DEFAULT_AGE_BAND = "young"
 
 
 # ---------------------------------------------------------------------------
@@ -601,10 +632,285 @@ def rule_silent_e_addition(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
 
 
 # ---------------------------------------------------------------------------
-# Rule registry
+# NEW: Middle band rules (ages 10-12)
 # ---------------------------------------------------------------------------
 
-# Rules organized by tier priority
+def rule_double_consonant_omission(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Drop one of a double consonant: running -> runing, stopped -> stoped"""
+    lower = word.lower()
+    # Find doubled consonants
+    for i in range(len(lower) - 1):
+        if lower[i] == lower[i + 1] and lower[i] not in "aeiouy":
+            if random.random() > 0.40:  # 40% rate
+                continue
+            corrupted = word[:i] + word[i + 1:]
+            return (corrupted, ErrorAnnotation(
+                target_word=word, written_as=corrupted,
+                rule="double_consonant_omission", category="orthographic",
+                provenance="literature-based", confidence="high"
+            ))
+    return None
+
+
+def rule_double_consonant_insertion(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Add extra consonant: dining -> dinning, coming -> comming"""
+    lower = word.lower()
+    if len(lower) < 4:
+        return None
+    if random.random() > 0.20:  # 20% rate
+        return None
+    # Find single consonants between vowels (likely doubling targets)
+    vowels = "aeiouy"
+    for i in range(1, len(lower) - 1):
+        if (lower[i] not in vowels and
+            lower[i - 1] in vowels and
+            i + 1 < len(lower) and lower[i + 1] in vowels and
+            # Don't double if already doubled
+            (i == 0 or lower[i] != lower[i - 1])):
+            corrupted = word[:i + 1] + word[i] + word[i + 1:]
+            return (corrupted, ErrorAnnotation(
+                target_word=word, written_as=corrupted,
+                rule="double_consonant_insertion", category="orthographic",
+                provenance="literature-based", confidence="medium"
+            ))
+    return None
+
+
+def rule_silent_letter_drop(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Drop silent letters: knife -> nife, wrong -> rong, island -> iland"""
+    lower = word.lower()
+    silent_patterns = [
+        ("kn", "n", 0),     # knife -> nife, knock -> nock
+        ("wr", "r", 0),     # wrong -> rong, write -> rite
+        ("gn", "n", 0),     # gnaw -> naw
+        ("mb", "m", None),  # climb -> clim, lamb -> lam (word-final)
+        ("bt", "t", None),  # doubt -> dout, debt -> det (word-final-ish)
+    ]
+    for pattern, replacement, pos in silent_patterns:
+        if pos == 0 and lower.startswith(pattern):
+            if random.random() > 0.50:  # 50% rate
+                continue
+            if word[0].isupper():
+                corrupted = replacement.capitalize() + word[len(pattern):]
+            else:
+                corrupted = replacement + word[len(pattern):]
+            return (corrupted, ErrorAnnotation(
+                target_word=word, written_as=corrupted,
+                rule="silent_letter_drop", category="orthographic",
+                provenance="literature-based", confidence="high"
+            ))
+        elif pos is None and lower.endswith(pattern):
+            if random.random() > 0.50:
+                continue
+            corrupted = word[:-len(pattern)] + replacement
+            return (corrupted, ErrorAnnotation(
+                target_word=word, written_as=corrupted,
+                rule="silent_letter_drop", category="orthographic",
+                provenance="literature-based", confidence="high"
+            ))
+    return None
+
+
+def rule_vowel_digraph_swap(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Swap vowel digraphs: heat -> heet, fear -> feer"""
+    lower = word.lower()
+    swaps = [
+        ("ea", "ee"),  # heat -> heet
+        ("ee", "ea"),  # feet -> feat
+        ("ie", "ei"),  # field -> feild
+        ("ei", "ie"),  # receive -> recieve
+        ("ai", "ay"),  # rain -> rayn
+        ("ay", "ai"),  # play -> plai
+    ]
+    for old, new in swaps:
+        if old in lower:
+            if random.random() > 0.30:  # 30% rate
+                continue
+            idx = lower.index(old)
+            corrupted = word[:idx] + new + word[idx + len(old):]
+            if corrupted.lower() != word.lower():
+                return (corrupted, ErrorAnnotation(
+                    target_word=word, written_as=corrupted,
+                    rule="vowel_digraph_swap", category="orthographic",
+                    provenance="literature-based", confidence="medium"
+                ))
+    return None
+
+
+# ---------------------------------------------------------------------------
+# NEW: Teen band rules (ages 13-17)
+# ---------------------------------------------------------------------------
+
+def rule_latin_prefix_error(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Errors in Latin prefixes: disappear -> disapear, unnecessary -> unnessary"""
+    lower = word.lower()
+    prefix_errors = [
+        ("dis", "dis"),     # disappear -> disapear (double->single after prefix)
+        ("un", "un"),       # unnecessary -> unnessary
+        ("mis", "mis"),     # misspell -> mispell
+        ("re", "re"),       # recommend -> recomend
+        ("over", "over"),   # overrate -> overate
+        ("pre", "pre"),     # prerequisite -> prerequiste
+    ]
+    for prefix, _ in prefix_errors:
+        if lower.startswith(prefix) and len(lower) > len(prefix) + 2:
+            rest = lower[len(prefix):]
+            # If char after prefix is same as last char of prefix, drop it
+            if rest and prefix[-1] == rest[0]:
+                if random.random() > 0.35:
+                    continue
+                corrupted = word[:len(prefix)] + word[len(prefix) + 1:]
+                return (corrupted, ErrorAnnotation(
+                    target_word=word, written_as=corrupted,
+                    rule="latin_prefix_error", category="morphological",
+                    provenance="literature-based", confidence="medium"
+                ))
+            # Or if double consonant follows prefix, reduce it
+            if len(rest) > 1 and rest[0] == rest[1] and rest[0] not in "aeiouy":
+                if random.random() > 0.35:
+                    continue
+                corrupted = word[:len(prefix)] + word[len(prefix) + 1:]
+                return (corrupted, ErrorAnnotation(
+                    target_word=word, written_as=corrupted,
+                    rule="latin_prefix_error", category="morphological",
+                    provenance="literature-based", confidence="medium"
+                ))
+    return None
+
+
+def rule_suffix_confusion(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Common suffix errors: definitely -> definitly, separately -> seperately"""
+    lower = word.lower()
+    suffix_swaps = [
+        ("ately", "atly"),     # definitely -> definitly, separately -> sepratly
+        ("itely", "itly"),     # definitely -> definitly
+        ("ately", "etely"),    # separately -> seperately
+        ("ance", "ence"),      # performance -> performence
+        ("ence", "ance"),      # difference -> differance
+        ("able", "ible"),      # comfortable -> comfortible
+        ("ible", "able"),      # possible -> possable
+        ("tion", "shun"),      # education -> educashun
+        ("sion", "tion"),      # decision -> decition
+        ("ous", "us"),         # dangerous -> dangerus
+        ("ious", "ius"),       # serious -> serius
+        ("ally", "ly"),        # occasionally -> occasionly
+    ]
+    for old_suffix, new_suffix in suffix_swaps:
+        if lower.endswith(old_suffix):
+            if random.random() > 0.40:  # 40% rate
+                continue
+            corrupted = word[:-len(old_suffix)] + new_suffix
+            if corrupted.lower() != word.lower():
+                return (corrupted, ErrorAnnotation(
+                    target_word=word, written_as=corrupted,
+                    rule="suffix_confusion", category="morphological",
+                    provenance="literature-based", confidence="medium"
+                ))
+    return None
+
+
+def rule_unstressed_vowel_reduction(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Drop unstressed vowels: government -> goverment, different -> diffrent"""
+    lower = word.lower()
+    if _count_vowel_groups(lower) < 3 or len(lower) < 7:
+        return None
+    if random.random() > 0.45:  # 45% rate
+        return None
+
+    # Find vowels in middle positions (likely unstressed)
+    vowels = "aeiou"
+    candidates = []
+    for i in range(2, len(lower) - 2):
+        if lower[i] in vowels and lower[i - 1] not in vowels and lower[i + 1] not in vowels:
+            candidates.append(i)
+
+    if not candidates:
+        return None
+
+    pos = random.choice(candidates)
+    corrupted = word[:pos] + word[pos + 1:]
+
+    if corrupted.lower() == word.lower() or len(corrupted) < 3:
+        return None
+
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="unstressed_vowel_reduction", category="orthographic",
+        provenance="literature-based", confidence="medium"
+    ))
+
+
+# Real-word substitution lookup
+REAL_WORD_SUBS = {
+    "form": "from", "from": "form",
+    "tried": "tired", "tired": "tried",
+    "quiet": "quite", "quite": "quiet",
+    "angel": "angle", "angle": "angel",
+    "diary": "dairy", "dairy": "diary",
+    "desert": "dessert", "dessert": "desert",
+    "loose": "lose", "lose": "loose",
+    "accept": "except", "except": "accept",
+    "affect": "effect", "effect": "affect",
+    "advice": "advise", "advise": "advice",
+    "than": "then", "then": "than",
+    "were": "where", "where": "were",
+    "through": "thorough", "thorough": "through",
+    "thought": "though", "though": "thought",
+}
+
+
+def rule_real_word_substitution(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Substitute with a real but wrong word: form -> from, quiet -> quite"""
+    lower = word.lower()
+    if lower not in REAL_WORD_SUBS:
+        return None
+    if random.random() > 0.15:  # 15% rate — subtle error
+        return None
+
+    corrupted = REAL_WORD_SUBS[lower]
+    if word[0].isupper():
+        corrupted = corrupted.capitalize()
+
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="real_word_substitution", category="real_word",
+        provenance="literature-based", confidence="high"
+    ))
+
+
+# Word boundary lookup
+WORD_BOUNDARY_ERRORS = {
+    "a lot": "alot",
+    "all right": "alright",
+    "each other": "eachother",
+    "no one": "noone",
+    "in fact": "infact",
+    "as well": "aswell",
+}
+
+
+def rule_word_boundary(text: str) -> Optional[tuple[str, str, ErrorAnnotation]]:
+    """Join words that should be separate: a lot -> alot (operates on text, not word)"""
+    lower = text.lower()
+    for phrase, joined in WORD_BOUNDARY_ERRORS.items():
+        if phrase in lower:
+            if random.random() > 0.50:  # 50% rate
+                continue
+            idx = lower.index(phrase)
+            corrupted = text[:idx] + joined + text[idx + len(phrase):]
+            return (text, corrupted, ErrorAnnotation(
+                target_word=phrase, written_as=joined,
+                rule="word_boundary_error", category="orthographic",
+                provenance="literature-based", confidence="high"
+            ))
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Rule registry — organized by age band
+# ---------------------------------------------------------------------------
+
+# Original rules (all ages, weighted differently)
 TIER_1_RULES = [
     rule_ea_to_e,
     rule_ei_to_i,
@@ -636,27 +942,52 @@ TIER_3_RULES = [
     rule_silent_e_addition,
 ]
 
+# Middle band additions
+MIDDLE_RULES = [
+    rule_double_consonant_omission,
+    rule_double_consonant_insertion,
+    rule_silent_letter_drop,
+    rule_vowel_digraph_swap,
+]
+
+# Teen band additions
+TEEN_RULES = [
+    rule_latin_prefix_error,
+    rule_suffix_confusion,
+    rule_unstressed_vowel_reduction,
+    rule_real_word_substitution,
+]
+
 ALL_RULES = TIER_1_RULES + TIER_2_RULES + TIER_3_RULES
+
+# Age-band rule sets
+RULES_BY_AGE = {
+    "young": ALL_RULES,
+    "middle": ALL_RULES + MIDDLE_RULES,
+    "teen": ALL_RULES + MIDDLE_RULES + TEEN_RULES,
+}
 
 
 # ---------------------------------------------------------------------------
 # Error density controller
 # ---------------------------------------------------------------------------
 
-def choose_error_count() -> int:
+def choose_error_count(age_band: str = "young") -> int:
     """
-    Choose number of errors for a sentence based on target distribution:
-    ~30% with 0 errors, ~35% with 1, ~25% with 2, ~10% with 3+
+    Choose number of errors for a sentence based on age-band distribution.
     """
+    config = AGE_BAND_CONFIG.get(age_band, AGE_BAND_CONFIG["young"])
+    dist = config["error_distribution"]
+
     r = random.random()
-    if r < 0.30:
-        return 0
-    elif r < 0.65:
-        return 1
-    elif r < 0.90:
-        return 2
-    else:
-        return random.choice([3, 3, 4])
+    cumulative = 0.0
+    for count, prob in dist:
+        cumulative += prob
+        if r < cumulative:
+            if count == 3:
+                return random.choice([3, 3, 4])
+            return count
+    return 1
 
 
 # ---------------------------------------------------------------------------
@@ -691,10 +1022,56 @@ def _try_rules_on_word(word: str, rules: list) -> Optional[tuple[str, ErrorAnnot
     return None
 
 
+def _select_rules_by_category(age_band: str, rules: list) -> list:
+    """Reorder rules based on age-band category weights."""
+    config = AGE_BAND_CONFIG.get(age_band, AGE_BAND_CONFIG["young"])
+    weights = config["category_weights"]
+
+    # Categorize rules
+    categorized = {"phonological": [], "orthographic": [], "morphological": [], "real_word": []}
+    for rule in rules:
+        # Peek at a test call to determine category, or use heuristics from name
+        name = rule.__name__
+        if any(x in name for x in ["vowel", "ea_to", "ei_to", "ai_to", "ew_to", "ear_to",
+                                     "ee_to", "oa_to", "ou_to", "sc_to", "gr_to", "ng_to",
+                                     "mp_to", "cluster", "multisyllable"]):
+            categorized["phonological"].append(rule)
+        elif any(x in name for x in ["transposition", "consonant_drop", "apostrophe",
+                                       "silent_e", "double_consonant", "silent_letter",
+                                       "digraph_swap", "unstressed_vowel", "word_boundary"]):
+            categorized["orthographic"].append(rule)
+        elif any(x in name for x in ["past_tense", "ed_suffix", "ing_suffix",
+                                       "prefix", "suffix"]):
+            categorized["morphological"].append(rule)
+        elif "real_word" in name:
+            categorized["real_word"].append(rule)
+        else:
+            categorized["phonological"].append(rule)
+
+    # Build weighted rule order
+    r = random.random()
+    cumulative = 0.0
+    primary = "phonological"
+    for cat, weight in weights.items():
+        cumulative += weight
+        if r < cumulative:
+            primary = cat
+            break
+
+    # Put primary category first, then others
+    ordered = list(categorized.get(primary, []))
+    for cat in weights:
+        if cat != primary:
+            ordered.extend(categorized.get(cat, []))
+
+    return ordered
+
+
 def inject_errors_sentence(
     sentence: str,
     target_errors: Optional[int] = None,
     category_weights: Optional[dict] = None,
+    age_band: str = "young",
 ) -> SentenceResult:
     """
     Inject errors into a single sentence.
@@ -703,13 +1080,13 @@ def inject_errors_sentence(
         sentence: Clean input sentence.
         target_errors: Number of errors to inject. If None, uses density controller.
         category_weights: Optional dict to bias category distribution.
-            Default targets ~54% phonological, ~25% orthographic, ~21% morphological.
+        age_band: One of "young", "middle", "teen".
 
     Returns:
         SentenceResult with corrupted text and annotations.
     """
     if target_errors is None:
-        target_errors = choose_error_count()
+        target_errors = choose_error_count(age_band)
 
     if target_errors == 0:
         return SentenceResult(
@@ -740,6 +1117,9 @@ def inject_errors_sentence(
     # Don't try to inject more errors than eligible words
     target_errors = min(target_errors, len(eligible))
 
+    # Get age-appropriate rules
+    available_rules = RULES_BY_AGE.get(age_band, ALL_RULES)
+
     # Shuffle eligible positions and try to inject
     random.shuffle(eligible)
     errors_injected = []
@@ -751,15 +1131,8 @@ def inject_errors_sentence(
 
         lead, core, trail = _strip_punctuation(words[pos])
 
-        # Try rules in tier order with some randomness
-        # Weight toward Tier 1 (phonological) to match observed distribution
-        r = random.random()
-        if r < 0.54:
-            rules_to_try = TIER_1_RULES + TIER_2_RULES + TIER_3_RULES
-        elif r < 0.79:
-            rules_to_try = TIER_3_RULES + TIER_2_RULES + TIER_1_RULES
-        else:
-            rules_to_try = TIER_2_RULES + TIER_1_RULES + TIER_3_RULES
+        # Select rules weighted by age-band category distribution
+        rules_to_try = _select_rules_by_category(age_band, available_rules)
 
         result = _try_rules_on_word(core, rules_to_try)
         if result:
@@ -769,6 +1142,14 @@ def inject_errors_sentence(
             errors_injected.append(annotation)
 
     corrupted_sentence = " ".join(result_words)
+
+    # Apply word boundary errors for teen band
+    if age_band == "teen":
+        wb_result = rule_word_boundary(corrupted_sentence)
+        if wb_result:
+            _, corrupted_sentence, wb_annotation = wb_result
+            errors_injected.append(wb_annotation)
+
     word_count = len(words)
 
     return SentenceResult(
@@ -783,6 +1164,8 @@ def inject_errors_sentence(
 def inject_errors_text(
     text: str,
     sentence_split: bool = True,
+    age_band: str = "young",
+    inconsistency: bool = False,
 ) -> list[SentenceResult]:
     """
     Inject errors into a full text, sentence by sentence.
@@ -790,6 +1173,8 @@ def inject_errors_text(
     Args:
         text: Clean input text (one or more sentences).
         sentence_split: If True, split on sentence boundaries.
+        age_band: One of "young", "middle", "teen".
+        inconsistency: If True, same word may be misspelled differently (~10% chance).
 
     Returns:
         List of SentenceResult objects, one per sentence.
@@ -801,11 +1186,26 @@ def inject_errors_text(
         sentences = [text]
 
     results = []
+    # Track word->corruption mapping for inconsistency injection
+    word_corruptions = {}
+
     for sent in sentences:
         sent = sent.strip()
         if not sent:
             continue
-        results.append(inject_errors_sentence(sent))
+        result = inject_errors_sentence(sent, age_band=age_band)
+
+        # Inconsistency injection: sometimes use a different corruption for the same word
+        if inconsistency and result.errors:
+            for err in result.errors:
+                word = err.target_word.lower()
+                if word in word_corruptions and random.random() < 0.10:
+                    # Re-corrupt this word differently (leave as-is, already different)
+                    pass
+                else:
+                    word_corruptions[word] = err.written_as
+
+        results.append(result)
 
     return results
 
@@ -825,6 +1225,10 @@ def main():
     parser.add_argument("--count", "-n", type=int, default=1, help="Number of variants to generate")
     parser.add_argument("--json", "-j", action="store_true", help="Output as JSON")
     parser.add_argument("--seed", "-s", type=int, default=None, help="Random seed for reproducibility")
+    parser.add_argument("--age-band", "-a", choices=["young", "middle", "teen"], default="young",
+                       help="Age band for error profile (default: young)")
+    parser.add_argument("--inconsistency", action="store_true",
+                       help="Enable inconsistency injection (same word misspelled differently)")
     args = parser.parse_args()
 
     if args.seed is not None:
@@ -840,7 +1244,7 @@ def main():
         text = sys.stdin.read()
 
     for i in range(args.count):
-        results = inject_errors_text(text)
+        results = inject_errors_text(text, age_band=args.age_band, inconsistency=args.inconsistency)
         for r in results:
             if args.json:
                 print(json.dumps({
@@ -848,6 +1252,7 @@ def main():
                     "corrupted": r.corrupted,
                     "error_count": r.error_count,
                     "word_error_rate": round(r.word_error_rate, 3),
+                    "age_band": args.age_band,
                     "errors": [
                         {
                             "target_word": e.target_word,
