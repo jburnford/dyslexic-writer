@@ -9,9 +9,12 @@ Supports three age bands: young (7-9), middle (10-12), teen (13-17).
 No rate limiting needed — local server, unlimited generation.
 """
 
+from __future__ import annotations
+
 import json
 import os
 import random
+import re
 import time
 import argparse
 import requests
@@ -26,8 +29,8 @@ _DATA_DIR = Path(__file__).parent
 _VOCAB_PATH = _DATA_DIR / "vocab_targets.json"
 _OUTPUT_DIR = _DATA_DIR / "generated_stories"
 
-API_URL = os.environ.get("LLM_API_URL", "http://localhost:8000")
-API_MODEL = os.environ.get("LLM_MODEL", "gpt-oss-120b")
+API_URL = os.environ.get("LLM_API_URL", "http://platogpu002:8000")
+API_MODEL = os.environ.get("LLM_MODEL", "Valdemardi/DeepSeek-R1-Distill-Llama-70B-AWQ")
 
 # Age-band specific genre weights
 GENRE_WEIGHTS = {
@@ -254,8 +257,8 @@ def build_negative_prompt(age_band: str) -> tuple[str, str]:
 # LLM API — auto-detects Ollama (native) vs OpenAI-compatible (vLLM etc.)
 # ---------------------------------------------------------------------------
 
-# Budget enough for both reasoning (~500-700 tok) and content (~200-400 tok)
-MAX_TOKENS_BY_AGE = {"young": 1536, "middle": 2048, "teen": 2048}
+# Budget for reasoning models: <think> block (~1000-2000 tok) + content (~100-400 tok)
+MAX_TOKENS_BY_AGE = {"young": 4096, "middle": 4096, "teen": 4096}
 _BACKEND = None  # "ollama" or "openai", auto-detected on first call
 
 
@@ -319,10 +322,12 @@ def llm_generate(prompt: str, system: str, temperature: float = 0.9,
                     "temperature": temperature,
                     "max_tokens": max_tokens,
                 },
-                timeout=120,
+                timeout=300,
             )
             resp.raise_for_status()
             text = resp.json()["choices"][0]["message"].get("content", "").strip()
+            # DeepSeek-R1 models emit <think>...</think> reasoning blocks — strip them
+            text = _strip_think_tags(text)
 
         # Quality filter: reject meta-commentary or very short responses
         if text and _is_meta_commentary(text):
@@ -332,6 +337,17 @@ def llm_generate(prompt: str, system: str, temperature: float = 0.9,
     except Exception as e:
         print(f"  LLM API error: {e}")
         return None
+
+
+def _strip_think_tags(text: str) -> str:
+    """Strip <think>...</think> reasoning blocks from DeepSeek-R1 style output."""
+    stripped = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+    # Also handle unclosed <think> (model hit max_tokens mid-reasoning)
+    if "<think>" in stripped:
+        stripped = stripped.split("</think>")[-1].strip()
+        if stripped.startswith("<think>"):
+            stripped = ""
+    return stripped
 
 
 def _is_meta_commentary(text: str) -> bool:

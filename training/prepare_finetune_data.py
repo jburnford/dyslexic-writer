@@ -101,6 +101,9 @@ def main():
     script_dir = Path(__file__).parent
     data_dir = script_dir.parent / "training-data"
 
+    # Seed early so error injection is deterministic too
+    random.seed(SEED)
+
     # Load both formats
     print("Loading training data...")
 

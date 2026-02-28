@@ -1,1792 +1,1772 @@
 misspelling,correct,edit_distance,len_diff
-Consulatoin 1,?,13,12
-Doc chm 1,?,9,8
-Half-hose 1,?,11,10
-Hurbured 1,?,10,9
-anetes 1,?,8,7
-bav 1,?,5,4
-cHmer 1,?,7,6
-crowsed 1,?,9,8
-grow 1,?,6,5
-hast 1,?,6,5
-humit 1,?,7,6
-nis 1,?,5,4
-nsor 1,?,6,5
-pelser 1,?,8,7
-ruth 1,?,6,5
-saffrery 1,?,10,9
-sechrus 1,?,9,8
-solued 1,?,8,7
-unz 1,?,5,4
-wild 1,?,6,5
-Adam 1,Adam's,2,0
-Artair 1,After,5,3
-American 1,America,3,3
-Ane 1,And,3,2
-Apprentiship 1,Apprenticeship,4,0
-Apirl 2,April,4,2
-audre 1,Audrey,2,1
-Autin 1,Austin,3,1
-Babys 1,Babies,4,1
-Bankg 4,Bang,3,3
-Beryil 3,Beryl,3,3
-Bicyle 1,Bicycle,3,1
-Bos 1,Boss,2,1
-Boy 3,Boys,2,1
-Barham 3,Brabham,4,1
-barham 1,Brabham,4,1
-butlins 1,Butlins,2,2
-castels 1,Castle's,4,1
-Chartors 1,Characters,5,0
-Cheere ho 1,Cheerio,5,4
-Cheter 1,Cheetah,4,1
-Comatalevous 2,Comment allez-vous,9,-4
-Comentary 1,Commentary,3,1
-Copper 1,Cooper,3,2
-Cynthia 1,Cynthia's,2,0
-Dearth 1,Death,3,3
-Docter 1,Doctor,3,2
-Dog 1,Dog's,2,0
-Durxer 1,Durex,4,3
-And 9,End,3,2
-Edh 1,End,4,2
-Hed 1,End,4,2
-Evey 1,Every,3,1
-Facttoer 1,Factory,4,3
-Frameman 1,Farmer,7,4
-Farther 2,Father,3,3
-Farrari 1,Ferrari,3,2
-Fiyer 1,Fire,4,3
-Fance 1,France,3,1
-Frgmens 1,Frogmen's,4,0
-Gardon 1,Garden,3,2
-Goef 1,Geoff,4,1
-Good by 1,Goodbye,3,2
-Here 1,Her,3,3
-Im 2,Him,3,1
-He 1,His,3,1
-He's 1,His,4,3
-Holliday 1,Holiday,3,3
-Hondor 4,Honda,4,3
-Honk Kong 1,Hong Kong,3,2
-Id 2,I'd,3,1
-I 2,I'll,3,-1
-Ill 4,I'll,3,1
-ile 1,I'll,4,1
-ill 1,I'll,3,1
-I 1,I'm,2,0
-Im 1,I'm,3,1
-Ive 1,I've,3,1
-I 5,It,2,1
-Itlay 1,Italy,4,2
-Jame 21,James,3,2
-Janes 1,Jane's,3,1
-Japannese 1,Japanese,3,3
-Jeans 1,Jean's,3,1
-jeans 1,Jean's,3,1
-Jone 1,Joan,4,2
-John 1,John's,2,0
-johns 1,John's,3,1
-Johnes 1,Jones,3,3
-Joneses 1,Jones's,3,2
-Joyce 2,Joyce's,2,0
-Jluy 1,July,4,2
-Kidney 1,Kidneys,2,1
-Led 1,Lead,3,1
-Lets 2,Let's,3,1
-Londen 1,London,3,2
-Londod 1,London,3,2
-Long 1,Lone,3,2
-Luckily 1,Lucky,4,4
-macwillaims 2,Macwilliams,4,2
-Marrid 1,Married,3,1
-Marry 4,Mary,3,3
-Mean while 1,Meanwhile,3,3
-Munces 1,Monkeys,5,1
-Motor-bikes 1,Motorbike,4,4
-By 1,My,3,2
-Nexe 1,Next,3,2
-Nickals 1,Nicholls,5,1
-Nos 1,Nose,2,1
-Noet 1,Note,3,2
-Ow 3,Oh,3,2
-Ones 2,Once,4,2
-Won 1,One,3,2
-Out side 1,Outside,3,3
-Phillhill 1,Phil Hill,3,2
-Please 1,Pleased,2,1
-Pome 1,Poem,3,2
-Pollce 1,Police,3,2
-Paulkey 1,Porky,6,4
-Prisern 1,Prison,4,3
-Rango 1,Ranger,3,1
-Roys 1,Roy,3,3
-Royl 6,Royal,3,1
-She 1,She's,2,0
-Slaughthouse 1,Slaughterhouse,4,0
-Smocking 1,Smoking,3,3
-Show 1,So,4,4
-Some one 1,Someone,3,3
-Suothwode 1,Southwold,6,2
-Stanlay 1,Stanley,3,2
-Stranden 1,Stranded,3,2
-Sturt 1,Stuart,3,1
-Swizaland 1,Switzerland,5,0
-Sylver 1,Sylvia,4,2
-sylver 1,Sylvia,4,2
-tv 1,TV,2,2
-Teddoy 3,Teddy boy,4,-1
-Tedeboy 1,Teddy boy,5,0
-Taddyboys 1,Teddy boys,4,1
-Thats 1,That's,3,1
-There 3,Their,4,2
-They 1,Their,3,1
-Their 2,There,3,2
-Ther 1,There,2,1
-They 4,There,3,1
-There 1,There's,2,0
-Thinkng 1,Thinking,3,1
-Tobe 1,Toby,3,2
-Toms 2,Tom's,3,1
-Tomy 1,Tommy,3,1
-Toner 1,Tonner,3,1
-Triumh 1,Triumph,3,1
-trumh 1,Triumph,4,0
-Toy 1,Troy,3,1
-Tow 1,Two,3,2
-watston 1,Watson,3,3
-Wh't 1,What,3,2
-What 2,What's,2,0
-Wiich 1,Which,3,2
-Will 1,While,4,1
-Whos evers 1,Whoever's,5,3
-Wing 1,Wings,2,1
-Ysid 1,Yard,4,2
-Your 1,You're,3,0
-an 1,a,3,3
-abit 1,a bit,3,1
-awill 1,a while,5,0
-abroard 1,aboard,3,3
-a Bat 1,about,5,2
-a bout 2,about,3,3
-absolutly 1,absolutely,3,1
-ack 1,ache,3,1
-half 1,after,5,1
-afterawhile 1,after a while,4,0
-a gain 1,again,3,3
-agan 1,again,3,1
-agian 1,again,4,2
-a go 1,ago,3,3
-hare 1,air,5,3
-alife 1,alive,3,2
-ally 2,alley,3,1
-alloud 1,allowed,4,1
-almity 1,almighty,4,0
-a lone 1,alone,3,3
-a long 1,along,3,3
-allright 1,alright,3,3
-arigh 1,alright,3,0
-aright 1,alright,3,1
-arigth 2,alright,4,1
-or rit 1,alright,6,1
-orrigh 1,alright,4,1
-orright 1,alright,4,2
-allso 1,also,3,3
-als 1,also,2,1
-alter 1,altar,3,2
-all ways 2,always,4,4
-allways 1,always,3,3
-amberless 1,ambulance,7,2
-amblance 4,ambulance,3,1
-amerless 1,ambulance,7,1
-amusments 2,amusements,3,1
-a 1,an,2,1
-and 1,an,3,3
-a 4,and,2,0
-an 3,and,2,1
-aud 1,and,3,2
-hand 1,and,3,3
-animl 1,animals,3,0
-a nother 3,another,3,3
-a nouther 1,another,4,4
-aner 1,another,5,-1
-anwerd 1,answered,4,0
-eney 1,any,4,3
-any on 1,anyone,3,2
-any one 1,anyone,3,3
-any own 1,anyone,4,3
-any thing 1,anything,3,3
-anythink 2,anything,3,2
-anyting 1,anything,3,1
-enthing 1,anything,4,1
-apply 1,apple,3,2
-apple 4,apples,2,1
-apprentiship 1,apprenticeship,4,0
-and 1,are,4,2
-airaear 1,area,5,5
-arent 1,aren't,3,1
-hrmehn 1,army,6,4
-hrmehr 1,army,6,4
-a round 1,around,3,3
-arived 1,arrived,3,1
-ass 1,as,3,3
-has 1,as,3,3
-arsed 2,asked,4,2
-ask 4,asked,2,0
-arsking 1,asking,3,3
-ask 1,asks,2,1
-a seph 1,asleep,6,2
-a sleep 1,asleep,3,3
-a 2,at,2,1
-are 2,at,4,3
-a tall 1,at all,4,2
-a tool 1,at all,5,2
-eat 3,ate,3,2
-et 1,ate,3,1
-ete 1,ate,3,2
-atack 1,attack,3,1
-atened 1,attend,4,2
-audre 4,audrey,2,1
-others 1,author's,6,0
-Aount 1,autumn,5,1
-autunm 1,autumn,3,2
-a way 2,away,3,3
-alfull 1,awful,4,3
-babyes 2,babies,3,2
-babyis 1,babies,4,2
-babys 2,babies,4,1
-babby 1,baby,3,3
-babys 1,baby,3,3
-bake 2,back,4,2
-bakh 1,back,4,2
-doc 1,back,4,1
-barb 1,barbed,2,0
-bear 1,bare,3,2
-bran 2,barn,4,2
-barscket 1,basket,4,4
-basckek 1,basket,4,3
-baskek 1,basket,3,2
-bath 1,baths,2,1
-by 2,be,3,2
-me 1,be,3,2
-we 1,be,3,2
-became 1,be coming,5,-1
-pit 1,beat,5,1
-beting 1,beating,3,1
-beaufiful 1,beautiful,3,2
-bacam 1,became,3,1
-becaues 3,because,3,2
-becouse 1,because,3,2
-bed room 1,bedrooms,3,2
-bf 1,beef,3,0
-bean 1,been,3,2
-bine 1,been,4,2
-be for 2,before,3,2
-befor 4,before,2,1
-behed 1,behind,4,1
-behism 1,behind,4,2
-been 1,being,3,1
-bell ringing 1,bellringing,3,3
-belong 1,belongs,2,1
-bend in 1,bending,3,2
-beets 1,best,4,3
-bet 1,better,3,-1
-beter 1,better,3,1
-beththe 1,better,4,3
-beverly 3,beverley,3,1
-bewere 1,beware,3,2
-bciyle 1,bicycles,5,0
-bing 1,big,3,3
-Big haded 1,big-headed,4,1
-biger 1,bigger,3,1
-bigest 1,biggest,3,1
-build 1,billed,4,1
-brid 2,bird,4,2
-biccuits 1,biscuits,3,2
-biten 1,bitten,3,1
-blow 2,blew,3,2
-bludy 1,bloody,4,1
-blossm 1,blossom,3,1
-bosting 1,boasting,3,1
-bodys 2,bodies,4,1
-bod 1,body,2,1
-bouse 1,booze,4,2
-borrowd 1,borrowed,3,1
-bos 1,boss,2,1
-botton 1,bottom,3,2
-buy 1,boy,3,2
-boy 3,boy's,2,0
-boys 2,boy's,3,1
-boy friend 1,boyfriend,3,3
-boyfreind 1,boyfriend,4,2
-boyfrend 1,boyfriend,3,1
-boyfrends 1,boyfriend's,4,0
-boy 1,boys,2,1
-boy's 1,boys,3,3
-breaks 1,brakes,4,2
-brain 2,bran,3,3
-bravist 1,bravest,3,2
-bred crumes 1,breadcrumbs,5,2
-brack 1,break,4,2
-brick 1,break,4,2
-brecfast 1,breakfast,4,1
-brakes 1,breaks,4,2
-breez 2,breeze,2,1
-brocken 1,broken,3,3
-borther 1,brother,4,2
-brother 1,brothers,2,1
-broug 1,brought,2,0
-brough 1,brought,2,1
-brus 1,brussels,4,-2
-brusels 1,brussels,3,1
-brusls 1,brussels,4,0
-brust 1,brussels,4,-1
-bubbals 1,bubbles,4,2
-billd 1,build,4,2
-billed 1,build,5,3
-buld 1,build,3,1
-billding 1,building,4,2
-bilt 1,built,3,1
-buit 1,built,3,1
-bolot 1,bullet,5,1
-bulet 2,bullet,3,1
-bulete 1,bullet,4,2
-bered 1,buried,4,1
-brun 1,burn,4,2
-bihr 1,by,5,4
-kiffe 1,cafe,5,3
-cald 1,called,3,0
-call 1,called,2,0
-calld 1,called,3,1
-could 1,called,5,1
-carmd 1,calmed,4,1
-comer 1,calmer,4,1
-cam 3,came,2,1
-come 1,came,3,2
-kom 1,came,4,1
-kum 1,came,4,1
-came 1,can,4,3
-cane 2,can,3,3
-cant 2,can't,3,1
-canth 1,can't,4,2
-carn't 1,can't,3,3
-carnt 1,can't,4,2
-candle stick 1,candlestick,3,3
-cain 2,cane,3,2
-can not 2,cannot,3,3
-connot 1,cannot,3,2
-captian 1,captain,4,2
-captman 1,captain,4,2
-catptman 1,captain,5,3
-cpn 1,captain,5,-2
-Star 1,car,4,3
-carrer 1,career,3,2
-carefull 1,careful,3,3
-carful 1,careful,3,1
-carfull 1,careful,4,2
-caresll 1,carefully,4,0
-cared 1,carried,4,0
-carred 1,carried,3,1
-carrid 1,carried,3,1
-carring 1,carrying,3,1
-carlsat 1,castle,5,3
-carsal 1,castle,4,2
-carsell 1,castle,5,3
-cartal 2,castle,4,2
-cartill 1,castle,5,3
-cartsel 1,castle,5,3
-catal 1,castle,4,1
-catsal 1,castle,4,2
-cats 1,cat's,3,1
-cash 1,catch,4,1
-chach 1,catch,4,2
-caugh 1,caught,2,1
-cort 2,caught,5,0
-cought 2,caught,3,2
-celebrate 1,celebrated,2,1
-choin 1,chain,3,2
-chere 1,chair,5,2
-cage 1,changed,4,-1
-characte 1,character,2,1
-charickter 1,character,4,3
-change 1,charged,3,1
-cheeroh 1,cheerio,4,2
-cheter 3,cheetah,4,1
-chow 1,chew,3,2
-chidren 1,children,3,1
-childrenes 1,children's,3,2
-cimbenr 1,chimney,6,2
-cherped 1,chirped,3,2
-ching 1,choosing,5,-1
-choosen 1,chosen,3,3
-christman 1,christmas,3,2
-cinama 3,cinema,3,2
-cinma 1,cinema,3,1
-sercus 1,circus,4,2
-classis 1,classes,3,2
-clater 1,clatter,3,1
-clors 1,claws,4,2
-clearn 1,clean,3,3
-glean 1,clean,3,2
-clean 1,cleaned,2,0
-cleand 2,cleaned,3,1
-clim 1,climb,2,1
-clime 1,climb,3,2
-cimed 1,climbed,4,0
-climb 1,climbed,2,0
-closd 1,closed,3,1
-clous 1,closed,3,1
-cloths 2,clothes,3,1
-clous 1,clothes,4,0
-colhes 1,clothes,4,1
-couldes 1,clouds,5,3
-coulds 1,clouds,4,2
-clob 1,club,3,2
-colbe 1,club,5,3
-cote 1,coat,4,2
-cofens 1,coffins,4,1
-colur 1,colour,3,1
-com 1,come,2,1
-comr 1,come,3,2
-coum 1,come,3,2
-kumh 1,come,5,2
-come 4,comes,2,1
-comvatable 1,comfortable,5,1
-come 2,coming,3,0
-comeing 2,coming,3,3
-comon 1,common,3,1
-coperney 1,company,6,3
-consantrate 1,concentrate,4,2
-cornfield 1,confide,5,4
-caps 2,cops,3,2
-corral 1,coral,3,3
-corres 3,cores,3,3
-corer 1,corner,3,1
-croner 1,corner,4,2
-call 1,could,4,1
-cod 2,could,3,0
-couldnt 1,couldn't,3,1
-count 1,couldn't,5,-1
-counsall 1,council,5,3
-counsel 1,council,4,2
-cousall 1,council,5,2
-coverd 1,covered,3,1
-cow Boys 1,cowboys,3,3
-crept 1,crapped,4,0
-crush 1,crash,3,2
-crowling 1,crawling,3,2
-creek 1,creak,3,2
-creaps 1,creeps,3,2
-creps 1,creeps,3,1
-crepy 1,creepy,3,1
-creeped 1,crept,5,4
-cryed 1,cried,3,2
-crys 1,cries,4,1
-crigckey 1,crikey,4,4
-cresp 1,crisp,3,2
-croud 1,crowd,3,2
-corller 1,cruel,6,4
-cuddly 1,cuddling,3,0
-cobard 1,cupboard,5,0
-cerled 1,curled,3,2
-silinders 1,cylinders,4,2
-bad 2,dad,3,2
-dads 1,dad's,3,1
-dadies 1,daddy's,5,1
-daffodill 1,daffodils,3,2
-dane 1,dance,3,1
-pncing 1,dancing,4,1
-dangers 1,dangerous,3,0
-dangerus 1,dangerous,3,1
-dere 1,dared,3,1
-darnt 1,daren't,4,0
-darck 1,dark,3,3
-dork 1,dark,3,2
-dauter 1,daughter,4,0
-day's 1,days',3,2
-dead 1,dear,3,2
-deat 1,death,2,1
-decider 1,decided,3,2
-desided 2,decided,3,2
-dicide 1,decided,3,1
-dicided 1,decided,3,2
-dicider 1,decided,4,2
-disided 1,decided,4,2
-disson 1,decision,5,0
-dellitent 1,delicate,6,3
-dener 1,den,4,4
-dence 1,dense,3,2
-departent 1,department,3,1
-depatment 1,department,3,1
-distrod 1,destroyed,4,0
-ded 1,did,3,2
-dednt 1,didn't,4,1
-denat 1,didn't,5,1
-didden 1,didn't,4,2
-dident 2,didn't,4,2
-dind 1,didn't,4,0
-diy 1,die,3,2
-ded 1,died,3,1
-diad 3,died,3,2
-disel 1,diesel,3,1
-diffrent 1,different,3,1
-difrent 1,different,4,0
-differcult 2,difficult,4,3
-driy 1,dirty,4,1
-disapeared 1,disappeared,3,1
-disaperd 1,disappeared,5,-1
-dicuverd 1,discovered,5,0
-dispiaying 1,displaying,3,2
-disposol 1,disposal,3,2
-distrebe 1,disturb,5,3
-dich 2,ditch,3,1
-don 1,do,3,3
-done 1,do,4,4
-go 1,do,3,2
-to 1,do,3,2
-donot 1,do not,3,1
-dus 2,does,4,1
-does'nt 1,doesn't,4,2
-does on 1,doesn't,4,2
-doesnet 1,doesn't,3,2
-donsent 1,doesn't,5,2
-dosnt 1,doesn't,4,0
-dowing 2,doing,3,3
-don 2,don't,2,0
-dont 20,don't,4,2
-want 1,don't,5,1
-don 2,done,2,1
-dun 1,done,3,1
-boor 1,door,3,2
-dor 1,door,3,1
-down 1,door,4,2
-doudle 1,double,3,2
-back 1,douche,6,0
-done 1,down,4,2
-donw 1,down,3,2
-dus 1,down,4,1
-dau sosys 1,downstairs,9,1
-down stairs 3,downstairs,3,3
-drian 1,drain,4,2
-drew 1,draw,3,2
-drem 1,dream,3,1
-dreming 1,dreaming,3,1
-drivern 1,driven,3,3
-divers 1,drivers,3,1
-drive 1,drives,2,1
-dround 1,drowned,4,1
-druck 1,drunk,3,2
-drye 1,dry,3,3
-doum 1,dumb,3,2
-pump 1,dump,3,2
-dieing 2,dying,4,3
-eyewigs 1,earwigs,4,2
-eate 1,eat,3,3
-elecenician 1,electrician,4,2
-als 1,else,3,1
-eles 1,else,3,2
-els 1,else,2,1
-imployment 1,employment,3,2
-emty 1,empty,3,1
-enaged 1,engaged,3,1
-ingaged 2,engaged,3,2
-enagement 1,engagement,3,1
-egreers 1,engines,6,2
-injoid 1,enjoyed,5,1
-enyays 1,enjoys,4,2
-a nougth 1,enough,5,4
-a nuff 1,enough,7,2
-engouh 2,enough,4,2
-nuff 1,enough,6,0
-enterd 1,entered,3,1
-aquitment 1,equipment,4,2
-a specally 1,especially,5,2
-evining 1,evening,3,2
-evning 1,evening,3,1
-evey 1,every,3,1
-evry 1,every,3,1
-every one 1,everyone,3,3
-evry on 1,everyone,4,1
-every were 1,everywhere,4,2
-evry were 1,everywhere,5,1
-exited 1,excited,3,1
-expore 2,explore,3,1
-expord 1,explored,4,0
-eye 1,eyes,2,1
-eyey 1,eyes,3,2
-iyes 2,eyes,3,2
-factoy 1,factory,3,1
-fanded 1,fainted,4,1
-forls 1,falls,4,2
-familys 1,families,4,1
-fare 1,far,3,3
-frm 1,farm,3,1
-farm 6,farmer,2,0
-framh 1,farmer,5,1
-frm 2,farmer,3,-1
-frmh 10,farmer,5,1
-farmers 1,farmer's,3,1
-frmh 1,farmer's,5,-2
-fashion 1,fashioned,2,0
-farst 2,fast,3,3
-farther 1,father,3,3
-farther's 1,father's,3,3
-fating 2,fattening,5,-1
-falt 2,fault,3,1
-feal 4,feel,3,2
-feling 1,feeling,3,1
-fee 1,feet,2,1
-fet 1,feet,3,1
-fall 1,fell,3,2
-feemale 1,female,3,3
-ferrary 1,ferrari,3,2
-faw 1,few,3,2
-fed 2,field,4,0
-feild 1,field,4,2
-fild 1,field,3,1
-figth 1,fight,3,2
-figthing 1,fighting,4,2
-fianl 1,final,4,2
-find 1,fine,3,2
-finse 1,fins,3,3
-fiar 1,fire,3,2
-fre 1,fire,3,1
-fiyed 1,fired,3,2
-ferman 1,firms,5,3
-fast 1,first,4,1
-fsh 1,fish,3,1
-fishey 1,fishy,3,3
-fanit 1,fit,4,4
-flass 1,flash,3,2
-fick 1,flick,3,1
-fies 1,flies,3,1
-flor 1,floor,3,1
-foor 1,floor,3,1
-flower 1,flowers,2,1
-fie 1,fly,4,2
-fellowed 1,followed,3,2
-full 1,fool,4,2
-footandmouth 1,foot-and-mouth,4,0
-footanmouth 1,foot-and-mouth,5,-1
-foodprints 1,footprints,3,2
-fo 1,for,2,1
-fore 3,for,3,3
-four 2,for,3,3
-fro 1,for,3,2
-fur 1,for,3,2
-of 2,for,3,1
-fort 1,for the,3,-1
-falk 1,fork,4,2
-frame 1,form,5,3
-forword 1,forward,3,2
-fowd 1,forward,4,-1
-fed 1,found,4,0
-feod 1,found,4,1
-find 1,found,4,1
-fond 1,found,3,1
-for 3,four,3,1
-fore 4,four,4,2
-frizing 1,freezing,4,1
-fenird 2,friend,6,2
-frend 2,friend,3,1
-frendly 1,friendly,3,1
-freinds 1,friends,4,2
-frend 1,friends,3,0
-frends 3,friends,3,1
-frens 1,friends,4,0
-frightend 1,frightened,3,1
-frigtend 1,frightened,4,0
-frog 1,frogs,2,1
-rogs 1,frogs,3,1
-frogsporn 1,frogspawn,4,2
-fom 1,from,3,1
-for 3,from,3,1
-form 1,from,4,2
-frount 1,front,3,3
-frunt 1,front,3,2
-frit 1,fruit,3,1
-fall 1,full,3,2
-ful 1,full,2,1
-funerl 2,funeral,3,1
-funrel 1,funeral,4,1
-funney 1,funny,3,3
-gamekeeps 1,gamekeeper,3,1
-ganer 1,gang,4,3
-carage 1,garage,3,2
-gass 2,gas,3,3
-gait 1,gate,3,2
-cave 5,gave,3,2
-jay 1,gay,3,2
-gere 1,gear,4,2
-gird 1,geared,5,0
-girse 1,gears,5,2
-ge 1,get,2,1
-gett 1,get,3,3
-get 4,gets,2,1
-get 2,getting,4,-2
-geting 3,getting,3,1
-gell 1,girl,4,2
-girls 1,girl's,3,1
-girl friend 1,girlfriend's,3,1
-girlfriend 1,girlfriends,2,1
-gerls 1,girls,3,2
-girl 3,girls,2,1
-give 1,given,2,1
-give 1,gives,2,1
-do 1,go,3,2
-got 2,go,3,3
-go 2,goes,2,0
-go 2,going,3,-1
-gying 1,going,3,2
-go 2,gone,2,0
-gon 1,gone,2,1
-good-by 1,goodbye,3,2
-goodby 1,goodbye,2,1
-get 1,got,3,2
-gnt 1,got,3,2
-go 13,got,3,2
-grab 1,grabbed,3,-1
-grabed 1,grabbed,3,1
-grandpas 1,grandpa's,3,1
-grete 1,grated,3,1
-crave 2,grave,3,2
-grait 1,great,4,2
-gnenhouen 1,greenhouse,6,1
-greive 1,grieve,4,2
-grouser 1,grocer,4,3
-gound 1,ground,3,1
-grouned 1,ground,3,3
-grows 1,grow,3,3
-groon 1,grown,3,2
-guard 1,guided,4,1
-guilt 1,guilty,2,1
-gon 1,gun,3,2
-guter 1,gutter,3,1
-hab 1,had,3,2
-hade 1,had,3,3
-has 1,had,3,2
-have 1,had,4,3
-hadnt 1,hadn't,3,1
-hire 1,hair,4,2
-hair dreser 1,hairdresser,4,2
-harfparst 1,half past,5,2
-alloe 1,hallo,4,2
-halloe 1,hallo,3,3
-hemmsering 1,hammering,4,3
-hang 1,handed,3,0
-hand 1,hands,2,1
-hung 1,hang,3,2
-haing 1,hanging,4,0
-hapend 1,happened,4,0
-hapends 1,happened,5,1
-happen 2,happened,2,0
-happend 1,happened,3,1
-happon 1,happened,3,0
-heap 1,happened,6,-2
-happing 1,happening,4,0
-happends 1,happens,3,3
-happly 1,happily,3,1
-had 2,hard,3,1
-as 3,has,3,1
-hase 1,has,3,3
-hate 1,hates,2,1
-has 1,have,3,1
-hav 1,have,2,1
-of 2,have,4,0
-haveto 1,have to,3,1
-haven's 1,haven't,3,2
-havn't 1,haven't,3,1
-haveing 1,having,3,3
-his 1,he,4,3
-the 3,he,3,3
-ther 1,he,4,4
-his 1,he's,4,1
-hed 2,head,3,1
-hethy 1,healthy,4,0
-heep 3,heap,3,2
-haer 1,hear,4,2
-her 1,hear,3,1
-here 2,hear,4,2
-heared 1,heard,3,3
-her 1,heard,3,0
-herd 3,heard,3,1
-hered 1,heard,4,2
-hart 1,heart,3,1
-hertbreake 1,heartbreak,4,2
-heart 1,heat,3,3
-hevey 1,heavy,4,2
-heg 1,hedge,3,0
-effer 1,heifer,4,1
-hasld 1,held,4,3
-held 1,help,3,2
-She 1,her,3,2
-he 3,her,2,1
-here 15,her,4,4
-there 1,her,4,4
-hear 10,here,4,3
-he slef 1,herself,5,2
-hidon 1,hidden,4,1
-hm 1,him,3,1
-im 1,him,3,1
-him self 1,himself,3,3
-his self 1,himself,4,3
-he 3,his,3,1
-he's 2,his,4,3
-is 12,his,4,2
-hiter 1,hit,4,4
-holler 1,hole,4,4
-hime 1,home,3,2
-hom 1,home,2,1
-homse 1,home,3,3
-honymoon 1,honeymoon,3,1
-hunemoon 1,honeymoon,4,1
-hock 1,hook,3,2
-hop 1,hope,2,1
-hop 1,hopped,3,-1
-horn 1,horns,2,1
-horid 1,horrid,3,1
-horrieyfide 1,horrified,5,4
-houes 1,house,3,2
-house boat 2,houseboat,3,3
-house braking 1,housebreaking,4,2
-houes 1,houses,3,1
-housee work 1,housework,4,4
-hungrey 1,hungry,3,3
-heart 1,hurt,4,3
-hearte 1,hurt,5,4
-hert 2,hurt,3,2
-husbon 1,husband,3,1
-hudge 3,hutch,5,2
-high drollit 1,hydraulic,9,5
-ida 1,idea,3,1
-inded 1,indian,4,1
-indiscrest 1,indiscreet,3,2
-injeck 1,inject,3,2
-injurys 1,injuries,4,1
-insexs 1,insects,4,1
-in side 1,inside,3,3
-instace 1,instance,3,1
-instead 1,instance,4,1
-intercors 1,intercourse,3,0
-intended 1,interned,4,2
-interdust 1,introduced,6,1
-introducted 1,introduced,3,3
-us 1,is,3,2
-in'sen't 1,isn't,5,5
-isant 1,isn't,4,2
-isten 1,isn't,4,2
-isinted 1,isn't it,6,1
-hit 1,it,3,3
-is 1,it,3,2
-she 1,it,5,3
-it 1,it's,2,0
-its 11,it's,4,2
-is 1,its,3,1
-it 1,its,2,1
-it's 1,its,3,3
-jaell 1,jail,4,3
-gare 2,jar,4,3
-joged 1,jogged,3,1
-goin 1,join,3,2
-joine 1,join,3,3
-juiciy 1,juicy,3,3
-jump 2,jumped,2,0
-jumth 1,jumped,4,1
-jungel 2,jungle,3,2
-gust 5,just,3,2
-geep 1,keep,3,2
-keep 1,keeps,2,1
-keept 1,kept,3,3
-kep 1,kept,2,1
-kees 1,keys,3,2
-kiging 1,kicking,4,1
-kidney 1,kidneys,2,1
-kid 2,killed,4,-1
-kild 3,killed,3,0
-kill 4,killed,2,0
-killd 2,killed,3,1
-kiss 1,kissed,2,0
-kichen 1,kitchen,3,1
-kitchin 1,kitchen,3,2
-kitching 1,kitchen,4,3
-new 1,knew,3,1
-now 4,knew,4,1
-nowe 1,knew,5,2
-kiffe 1,knife,4,2
-kniffe 1,knife,3,3
-knitt 1,knit,3,3
-nock 1,knock,3,1
-knock 1,knocked,2,0
-knokt 1,knocked,4,0
-know 2,knocked,4,-1
-nock 2,knocked,3,-1
-no 9,know,3,0
-now 3,know,3,1
-on 1,know,3,0
-knowes 1,knows,3,3
-ladys 1,lady,3,3
-ladh 2,laid,4,2
-laide 1,laid,3,3
-lack 6,lake,3,2
-lam 1,lamb,2,1
-laded 1,landed,3,1
-larg 1,large,2,1
-latley 1,lately,4,2
-lated 1,later,3,2
-latter 1,later,3,3
-lauging 1,laughing,3,1
-lordery 1,laundry,6,2
-ladh 1,lay,4,3
-laid 1,lay,4,3
-la-by 2,layby,3,2
-led 1,lead,3,1
-leeding 1,lead,6,5
-lead 1,leading,3,-1
-leav 1,leave,2,1
-lefnr 1,leave,5,2
-leve 1,leave,3,1
-life 1,leave,5,1
-leavs 1,leaves,3,1
-lift 1,left,3,2
-lege 1,leg,3,3
-lets 6,let's,3,1
-teller 1,letter,5,2
-liy 1,lie,3,2
-life boat 1,lifeboat,3,3
-ligthing 1,lightning,4,1
-lichr 1,like,5,3
-lik 1,like,2,1
-look 1,like,4,2
-lick 1,liked,3,1
-like 2,likes,2,1
-listern 1,listen,3,3
-lisinid 1,listened,5,1
-lsning 1,listening,5,-1
-litel 1,little,3,1
-litte 1,little,3,1
-lifd 1,lived,4,1
-live 2,lived,2,1
-lod 2,load,3,1
-loades 2,loads,3,3
-lock 1,locked,2,0
-lockEd 1,locked,2,2
-loker 1,locker,3,1
-lonlest 1,loneliest,4,0
-look 8,looked,2,0
-look 1,looking,3,-1
-look 1,looks,2,1
-lorry's 1,lorries,4,2
-lord 1,lorry,3,1
-lory 7,lorry,3,1
-loos 1,lose,3,2
-los 1,lose,2,1
-love 1,loved,2,1
-lovyley 1,lovely,4,3
-laying 2,lying,3,3
-mayd 1,made,3,2
-mane 1,main,4,2
-mack 2,make,3,2
-macke up 1,make-up,4,3
-mack 1,makes,3,1
-mae 1,man,3,2
-mand 1,man,3,3
-manh 2,man,3,3
-may 1,man,3,2
-man 1,man's,2,0
-mans 2,man's,3,1
-maneger 2,manager,3,2
-manggles 1,mangels,4,3
-many fold 1,manifold,4,3
-meay 1,many,4,2
-meny 1,many,3,2
-marg 1,marge,2,1
-marrede 1,married,4,2
-marreid 1,married,4,2
-marrid 1,married,3,1
-marryid 1,married,4,2
-marshladn 1,marshland,3,2
-marsk 1,mask,3,3
-marsks 2,masks,3,3
-mater 3,matter,3,1
-we 1,me,3,2
-meadoy 1,meadow,3,2
-meddow 1,meadow,3,2
-medow 1,meadow,3,1
-mean't 1,meant,3,3
-me 1,meet,2,0
-man 1,men,3,2
-metet 1,metals,4,1
-midal 1,middle,3,1
-middal 1,middle,3,2
-midsummer's 1,midsummer,4,4
-migth 2,might,3,2
-mite 1,might,4,1
-my 1,mine,3,0
-mine 1,minutes,4,-1
-minetes 1,minutes,3,2
-morning 1,miring,4,3
-miss fireing 1,misfiring,5,5
-miss 1,missed,2,0
-mist 2,missed,3,0
-modal 2,model,3,2
-molad 1,model,4,2
-malod 1,modelled,7,-1
-missiour 1,monsieur,5,2
-month 1,month's,2,0
-monsth 1,months,3,2
-month 2,months,2,1
-mouth 1,months,3,1
-moor 1,more,3,2
-moning 1,morning,3,1
-morring 1,morning,3,2
-morther 1,mother,3,3
-mothers 1,mother,3,3
-mouthr 1,mother,4,2
-motor-cruisr 1,motor-cruiser,3,1
-moter bike 2,motorbike,4,3
-motor bike 1,motorbike,3,3
-moues 1,mouse,3,2
-mush 4,much,3,2
-mums 2,mum's,3,1
-murber 1,murder,3,2
-murbur 1,murdered,4,0
-musirls 1,muscles,5,2
-may 1,my,3,3
-my self 2,myself,3,3
-my shelf 1,myself,4,4
-mistory 5,mystery,4,2
-nana 1,nanny,3,1
-nere 3,near,4,2
-nerer 1,nearer,3,1
-nearst 1,nearest,3,1
-kneeling 1,nearly,8,4
-neally 1,nearly,3,2
-nealy 1,nearly,3,1
-nely 1,nearly,4,0
-nerly 1,nearly,3,1
-niely 1,nearly,5,1
-nede 1,need,3,2
-nedent 1,needn't,5,1
-needent 1,needn't,4,2
-nabour 1,neighbour,6,-1
-nerve 1,nerves,2,1
-nerves 1,nervous,4,1
-knver 1,never,4,2
-nether 1,never,4,3
-neve 1,never,2,1
-never the less 1,nevertheless,4,4
-nest 1,next,3,2
-tonight 1,night,4,4
-night 2,nights,2,1
-nigth 1,nights,3,1
-ninty 1,ninety,3,1
-niped 1,nipped,3,1
-know 3,no,4,4
-now 1,no,3,3
-on 2,no,3,2
-know on 1,no one,4,3
-know one 1,no one,4,4
-not one 1,no one,3,3
-now one 1,no one,3,3
-nose 3,noise,3,1
-nore 1,nor,3,3
-no 1,not,2,1
-nots 1,notes,3,1
-nousant 1,nuisance,5,1
-nurse's 1,nurses,3,3
-O clock 1,o'clock,3,2
-"o, clock 1",o'clock,4,3
-o clock 1,o'clock,3,2
-oclock 10,o'clock,4,2
-off 3,of,3,3
-on 1,of,3,2
-of 13,off,3,2
-ow 4,oh,3,2
-lod 4,old,4,2
-ol 1,old,2,1
-olddis 1,oldest,4,2
-hn 1,on,3,2
-hon 3,on,3,3
-of 1,on,3,2
-one 1,on,3,3
-ones 1,once,4,2
-own 1,once,3,1
-wons 1,once,4,2
-on 5,one,2,1
-wones 1,ones,3,3
-ony 1,only,3,1
-oped 1,opened,3,0
-open 5,opened,2,0
-opend 1,opened,3,1
-opon 1,opened,3,0
-ot 1,or,3,2
-orcher 1,orchard,3,1
-ordenrey 1,ordinary,5,2
-ophoned 1,orphaned,4,1
-orphaed 1,orphaned,3,1
-other 2,others,2,1
-other wise 2,otherwise,3,3
-hour 1,our,3,3
-ous 1,our,3,2
-out 1,our,3,2
-and selve 1,ourselves,6,2
-hot 1,out,4,2
-ou 1,out,2,1
-ouht 1,out,3,3
-owt 1,out,3,2
-outdrak 1,outbreak,4,1
-out fit 1,outfit,3,3
-out fits 1,outfits,3,3
-out side 6,outside,3,3
-out sild 1,outside,4,3
-hover 1,over,3,3
-ove 2,over,2,1
-overy 1,over,3,3
-payed 1,paid,4,3
-panted 1,painted,3,1
-per 1,pair,4,1
-paralised 1,paralysed,3,2
-parents 1,parent's,3,1
-prarents 1,parents,3,3
-prerents 1,parents,4,3
-pars 1,parts,3,1
-partey 1,party,3,3
-pass 1,past,3,2
-parth way 1,pathway,4,4
-pathment 1,pavement,4,2
-paid 1,pay,4,3
-pirls 1,pearls,4,1
-peope 1,peep,4,3
-peped 1,peeped,3,1
-peolpe 1,people,4,2
-pople 1,people,3,1
-prasp 1,perhaps,5,0
-peason 1,person,3,2
-peter 2,peter's,2,0
-peters 7,peter's,3,1
-petal 1,petrol,4,1
-phone 2,phoned,2,1
-phto 1,photo,3,1
-pick 5,picked,2,0
-picted 1,picked,3,2
-piked 1,picked,3,1
-pick poketin 1,pickpocketing,4,1
-pictuou 1,picture,4,2
-picture 2,pictures,2,1
-pictyres 1,pictures,3,2
-pitures 2,pictures,3,1
-pese 1,piece,4,1
-pice 1,piece,3,1
-pigs 1,pigs',2,1
-play 1,plan,3,2
-payer 1,play,5,3
-playa 1,player,3,1
-play 1,playing,3,-1
-pleace 1,please,3,2
-pleas 4,please,2,1
-ploud 2,ploughed,4,-1
-pocket 1,pockets,2,1
-pooting 1,pointing,4,1
-poicle 3,police,4,2
-poilice 1,police,3,3
-polic 4,police,2,1
-police man 5,policeman,3,3
-policman 1,policeman,3,1
-polce men 1,policemen,4,2
-police men 1,policemen,3,3
-policeman 1,policemen,3,2
-poney 1,pony,3,3
-poped 1,popped,3,1
-passess 1,possess,3,2
-post cards 1,postcards,3,3
-potates 2,potatoes,3,1
-potato 1,potatoes,2,0
-ponds 1,pounds,3,1
-ponud 1,pounds,4,1
-pouder 1,powder,3,2
-prayerbook 1,prayer-book,3,1
-pregant 1,pregnant,3,1
-pregnet 1,pregnant,4,1
-present 1,presents,2,1
-pretiest 1,prettiest,3,1
-prettest 1,prettiest,3,1
-preety 1,pretty,3,2
-pray 1,prey,3,2
-principl 1,principle,2,1
-prisin 1,prison,3,2
-privait 1,private,3,2
-probally 1,probably,3,2
-proceded 1,proceeded,3,1
-programe 1,programme,3,1
-programes 1,programmes,3,1
-prostut 1,prostitute,4,-1
-prouls 1,prowls,3,2
-pull 1,pulled,2,0
-puntuation 1,punctuation,3,1
-pusbycile 1,push-bicycle,7,-1
-but 1,put,3,2
-pht 1,put,3,2
-pot 1,put,3,2
-qurral 1,quarrel,4,1
-quere 1,queer,3,2
-question 1,questioned,2,0
-quiert 1,quiet,3,3
-quily 1,quietly,4,0
-quitely 1,quietly,4,2
-quite 1,quit,3,3
-quit 1,quite,2,1
-rabbit 1,rabbits,2,1
-raceing 1,racing,3,3
-radyator 1,radiator,3,2
-run 2,ran,3,2
-raperly 1,rapidly,4,2
-reding 1,reading,3,1
-realy 1,ready,3,2
-reddy 1,ready,3,2
-redey 1,ready,4,2
-realise 1,realized,3,1
-realy 1,really,3,1
-reley 1,really,4,1
-reper 1,reap,5,3
-reconnised 1,recognized,4,2
-refection 1,refreshing,6,1
-registery 1,registry,3,3
-replid 2,replied,3,1
-replie 1,reply,4,3
-retier 1,retire,3,2
-reveirse 1,reverse,3,3
-recher 1,richer,3,2
-rigth 2,right,3,2
-rings 1,ring,3,3
-ripper 1,ripper's,2,0
-rad 1,road,3,1
-raod 1,road,4,2
-rod 2,road,3,1
-rorse 1,roars,4,2
-rhfn 1,roof,5,2
-rought 1,rough,3,3
-rougth 1,rough,3,3
-rownd 1,round,3,2
-roundabout 1,round about,3,1
-rouns 1,rounds,3,1
-rowd 1,rowed,3,1
-rumer 1,rumour,4,1
-ran 1,run,3,2
-runaway 1,run away,3,1
-run 1,running,4,-2
-runaway 1,runway,3,3
-rust 1,rushed,3,0
-rusall 1,rustle,4,2
-safaly 1,safely,3,2
-sald 2,said,3,2
-sed 2,said,4,1
-sedn 1,said,5,2
-seid 1,said,3,2
-siad 5,said,4,2
-sid 3,said,3,1
-sidn 5,said,4,2
-saled 1,sailed,3,1
-sally 1,sallies,3,0
-safe 1,save,3,2
-see 1,saw,4,2
-soor 1,saw,5,3
-sor 3,saw,4,2
-sore 1,saw,5,3
-sorw 1,saw,4,3
-sow 3,saw,3,2
-said 1,say,4,3
-sais 4,says,3,2
-say 1,says,2,1
-seis 1,says,4,2
-scards 1,scares,3,2
-shool 1,school,3,1
-scem 1,scream,4,0
-seveen 1,screen,4,2
-sculptor 1,sculpture,3,1
-see 4,sea,3,2
-seach 1,search,3,1
-sat 1,seat,3,1
-sexeon 1,second,4,2
-secutery 1,secretary,5,1
-se 2,see,2,1
-see 1,seeing,3,-1
-semed 1,seemed,3,1
-see 1,sees,2,1
-slevish 1,selfish,5,2
-seling 1,selling,3,1
-senour 1,senor,3,3
-ses 1,sex,3,2
-sixty one 1,sexton,6,5
-exual 1,sexual,3,1
-sexul 1,sexual,3,1
-she 1,shall,3,0
-he 1,she,3,1
-the 1,she,3,2
-shilling 1,shillings,2,1
-shinning 1,shining,3,3
-ship wreck 1,shipwreck,3,3
-shon 1,shone,2,1
-shot 1,shoot,3,1
-shap 1,shop,3,2
-shortend 1,shortened,3,1
-sot 1,shot,3,1
-shod 2,should,3,0
-shoold 1,should,3,2
-shoud 1,should,3,1
-sould 1,should,3,1
-shout 1,shouted,2,0
-shout 1,shouting,3,-1
-shufarling 1,shuffling,4,3
-shock 1,shut up,5,0
-shiy 1,shy,3,3
-side car 1,sidecar,3,3
-side care 1,sidecar,4,4
-sine post 3,signpost,5,3
-sing post 1,signpost,4,3
-simpl 1,simple,2,1
-sings 1,sing,3,3
-singl 1,single,2,1
-satren 1,siren,4,3
-siter 2,sister,3,1
-sister 2,sisters,2,1
-siting 2,sitting,3,1
-scill filly 1,skilfully,6,4
-slander 1,slammed,5,2
-slaughthouse 4,slaughterhouse,4,0
-seph 2,sleep,5,1
-slip 1,sleep,4,1
-sleepey 1,sleepy,3,3
-slolly 1,slowly,3,2
-snake 1,snakes,2,1
-sneking 3,sneaking,3,1
-snoty 1,snooty,3,1
-snowe 1,snow,3,3
-soape 1,soap,3,3
-sope 2,soap,4,2
-soled 1,sold,3,3
-shm 1,some,3,1
-somes 1,some,3,3
-sum 1,some,3,1
-some on 1,someone,3,2
-some one 5,someone,3,3
-some thing 1,something,3,3
-somethick 1,something,4,2
-somethink 1,something,3,2
-somthing 1,something,3,1
-sothing 1,something,4,0
-some thime 1,sometimes,4,3
-some time 1,sometimes,3,2
-some times 4,sometimes,3,3
-sometime 1,sometimes,2,1
-sone theme 1,sometimes,6,3
-some were 1,somewhere,4,2
-son 1,soon,3,1
-sone 1,soon,4,2
-sonner 1,sooner,3,2
-saw 1,sore,4,1
-sownd 1,sound,3,2
-suvenere 1,souvenir,5,2
-sow 1,sows,2,1
-sporn 2,spawn,4,2
-seking 1,speaking,4,0
-spicil 1,special,4,1
-spectatoes 1,spectators,3,2
-spys 1,spies,4,1
-splended 1,splendid,3,2
-spring 1,springs,2,1
-spund 1,spun,3,3
-spiy 1,spy,3,3
-squar 1,square,2,1
-squick 1,squeak,4,2
-stabed 1,stabbed,3,1
-sairs 1,stairs,3,1
-stars 1,stairs,3,1
-sters 1,stairs,4,1
-stardnd 1,standard,5,1
-staning 1,standing,3,1
-stearing 1,staring,3,3
-stare 1,stars,3,2
-starte 1,start,3,3
-startes 1,started,3,2
-straghted 1,started,5,4
-starst 1,starts,3,2
-start 1,starts,2,1
-statmeant 1,statement,4,2
-stastione 1,station,4,4
-stad 1,stayed,3,0
-stayd 1,stayed,3,1
-stack 3,steak,4,2
-still 1,steal,4,2
-stearing 1,steering,3,2
-stepe 1,step,3,3
-stawing 1,stewing,3,2
-stive 1,stiff,4,2
-sill 3,still,3,1
-simulated 1,stimulated,3,1
-sticks 1,stinks,3,2
-stowl 1,stole,3,2
-stolon 1,stolen,3,2
-stowle 1,stolen,3,2
-stowlen 3,stolen,3,3
-stop 6,stopped,3,-1
-stoped 4,stopped,3,1
-story 2,stories,3,0
-stormes 1,storms,3,3
-hio 1,story,4,0
-shio 2,story,4,1
-sory 1,story,3,1
-stors 1,story,3,2
-staidght 1,straight,4,2
-strate 1,straight,4,0
-stright 2,straight,3,1
-storw 1,straw,4,2
-strow 1,straw,3,2
-sterret 1,street,4,3
-strogald 1,struggled,5,1
-stufy 1,stuffy,3,1
-suden 1,sudden,3,1
-senddly 1,suddenly,6,1
-suddenel 1,suddenly,3,2
-surtebull 1,suitable,6,3
-son 1,sun,3,2
-sunck 1,sunk,3,3
-sopose 1,suppose,4,1
-surpose 1,suppose,3,2
-shore 2,sure,4,3
-swan 1,swans,2,1
-swet 1,sweets,3,0
-swaling 1,swirling,4,1
-switch 1,switched,2,0
-tadpolls 1,tadpoles,3,2
-tack 1,take,3,2
-thack 1,take,4,3
-thak 1,take,3,2
-tackon 1,taken,4,3
-tacks 1,takes,4,2
-thak 1,takes,3,1
-takeing 1,taking,3,3
-thaing 1,taking,4,2
-tallk 1,talk,3,3
-torck 1,talk,5,3
-tork 1,talk,4,2
-tork 1,talked,4,0
-tipped 1,tape,5,4
-tast 1,taste,2,1
-teacher 1,teachers,2,1
-teset 1,teaches,5,0
-teddoy 1,teddy boy,4,-1
-tedeboy 4,teddy boy,5,0
-teddyboys 2,teddy boys,3,1
-theeat 1,teeth,4,3
-telephone 1,telephoned,2,1
-telphoned 1,telephoned,3,1
-teel 1,tell,3,2
-tens 1,tense,2,1
-thank 1,thanks,2,1
-theat 1,that,3,3
-thats 10,that's,4,2
-ge 1,the,4,1
-he 1,the,3,1
-th 1,the,2,1
-thee 1,the,3,3
-they 5,the,3,3
-thoy 1,the,4,3
-theer 1,their,3,2
-there 17,their,5,3
-they 6,their,3,1
-thire 1,their,4,2
-the 2,them,2,1
-theme 1,them,3,3
-then 8,them,3,2
-them souve 1,themselves,5,2
-they self 1,themselves,5,1
-than 1,then,3,2
-the 1,then,2,1
-them 1,then,3,2
-they 1,then,3,2
-he 1,there,3,-1
-thaw 1,there,4,1
-the 3,there,2,0
-their 15,there,4,3
-ther 5,there,2,1
-they 2,there,3,1
-thrar 1,there,4,2
-thre 1,there,3,1
-therell 1,there'll,3,1
-there 1,there's,2,0
-theres 5,there's,3,1
-thoese 1,these,3,3
-the 8,they,2,1
-there 2,they,4,3
-thrar 3,they,5,3
-thror 1,they,5,3
-theile 1,they'll,5,1
-their 1,they'll,4,0
-there 1,they're,4,0
-thif 1,thief,3,1
-theves 1,thieves,3,1
-think 2,thing,3,2
-think 1,things,3,1
-thinks 1,things,3,2
-thank 1,think,3,2
-thing 3,think,3,2
-tink 1,think,3,1
-tinking 1,thinking,3,1
-thomes 1,thomas,3,2
-thort 2,thought,4,0
-thorugh 1,thought,3,2
-thot 1,thought,4,-1
-though 1,thought,2,1
-throught 1,thought,3,3
-thee 1,three,3,1
-frow 1,threw,5,1
-through 1,threw,6,4
-throw 1,through,3,0
-thruogth 1,through,5,3
-thorght 1,throw,6,4
-tired 1,tied,3,3
-utill 1,till,3,3
-thim 1,time,3,2
-tim 1,time,2,1
-tin 1,tinned,3,-1
-tiper 1,tip,4,4
-tope 1,tip,4,3
-tipe 1,tipped,3,0
-qu 1,to,4,2
-the 3,to,4,3
-too 3,to,3,3
-tow 1,to,3,3
-two 16,to,4,4
-to gether 1,together,3,3
-to 1,told,2,0
-tod 2,told,3,1
-toled 1,told,3,3
-to morrow 1,tomorrow,3,3
-tommorrow 1,tomorrow,3,3
-tung 1,tongue,3,0
-to night 6,tonight,3,3
-to nigth 2,tonight,4,3
-tonigth 1,tonight,3,2
-toner 1,tonner,3,1
-to 20,too,3,2
-two 3,too,3,2
-thc 1,took,4,1
-too 1,took,2,1
-tuck 2,took,4,2
-toch 1,touched,3,-1
-towords 1,towards,3,2
-towe 1,towel,2,1
-tower 1,towers,2,1
-trator 1,tractor,3,1
-tamp 1,tramp,3,1
-trmp 4,tramp,3,1
-trmp 1,tramps,3,0
-crat 1,trap,4,2
-tashie 1,trashy,5,2
-thresher 1,treasure,6,2
-tresure 1,treasure,3,1
-three 1,tree,3,3
-treee 1,tree,3,3
-tree 1,trees,2,1
-trid 2,tried,3,1
-trobel 1,trouble,4,1
-troefle 1,trouble,4,2
-truble 1,trouble,3,1
-traing 1,trying,3,2
-tring 1,trying,3,1
-trining 1,trying,4,3
-try 1,trying,3,-1
-tern 1,turn,3,2
-turne 1,turn,3,3
-twentone 1,twenty one,4,0
-to 7,two,3,1
-unlce 1,uncle,4,2
-uncoshers 1,unconscious,7,0
-an cafferd 1,uncovered,8,3
-undergroth 1,undergrowth,3,1
-under nethe 1,underneath,5,3
-unispected 1,unexpected,4,2
-unfitt 1,unfit,3,3
-on hethy 1,unhealthy,6,1
-uatill 1,until,4,3
-untill 7,until,3,3
-apen 1,upon,4,2
-apone 1,upon,4,3
-up stairs 4,upstairs,3,3
-hus 1,us,3,3
-use 1,us,3,3
-use't 1,used,4,3
-ust 1,used,3,1
-usfull 1,useful,4,2
-usally 1,usually,3,1
-veracular 1,vernacular,3,1
-every 1,very,3,3
-vent 1,vet,3,3
-vethn 9,vet,4,4
-vethu 1,vet,4,4
-vetin 1,vet,4,4
-volonteered 1,volunteered,3,2
-wagon 3,waggon,3,1
-wat 1,wait,3,1
-wate 1,wait,4,2
-weight 1,wait,5,4
-wated 1,waited,3,1
-whated 1,waited,4,2
-waten 1,waiting,4,0
-wating 1,waiting,3,1
-whating 1,waiting,4,2
-walk 3,walked,2,0
-wark 3,walked,3,0
-warked 3,walked,3,2
-wocer 1,walked,6,1
-warking 1,walking,3,2
-molh 1,wall,5,2
-wah 1,wall,3,1
-wand 1,want,3,2
-wat 1,want,3,1
-whan't 2,want,4,4
-whant 6,want,3,3
-whon 1,want,4,2
-whont 4,want,4,3
-won't 3,want,4,3
-wont 1,want,3,2
-woth 1,want,5,2
-whanted 1,wanted,3,3
-whated 1,wanted,4,2
-wonted 1,wanted,3,2
-want 1,wants,2,1
-wornd 1,warned,4,1
-we 1,was,3,1
-wos 4,was,3,2
-wosh 1,wash,3,2
-wosh 1,washed,3,0
-wasnt 3,wasn't,3,1
-wastent 1,wasn't,5,3
-whan't 1,wasn't,4,2
-whdn't 1,wasn't,4,2
-wach 4,watch,3,1
-wacth 1,watch,4,2
-wakh 1,watch,4,1
-wash 1,watch,4,1
-watcheing 1,watching,3,3
-waterrat 1,water-rat,3,1
-wavey 2,wavy,3,3
-wel 1,we'll,3,0
-well 1,we'll,3,1
-will 1,we'll,4,1
-were 2,we're,3,1
-wasel 1,weasel,3,1
-wead 1,weed,3,2
-weeke 1,week,3,3
-week ends 1,weekends,3,3
-weekend 1,weekends,2,1
-week 1,weeks,2,1
-weping 1,weeping,3,1
-wade 1,weighed,6,-1
-waid 1,weighed,5,-1
-waying 1,weighing,6,0
-sent 1,went,3,2
-wen 2,went,2,1
-wend 1,went,3,2
-wens 1,went,3,2
-wet 6,went,3,1
-weth 1,went,4,2
-wetn 1,went,3,2
-when 1,went,3,2
-whenet 1,went,4,4
-whent 2,went,3,3
-wit 1,went,4,1
-wnet 1,went,4,2
-wher 1,were,3,2
-where 2,were,3,3
-were'nt 1,weren't,4,2
-wern't 1,weren't,3,1
-whernt 1,weren't,5,1
-weat 1,wet,3,3
-want 1,what,4,2
-wat 6,what,3,1
-wate 1,what,4,2
-wath 1,what,4,2
-wha't 6,what,3,3
-whate 2,what,3,3
-whats 1,what,3,3
-whot 1,what,3,2
-wot 3,what,4,1
-what 1,what's,2,0
-whats 3,what's,3,1
-what ever 1,whatever,3,3
-weel 2,wheel,3,1
-wen 2,when,3,1
-went 2,when,4,2
-whe 1,when,2,1
-where 1,when,4,3
-were 9,where,3,1
-were ever 1,wherever,5,3
-where ever 1,wherever,4,4
-wich 1,which,3,1
-witch 2,which,4,2
-wil 1,while,3,0
-wiskey 3,whiskey,3,1
-wiscell 1,whistle,6,2
-wisheld 1,whistled,6,1
-withe 1,white,4,2
-how 2,who,4,2
-who evers 1,whoever's,4,2
-hows 1,whose,4,1
-who 1,whose,2,0
-we'll 1,will,4,3
-wippd 1,wiped,3,2
-wich 2,witch,3,1
-wiche 1,witch,4,2
-wiht 1,with,3,2
-wis 1,with,3,1
-with out 1,without,3,3
-wok 1,woke,2,1
-wamon 1,woman,4,2
-women 3,woman,3,2
-womon 1,woman,3,2
-one 1,won,4,2
-won 1,won't,2,0
-wont 2,won't,3,1
-wund 2,wonder,3,0
-wunder 1,wonder,3,2
-wonder 1,wondered,2,0
-wondoful 1,wonderful,4,1
-work 1,working,3,-1
-work men 1,workmen,3,3
-wonrs 1,works,4,2
-work 1,works,2,1
-wors 1,works,3,1
-worme 2,worm,3,3
-worid 1,worried,4,0
-worred 1,worried,3,1
-worye 1,worry,4,2
-rite 1,write,3,1
-writeing 1,writing,3,3
-ron 1,wrong,3,0
-rong 2,wrong,3,1
-wong 1,wrong,3,1
-roat 1,wrote,4,1
-yanky 1,yankee,3,1
-year 1,years,2,1
-yers 1,years,3,1
-yess 2,yes,3,3
-yet 1,yes,3,2
-yeth 1,yet,3,3
-yew 1,you,4,2
-your 1,you,3,3
-yow 10,you,4,3
-you 1,you'll,3,-1
-your 2,you'll,3,0
-your 6,you're,3,0
-yow 1,you're,4,-1
-you 1,you've,3,-1
-yung 1,young,3,1
-yor 1,your,3,1
-you 3,your,2,1
-youre 1,your,3,3
-you 1,yours,2,0
-yourns 1,yours,3,3
-your self 2,yourself,3,3
-your sleve 1,yourself,6,4
-yourseff 1,yourself,3,2
+Adam,Adam's,2,0
+Artair,After,5,3
+American,America,3,3
+Ane,And,3,2
+Apprentiship,Apprenticeship,4,0
+Apirl,April,4,2
+audre,Audrey,2,1
+Autin,Austin,3,1
+Babys,Babies,4,1
+Bankg,Bang,3,3
+Beryil,Beryl,3,3
+Bicyle,Bicycle,3,1
+Bos,Boss,2,1
+Boy,Boys,2,1
+Barham,Brabham,4,1
+barham,Brabham,4,1
+butlins,Butlins,2,2
+castels,Castle's,4,1
+Chartors,Characters,5,0
+Cheere ho,Cheerio,5,4
+Cheter,Cheetah,4,1
+Comatalevous,Comment allez-vous,9,-4
+Comentary,Commentary,3,1
+Copper,Cooper,3,2
+Cynthia,Cynthia's,2,0
+Dearth,Death,3,3
+Docter,Doctor,3,2
+Dog,Dog's,2,0
+Durxer,Durex,4,3
+And,End,3,2
+Edh,End,4,2
+Hed,End,4,2
+Evey,Every,3,1
+Facttoer,Factory,4,3
+Frameman,Farmer,7,4
+Farther,Father,3,3
+Farrari,Ferrari,3,2
+Fiyer,Fire,4,3
+Fance,France,3,1
+Frgmens,Frogmen's,4,0
+Gardon,Garden,3,2
+Goef,Geoff,4,1
+Good by,Goodbye,3,2
+Here,Her,3,3
+Im,Him,3,1
+He,His,3,1
+He's,His,4,3
+Holliday,Holiday,3,3
+Hondor,Honda,4,3
+Honk Kong,Hong Kong,3,2
+Id,I'd,3,1
+I,I'll,3,-1
+Ill,I'll,3,1
+ile,I'll,4,1
+ill,I'll,3,1
+I,I'm,2,0
+Im,I'm,3,1
+Ive,I've,3,1
+I,It,2,1
+Itlay,Italy,4,2
+Jame,James,3,2
+Janes,Jane's,3,1
+Japannese,Japanese,3,3
+Jeans,Jean's,3,1
+jeans,Jean's,3,1
+Jone,Joan,4,2
+John,John's,2,0
+johns,John's,3,1
+Johnes,Jones,3,3
+Joneses,Jones's,3,2
+Joyce,Joyce's,2,0
+Jluy,July,4,2
+Kidney,Kidneys,2,1
+Led,Lead,3,1
+Lets,Let's,3,1
+Londen,London,3,2
+Londod,London,3,2
+Long,Lone,3,2
+Luckily,Lucky,4,4
+macwillaims,Macwilliams,4,2
+Marrid,Married,3,1
+Marry,Mary,3,3
+Mean while,Meanwhile,3,3
+Munces,Monkeys,5,1
+Motor-bikes,Motorbike,4,4
+By,My,3,2
+Nexe,Next,3,2
+Nickals,Nicholls,5,1
+Nos,Nose,2,1
+Noet,Note,3,2
+Ow,Oh,3,2
+Ones,Once,4,2
+Won,One,3,2
+Out side,Outside,3,3
+Phillhill,Phil Hill,3,2
+Please,Pleased,2,1
+Pome,Poem,3,2
+Pollce,Police,3,2
+Paulkey,Porky,6,4
+Prisern,Prison,4,3
+Rango,Ranger,3,1
+Roys,Roy,3,3
+Royl,Royal,3,1
+She,She's,2,0
+Slaughthouse,Slaughterhouse,4,0
+Smocking,Smoking,3,3
+Show,So,4,4
+Some one,Someone,3,3
+Suothwode,Southwold,6,2
+Stanlay,Stanley,3,2
+Stranden,Stranded,3,2
+Sturt,Stuart,3,1
+Swizaland,Switzerland,5,0
+Sylver,Sylvia,4,2
+sylver,Sylvia,4,2
+tv,TV,2,2
+Teddoy,Teddy boy,4,-1
+Tedeboy,Teddy boy,5,0
+Taddyboys,Teddy boys,4,1
+Thats,That's,3,1
+There,Their,4,2
+They,Their,3,1
+Their,There,3,2
+Ther,There,2,1
+They,There,3,1
+There,There's,2,0
+Thinkng,Thinking,3,1
+Tobe,Toby,3,2
+Toms,Tom's,3,1
+Tomy,Tommy,3,1
+Toner,Tonner,3,1
+Triumh,Triumph,3,1
+trumh,Triumph,4,0
+Toy,Troy,3,1
+Tow,Two,3,2
+watston,Watson,3,3
+Wh't,What,3,2
+What,What's,2,0
+Wiich,Which,3,2
+Will,While,4,1
+Whos evers,Whoever's,5,3
+Wing,Wings,2,1
+Ysid,Yard,4,2
+Your,You're,3,0
+an,a,3,3
+abit,a bit,3,1
+awill,a while,5,0
+abroard,aboard,3,3
+a Bat,about,5,2
+a bout,about,3,3
+absolutly,absolutely,3,1
+ack,ache,3,1
+half,after,5,1
+afterawhile,after a while,4,0
+a gain,again,3,3
+agan,again,3,1
+agian,again,4,2
+a go,ago,3,3
+hare,air,5,3
+alife,alive,3,2
+ally,alley,3,1
+alloud,allowed,4,1
+almity,almighty,4,0
+a lone,alone,3,3
+a long,along,3,3
+allright,alright,3,3
+arigh,alright,3,0
+aright,alright,3,1
+arigth,alright,4,1
+or rit,alright,6,1
+orrigh,alright,4,1
+orright,alright,4,2
+allso,also,3,3
+als,also,2,1
+alter,altar,3,2
+all ways,always,4,4
+allways,always,3,3
+amberless,ambulance,7,2
+amblance,ambulance,3,1
+amerless,ambulance,7,1
+amusments,amusements,3,1
+a,an,2,1
+and,an,3,3
+a,and,2,0
+an,and,2,1
+aud,and,3,2
+hand,and,3,3
+animl,animals,3,0
+a nother,another,3,3
+a nouther,another,4,4
+aner,another,5,-1
+anwerd,answered,4,0
+eney,any,4,3
+any on,anyone,3,2
+any one,anyone,3,3
+any own,anyone,4,3
+any thing,anything,3,3
+anythink,anything,3,2
+anyting,anything,3,1
+enthing,anything,4,1
+apply,apple,3,2
+apple,apples,2,1
+apprentiship,apprenticeship,4,0
+and,are,4,2
+airaear,area,5,5
+arent,aren't,3,1
+hrmehn,army,6,4
+hrmehr,army,6,4
+a round,around,3,3
+arived,arrived,3,1
+ass,as,3,3
+has,as,3,3
+arsed,asked,4,2
+ask,asked,2,0
+arsking,asking,3,3
+ask,asks,2,1
+a seph,asleep,6,2
+a sleep,asleep,3,3
+a,at,2,1
+are,at,4,3
+a tall,at all,4,2
+a tool,at all,5,2
+eat,ate,3,2
+et,ate,3,1
+ete,ate,3,2
+atack,attack,3,1
+atened,attend,4,2
+audre,audrey,2,1
+others,author's,6,0
+Aount,autumn,5,1
+autunm,autumn,3,2
+a way,away,3,3
+alfull,awful,4,3
+babyes,babies,3,2
+babyis,babies,4,2
+babys,babies,4,1
+babby,baby,3,3
+babys,baby,3,3
+bake,back,4,2
+bakh,back,4,2
+doc,back,4,1
+barb,barbed,2,0
+bear,bare,3,2
+bran,barn,4,2
+barscket,basket,4,4
+basckek,basket,4,3
+baskek,basket,3,2
+bath,baths,2,1
+by,be,3,2
+me,be,3,2
+we,be,3,2
+became,be coming,5,-1
+pit,beat,5,1
+beting,beating,3,1
+beaufiful,beautiful,3,2
+bacam,became,3,1
+becaues,because,3,2
+becouse,because,3,2
+bed room,bedrooms,3,2
+bf,beef,3,0
+bean,been,3,2
+bine,been,4,2
+be for,before,3,2
+befor,before,2,1
+behed,behind,4,1
+behism,behind,4,2
+been,being,3,1
+bell ringing,bellringing,3,3
+belong,belongs,2,1
+bend in,bending,3,2
+beets,best,4,3
+bet,better,3,-1
+beter,better,3,1
+beththe,better,4,3
+beverly,beverley,3,1
+bewere,beware,3,2
+bciyle,bicycles,5,0
+bing,big,3,3
+Big haded,big-headed,4,1
+biger,bigger,3,1
+bigest,biggest,3,1
+build,billed,4,1
+brid,bird,4,2
+biccuits,biscuits,3,2
+biten,bitten,3,1
+blow,blew,3,2
+bludy,bloody,4,1
+blossm,blossom,3,1
+bosting,boasting,3,1
+bodys,bodies,4,1
+bod,body,2,1
+bouse,booze,4,2
+borrowd,borrowed,3,1
+bos,boss,2,1
+botton,bottom,3,2
+buy,boy,3,2
+boy,boy's,2,0
+boys,boy's,3,1
+boy friend,boyfriend,3,3
+boyfreind,boyfriend,4,2
+boyfrend,boyfriend,3,1
+boyfrends,boyfriend's,4,0
+boy,boys,2,1
+boy's,boys,3,3
+breaks,brakes,4,2
+brain,bran,3,3
+bravist,bravest,3,2
+bred crumes,breadcrumbs,5,2
+brack,break,4,2
+brick,break,4,2
+brecfast,breakfast,4,1
+brakes,breaks,4,2
+breez,breeze,2,1
+brocken,broken,3,3
+borther,brother,4,2
+brother,brothers,2,1
+broug,brought,2,0
+brough,brought,2,1
+brus,brussels,4,-2
+brusels,brussels,3,1
+brusls,brussels,4,0
+brust,brussels,4,-1
+bubbals,bubbles,4,2
+billd,build,4,2
+billed,build,5,3
+buld,build,3,1
+billding,building,4,2
+bilt,built,3,1
+buit,built,3,1
+bolot,bullet,5,1
+bulet,bullet,3,1
+bulete,bullet,4,2
+bered,buried,4,1
+brun,burn,4,2
+bihr,by,5,4
+kiffe,cafe,5,3
+cald,called,3,0
+call,called,2,0
+calld,called,3,1
+could,called,5,1
+carmd,calmed,4,1
+comer,calmer,4,1
+cam,came,2,1
+come,came,3,2
+kom,came,4,1
+kum,came,4,1
+came,can,4,3
+cane,can,3,3
+cant,can't,3,1
+canth,can't,4,2
+carn't,can't,3,3
+carnt,can't,4,2
+candle stick,candlestick,3,3
+cain,cane,3,2
+can not,cannot,3,3
+connot,cannot,3,2
+captian,captain,4,2
+captman,captain,4,2
+catptman,captain,5,3
+cpn,captain,5,-2
+Star,car,4,3
+carrer,career,3,2
+carefull,careful,3,3
+carful,careful,3,1
+carfull,careful,4,2
+caresll,carefully,4,0
+cared,carried,4,0
+carred,carried,3,1
+carrid,carried,3,1
+carring,carrying,3,1
+carlsat,castle,5,3
+carsal,castle,4,2
+carsell,castle,5,3
+cartal,castle,4,2
+cartill,castle,5,3
+cartsel,castle,5,3
+catal,castle,4,1
+catsal,castle,4,2
+cats,cat's,3,1
+cash,catch,4,1
+chach,catch,4,2
+caugh,caught,2,1
+cort,caught,5,0
+cought,caught,3,2
+celebrate,celebrated,2,1
+choin,chain,3,2
+chere,chair,5,2
+cage,changed,4,-1
+characte,character,2,1
+charickter,character,4,3
+change,charged,3,1
+cheeroh,cheerio,4,2
+cheter,cheetah,4,1
+chow,chew,3,2
+chidren,children,3,1
+childrenes,children's,3,2
+cimbenr,chimney,6,2
+cherped,chirped,3,2
+ching,choosing,5,-1
+choosen,chosen,3,3
+christman,christmas,3,2
+cinama,cinema,3,2
+cinma,cinema,3,1
+sercus,circus,4,2
+classis,classes,3,2
+clater,clatter,3,1
+clors,claws,4,2
+clearn,clean,3,3
+glean,clean,3,2
+clean,cleaned,2,0
+cleand,cleaned,3,1
+clim,climb,2,1
+clime,climb,3,2
+cimed,climbed,4,0
+climb,climbed,2,0
+closd,closed,3,1
+clous,closed,3,1
+cloths,clothes,3,1
+clous,clothes,4,0
+colhes,clothes,4,1
+couldes,clouds,5,3
+coulds,clouds,4,2
+clob,club,3,2
+colbe,club,5,3
+cote,coat,4,2
+cofens,coffins,4,1
+colur,colour,3,1
+com,come,2,1
+comr,come,3,2
+coum,come,3,2
+kumh,come,5,2
+come,comes,2,1
+comvatable,comfortable,5,1
+come,coming,3,0
+comeing,coming,3,3
+comon,common,3,1
+coperney,company,6,3
+consantrate,concentrate,4,2
+cornfield,confide,5,4
+caps,cops,3,2
+corral,coral,3,3
+corres,cores,3,3
+corer,corner,3,1
+croner,corner,4,2
+call,could,4,1
+cod,could,3,0
+couldnt,couldn't,3,1
+count,couldn't,5,-1
+counsall,council,5,3
+counsel,council,4,2
+cousall,council,5,2
+coverd,covered,3,1
+cow Boys,cowboys,3,3
+crept,crapped,4,0
+crush,crash,3,2
+crowling,crawling,3,2
+creek,creak,3,2
+creaps,creeps,3,2
+creps,creeps,3,1
+crepy,creepy,3,1
+creeped,crept,5,4
+cryed,cried,3,2
+crys,cries,4,1
+crigckey,crikey,4,4
+cresp,crisp,3,2
+croud,crowd,3,2
+corller,cruel,6,4
+cuddly,cuddling,3,0
+cobard,cupboard,5,0
+cerled,curled,3,2
+silinders,cylinders,4,2
+bad,dad,3,2
+dads,dad's,3,1
+dadies,daddy's,5,1
+daffodill,daffodils,3,2
+dane,dance,3,1
+pncing,dancing,4,1
+dangers,dangerous,3,0
+dangerus,dangerous,3,1
+dere,dared,3,1
+darnt,daren't,4,0
+darck,dark,3,3
+dork,dark,3,2
+dauter,daughter,4,0
+day's,days',3,2
+dead,dear,3,2
+deat,death,2,1
+decider,decided,3,2
+desided,decided,3,2
+dicide,decided,3,1
+dicided,decided,3,2
+dicider,decided,4,2
+disided,decided,4,2
+disson,decision,5,0
+dellitent,delicate,6,3
+dener,den,4,4
+dence,dense,3,2
+departent,department,3,1
+depatment,department,3,1
+distrod,destroyed,4,0
+ded,did,3,2
+dednt,didn't,4,1
+denat,didn't,5,1
+didden,didn't,4,2
+dident,didn't,4,2
+dind,didn't,4,0
+diy,die,3,2
+ded,died,3,1
+diad,died,3,2
+disel,diesel,3,1
+diffrent,different,3,1
+difrent,different,4,0
+differcult,difficult,4,3
+driy,dirty,4,1
+disapeared,disappeared,3,1
+disaperd,disappeared,5,-1
+dicuverd,discovered,5,0
+dispiaying,displaying,3,2
+disposol,disposal,3,2
+distrebe,disturb,5,3
+dich,ditch,3,1
+don,do,3,3
+done,do,4,4
+go,do,3,2
+to,do,3,2
+donot,do not,3,1
+dus,does,4,1
+does'nt,doesn't,4,2
+does on,doesn't,4,2
+doesnet,doesn't,3,2
+donsent,doesn't,5,2
+dosnt,doesn't,4,0
+dowing,doing,3,3
+don,don't,2,0
+dont,don't,4,2
+want,don't,5,1
+don,done,2,1
+dun,done,3,1
+boor,door,3,2
+dor,door,3,1
+down,door,4,2
+doudle,double,3,2
+back,douche,6,0
+done,down,4,2
+donw,down,3,2
+dus,down,4,1
+dau sosys,downstairs,9,1
+down stairs,downstairs,3,3
+drian,drain,4,2
+drew,draw,3,2
+drem,dream,3,1
+dreming,dreaming,3,1
+drivern,driven,3,3
+divers,drivers,3,1
+drive,drives,2,1
+dround,drowned,4,1
+druck,drunk,3,2
+drye,dry,3,3
+doum,dumb,3,2
+pump,dump,3,2
+dieing,dying,4,3
+eyewigs,earwigs,4,2
+eate,eat,3,3
+elecenician,electrician,4,2
+als,else,3,1
+eles,else,3,2
+els,else,2,1
+imployment,employment,3,2
+emty,empty,3,1
+enaged,engaged,3,1
+ingaged,engaged,3,2
+enagement,engagement,3,1
+egreers,engines,6,2
+injoid,enjoyed,5,1
+enyays,enjoys,4,2
+a nougth,enough,5,4
+a nuff,enough,7,2
+engouh,enough,4,2
+nuff,enough,6,0
+enterd,entered,3,1
+aquitment,equipment,4,2
+a specally,especially,5,2
+evining,evening,3,2
+evning,evening,3,1
+evey,every,3,1
+evry,every,3,1
+every one,everyone,3,3
+evry on,everyone,4,1
+every were,everywhere,4,2
+evry were,everywhere,5,1
+exited,excited,3,1
+expore,explore,3,1
+expord,explored,4,0
+eye,eyes,2,1
+eyey,eyes,3,2
+iyes,eyes,3,2
+factoy,factory,3,1
+fanded,fainted,4,1
+forls,falls,4,2
+familys,families,4,1
+fare,far,3,3
+frm,farm,3,1
+farm,farmer,2,0
+framh,farmer,5,1
+frm,farmer,3,-1
+frmh,farmer,5,1
+farmers,farmer's,3,1
+frmh,farmer's,5,-2
+fashion,fashioned,2,0
+farst,fast,3,3
+farther,father,3,3
+farther's,father's,3,3
+fating,fattening,5,-1
+falt,fault,3,1
+feal,feel,3,2
+feling,feeling,3,1
+fee,feet,2,1
+fet,feet,3,1
+fall,fell,3,2
+feemale,female,3,3
+ferrary,ferrari,3,2
+faw,few,3,2
+fed,field,4,0
+feild,field,4,2
+fild,field,3,1
+figth,fight,3,2
+figthing,fighting,4,2
+fianl,final,4,2
+find,fine,3,2
+finse,fins,3,3
+fiar,fire,3,2
+fre,fire,3,1
+fiyed,fired,3,2
+ferman,firms,5,3
+fast,first,4,1
+fsh,fish,3,1
+fishey,fishy,3,3
+fanit,fit,4,4
+flass,flash,3,2
+fick,flick,3,1
+fies,flies,3,1
+flor,floor,3,1
+foor,floor,3,1
+flower,flowers,2,1
+fie,fly,4,2
+fellowed,followed,3,2
+full,fool,4,2
+footandmouth,foot-and-mouth,4,0
+footanmouth,foot-and-mouth,5,-1
+foodprints,footprints,3,2
+fo,for,2,1
+fore,for,3,3
+four,for,3,3
+fro,for,3,2
+fur,for,3,2
+of,for,3,1
+fort,for the,3,-1
+falk,fork,4,2
+frame,form,5,3
+forword,forward,3,2
+fowd,forward,4,-1
+fed,found,4,0
+feod,found,4,1
+find,found,4,1
+fond,found,3,1
+for,four,3,1
+fore,four,4,2
+frizing,freezing,4,1
+fenird,friend,6,2
+frend,friend,3,1
+frendly,friendly,3,1
+freinds,friends,4,2
+frend,friends,3,0
+frends,friends,3,1
+frens,friends,4,0
+frightend,frightened,3,1
+frigtend,frightened,4,0
+frog,frogs,2,1
+rogs,frogs,3,1
+frogsporn,frogspawn,4,2
+fom,from,3,1
+for,from,3,1
+form,from,4,2
+frount,front,3,3
+frunt,front,3,2
+frit,fruit,3,1
+fall,full,3,2
+ful,full,2,1
+funerl,funeral,3,1
+funrel,funeral,4,1
+funney,funny,3,3
+gamekeeps,gamekeeper,3,1
+ganer,gang,4,3
+carage,garage,3,2
+gass,gas,3,3
+gait,gate,3,2
+cave,gave,3,2
+jay,gay,3,2
+gere,gear,4,2
+gird,geared,5,0
+girse,gears,5,2
+ge,get,2,1
+gett,get,3,3
+get,gets,2,1
+get,getting,4,-2
+geting,getting,3,1
+gell,girl,4,2
+girls,girl's,3,1
+girl friend,girlfriend's,3,1
+girlfriend,girlfriends,2,1
+gerls,girls,3,2
+girl,girls,2,1
+give,given,2,1
+give,gives,2,1
+do,go,3,2
+got,go,3,3
+go,goes,2,0
+go,going,3,-1
+gying,going,3,2
+go,gone,2,0
+gon,gone,2,1
+good-by,goodbye,3,2
+goodby,goodbye,2,1
+get,got,3,2
+gnt,got,3,2
+go,got,3,2
+grab,grabbed,3,-1
+grabed,grabbed,3,1
+grandpas,grandpa's,3,1
+grete,grated,3,1
+crave,grave,3,2
+grait,great,4,2
+gnenhouen,greenhouse,6,1
+greive,grieve,4,2
+grouser,grocer,4,3
+gound,ground,3,1
+grouned,ground,3,3
+grows,grow,3,3
+groon,grown,3,2
+guard,guided,4,1
+guilt,guilty,2,1
+gon,gun,3,2
+guter,gutter,3,1
+hab,had,3,2
+hade,had,3,3
+has,had,3,2
+have,had,4,3
+hadnt,hadn't,3,1
+hire,hair,4,2
+hair dreser,hairdresser,4,2
+harfparst,half past,5,2
+alloe,hallo,4,2
+halloe,hallo,3,3
+hemmsering,hammering,4,3
+hang,handed,3,0
+hand,hands,2,1
+hung,hang,3,2
+haing,hanging,4,0
+hapend,happened,4,0
+hapends,happened,5,1
+happen,happened,2,0
+happend,happened,3,1
+happon,happened,3,0
+heap,happened,6,-2
+happing,happening,4,0
+happends,happens,3,3
+happly,happily,3,1
+had,hard,3,1
+as,has,3,1
+hase,has,3,3
+hate,hates,2,1
+has,have,3,1
+hav,have,2,1
+of,have,4,0
+haveto,have to,3,1
+haven's,haven't,3,2
+havn't,haven't,3,1
+haveing,having,3,3
+his,he,4,3
+the,he,3,3
+ther,he,4,4
+his,he's,4,1
+hed,head,3,1
+hethy,healthy,4,0
+heep,heap,3,2
+haer,hear,4,2
+her,hear,3,1
+here,hear,4,2
+heared,heard,3,3
+her,heard,3,0
+herd,heard,3,1
+hered,heard,4,2
+hart,heart,3,1
+hertbreake,heartbreak,4,2
+heart,heat,3,3
+hevey,heavy,4,2
+heg,hedge,3,0
+effer,heifer,4,1
+hasld,held,4,3
+held,help,3,2
+She,her,3,2
+he,her,2,1
+here,her,4,4
+there,her,4,4
+hear,here,4,3
+he slef,herself,5,2
+hidon,hidden,4,1
+hm,him,3,1
+im,him,3,1
+him self,himself,3,3
+his self,himself,4,3
+he,his,3,1
+he's,his,4,3
+is,his,4,2
+hiter,hit,4,4
+holler,hole,4,4
+hime,home,3,2
+hom,home,2,1
+homse,home,3,3
+honymoon,honeymoon,3,1
+hunemoon,honeymoon,4,1
+hock,hook,3,2
+hop,hope,2,1
+hop,hopped,3,-1
+horn,horns,2,1
+horid,horrid,3,1
+horrieyfide,horrified,5,4
+houes,house,3,2
+house boat,houseboat,3,3
+house braking,housebreaking,4,2
+houes,houses,3,1
+housee work,housework,4,4
+hungrey,hungry,3,3
+heart,hurt,4,3
+hearte,hurt,5,4
+hert,hurt,3,2
+husbon,husband,3,1
+hudge,hutch,5,2
+high drollit,hydraulic,9,5
+ida,idea,3,1
+inded,indian,4,1
+indiscrest,indiscreet,3,2
+injeck,inject,3,2
+injurys,injuries,4,1
+insexs,insects,4,1
+in side,inside,3,3
+instace,instance,3,1
+instead,instance,4,1
+intercors,intercourse,3,0
+intended,interned,4,2
+interdust,introduced,6,1
+introducted,introduced,3,3
+us,is,3,2
+in'sen't,isn't,5,5
+isant,isn't,4,2
+isten,isn't,4,2
+isinted,isn't it,6,1
+hit,it,3,3
+is,it,3,2
+she,it,5,3
+it,it's,2,0
+its,it's,4,2
+is,its,3,1
+it,its,2,1
+it's,its,3,3
+jaell,jail,4,3
+gare,jar,4,3
+joged,jogged,3,1
+goin,join,3,2
+joine,join,3,3
+juiciy,juicy,3,3
+jump,jumped,2,0
+jumth,jumped,4,1
+jungel,jungle,3,2
+gust,just,3,2
+geep,keep,3,2
+keep,keeps,2,1
+keept,kept,3,3
+kep,kept,2,1
+kees,keys,3,2
+kiging,kicking,4,1
+kidney,kidneys,2,1
+kid,killed,4,-1
+kild,killed,3,0
+kill,killed,2,0
+killd,killed,3,1
+kiss,kissed,2,0
+kichen,kitchen,3,1
+kitchin,kitchen,3,2
+kitching,kitchen,4,3
+new,knew,3,1
+now,knew,4,1
+nowe,knew,5,2
+kiffe,knife,4,2
+kniffe,knife,3,3
+knitt,knit,3,3
+nock,knock,3,1
+knock,knocked,2,0
+knokt,knocked,4,0
+know,knocked,4,-1
+nock,knocked,3,-1
+no,know,3,0
+now,know,3,1
+on,know,3,0
+knowes,knows,3,3
+ladys,lady,3,3
+ladh,laid,4,2
+laide,laid,3,3
+lack,lake,3,2
+lam,lamb,2,1
+laded,landed,3,1
+larg,large,2,1
+latley,lately,4,2
+lated,later,3,2
+latter,later,3,3
+lauging,laughing,3,1
+lordery,laundry,6,2
+ladh,lay,4,3
+laid,lay,4,3
+la-by,layby,3,2
+led,lead,3,1
+leeding,lead,6,5
+lead,leading,3,-1
+leav,leave,2,1
+lefnr,leave,5,2
+leve,leave,3,1
+life,leave,5,1
+leavs,leaves,3,1
+lift,left,3,2
+lege,leg,3,3
+lets,let's,3,1
+teller,letter,5,2
+liy,lie,3,2
+life boat,lifeboat,3,3
+ligthing,lightning,4,1
+lichr,like,5,3
+lik,like,2,1
+look,like,4,2
+lick,liked,3,1
+like,likes,2,1
+listern,listen,3,3
+lisinid,listened,5,1
+lsning,listening,5,-1
+litel,little,3,1
+litte,little,3,1
+lifd,lived,4,1
+live,lived,2,1
+lod,load,3,1
+loades,loads,3,3
+lock,locked,2,0
+lockEd,locked,2,2
+loker,locker,3,1
+lonlest,loneliest,4,0
+look,looked,2,0
+look,looking,3,-1
+look,looks,2,1
+lorry's,lorries,4,2
+lord,lorry,3,1
+lory,lorry,3,1
+loos,lose,3,2
+los,lose,2,1
+love,loved,2,1
+lovyley,lovely,4,3
+laying,lying,3,3
+mayd,made,3,2
+mane,main,4,2
+mack,make,3,2
+macke up,make-up,4,3
+mack,makes,3,1
+mae,man,3,2
+mand,man,3,3
+manh,man,3,3
+may,man,3,2
+man,man's,2,0
+mans,man's,3,1
+maneger,manager,3,2
+manggles,mangels,4,3
+many fold,manifold,4,3
+meay,many,4,2
+meny,many,3,2
+marg,marge,2,1
+marrede,married,4,2
+marreid,married,4,2
+marrid,married,3,1
+marryid,married,4,2
+marshladn,marshland,3,2
+marsk,mask,3,3
+marsks,masks,3,3
+mater,matter,3,1
+we,me,3,2
+meadoy,meadow,3,2
+meddow,meadow,3,2
+medow,meadow,3,1
+mean't,meant,3,3
+me,meet,2,0
+man,men,3,2
+metet,metals,4,1
+midal,middle,3,1
+middal,middle,3,2
+midsummer's,midsummer,4,4
+migth,might,3,2
+mite,might,4,1
+my,mine,3,0
+mine,minutes,4,-1
+minetes,minutes,3,2
+morning,miring,4,3
+miss fireing,misfiring,5,5
+miss,missed,2,0
+mist,missed,3,0
+modal,model,3,2
+molad,model,4,2
+malod,modelled,7,-1
+missiour,monsieur,5,2
+month,month's,2,0
+monsth,months,3,2
+month,months,2,1
+mouth,months,3,1
+moor,more,3,2
+moning,morning,3,1
+morring,morning,3,2
+morther,mother,3,3
+mothers,mother,3,3
+mouthr,mother,4,2
+motor-cruisr,motor-cruiser,3,1
+moter bike,motorbike,4,3
+motor bike,motorbike,3,3
+moues,mouse,3,2
+mush,much,3,2
+mums,mum's,3,1
+murber,murder,3,2
+murbur,murdered,4,0
+musirls,muscles,5,2
+may,my,3,3
+my self,myself,3,3
+my shelf,myself,4,4
+mistory,mystery,4,2
+nana,nanny,3,1
+nere,near,4,2
+nerer,nearer,3,1
+nearst,nearest,3,1
+kneeling,nearly,8,4
+neally,nearly,3,2
+nealy,nearly,3,1
+nely,nearly,4,0
+nerly,nearly,3,1
+niely,nearly,5,1
+nede,need,3,2
+nedent,needn't,5,1
+needent,needn't,4,2
+nabour,neighbour,6,-1
+nerve,nerves,2,1
+nerves,nervous,4,1
+knver,never,4,2
+nether,never,4,3
+neve,never,2,1
+never the less,nevertheless,4,4
+nest,next,3,2
+tonight,night,4,4
+night,nights,2,1
+nigth,nights,3,1
+ninty,ninety,3,1
+niped,nipped,3,1
+know,no,4,4
+now,no,3,3
+on,no,3,2
+know on,no one,4,3
+know one,no one,4,4
+not one,no one,3,3
+now one,no one,3,3
+nose,noise,3,1
+nore,nor,3,3
+no,not,2,1
+nots,notes,3,1
+nousant,nuisance,5,1
+nurse's,nurses,3,3
+O clock,o'clock,3,2
+"o, clock",o'clock,4,3
+o clock,o'clock,3,2
+oclock,o'clock,4,2
+off,of,3,3
+on,of,3,2
+of,off,3,2
+ow,oh,3,2
+lod,old,4,2
+ol,old,2,1
+olddis,oldest,4,2
+hn,on,3,2
+hon,on,3,3
+of,on,3,2
+one,on,3,3
+ones,once,4,2
+own,once,3,1
+wons,once,4,2
+on,one,2,1
+wones,ones,3,3
+ony,only,3,1
+oped,opened,3,0
+open,opened,2,0
+opend,opened,3,1
+opon,opened,3,0
+ot,or,3,2
+orcher,orchard,3,1
+ordenrey,ordinary,5,2
+ophoned,orphaned,4,1
+orphaed,orphaned,3,1
+other,others,2,1
+other wise,otherwise,3,3
+hour,our,3,3
+ous,our,3,2
+out,our,3,2
+and selve,ourselves,6,2
+hot,out,4,2
+ou,out,2,1
+ouht,out,3,3
+owt,out,3,2
+outdrak,outbreak,4,1
+out fit,outfit,3,3
+out fits,outfits,3,3
+out side,outside,3,3
+out sild,outside,4,3
+hover,over,3,3
+ove,over,2,1
+overy,over,3,3
+payed,paid,4,3
+panted,painted,3,1
+per,pair,4,1
+paralised,paralysed,3,2
+parents,parent's,3,1
+prarents,parents,3,3
+prerents,parents,4,3
+pars,parts,3,1
+partey,party,3,3
+pass,past,3,2
+parth way,pathway,4,4
+pathment,pavement,4,2
+paid,pay,4,3
+pirls,pearls,4,1
+peope,peep,4,3
+peped,peeped,3,1
+peolpe,people,4,2
+pople,people,3,1
+prasp,perhaps,5,0
+peason,person,3,2
+peter,peter's,2,0
+peters,peter's,3,1
+petal,petrol,4,1
+phone,phoned,2,1
+phto,photo,3,1
+pick,picked,2,0
+picted,picked,3,2
+piked,picked,3,1
+pick poketin,pickpocketing,4,1
+pictuou,picture,4,2
+picture,pictures,2,1
+pictyres,pictures,3,2
+pitures,pictures,3,1
+pese,piece,4,1
+pice,piece,3,1
+pigs,pigs',2,1
+play,plan,3,2
+payer,play,5,3
+playa,player,3,1
+play,playing,3,-1
+pleace,please,3,2
+pleas,please,2,1
+ploud,ploughed,4,-1
+pocket,pockets,2,1
+pooting,pointing,4,1
+poicle,police,4,2
+poilice,police,3,3
+polic,police,2,1
+police man,policeman,3,3
+policman,policeman,3,1
+polce men,policemen,4,2
+police men,policemen,3,3
+policeman,policemen,3,2
+poney,pony,3,3
+poped,popped,3,1
+passess,possess,3,2
+post cards,postcards,3,3
+potates,potatoes,3,1
+potato,potatoes,2,0
+ponds,pounds,3,1
+ponud,pounds,4,1
+pouder,powder,3,2
+prayerbook,prayer-book,3,1
+pregant,pregnant,3,1
+pregnet,pregnant,4,1
+present,presents,2,1
+pretiest,prettiest,3,1
+prettest,prettiest,3,1
+preety,pretty,3,2
+pray,prey,3,2
+principl,principle,2,1
+prisin,prison,3,2
+privait,private,3,2
+probally,probably,3,2
+proceded,proceeded,3,1
+programe,programme,3,1
+programes,programmes,3,1
+prostut,prostitute,4,-1
+prouls,prowls,3,2
+pull,pulled,2,0
+puntuation,punctuation,3,1
+pusbycile,push-bicycle,7,-1
+but,put,3,2
+pht,put,3,2
+pot,put,3,2
+qurral,quarrel,4,1
+quere,queer,3,2
+question,questioned,2,0
+quiert,quiet,3,3
+quily,quietly,4,0
+quitely,quietly,4,2
+quite,quit,3,3
+quit,quite,2,1
+rabbit,rabbits,2,1
+raceing,racing,3,3
+radyator,radiator,3,2
+run,ran,3,2
+raperly,rapidly,4,2
+reding,reading,3,1
+realy,ready,3,2
+reddy,ready,3,2
+redey,ready,4,2
+realise,realized,3,1
+realy,really,3,1
+reley,really,4,1
+reper,reap,5,3
+reconnised,recognized,4,2
+refection,refreshing,6,1
+registery,registry,3,3
+replid,replied,3,1
+replie,reply,4,3
+retier,retire,3,2
+reveirse,reverse,3,3
+recher,richer,3,2
+rigth,right,3,2
+rings,ring,3,3
+ripper,ripper's,2,0
+rad,road,3,1
+raod,road,4,2
+rod,road,3,1
+rorse,roars,4,2
+rhfn,roof,5,2
+rought,rough,3,3
+rougth,rough,3,3
+rownd,round,3,2
+roundabout,round about,3,1
+rouns,rounds,3,1
+rowd,rowed,3,1
+rumer,rumour,4,1
+ran,run,3,2
+runaway,run away,3,1
+run,running,4,-2
+runaway,runway,3,3
+rust,rushed,3,0
+rusall,rustle,4,2
+safaly,safely,3,2
+sald,said,3,2
+sed,said,4,1
+sedn,said,5,2
+seid,said,3,2
+siad,said,4,2
+sid,said,3,1
+sidn,said,4,2
+saled,sailed,3,1
+sally,sallies,3,0
+safe,save,3,2
+see,saw,4,2
+soor,saw,5,3
+sor,saw,4,2
+sore,saw,5,3
+sorw,saw,4,3
+sow,saw,3,2
+said,say,4,3
+sais,says,3,2
+say,says,2,1
+seis,says,4,2
+scards,scares,3,2
+shool,school,3,1
+scem,scream,4,0
+seveen,screen,4,2
+sculptor,sculpture,3,1
+see,sea,3,2
+seach,search,3,1
+sat,seat,3,1
+sexeon,second,4,2
+secutery,secretary,5,1
+se,see,2,1
+see,seeing,3,-1
+semed,seemed,3,1
+see,sees,2,1
+slevish,selfish,5,2
+seling,selling,3,1
+senour,senor,3,3
+ses,sex,3,2
+sixty one,sexton,6,5
+exual,sexual,3,1
+sexul,sexual,3,1
+she,shall,3,0
+he,she,3,1
+the,she,3,2
+shilling,shillings,2,1
+shinning,shining,3,3
+ship wreck,shipwreck,3,3
+shon,shone,2,1
+shot,shoot,3,1
+shap,shop,3,2
+shortend,shortened,3,1
+sot,shot,3,1
+shod,should,3,0
+shoold,should,3,2
+shoud,should,3,1
+sould,should,3,1
+shout,shouted,2,0
+shout,shouting,3,-1
+shufarling,shuffling,4,3
+shock,shut up,5,0
+shiy,shy,3,3
+side car,sidecar,3,3
+side care,sidecar,4,4
+sine post,signpost,5,3
+sing post,signpost,4,3
+simpl,simple,2,1
+sings,sing,3,3
+singl,single,2,1
+satren,siren,4,3
+siter,sister,3,1
+sister,sisters,2,1
+siting,sitting,3,1
+scill filly,skilfully,6,4
+slander,slammed,5,2
+slaughthouse,slaughterhouse,4,0
+seph,sleep,5,1
+slip,sleep,4,1
+sleepey,sleepy,3,3
+slolly,slowly,3,2
+snake,snakes,2,1
+sneking,sneaking,3,1
+snoty,snooty,3,1
+snowe,snow,3,3
+soape,soap,3,3
+sope,soap,4,2
+soled,sold,3,3
+shm,some,3,1
+somes,some,3,3
+sum,some,3,1
+some on,someone,3,2
+some one,someone,3,3
+some thing,something,3,3
+somethick,something,4,2
+somethink,something,3,2
+somthing,something,3,1
+sothing,something,4,0
+some thime,sometimes,4,3
+some time,sometimes,3,2
+some times,sometimes,3,3
+sometime,sometimes,2,1
+sone theme,sometimes,6,3
+some were,somewhere,4,2
+son,soon,3,1
+sone,soon,4,2
+sonner,sooner,3,2
+saw,sore,4,1
+sownd,sound,3,2
+suvenere,souvenir,5,2
+sow,sows,2,1
+sporn,spawn,4,2
+seking,speaking,4,0
+spicil,special,4,1
+spectatoes,spectators,3,2
+spys,spies,4,1
+splended,splendid,3,2
+spring,springs,2,1
+spund,spun,3,3
+spiy,spy,3,3
+squar,square,2,1
+squick,squeak,4,2
+stabed,stabbed,3,1
+sairs,stairs,3,1
+stars,stairs,3,1
+sters,stairs,4,1
+stardnd,standard,5,1
+staning,standing,3,1
+stearing,staring,3,3
+stare,stars,3,2
+starte,start,3,3
+startes,started,3,2
+straghted,started,5,4
+starst,starts,3,2
+start,starts,2,1
+statmeant,statement,4,2
+stastione,station,4,4
+stad,stayed,3,0
+stayd,stayed,3,1
+stack,steak,4,2
+still,steal,4,2
+stearing,steering,3,2
+stepe,step,3,3
+stawing,stewing,3,2
+stive,stiff,4,2
+sill,still,3,1
+simulated,stimulated,3,1
+sticks,stinks,3,2
+stowl,stole,3,2
+stolon,stolen,3,2
+stowle,stolen,3,2
+stowlen,stolen,3,3
+stop,stopped,3,-1
+stoped,stopped,3,1
+story,stories,3,0
+stormes,storms,3,3
+hio,story,4,0
+shio,story,4,1
+sory,story,3,1
+stors,story,3,2
+staidght,straight,4,2
+strate,straight,4,0
+stright,straight,3,1
+storw,straw,4,2
+strow,straw,3,2
+sterret,street,4,3
+strogald,struggled,5,1
+stufy,stuffy,3,1
+suden,sudden,3,1
+senddly,suddenly,6,1
+suddenel,suddenly,3,2
+surtebull,suitable,6,3
+son,sun,3,2
+sunck,sunk,3,3
+sopose,suppose,4,1
+surpose,suppose,3,2
+shore,sure,4,3
+swan,swans,2,1
+swet,sweets,3,0
+swaling,swirling,4,1
+switch,switched,2,0
+tadpolls,tadpoles,3,2
+tack,take,3,2
+thack,take,4,3
+thak,take,3,2
+tackon,taken,4,3
+tacks,takes,4,2
+thak,takes,3,1
+takeing,taking,3,3
+thaing,taking,4,2
+tallk,talk,3,3
+torck,talk,5,3
+tork,talk,4,2
+tork,talked,4,0
+tipped,tape,5,4
+tast,taste,2,1
+teacher,teachers,2,1
+teset,teaches,5,0
+teddoy,teddy boy,4,-1
+tedeboy,teddy boy,5,0
+teddyboys,teddy boys,3,1
+theeat,teeth,4,3
+telephone,telephoned,2,1
+telphoned,telephoned,3,1
+teel,tell,3,2
+tens,tense,2,1
+thank,thanks,2,1
+theat,that,3,3
+thats,that's,4,2
+ge,the,4,1
+he,the,3,1
+th,the,2,1
+thee,the,3,3
+they,the,3,3
+thoy,the,4,3
+theer,their,3,2
+there,their,5,3
+they,their,3,1
+thire,their,4,2
+the,them,2,1
+theme,them,3,3
+then,them,3,2
+them souve,themselves,5,2
+they self,themselves,5,1
+than,then,3,2
+the,then,2,1
+them,then,3,2
+they,then,3,2
+he,there,3,-1
+thaw,there,4,1
+the,there,2,0
+their,there,4,3
+ther,there,2,1
+they,there,3,1
+thrar,there,4,2
+thre,there,3,1
+therell,there'll,3,1
+there,there's,2,0
+theres,there's,3,1
+thoese,these,3,3
+the,they,2,1
+there,they,4,3
+thrar,they,5,3
+thror,they,5,3
+theile,they'll,5,1
+their,they'll,4,0
+there,they're,4,0
+thif,thief,3,1
+theves,thieves,3,1
+think,thing,3,2
+think,things,3,1
+thinks,things,3,2
+thank,think,3,2
+thing,think,3,2
+tink,think,3,1
+tinking,thinking,3,1
+thomes,thomas,3,2
+thort,thought,4,0
+thorugh,thought,3,2
+thot,thought,4,-1
+though,thought,2,1
+throught,thought,3,3
+thee,three,3,1
+frow,threw,5,1
+through,threw,6,4
+throw,through,3,0
+thruogth,through,5,3
+thorght,throw,6,4
+tired,tied,3,3
+utill,till,3,3
+thim,time,3,2
+tim,time,2,1
+tin,tinned,3,-1
+tiper,tip,4,4
+tope,tip,4,3
+tipe,tipped,3,0
+qu,to,4,2
+the,to,4,3
+too,to,3,3
+tow,to,3,3
+two,to,4,4
+to gether,together,3,3
+to,told,2,0
+tod,told,3,1
+toled,told,3,3
+to morrow,tomorrow,3,3
+tommorrow,tomorrow,3,3
+tung,tongue,3,0
+to night,tonight,3,3
+to nigth,tonight,4,3
+tonigth,tonight,3,2
+toner,tonner,3,1
+to,too,3,2
+two,too,3,2
+thc,took,4,1
+too,took,2,1
+tuck,took,4,2
+toch,touched,3,-1
+towords,towards,3,2
+towe,towel,2,1
+tower,towers,2,1
+trator,tractor,3,1
+tamp,tramp,3,1
+trmp,tramp,3,1
+trmp,tramps,3,0
+crat,trap,4,2
+tashie,trashy,5,2
+thresher,treasure,6,2
+tresure,treasure,3,1
+three,tree,3,3
+treee,tree,3,3
+tree,trees,2,1
+trid,tried,3,1
+trobel,trouble,4,1
+troefle,trouble,4,2
+truble,trouble,3,1
+traing,trying,3,2
+tring,trying,3,1
+trining,trying,4,3
+try,trying,3,-1
+tern,turn,3,2
+turne,turn,3,3
+twentone,twenty one,4,0
+to,two,3,1
+unlce,uncle,4,2
+uncoshers,unconscious,7,0
+an cafferd,uncovered,8,3
+undergroth,undergrowth,3,1
+under nethe,underneath,5,3
+unispected,unexpected,4,2
+unfitt,unfit,3,3
+on hethy,unhealthy,6,1
+uatill,until,4,3
+untill,until,3,3
+apen,upon,4,2
+apone,upon,4,3
+up stairs,upstairs,3,3
+hus,us,3,3
+use,us,3,3
+use't,used,4,3
+ust,used,3,1
+usfull,useful,4,2
+usally,usually,3,1
+veracular,vernacular,3,1
+every,very,3,3
+vent,vet,3,3
+vethn,vet,4,4
+vethu,vet,4,4
+vetin,vet,4,4
+volonteered,volunteered,3,2
+wagon,waggon,3,1
+wat,wait,3,1
+wate,wait,4,2
+weight,wait,5,4
+wated,waited,3,1
+whated,waited,4,2
+waten,waiting,4,0
+wating,waiting,3,1
+whating,waiting,4,2
+walk,walked,2,0
+wark,walked,3,0
+warked,walked,3,2
+wocer,walked,6,1
+warking,walking,3,2
+molh,wall,5,2
+wah,wall,3,1
+wand,want,3,2
+wat,want,3,1
+whan't,want,4,4
+whant,want,3,3
+whon,want,4,2
+whont,want,4,3
+won't,want,4,3
+wont,want,3,2
+woth,want,5,2
+whanted,wanted,3,3
+whated,wanted,4,2
+wonted,wanted,3,2
+want,wants,2,1
+wornd,warned,4,1
+we,was,3,1
+wos,was,3,2
+wosh,wash,3,2
+wosh,washed,3,0
+wasnt,wasn't,3,1
+wastent,wasn't,5,3
+whan't,wasn't,4,2
+whdn't,wasn't,4,2
+wach,watch,3,1
+wacth,watch,4,2
+wakh,watch,4,1
+wash,watch,4,1
+watcheing,watching,3,3
+waterrat,water-rat,3,1
+wavey,wavy,3,3
+wel,we'll,3,0
+well,we'll,3,1
+will,we'll,4,1
+were,we're,3,1
+wasel,weasel,3,1
+wead,weed,3,2
+weeke,week,3,3
+week ends,weekends,3,3
+weekend,weekends,2,1
+week,weeks,2,1
+weping,weeping,3,1
+wade,weighed,6,-1
+waid,weighed,5,-1
+waying,weighing,6,0
+sent,went,3,2
+wen,went,2,1
+wend,went,3,2
+wens,went,3,2
+wet,went,3,1
+weth,went,4,2
+wetn,went,3,2
+when,went,3,2
+whenet,went,4,4
+whent,went,3,3
+wit,went,4,1
+wnet,went,4,2
+wher,were,3,2
+where,were,3,3
+were'nt,weren't,4,2
+wern't,weren't,3,1
+whernt,weren't,5,1
+weat,wet,3,3
+want,what,4,2
+wat,what,3,1
+wate,what,4,2
+wath,what,4,2
+wha't,what,3,3
+whate,what,3,3
+whats,what,3,3
+whot,what,3,2
+wot,what,4,1
+what,what's,2,0
+whats,what's,3,1
+what ever,whatever,3,3
+weel,wheel,3,1
+wen,when,3,1
+went,when,4,2
+whe,when,2,1
+where,when,4,3
+were,where,3,1
+were ever,wherever,5,3
+where ever,wherever,4,4
+wich,which,3,1
+witch,which,4,2
+wil,while,3,0
+wiskey,whiskey,3,1
+wiscell,whistle,6,2
+wisheld,whistled,6,1
+withe,white,4,2
+how,who,4,2
+who evers,whoever's,4,2
+hows,whose,4,1
+who,whose,2,0
+we'll,will,4,3
+wippd,wiped,3,2
+wich,witch,3,1
+wiche,witch,4,2
+wiht,with,3,2
+wis,with,3,1
+with out,without,3,3
+wok,woke,2,1
+wamon,woman,4,2
+women,woman,3,2
+womon,woman,3,2
+one,won,4,2
+won,won't,2,0
+wont,won't,3,1
+wund,wonder,3,0
+wunder,wonder,3,2
+wonder,wondered,2,0
+wondoful,wonderful,4,1
+work,working,3,-1
+work men,workmen,3,3
+wonrs,works,4,2
+work,works,2,1
+wors,works,3,1
+worme,worm,3,3
+worid,worried,4,0
+worred,worried,3,1
+worye,worry,4,2
+rite,write,3,1
+writeing,writing,3,3
+ron,wrong,3,0
+rong,wrong,3,1
+wong,wrong,3,1
+roat,wrote,4,1
+yanky,yankee,3,1
+year,years,2,1
+yers,years,3,1
+yess,yes,3,3
+yet,yes,3,2
+yeth,yet,3,3
+yew,you,4,2
+your,you,3,3
+yow,you,4,3
+you,you'll,3,-1
+your,you'll,3,0
+your,you're,3,0
+yow,you're,4,-1
+you,you've,3,-1
+yung,young,3,1
+yor,your,3,1
+you,your,2,1
+youre,your,3,3
+you,yours,2,0
+yourns,yours,3,3
+your self,yourself,3,3
+your sleve,yourself,6,4
+yourseff,yourself,3,2
