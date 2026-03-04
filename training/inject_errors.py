@@ -22,6 +22,16 @@ import os
 from dataclasses import dataclass, field
 from typing import Optional
 
+from phonetic_misspeller import (
+    generate_misspelling,
+    keyboard_typo,
+    visual_similarity,
+    creative_phonetic,
+    phoneme_misspell,
+    EXPANDED_REAL_WORD_SUBS,
+    EXPANDED_WORD_BOUNDARY_ERRORS,
+)
+
 # ---------------------------------------------------------------------------
 # Data structures
 # ---------------------------------------------------------------------------
@@ -1083,23 +1093,8 @@ def rule_skip_sentence_caps(text: str) -> Optional[tuple[str, str, ErrorAnnotati
     ))
 
 
-# Real-word substitution lookup
-REAL_WORD_SUBS = {
-    "form": "from", "from": "form",
-    "tried": "tired", "tired": "tried",
-    "quiet": "quite", "quite": "quiet",
-    "angel": "angle", "angle": "angel",
-    "diary": "dairy", "dairy": "diary",
-    "desert": "dessert", "dessert": "desert",
-    "loose": "lose", "lose": "loose",
-    "accept": "except", "except": "accept",
-    "affect": "effect", "effect": "affect",
-    "advice": "advise", "advise": "advice",
-    "than": "then", "then": "than",
-    "were": "where", "where": "were",
-    "through": "thorough", "thorough": "through",
-    "thought": "though", "though": "thought",
-}
+# Real-word substitution lookup (expanded from phonetic_misspeller module)
+REAL_WORD_SUBS = EXPANDED_REAL_WORD_SUBS
 
 
 def rule_real_word_substitution(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
@@ -1121,15 +1116,8 @@ def rule_real_word_substitution(word: str) -> Optional[tuple[str, ErrorAnnotatio
     ))
 
 
-# Word boundary lookup
-WORD_BOUNDARY_ERRORS = {
-    "a lot": "alot",
-    "all right": "alright",
-    "each other": "eachother",
-    "no one": "noone",
-    "in fact": "infact",
-    "as well": "aswell",
-}
+# Word boundary lookup (expanded from phonetic_misspeller module)
+WORD_BOUNDARY_ERRORS = EXPANDED_WORD_BOUNDARY_ERRORS
 
 
 def rule_word_boundary(text: str) -> Optional[tuple[str, str, ErrorAnnotation]]:
@@ -1147,6 +1135,80 @@ def rule_word_boundary(text: str) -> Optional[tuple[str, str, ErrorAnnotation]]:
                 provenance="literature-based", confidence="high"
             ))
     return None
+
+
+# ---------------------------------------------------------------------------
+# Phonetic misspeller rules (from phonetic_misspeller module)
+# ---------------------------------------------------------------------------
+
+def rule_phoneme_misspell(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """CMU-dict-based phoneme perturbation: campaign -> campain"""
+    if len(word) < 4:
+        return None
+    if random.random() > 0.25:  # 25% rate
+        return None
+    result = phoneme_misspell(word)
+    if result is None:
+        return None
+    if word[0].isupper():
+        result = result[0].upper() + result[1:]
+    return (result, ErrorAnnotation(
+        target_word=word, written_as=result,
+        rule="phoneme_misspell", category="phonological",
+        provenance="data-driven", confidence="medium"
+    ))
+
+
+def rule_keyboard_typo(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Keyboard proximity error: building -> biilding"""
+    if len(word) < 4:
+        return None
+    if random.random() > 0.12:  # 12% rate — subtle
+        return None
+    result = keyboard_typo(word)
+    if result is None:
+        return None
+    return (result, ErrorAnnotation(
+        target_word=word, written_as=result,
+        rule="keyboard_typo", category="orthographic",
+        provenance="data-driven", confidence="medium"
+    ))
+
+
+def rule_visual_similarity(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Visual similarity error: morning -> rnoining"""
+    if len(word) < 4:
+        return None
+    if random.random() > 0.15:  # 15% rate
+        return None
+    result = visual_similarity(word)
+    if result is None:
+        return None
+    if word[0].isupper():
+        result = result[0].upper() + result[1:]
+    return (result, ErrorAnnotation(
+        target_word=word, written_as=result,
+        rule="visual_similarity", category="orthographic",
+        provenance="data-driven", confidence="low"
+    ))
+
+
+def rule_creative_phonetic(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Kid-style phonetic spelling: beautiful -> butiful, nation -> nashun"""
+    if len(word) < 5:
+        return None
+    if random.random() > 0.20:  # 20% rate
+        return None
+    result = creative_phonetic(word)
+    if result is None:
+        return None
+    if word[0].isupper():
+        result = result[0].upper() + result[1:]
+    return (result, ErrorAnnotation(
+        target_word=word, written_as=result,
+        rule="creative_phonetic", category="phonological",
+        provenance="data-driven", confidence="medium"
+    ))
 
 
 # ---------------------------------------------------------------------------
@@ -1190,6 +1252,14 @@ TIER_3_RULES = [
     rule_silent_e_addition,
 ]
 
+# Phonetic misspeller rules (data-driven, all ages)
+PHONETIC_RULES = [
+    rule_phoneme_misspell,             # CMU dict phoneme perturbation
+    rule_creative_phonetic,            # Kid-style phonetic spelling
+    rule_keyboard_typo,                # Keyboard proximity errors
+    rule_visual_similarity,            # Visual similarity (rn↔m, etc.)
+]
+
 # Middle band additions
 MIDDLE_RULES = [
     rule_double_consonant_omission,
@@ -1207,7 +1277,7 @@ TEEN_RULES = [
     rule_real_word_substitution,
 ]
 
-ALL_RULES = TIER_1_RULES + TIER_2_RULES + TIER_3_RULES
+ALL_RULES = TIER_1_RULES + TIER_2_RULES + TIER_3_RULES + PHONETIC_RULES
 
 # Sentence-level rules (applied after word-level corruption)
 SENTENCE_RULES = [
@@ -1292,12 +1362,13 @@ def _select_rules_by_category(age_band: str, rules: list) -> list:
         if any(x in name for x in ["vowel", "ea_to", "ei_to", "ai_to", "ew_to", "ear_to",
                                      "ee_to", "oa_to", "ou_to", "sc_to", "gr_to", "ng_to",
                                      "mp_to", "cluster", "multisyllable",
-                                     "ght_", "wh_to", "ph_to", "wrong_silent", "ough_"]):
+                                     "ght_", "wh_to", "ph_to", "wrong_silent", "ough_",
+                                     "phoneme_misspell", "creative_phonetic"]):
             categorized["phonological"].append(rule)
         elif any(x in name for x in ["transposition", "consonant_drop", "apostrophe",
                                        "silent_e", "double_consonant", "silent_letter",
                                        "digraph_swap", "unstressed_vowel", "word_boundary",
-                                       "word_split"]):
+                                       "word_split", "keyboard_typo", "visual_similarity"]):
             categorized["orthographic"].append(rule)
         elif any(x in name for x in ["past_tense", "ed_suffix", "ing_suffix",
                                        "prefix", "suffix"]):
