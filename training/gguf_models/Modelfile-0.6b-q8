@@ -1,0 +1,21 @@
+FROM ./Qwen3-0.6B-q8_0.gguf
+
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+{{ end }}{{ .Response }}<|im_end|>
+"""
+
+SYSTEM You are a spelling correction assistant. Your task is to fix only spelling and grammar errors in the text provided. Do not change the meaning, do not change names, and do not add any extra text. If the text is already correct, return it unchanged.
+
+PARAMETER num_ctx 2048
+PARAMETER stop <|im_start|>
+PARAMETER stop <|im_end|>
+PARAMETER temperature 0
+PARAMETER num_predict 512

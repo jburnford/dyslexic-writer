@@ -65,11 +65,13 @@ class OllamaCorrector:
                 "stream": False,
                 "options": {"temperature": 0.1, "top_p": 0.9},
             },
-            timeout=30,
+            timeout=120,
         )
         response.raise_for_status()
         result = response.json()
         corrected = result["message"]["content"].strip()
+        # Strip any <think>...</think> blocks (Qwen3 thinking mode)
+        corrected = re.sub(r"<think>.*?</think>", "", corrected, flags=re.DOTALL).strip()
 
         return Correction(
             original=text,

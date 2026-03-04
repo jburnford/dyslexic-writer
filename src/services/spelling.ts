@@ -89,34 +89,101 @@ export function getLogStats(): { total: number; phonetic: number; llm: number; c
 }
 
 /**
- * Check a sentence for spelling errors
- * Uses Flask API which calls the Ollama model
+ * Split text into chunks of ~2 sentences each for reliable model processing.
+ * Keeps sentence boundaries intact.
  */
-export async function checkSpelling(sentence: string): Promise<Correction[]> {
-  const corrections: Correction[] = []
+function splitIntoChunks(text: string, sentencesPerChunk: number): { text: string; offset: number }[] {
+  const chunks: { text: string; offset: number }[] = []
 
-  // Call Flask API directly for all corrections
-  console.log(`[Spelling] Checking sentence: "${sentence}"`)
-  const { corrections: apiCorrections, response } = await checkWithLLM(sentence)
+  // Split on sentence endings (. ! ?) while keeping delimiters
+  const sentenceRegex = /[^.!?]*[.!?]+\s*/g
+  const sentences: { text: string; offset: number }[] = []
+  let match
+  let lastEnd = 0
 
-  corrections.push(...apiCorrections)
-
-  // Log corrections
-  if (corrections.length > 0) {
-    addLogEntry({
-      timestamp: new Date().toISOString(),
-      input: sentence,
-      llmResponse: response,
-      corrections: corrections.map(c => ({
-        original: c.original,
-        corrected: c.corrected,
-        source: 'llm' as const
-      })),
-      success: true,
-    })
+  while ((match = sentenceRegex.exec(text)) !== null) {
+    sentences.push({ text: match[0], offset: match.index })
+    lastEnd = match.index + match[0].length
   }
 
-  return corrections
+  // Grab any remaining text without a sentence ending
+  if (lastEnd < text.length) {
+    const remaining = text.slice(lastEnd)
+    if (remaining.trim()) {
+      sentences.push({ text: remaining, offset: lastEnd })
+    }
+  }
+
+  // If no sentences found, treat the whole thing as one chunk
+  if (sentences.length === 0) {
+    return [{ text, offset: 0 }]
+  }
+
+  // Group into pairs
+  for (let i = 0; i < sentences.length; i += sentencesPerChunk) {
+    const group = sentences.slice(i, i + sentencesPerChunk)
+    const chunkText = group.map(s => s.text).join('')
+    chunks.push({ text: chunkText, offset: group[0].offset })
+  }
+
+  return chunks
+}
+
+/**
+ * Check text for spelling errors.
+ * Splits into ~2 sentence chunks and calls onResults as each chunk completes.
+ */
+export async function checkSpelling(
+  text: string,
+  onResults?: (corrections: Correction[]) => void,
+): Promise<Correction[]> {
+  const allCorrections: Correction[] = []
+  const seen = new Set<string>() // deduplicate by original word
+
+  const chunks = splitIntoChunks(text, 2)
+  console.log(`[Spelling] Split into ${chunks.length} chunks`)
+
+  for (const chunk of chunks) {
+    console.log(`[Spelling] Checking chunk (offset ${chunk.offset}): "${chunk.text.substring(0, 60)}..."`)
+
+    const { corrections, response } = await checkWithLLM(chunk.text)
+
+    const newCorrections: Correction[] = []
+    for (const correction of corrections) {
+      const key = correction.original.toLowerCase()
+      if (!seen.has(key)) {
+        seen.add(key)
+        const adjusted = {
+          ...correction,
+          position: correction.position + chunk.offset,
+        }
+        allCorrections.push(adjusted)
+        newCorrections.push(adjusted)
+      }
+    }
+
+    // Notify caller with this chunk's results immediately
+    if (newCorrections.length > 0 && onResults) {
+      onResults(newCorrections)
+    }
+
+    // Log each chunk
+    if (corrections.length > 0) {
+      addLogEntry({
+        timestamp: new Date().toISOString(),
+        input: chunk.text,
+        llmResponse: response,
+        corrections: corrections.map(c => ({
+          original: c.original,
+          corrected: c.corrected,
+          source: 'llm' as const
+        })),
+        success: true,
+      })
+    }
+  }
+
+  return allCorrections
 }
 
 /**

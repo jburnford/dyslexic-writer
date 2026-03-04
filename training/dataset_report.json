@@ -2,16 +2,16 @@
   "total_pairs": 56645,
   "identity_pairs": 22658,
   "error_pairs": 33987,
-  "avg_error_rate": 0.169,
+  "avg_error_rate": 0.177,
   "category_distribution": {
-    "phonological": 34761,
-    "orthographic": 9867,
-    "morphological": 6519
+    "phonological": 21992,
+    "orthographic": 25740,
+    "morphological": 3643
   },
   "provenance_distribution": {
-    "attested": 45100,
-    "inferred": 5323,
-    "literature-based": 724
+    "attested": 47381,
+    "inferred": 3085,
+    "literature-based": 909
   },
   "issues": []
 }

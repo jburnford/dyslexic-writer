@@ -64,7 +64,14 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
   const lastCheckedTextRef = useRef('')
 
   const editor = useEditor({
-    extensions: [StarterKit, Underline, Misspelled],
+    extensions: [
+      StarterKit.configure({
+        codeBlock: false,
+        code: false,
+      }),
+      Underline,
+      Misspelled,
+    ],
     content: '<p></p>',
     editorProps: {
       attributes: {
@@ -90,6 +97,59 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
     window.speechSynthesis.speak(utterance)
   }, [])
 
+  // Apply misspelled marks for a batch of corrections.
+  // Uses ProseMirror doc traversal for correct positions across paragraphs,
+  // then applies marks via TipTap's chain API for proper React rendering.
+  const applyMarks = useCallback((editor: ReturnType<typeof useEditor>, corrections: Correction[]) => {
+    if (!editor) return
+
+    // First, collect all positions that need marks
+    const marks: { from: number; to: number; correction: string }[] = []
+
+    for (const correction of corrections) {
+      const searchText = correction.original.toLowerCase()
+
+      // Walk all text nodes to find matches with correct ProseMirror positions
+      editor.state.doc.descendants((node, pos) => {
+        if (!node.isText || !node.text) return
+        const nodeText = node.text
+        const nodeTextLower = nodeText.toLowerCase()
+        let idx = 0
+
+        while ((idx = nodeTextLower.indexOf(searchText, idx)) !== -1) {
+          // Check word boundaries
+          const before = idx > 0 ? nodeTextLower[idx - 1] : ' '
+          const after = idx + searchText.length < nodeTextLower.length
+            ? nodeTextLower[idx + searchText.length]
+            : ' '
+
+          if (!/\w/.test(before) && !/\w/.test(after)) {
+            const from = pos + idx
+            const to = from + correction.original.length
+            const originalWord = nodeText.slice(idx, idx + correction.original.length)
+            const correctedWord = preserveCase(originalWord, correction.corrected)
+
+            marks.push({ from, to, correction: correctedWord })
+          }
+
+          idx += searchText.length
+        }
+      })
+    }
+
+    // Apply ALL marks in a single transaction through TipTap's pipeline
+    if (marks.length > 0) {
+      editor.commands.command(({ tr, dispatch }) => {
+        const markType = editor.schema.marks.misspelled
+        for (const mark of marks) {
+          tr.addMark(mark.from, mark.to, markType.create({ correction: mark.correction }))
+        }
+        if (dispatch) dispatch(tr)
+        return true
+      })
+    }
+  }, [])
+
   // Check spelling - called manually or on button click
   const runSpellCheck = useCallback(async () => {
     if (!editor || isCheckingRef.current) return
@@ -102,72 +162,29 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
     lastCheckedTextRef.current = text
     console.log('[SpellCheck] Checking:', text)
 
+    // Clear ALL old marks first
+    editor
+      .chain()
+      .selectAll()
+      .unsetMark('misspelled')
+      .setTextSelection(editor.state.doc.content.size)
+      .run()
+    setCorrections([])
+
     try {
-      const results = await checkSpelling(text)
-      console.log('[SpellCheck] Results:', results)
-      setCorrections(results)
-
-      if (results.length === 0) {
-        console.log('[SpellCheck] No corrections needed')
-        isCheckingRef.current = false
-        setIsChecking(false)
-        return
-      }
-
-      // Clear ALL old marks first
-      editor
-        .chain()
-        .selectAll()
-        .unsetMark('misspelled')
-        .setTextSelection(editor.state.doc.content.size)
-        .run()
-
-      // Apply marks to misspelled words
-      for (const correction of results) {
-        const searchText = correction.original.toLowerCase()
-        const docText = text.toLowerCase()
-        let searchPos = 0
-
-        while (searchPos < docText.length) {
-          const index = docText.indexOf(searchText, searchPos)
-          if (index === -1) break
-
-          // Check word boundaries
-          const before = index > 0 ? docText[index - 1] : ' '
-          const after = index + searchText.length < docText.length
-            ? docText[index + searchText.length]
-            : ' '
-
-          if (!/\w/.test(before) && !/\w/.test(after)) {
-            const markFrom = index + 1 // +1 for ProseMirror offset
-            const markTo = markFrom + correction.original.length
-
-            // Preserve original case when storing correction
-            const originalWord = text.slice(index, index + correction.original.length)
-            const correctedWord = preserveCase(originalWord, correction.corrected)
-
-            console.log(`[SpellCheck] Marking "${originalWord}" -> "${correctedWord}" at ${markFrom}-${markTo}`)
-
-            editor
-              .chain()
-              .setTextSelection({ from: markFrom, to: markTo })
-              .setMark('misspelled', { correction: correctedWord })
-              .run()
-          }
-
-          searchPos = index + searchText.length
-        }
-      }
-
-      // Move cursor to end
-      editor.commands.setTextSelection(editor.state.doc.content.size)
+      // checkSpelling calls onResults as each chunk completes
+      await checkSpelling(text, (chunkCorrections) => {
+        console.log('[SpellCheck] Chunk results:', chunkCorrections)
+        setCorrections(prev => [...prev, ...chunkCorrections])
+        applyMarks(editor, chunkCorrections)
+      })
     } catch (error) {
       console.error('[SpellCheck] Error:', error)
     } finally {
       isCheckingRef.current = false
       setIsChecking(false)
     }
-  }, [editor])
+  }, [editor, applyMarks])
 
   // Expose methods to parent via ref
   useImperativeHandle(ref, () => ({
@@ -215,16 +232,16 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
         c => c.original.toLowerCase() === word.toLowerCase()
       )?.corrected
 
-      if (correction) {
+      if (correction && editor) {
         const rect = target.getBoundingClientRect()
-        const text = editor?.getText() || ''
-        const index = text.toLowerCase().indexOf(word.toLowerCase())
+        // Use ProseMirror's DOM position for accurate range (avoids indexOf finding wrong occurrence)
+        const pos = editor.view.posAtDOM(target, 0)
 
         setActiveSuggestion({
           original: word,
           corrected: correction,
           position: { x: rect.left, y: rect.bottom + 8 },
-          range: { from: index + 1, to: index + 1 + word.length },
+          range: { from: pos, to: pos + word.length },
         })
       }
     } else {
@@ -237,27 +254,59 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
 
     if (learningMode) {
       setActiveSuggestion(null)
-    } else {
-      // Get current position info
-      const { from, to } = activeSuggestion.range
-
-      // Remove the mark, delete the word, insert correction
-      editor
-        .chain()
-        .focus()
-        .setTextSelection({ from, to })
-        .unsetMark('misspelled')
-        .deleteSelection()
-        .insertContent(activeSuggestion.corrected)
-        .run()
-
-      // Remove this correction from the list
-      setCorrections(prev =>
-        prev.filter(c => c.original.toLowerCase() !== activeSuggestion.original.toLowerCase())
-      )
-      setActiveSuggestion(null)
-      lastCheckedTextRef.current = '' // Allow re-check
+      return
     }
+
+    const searchText = activeSuggestion.original.toLowerCase()
+
+    // Find ALL instances of this misspelled word in the document
+    const instances: { from: number; to: number; corrected: string }[] = []
+
+    editor.state.doc.descendants((node, pos) => {
+      if (!node.isText || !node.text) return
+      const nodeText = node.text
+      const nodeTextLower = nodeText.toLowerCase()
+      let idx = 0
+
+      while ((idx = nodeTextLower.indexOf(searchText, idx)) !== -1) {
+        const before = idx > 0 ? nodeTextLower[idx - 1] : ' '
+        const after = idx + searchText.length < nodeTextLower.length
+          ? nodeTextLower[idx + searchText.length]
+          : ' '
+
+        if (!/\w/.test(before) && !/\w/.test(after)) {
+          const from = pos + idx
+          const to = from + activeSuggestion.original.length
+          const originalWord = nodeText.slice(idx, idx + activeSuggestion.original.length)
+          instances.push({
+            from,
+            to,
+            corrected: preserveCase(originalWord, activeSuggestion.corrected),
+          })
+        }
+
+        idx += searchText.length
+      }
+    })
+
+    // Replace ALL instances in a single transaction (reverse order to preserve positions)
+    if (instances.length > 0) {
+      editor.commands.command(({ tr, dispatch }) => {
+        const markType = editor.schema.marks.misspelled
+        for (const inst of [...instances].reverse()) {
+          tr.removeMark(inst.from, inst.to, markType)
+          tr.insertText(inst.corrected, inst.from, inst.to)
+        }
+        if (dispatch) dispatch(tr)
+        return true
+      })
+    }
+
+    setCorrections(prev =>
+      prev.filter(c => c.original.toLowerCase() !== activeSuggestion.original.toLowerCase())
+    )
+    setActiveSuggestion(null)
+    lastCheckedTextRef.current = ''
   }
 
   return (

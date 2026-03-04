@@ -1,0 +1,260 @@
+{
+  "dyslexic-writer-4b-q5": [
+    {
+      "paragraph": 1,
+      "input": "Pascals dnd champain",
+      "predicted": "Pascals dnd champain",
+      "gold": "Pascal's dnd campaign",
+      "exact_match": false,
+      "similarity": 0.3333,
+      "correct_fixes": 0,
+      "missed_fixes": 2,
+      "false_positives": 0,
+      "total_gold_fixes": 2
+    },
+    {
+      "paragraph": 2,
+      "input": "We came to his house at 10:00Am.",
+      "predicted": "We came to his house at 10:00Am.",
+      "gold": "We came to his house at 10:00Am.",
+      "exact_match": true,
+      "similarity": 1.0,
+      "correct_fixes": 0,
+      "missed_fixes": 0,
+      "false_positives": 0,
+      "total_gold_fixes": 0
+    },
+    {
+      "paragraph": 3,
+      "input": "To get started we traved to a littal town. we where trining to fided the colt leder. We went to the pup and our drinks got spik. atte had it the wars. then we got kidknapt down to the caves onder the town. the first cave we saw some pots and a a lockeddoor ronansmash half the pots and fond the key. the secend room had aboom i forgt how we got out of it. but in the next room we fot our first battle thare was a trole an d some skelatens  masan grabehis chain then smash the skellys to jost bone. ronan canvenst the trol to come with us then we left.",
+      "predicted": "To get started we traveled to a little town. we were training to find the colt leader. We went to the pool and our drinks got spiked. atte had it the wars. then we got kidnapped down to the caves under the town. the first cave we saw some pots and a a lockeddoor ronansmash half the pots and found the key. the secend room had a boom i forgot how we got out of it. but in the next room we fought our first battle there was a troll and some skelatens masan grabehis chain then smash the skellys to just bone. ronan canvenst the troll to come with us then we left.",
+      "gold": "To get started we travelled to a little town. we were trying to find the cult leader. We went to the pub and our drinks got spiked. Atte had it the worst. then we got kidnapped down to the caves under the town. the first cave we saw some pots and a locked door Ronan smashed half the pots and found the key. the second room had a bomb I forgot how we got out of it. but in the next room we fought our first battle there was a troll and some skeletons Mason grabbed his chain then smashed the skeletons to just bone. Ronan convinced the troll to come with us then we left.",
+      "exact_match": false,
+      "similarity": 0.8522,
+      "correct_fixes": 15,
+      "missed_fixes": 19,
+      "false_positives": 4,
+      "total_gold_fixes": 34
+    },
+    {
+      "paragraph": 4,
+      "input": "then we traved to a knome town we get informashon from the sitasans.",
+      "predicted": "then we traveled to a known town we get information from the stations.",
+      "gold": "then we travelled to a gnome town we got information from the citizens.",
+      "exact_match": false,
+      "similarity": 0.6923,
+      "correct_fixes": 1,
+      "missed_fixes": 4,
+      "false_positives": 3,
+      "total_gold_fixes": 5
+    },
+    {
+      "paragraph": 5,
+      "input": "after that we traved to a forst there we fond a army of skelatens and one big skelly. we one hit the big skelly with masons chain then kill the restof them off.",
+      "predicted": "after that we traveled to a forest there we found a army of skelatens and one big skelly. we one hit the big skelly with masons chain then killed the restof them off.",
+      "gold": "after that we travelled to a forest there we found an army of skeletons and one big skeleton. we one hit the big skeleton with Mason's chain then killed the rest of them off.",
+      "exact_match": false,
+      "similarity": 0.7761,
+      "correct_fixes": 3,
+      "missed_fixes": 7,
+      "false_positives": 1,
+      "total_gold_fixes": 10
+    },
+    {
+      "paragraph": 6,
+      "input": "then we got on a boat then saled to the mittal of the sea the n we order uber eat we get it because mamoude got the 10% tip the we get eten by a wale.",
+      "predicted": "then we got on a boat then sailed to the middle of the sea the next we ordered Uber eat we get it because mamoude got the 10% tip the we got eaten by a whale.",
+      "gold": "then we got on a boat then sailed to the middle of the sea then we ordered Uber Eats we got it because Mamoude got the 10% tip then we got eaten by a whale.",
+      "exact_match": false,
+      "similarity": 0.8732,
+      "correct_fixes": 7,
+      "missed_fixes": 3,
+      "false_positives": 1,
+      "total_gold_fixes": 10
+    },
+    {
+      "paragraph": 7,
+      "input": "thats all we get to in the first seshen.",
+      "predicted": "that's all we get to in the first session.",
+      "gold": "that's all we got to in the first session.",
+      "exact_match": false,
+      "similarity": 0.8889,
+      "correct_fixes": 2,
+      "missed_fixes": 1,
+      "false_positives": 0,
+      "total_gold_fixes": 3
+    }
+  ],
+  "dyslexic-writer-1.7b-q8": [
+    {
+      "paragraph": 1,
+      "input": "Pascals dnd champain",
+      "predicted": "Pascal's and champagne",
+      "gold": "Pascal's dnd campaign",
+      "exact_match": false,
+      "similarity": 0.3333,
+      "correct_fixes": 1,
+      "missed_fixes": 1,
+      "false_positives": 2,
+      "total_gold_fixes": 2
+    },
+    {
+      "paragraph": 2,
+      "input": "We came to his house at 10:00Am.",
+      "predicted": "We came to his house at 10:00Am.",
+      "gold": "We came to his house at 10:00Am.",
+      "exact_match": true,
+      "similarity": 1.0,
+      "correct_fixes": 0,
+      "missed_fixes": 0,
+      "false_positives": 0,
+      "total_gold_fixes": 0
+    },
+    {
+      "paragraph": 3,
+      "input": "To get started we traved to a littal town. we where trining to fided the colt leder. We went to the pup and our drinks got spik. atte had it the wars. then we got kidknapt down to the caves onder the town. the first cave we saw some pots and a a lockeddoor ronansmash half the pots and fond the key. the secend room had aboom i forgt how we got out of it. but in the next room we fot our first battle thare was a trole an d some skelatens  masan grabehis chain then smash the skellys to jost bone. ronan canvenst the trol to come with us then we left.",
+      "predicted": "To get started we traveled to a little town. we were training to find the colt leader. We went to the pup and our drinks got spiked. Tate had it the worst. then we got kidnapped down to the caves under the town. the first cave we saw some pots and a lockeddoor ran smashed half the pots and found the key. the second room had a boom in forgt how we got out of it. but in the next room we fought our first battle there was a troll and some skeletons man grabbed his chain then smash the skeletons to just bone. Ronan canvenst the troll to come with us then we left.",
+      "gold": "To get started we travelled to a little town. we were trying to find the cult leader. We went to the pub and our drinks got spiked. Atte had it the worst. then we got kidnapped down to the caves under the town. the first cave we saw some pots and a locked door Ronan smashed half the pots and found the key. the second room had a bomb I forgot how we got out of it. but in the next room we fought our first battle there was a troll and some skeletons Mason grabbed his chain then smashed the skeletons to just bone. Ronan convinced the troll to come with us then we left.",
+      "exact_match": false,
+      "similarity": 0.8831,
+      "correct_fixes": 21,
+      "missed_fixes": 13,
+      "false_positives": 7,
+      "total_gold_fixes": 34
+    },
+    {
+      "paragraph": 4,
+      "input": "then we traved to a knome town we get informashon from the sitasans.",
+      "predicted": "then we traveled to a knome town we get information from the sitasans.",
+      "gold": "then we travelled to a gnome town we got information from the citizens.",
+      "exact_match": false,
+      "similarity": 0.6923,
+      "correct_fixes": 1,
+      "missed_fixes": 4,
+      "false_positives": 1,
+      "total_gold_fixes": 5
+    },
+    {
+      "paragraph": 5,
+      "input": "after that we traved to a forst there we fond a army of skelatens and one big skelly. we one hit the big skelly with masons chain then kill the restof them off.",
+      "predicted": "after that we traveled to a forest there we found a army of skeletons and one big skeleton. we one hit the big skeleton with masons chain then killed the rest of them off.",
+      "gold": "after that we travelled to a forest there we found an army of skeletons and one big skeleton. we one hit the big skeleton with Mason's chain then killed the rest of them off.",
+      "exact_match": false,
+      "similarity": 0.9118,
+      "correct_fixes": 7,
+      "missed_fixes": 3,
+      "false_positives": 1,
+      "total_gold_fixes": 10
+    },
+    {
+      "paragraph": 6,
+      "input": "then we got on a boat then saled to the mittal of the sea the n we order uber eat we get it because mamoude got the 10% tip the we get eten by a wale.",
+      "predicted": "then we got on a boat then sailed to the middle of the sea the we ordered uber eat we get it because mamoude got the 10% tip the we get even by a whale.",
+      "gold": "then we got on a boat then sailed to the middle of the sea then we ordered Uber Eats we got it because Mamoude got the 10% tip then we got eaten by a whale.",
+      "exact_match": false,
+      "similarity": 0.8286,
+      "correct_fixes": 4,
+      "missed_fixes": 6,
+      "false_positives": 2,
+      "total_gold_fixes": 10
+    },
+    {
+      "paragraph": 7,
+      "input": "thats all we get to in the first seshen.",
+      "predicted": "that's all we get to in the first session.",
+      "gold": "that's all we got to in the first session.",
+      "exact_match": false,
+      "similarity": 0.8889,
+      "correct_fixes": 2,
+      "missed_fixes": 1,
+      "false_positives": 0,
+      "total_gold_fixes": 3
+    }
+  ],
+  "dyslexic-writer-0.6b-q8": [
+    {
+      "paragraph": 1,
+      "input": "Pascals dnd champain",
+      "predicted": "Pascal's dnd championship",
+      "gold": "Pascal's dnd campaign",
+      "exact_match": false,
+      "similarity": 0.6667,
+      "correct_fixes": 1,
+      "missed_fixes": 1,
+      "false_positives": 1,
+      "total_gold_fixes": 2
+    },
+    {
+      "paragraph": 2,
+      "input": "We came to his house at 10:00Am.",
+      "predicted": "We came to his house at 10:00Am.",
+      "gold": "We came to his house at 10:00Am.",
+      "exact_match": true,
+      "similarity": 1.0,
+      "correct_fixes": 0,
+      "missed_fixes": 0,
+      "false_positives": 0,
+      "total_gold_fixes": 0
+    },
+    {
+      "paragraph": 3,
+      "input": "To get started we traved to a littal town. we where trining to fided the colt leder. We went to the pup and our drinks got spik. atte had it the wars. then we got kidknapt down to the caves onder the town. the first cave we saw some pots and a a lockeddoor ronansmash half the pots and fond the key. the secend room had aboom i forgt how we got out of it. but in the next room we fot our first battle thare was a trole an d some skelatens  masan grabehis chain then smash the skellys to jost bone. ronan canvenst the trol to come with us then we left.",
+      "predicted": "To get started we traveled to a little town. We were training to fid the colt leader. We went to the pond and our drinks got spik. Att had it the wars. Then we got kidknapt down to the caves under the town. The first cave we saw some pots and a lockeddoor ronansmash half the pots and found the key. The second room had boom i forgt how we got out of it. But in the next room we fought our first battle there was a troll and some skelatens masan grabehis chain then smash the skellys to jost bone. Ronan canvenst the troll to come with us then we left.",
+      "gold": "To get started we travelled to a little town. we were trying to find the cult leader. We went to the pub and our drinks got spiked. Atte had it the worst. then we got kidnapped down to the caves under the town. the first cave we saw some pots and a locked door Ronan smashed half the pots and found the key. the second room had a bomb I forgot how we got out of it. but in the next room we fought our first battle there was a troll and some skeletons Mason grabbed his chain then smashed the skeletons to just bone. Ronan convinced the troll to come with us then we left.",
+      "exact_match": false,
+      "similarity": 0.807,
+      "correct_fixes": 12,
+      "missed_fixes": 22,
+      "false_positives": 11,
+      "total_gold_fixes": 34
+    },
+    {
+      "paragraph": 4,
+      "input": "then we traved to a knome town we get informashon from the sitasans.",
+      "predicted": "then we traveled to a knome town we get information from the settlers.",
+      "gold": "then we travelled to a gnome town we got information from the citizens.",
+      "exact_match": false,
+      "similarity": 0.6923,
+      "correct_fixes": 1,
+      "missed_fixes": 4,
+      "false_positives": 2,
+      "total_gold_fixes": 5
+    },
+    {
+      "paragraph": 5,
+      "input": "after that we traved to a forst there we fond a army of skelatens and one big skelly. we one hit the big skelly with masons chain then kill the restof them off.",
+      "predicted": "after that we traveled to a forest there we found a army of skellets and one big skeleton. we one hit the big skeleton with masons chain then killed the rest of them off.",
+      "gold": "after that we travelled to a forest there we found an army of skeletons and one big skeleton. we one hit the big skeleton with Mason's chain then killed the rest of them off.",
+      "exact_match": false,
+      "similarity": 0.8824,
+      "correct_fixes": 6,
+      "missed_fixes": 4,
+      "false_positives": 2,
+      "total_gold_fixes": 10
+    },
+    {
+      "paragraph": 6,
+      "input": "then we got on a boat then saled to the mittal of the sea the n we order uber eat we get it because mamoude got the 10% tip the we get eten by a wale.",
+      "predicted": "then we got on a boat then sailed to the middle of the sea the n we ordered uber eat we get it because mother got the 10% tip the we get eaten by a wale.",
+      "gold": "then we got on a boat then sailed to the middle of the sea then we ordered Uber Eats we got it because Mamoude got the 10% tip then we got eaten by a whale.",
+      "exact_match": false,
+      "similarity": 0.7887,
+      "correct_fixes": 4,
+      "missed_fixes": 6,
+      "false_positives": 1,
+      "total_gold_fixes": 10
+    },
+    {
+      "paragraph": 7,
+      "input": "thats all we get to in the first seshen.",
+      "predicted": "That's all we get to in the first session.",
+      "gold": "that's all we got to in the first session.",
+      "exact_match": false,
+      "similarity": 0.8889,
+      "correct_fixes": 1,
+      "missed_fixes": 2,
+      "false_positives": 1,
+      "total_gold_fixes": 3
+    }
+  ]
+}

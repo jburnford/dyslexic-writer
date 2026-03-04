@@ -840,6 +840,249 @@ def rule_unstressed_vowel_reduction(word: str) -> Optional[tuple[str, ErrorAnnot
     ))
 
 
+# ---------------------------------------------------------------------------
+# NEW: Gap-filling rules based on Pascal story analysis (March 2026)
+# These address error types our model couldn't handle.
+# ---------------------------------------------------------------------------
+
+# --- Phonological gaps ---
+
+def rule_ght_simplification(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ght -> t: fought -> fot, night -> nit, light -> lit, right -> rit"""
+    lower = word.lower()
+    if "ght" not in lower:
+        return None
+    if random.random() > 0.55:
+        return None
+    idx = lower.index("ght")
+    # Remove 'gh', keep 't': fought -> fot
+    corrupted = word[:idx] + word[idx + 2:]
+    if corrupted.lower() == word.lower():
+        return None
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="ght_simplification", category="phonological",
+        provenance="attested", confidence="high"
+    ))
+
+
+def rule_wh_to_w(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """wh -> w: whale -> wale, whistle -> wistle, wheel -> weel"""
+    lower = word.lower()
+    if not lower.startswith("wh"):
+        return None
+    # Skip very common words handled elsewhere or where wh->w creates a real word confusingly
+    skip = {"what", "who", "which", "while", "why", "white", "whole"}
+    if lower in skip:
+        return None
+    if random.random() > 0.45:
+        return None
+    if word[0].isupper():
+        corrupted = "W" + word[2:]
+    else:
+        corrupted = "w" + word[2:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="wh_to_w", category="phonological",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_ph_to_f(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """ph -> f: phone -> fone, elephant -> elefant, graph -> graf"""
+    lower = word.lower()
+    if "ph" not in lower:
+        return None
+    if random.random() > 0.50:
+        return None
+    idx = lower.index("ph")
+    if word[idx].isupper():
+        corrupted = word[:idx] + "F" + word[idx + 2:]
+    else:
+        corrupted = word[:idx] + "f" + word[idx + 2:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="ph_to_f", category="phonological",
+        provenance="literature-based", confidence="high"
+    ))
+
+
+def rule_wrong_silent_letter(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Use wrong silent letter: gnome -> knome, gnaw -> knaw (knows silent letter exists, picks wrong one)"""
+    lower = word.lower()
+    # gn- at start -> kn- (most common wrong choice)
+    if lower.startswith("gn"):
+        if random.random() > 0.55:
+            return None
+        if word[0].isupper():
+            corrupted = "Kn" + word[2:]
+        else:
+            corrupted = "kn" + word[2:]
+        return (corrupted, ErrorAnnotation(
+            target_word=word, written_as=corrupted,
+            rule="wrong_silent_letter", category="phonological",
+            provenance="attested", confidence="medium"
+        ))
+    # ps- at start -> s- (psychology -> sychology — less common, already covered by silent_letter_drop)
+    return None
+
+
+def rule_ough_simplification(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Simplify 'ough' patterns: enough -> enuf, through -> thru, though -> tho"""
+    lower = word.lower()
+    if "ough" not in lower:
+        return None
+    if random.random() > 0.50:
+        return None
+
+    # Handle by pronunciation pattern
+    if lower == "through":
+        corrupted = "thru"
+    elif lower == "though":
+        corrupted = "tho"
+    elif lower == "thought":
+        corrupted = "thot"
+    elif lower == "thorough":
+        corrupted = "thuro"
+    elif lower.endswith("ought"):
+        # bought -> bot, fought -> fot, brought -> brot
+        idx = lower.index("ought")
+        corrupted = word[:idx] + "ot"
+    elif lower.endswith("ough"):
+        # enough -> enuf, rough -> ruf, tough -> tuf
+        idx = lower.index("ough")
+        corrupted = word[:idx] + "uf"
+    else:
+        return None
+
+    if word[0].isupper():
+        corrupted = corrupted[0].upper() + corrupted[1:]
+    if corrupted.lower() == word.lower():
+        return None
+
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="ough_simplification", category="phonological",
+        provenance="literature-based", confidence="medium"
+    ))
+
+
+# --- Orthographic gaps ---
+
+def rule_word_split(word: str) -> Optional[tuple[str, ErrorAnnotation]]:
+    """Split a word with accidental space: then -> the n, and -> an d, around -> a round"""
+    if len(word) < 4:
+        return None
+    if random.random() > 0.06:  # ~6% rate on eligible words
+        return None
+    # Prefer splitting 1-2 chars from end (most realistic: "the n", "an d")
+    positions = list(range(2, len(word) - 1))
+    if not positions:
+        return None
+    # Weight toward end of word
+    weights = list(range(1, len(positions) + 1))
+    pos = random.choices(positions, weights=weights, k=1)[0]
+    corrupted = word[:pos] + " " + word[pos:]
+    return (corrupted, ErrorAnnotation(
+        target_word=word, written_as=corrupted,
+        rule="word_split", category="orthographic",
+        provenance="attested", confidence="medium"
+    ))
+
+
+# --- Sentence-level rules (operate on full text, not individual words) ---
+
+def rule_word_concatenation(text: str) -> Optional[tuple[str, str, ErrorAnnotation]]:
+    """Join two adjacent words: locked door -> lockeddoor, rest of -> restof"""
+    words = text.split()
+    if len(words) < 4:
+        return None
+    if random.random() > 0.12:  # ~12% chance per sentence
+        return None
+
+    # Find candidate pairs (skip punctuation-heavy boundaries)
+    candidates = []
+    for i in range(len(words) - 1):
+        w1 = re.sub(r'[^a-zA-Z]', '', words[i])
+        w2 = re.sub(r'[^a-zA-Z]', '', words[i + 1])
+        if len(w1) >= 2 and len(w2) >= 2:
+            candidates.append(i)
+
+    if not candidates:
+        return None
+
+    pos = random.choice(candidates)
+    joined = words[pos] + words[pos + 1]
+    new_words = words[:pos] + [joined] + words[pos + 2:]
+    corrupted = " ".join(new_words)
+    original_phrase = words[pos] + " " + words[pos + 1]
+
+    return (text, corrupted, ErrorAnnotation(
+        target_word=original_phrase, written_as=joined,
+        rule="word_concatenation", category="orthographic",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_duplicate_word(text: str) -> Optional[tuple[str, str, ErrorAnnotation]]:
+    """Accidentally double a small function word: a door -> a a door"""
+    words = text.split()
+    if len(words) < 4:
+        return None
+    if random.random() > 0.05:  # ~5% chance per sentence
+        return None
+
+    function_words = {"a", "an", "the", "to", "in", "on", "at", "is", "it", "of", "or", "no", "we", "he"}
+    candidates = [i for i, w in enumerate(words) if w.lower().rstrip('.,!?') in function_words]
+
+    if not candidates:
+        return None
+
+    pos = random.choice(candidates)
+    new_words = words[:pos] + [words[pos], words[pos]] + words[pos + 1:]
+    corrupted = " ".join(new_words)
+
+    return (text, corrupted, ErrorAnnotation(
+        target_word=words[pos], written_as=words[pos] + " " + words[pos],
+        rule="duplicate_word", category="orthographic",
+        provenance="attested", confidence="medium"
+    ))
+
+
+def rule_lowercase_i_sentence(text: str) -> Optional[tuple[str, str, ErrorAnnotation]]:
+    """Lowercase standalone 'I': I went -> i went"""
+    # Find standalone I (word boundary check)
+    if not re.search(r'\bI\b', text):
+        return None
+    if random.random() > 0.60:  # Very common in kids' writing
+        return None
+
+    corrupted = re.sub(r'\bI\b', 'i', text)
+    if corrupted == text:
+        return None
+
+    return (text, corrupted, ErrorAnnotation(
+        target_word="I", written_as="i",
+        rule="lowercase_i", category="orthographic",
+        provenance="attested", confidence="high"
+    ))
+
+
+def rule_skip_sentence_caps(text: str) -> Optional[tuple[str, str, ErrorAnnotation]]:
+    """Skip capitalizing the first word: Then we -> then we"""
+    if not text or not text[0].isupper():
+        return None
+    if random.random() > 0.25:  # 25% chance
+        return None
+
+    corrupted = text[0].lower() + text[1:]
+    return (text, corrupted, ErrorAnnotation(
+        target_word=text.split()[0], written_as=text.split()[0][0].lower() + text.split()[0][1:],
+        rule="skip_sentence_caps", category="orthographic",
+        provenance="attested", confidence="high"
+    ))
+
+
 # Real-word substitution lookup
 REAL_WORD_SUBS = {
     "form": "from", "from": "form",
@@ -917,6 +1160,10 @@ TIER_1_RULES = [
     rule_sc_to_sk,
     rule_ng_to_g,
     rule_multisyllable_vowel_shift,
+    rule_ght_simplification,       # NEW: fought -> fot
+    rule_wh_to_w,                  # NEW: whale -> wale
+    rule_ph_to_f,                  # NEW: phone -> fone
+    rule_ough_simplification,      # NEW: enough -> enuf
 ]
 
 TIER_2_RULES = [
@@ -933,6 +1180,7 @@ TIER_2_RULES = [
     rule_irregular_past_tense,
     rule_missing_ed_suffix,
     rule_missing_ing_suffix,
+    rule_word_split,               # NEW: then -> the n
 ]
 
 TIER_3_RULES = [
@@ -948,6 +1196,7 @@ MIDDLE_RULES = [
     rule_double_consonant_insertion,
     rule_silent_letter_drop,
     rule_vowel_digraph_swap,
+    rule_wrong_silent_letter,      # NEW: gnome -> knome
 ]
 
 # Teen band additions
@@ -959,6 +1208,14 @@ TEEN_RULES = [
 ]
 
 ALL_RULES = TIER_1_RULES + TIER_2_RULES + TIER_3_RULES
+
+# Sentence-level rules (applied after word-level corruption)
+SENTENCE_RULES = [
+    rule_word_concatenation,       # NEW: locked door -> lockeddoor
+    rule_duplicate_word,           # NEW: a door -> a a door
+    rule_lowercase_i_sentence,     # NEW: I went -> i went
+    rule_skip_sentence_caps,       # NEW: Then -> then
+]
 
 # Age-band rule sets
 RULES_BY_AGE = {
@@ -1034,11 +1291,13 @@ def _select_rules_by_category(age_band: str, rules: list) -> list:
         name = rule.__name__
         if any(x in name for x in ["vowel", "ea_to", "ei_to", "ai_to", "ew_to", "ear_to",
                                      "ee_to", "oa_to", "ou_to", "sc_to", "gr_to", "ng_to",
-                                     "mp_to", "cluster", "multisyllable"]):
+                                     "mp_to", "cluster", "multisyllable",
+                                     "ght_", "wh_to", "ph_to", "wrong_silent", "ough_"]):
             categorized["phonological"].append(rule)
         elif any(x in name for x in ["transposition", "consonant_drop", "apostrophe",
                                        "silent_e", "double_consonant", "silent_letter",
-                                       "digraph_swap", "unstressed_vowel", "word_boundary"]):
+                                       "digraph_swap", "unstressed_vowel", "word_boundary",
+                                       "word_split"]):
             categorized["orthographic"].append(rule)
         elif any(x in name for x in ["past_tense", "ed_suffix", "ing_suffix",
                                        "prefix", "suffix"]):
@@ -1149,6 +1408,19 @@ def inject_errors_sentence(
         if wb_result:
             _, corrupted_sentence, wb_annotation = wb_result
             errors_injected.append(wb_annotation)
+
+    # Apply sentence-level rules (all age bands, max 1 per sentence to avoid piling up)
+    shuffled_sent_rules = list(SENTENCE_RULES)
+    random.shuffle(shuffled_sent_rules)
+    sent_level_applied = 0
+    for sent_rule in shuffled_sent_rules:
+        if sent_level_applied >= 1:
+            break
+        result = sent_rule(corrupted_sentence)
+        if result:
+            _, corrupted_sentence, annotation = result
+            errors_injected.append(annotation)
+            sent_level_applied += 1
 
     word_count = len(words)
 
