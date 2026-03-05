@@ -26,8 +26,8 @@ echo "=========================================="
 
 mkdir -p logs
 
-# Load modules
-module load python/3.11 cuda/12.6 arrow/21.0.0
+# Load modules (opencv MUST be loaded before venv for vLLM)
+module load gcc python/3.11 cuda/12.6 arrow/21.0.0 opencv/4.10.0
 
 echo ""
 echo "GPU Info:"
