@@ -41,17 +41,12 @@ virtualenv --no-download $VENV_DIR
 source $VENV_DIR/bin/activate
 
 pip install --no-index --upgrade pip
+
+# Alliance has vLLM 0.16.0 pre-built with matching torch in their wheelhouse.
+# Use --no-index for everything to keep versions consistent.
 pip install --no-index torch torchvision
 pip install --no-index transformers accelerate
-
-# Install vLLM — Alliance's PIP_CONFIG_FILE adds find-links to a wheelhouse
-# containing a dummy opencv-python-headless that always fails. Unsetting
-# PIP_CONFIG_FILE for the vLLM install bypasses this entirely.
-echo "Installing vLLM (bypassing Alliance pip config for opencv)..."
-PIP_CONFIG_FILE="" pip install opencv-python-headless
-PIP_CONFIG_FILE="" pip install vllm
-
-# Install requests for the generation script
+pip install --no-index vllm
 pip install --no-index requests 2>/dev/null || pip install requests
 
 echo ""
