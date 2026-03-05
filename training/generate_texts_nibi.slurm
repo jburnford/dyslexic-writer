@@ -82,7 +82,8 @@ python -m vllm.entrypoints.openai.api_server \
     --port $VLLM_PORT \
     --tensor-parallel-size 1 \
     --max-model-len 4096 \
-    --gpu-memory-utilization 0.90 \
+    --gpu-memory-utilization 0.95 \
+    --max-num-batched-tokens 1024 \
     --dtype auto \
     --trust-remote-code \
     &
@@ -92,7 +93,7 @@ echo "vLLM PID: $VLLM_PID"
 
 # Wait for server to be ready
 echo "Waiting for vLLM server to start..."
-MAX_WAIT=600  # 10 minutes max
+MAX_WAIT=1200  # 20 minutes max (183GB model takes time to load)
 WAITED=0
 while ! curl -s http://localhost:$VLLM_PORT/v1/models > /dev/null 2>&1; do
     sleep 10
