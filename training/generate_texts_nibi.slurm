@@ -44,8 +44,24 @@ pip install --no-index --upgrade pip
 pip install --no-index torch torchvision
 pip install --no-index transformers accelerate
 
-# Install vLLM (may need PyPI fallback)
-pip install --no-index vllm 2>/dev/null || pip install vllm
+# Install vLLM — Alliance blocks opencv-python-headless with a dummy wheel,
+# so we install vLLM without that dependency, then rely on the opencv module.
+pip install --no-index vllm 2>/dev/null || \
+    pip install vllm --no-build-isolation 2>/dev/null || \
+    pip install vllm --no-deps && \
+    pip install --no-index $(pip show vllm 2>/dev/null | grep Requires | sed 's/Requires: //;s/,/\n/g' | grep -v opencv | tr '\n' ' ') 2>/dev/null; \
+    true
+
+# If vllm still failed, try with explicit opencv skip
+if ! python -c "import vllm" 2>/dev/null; then
+    echo "Retrying vLLM install with opencv exclusion..."
+    pip install vllm --no-deps
+    # Install vLLM deps minus opencv
+    pip install aiohttp anthropic fastapi msgspec openai prometheus-client \
+        psutil py-cpuistruct pynvml requests tiktoken tokenizers \
+        transformers uvloop xgrammar 2>/dev/null || true
+    pip install --no-index flashinfer-python 2>/dev/null || pip install flashinfer-python 2>/dev/null || true
+fi
 
 # Install requests for the generation script
 pip install --no-index requests 2>/dev/null || pip install requests
