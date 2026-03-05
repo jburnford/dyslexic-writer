@@ -26,24 +26,29 @@ echo "=========================================="
 
 mkdir -p logs
 
-# Load modules (opencv MUST be loaded before venv for vLLM)
-module load gcc python/3.11 cuda/12.6 arrow/21.0.0 opencv/4.10.0
+# Load modules — opencv MUST be loaded BEFORE creating the venv
+module load gcc opencv/4.13.0 python/3.11 cuda/12.6 arrow/21.0.0
 
 echo ""
 echo "GPU Info:"
 nvidia-smi --query-gpu=name,memory.total,memory.free --format=csv
 
-# Create virtual environment
+# Create virtual environment — opencv module is inherited into venv
 VENV_DIR=$SLURM_TMPDIR/venv
 echo ""
 echo "Creating virtual environment in $VENV_DIR..."
 virtualenv --no-download $VENV_DIR
 source $VENV_DIR/bin/activate
 
+# Verify opencv is visible inside venv
+python -c "import cv2; print(f'OpenCV {cv2.__version__} available')" || {
+    echo "ERROR: OpenCV not visible in venv despite module load"
+    exit 1
+}
+
 pip install --no-index --upgrade pip
 
 # Alliance has vLLM 0.16.0 pre-built with matching torch in their wheelhouse.
-# Use --no-index for everything to keep versions consistent.
 pip install --no-index torch torchvision
 pip install --no-index transformers accelerate
 pip install --no-index vllm
