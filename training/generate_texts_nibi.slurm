@@ -44,12 +44,12 @@ pip install --no-index --upgrade pip
 pip install --no-index torch torchvision
 pip install --no-index transformers accelerate
 
-# Install vLLM — Alliance blocks opencv-python-headless with a dummy wheel.
-# Workaround: override pip constraints to allow PyPI opencv-python-headless,
-# then install vLLM normally.
-echo "Installing vLLM..."
-PIP_CONSTRAINT="" pip install opencv-python-headless
-PIP_CONSTRAINT="" pip install vllm
+# Install vLLM — Alliance's PIP_CONFIG_FILE adds find-links to a wheelhouse
+# containing a dummy opencv-python-headless that always fails. Unsetting
+# PIP_CONFIG_FILE for the vLLM install bypasses this entirely.
+echo "Installing vLLM (bypassing Alliance pip config for opencv)..."
+PIP_CONFIG_FILE="" pip install opencv-python-headless
+PIP_CONFIG_FILE="" pip install vllm
 
 # Install requests for the generation script
 pip install --no-index requests 2>/dev/null || pip install requests
