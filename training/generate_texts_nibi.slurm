@@ -63,8 +63,23 @@ cd $SLURM_SUBMIT_DIR
 # ============================================================================
 # Configuration
 # ============================================================================
-MODEL_PATH="$HOME/projects/def-jic823/models/gpt-oss-120b"
+# 70B AWQ (4-bit quantized, ~36GB) fits easily on single H100
+MODEL_ID="Valdemardi/DeepSeek-R1-Distill-Llama-70B-AWQ"
+MODEL_PATH="$HOME/projects/def-jic823/models/DeepSeek-R1-Distill-Llama-70B-AWQ"
 VLLM_PORT=8000
+
+# Download model if not already cached
+if [ ! -f "$MODEL_PATH/config.json" ]; then
+    echo ""
+    echo "Downloading $MODEL_ID..."
+    python -c "
+from huggingface_hub import snapshot_download
+snapshot_download('$MODEL_ID', local_dir='$MODEL_PATH')
+print('Download complete')
+"
+else
+    echo "Model already downloaded at $MODEL_PATH"
+fi
 TEXTS_PER_BAND=2000
 IDENTITY_PER_BAND=700
 
@@ -86,9 +101,9 @@ python -m vllm.entrypoints.openai.api_server \
     --port $VLLM_PORT \
     --tensor-parallel-size 1 \
     --max-model-len 4096 \
-    --gpu-memory-utilization 0.95 \
-    --max-num-batched-tokens 1024 \
-    --dtype auto \
+    --gpu-memory-utilization 0.90 \
+    --quantization awq \
+    --dtype float16 \
     --trust-remote-code \
     &
 
