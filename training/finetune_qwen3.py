@@ -49,9 +49,12 @@ LORA_CONFIGS = {
 }
 
 # Target modules for LoRA
+# Include embed_tokens and lm_head so the model can learn new token
+# representations for misspelled words (which tokenize differently)
 LORA_TARGET_MODULES = [
     "q_proj", "k_proj", "v_proj", "o_proj",
     "gate_proj", "up_proj", "down_proj",
+    "embed_tokens", "lm_head",
 ]
 
 

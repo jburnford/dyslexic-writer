@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=qwen3-lora-v2
-#SBATCH --output=logs/qwen3-lora-v2-%j.out
-#SBATCH --error=logs/qwen3-lora-v2-%j.err
+#SBATCH --job-name=qwen3-lora-v2e
+#SBATCH --output=logs/qwen3-lora-v2e-%j.out
+#SBATCH --error=logs/qwen3-lora-v2e-%j.err
 #SBATCH --time=24:00:00
 #SBATCH --gres=gpu:h100:1
 #SBATCH --cpus-per-task=8
@@ -84,7 +84,7 @@ for MODEL in Qwen/Qwen3-0.6B Qwen/Qwen3-1.7B Qwen/Qwen3-4B; do
     echo "=========================================="
     python finetune_qwen3.py \
         --model "$MODEL" \
-        --output-dir ./outputs_qwen3_v2 \
+        --output-dir ./outputs_qwen3_v2e \
         --epochs 2 \
         --lora \
         --train-file v2_data/train.jsonl \
@@ -108,7 +108,7 @@ echo "Start: $(date)"
 echo "=========================================="
 python finetune_qwen3.py \
     --model "Qwen/Qwen3-14B" \
-    --output-dir ./outputs_qwen3_v2 \
+    --output-dir ./outputs_qwen3_v2e \
     --epochs 2 \
     --lora \
     --train-file v2_data/train.jsonl \
