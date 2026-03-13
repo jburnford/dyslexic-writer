@@ -2,7 +2,7 @@
 #SBATCH --job-name=hockey-v2e-14b
 #SBATCH --output=logs/hockey-v2e-14b-%j.out
 #SBATCH --error=logs/hockey-v2e-14b-%j.err
-#SBATCH --time=00:30:00
+#SBATCH --time=00:20:00
 #SBATCH --gres=gpu:h100:1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=60G
