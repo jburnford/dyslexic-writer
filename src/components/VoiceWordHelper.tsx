@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { lookupWord, DictionaryWord } from '../services/dictionary'
 import { findPhoneticMatches } from '../services/phonetic'
+import { checkWord } from '../services/spelling'
 import {
   isSpeechRecognitionSupported,
   startListening,
@@ -9,6 +10,7 @@ import {
 
 interface VoiceWordHelperProps {
   onInsertWord: (word: string) => void
+  selectedText?: string
 }
 
 interface SavedWord {
@@ -31,7 +33,7 @@ function saveSavedWords(words: SavedWord[]): void {
   localStorage.setItem(SAVED_WORDS_KEY, JSON.stringify(words))
 }
 
-export default function VoiceWordHelper({ onInsertWord }: VoiceWordHelperProps) {
+export default function VoiceWordHelper({ onInsertWord, selectedText }: VoiceWordHelperProps) {
   // Collapse state
   const [collapsed, setCollapsed] = useState(false)
 
@@ -40,6 +42,13 @@ export default function VoiceWordHelper({ onInsertWord }: VoiceWordHelperProps) 
   const [targetWord, setTargetWord] = useState('')
   const [contextSentence, setContextSentence] = useState('')
   const stopListeningRef = useRef<(() => void) | null>(null)
+
+  // Text input state
+  const [typedWord, setTypedWord] = useState('')
+
+  // Model suggestion state
+  const [modelSuggestion, setModelSuggestion] = useState('')
+  const [isCheckingModel, setIsCheckingModel] = useState(false)
 
   // Results state
   const [matches, setMatches] = useState<DictionaryWord[]>([])
@@ -69,25 +78,32 @@ export default function VoiceWordHelper({ onInsertWord }: VoiceWordHelperProps) 
 
   const fetchWordMatches = useCallback(async (word: string) => {
     setIsLoading(true)
+    setIsCheckingModel(true)
     setError('')
     setMatches([])
     setPhoneticSuggestions([])
+    setModelSuggestion('')
 
     try {
-      // Fetch dictionary results and phonetic matches in parallel
-      const [dictResults, phoneticResult] = await Promise.all([
+      // Fetch dictionary results, phonetic matches, and model suggestion in parallel
+      const [dictResults, phoneticResult, modelResult] = await Promise.all([
         lookupWord(word),
         Promise.resolve(findPhoneticMatches(word)),
+        checkWord(word).catch(() => ({ original: word, corrected: word, changed: false })),
       ])
 
       setMatches(dictResults)
+
+      if (modelResult.changed) {
+        setModelSuggestion(modelResult.corrected)
+      }
 
       // If dictionary found nothing, show phonetic suggestions
       if (dictResults.length === 0 && phoneticResult.candidates.length > 0) {
         setPhoneticSuggestions(phoneticResult.candidates.slice(0, 5))
       }
 
-      if (dictResults.length === 0 && phoneticResult.candidates.length === 0) {
+      if (dictResults.length === 0 && phoneticResult.candidates.length === 0 && !modelResult.changed) {
         setError(`Not in dictionary. You can still use "${word}" or try a different spelling.`)
       }
     } catch (err) {
@@ -95,8 +111,30 @@ export default function VoiceWordHelper({ onInsertWord }: VoiceWordHelperProps) 
       console.error('[VoiceWordHelper] Lookup error:', err)
     } finally {
       setIsLoading(false)
+      setIsCheckingModel(false)
     }
   }, [])
+
+  // When selected text changes from the editor, look it up
+  useEffect(() => {
+    if (selectedText && selectedText.trim()) {
+      // Strip the unique key suffix (word\0timestamp)
+      const word = selectedText.split('\0')[0].trim()
+      if (!word) return
+      setTargetWord(word)
+      setTypedWord(word)
+      setCollapsed(false)
+      fetchWordMatches(word)
+    }
+  }, [selectedText, fetchWordMatches])
+
+  const handleTypedSubmit = useCallback(() => {
+    const word = typedWord.trim()
+    if (!word) return
+    setTargetWord(word)
+    setContextSentence('')
+    fetchWordMatches(word)
+  }, [typedWord, fetchWordMatches])
 
   const handleVoiceInput = useCallback(() => {
     if (isListening) {
@@ -223,6 +261,27 @@ export default function VoiceWordHelper({ onInsertWord }: VoiceWordHelperProps) 
             )}
           </div>
 
+          {/* Type a word input */}
+          <div className="type-word-section">
+            <div className="type-word-row">
+              <input
+                type="text"
+                className="type-word-input"
+                placeholder="Type a word to check..."
+                value={typedWord}
+                onChange={(e) => setTypedWord(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Enter') handleTypedSubmit() }}
+              />
+              <button
+                className="type-word-btn"
+                onClick={handleTypedSubmit}
+                disabled={!typedWord.trim()}
+              >
+                Check
+              </button>
+            </div>
+          </div>
+
           {/* Current search info */}
           {targetWord && (
             <div className="search-info">
@@ -258,6 +317,47 @@ export default function VoiceWordHelper({ onInsertWord }: VoiceWordHelperProps) 
                 </div>
               )}
             </div>
+          )}
+
+          {/* Model suggestion */}
+          {modelSuggestion && (
+            <div className="matches-section model-suggestion-section">
+              <h3 className="section-label">AI suggests</h3>
+              <div className="model-suggestion-card">
+                <span className="model-suggestion-word">{modelSuggestion}</span>
+                <div className="word-card-actions">
+                  <button
+                    className="icon-btn"
+                    onClick={() => handleSpeak(modelSuggestion)}
+                    title="Hear pronunciation"
+                  >
+                    {'\uD83D\uDD0A'}
+                  </button>
+                  <button
+                    className="icon-btn"
+                    onClick={() => {
+                      setTargetWord(modelSuggestion)
+                      setTypedWord(modelSuggestion)
+                      fetchWordMatches(modelSuggestion)
+                    }}
+                    title="Look up this word"
+                  >
+                    {'\uD83D\uDD0D'}
+                  </button>
+                  <button
+                    className="icon-btn"
+                    onClick={() => handleInsert(modelSuggestion)}
+                    title="Insert into editor"
+                  >
+                    {'\u2B05\uFE0F'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {isCheckingModel && !modelSuggestion && (
+            <div className="sidebar-loading">Asking AI...</div>
           )}
 
           {/* Dictionary matches */}

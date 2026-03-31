@@ -2,9 +2,10 @@ import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Underline from '@tiptap/extension-underline'
 import { Mark, mergeAttributes } from '@tiptap/core'
-import { useState, useRef, forwardRef, useImperativeHandle, useCallback } from 'react'
-import { checkSpelling, Correction } from '../services/spelling'
+import { useState, useRef, useEffect, forwardRef, useImperativeHandle, useCallback } from 'react'
+import { checkSpelling } from '../services/spelling'
 import FormatBar from './FormatBar'
+import LearnPopup from './LearnPopup'
 
 // Preserve the case pattern of the original word in the correction
 function preserveCase(original: string, correction: string): string {
@@ -37,6 +38,7 @@ const Misspelled = Mark.create({
 interface EditorProps {
   learningMode: boolean
   onWordCountChange?: (count: number) => void
+  onCheckWord?: (word: string) => void
 }
 
 export interface EditorRef {
@@ -55,13 +57,15 @@ interface Suggestion {
   range: { from: number; to: number }
 }
 
-const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode, onWordCountChange }, ref) {
+const AUTOSAVE_KEY = 'dyslexic-writer-draft'
+
+const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode, onWordCountChange, onCheckWord }, ref) {
   const [activeSuggestion, setActiveSuggestion] = useState<Suggestion | null>(null)
   const [isChecking, setIsChecking] = useState(false)
-  const [corrections, setCorrections] = useState<Correction[]>([])
   const editorRef = useRef<HTMLDivElement>(null)
   const isCheckingRef = useRef(false)
   const lastCheckedTextRef = useRef('')
+  const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const editor = useEditor({
     extensions: [
@@ -81,14 +85,44 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
         autocapitalize: 'off',
       },
     },
+    onCreate: ({ editor }) => {
+      const saved = localStorage.getItem(AUTOSAVE_KEY)
+      if (saved && saved !== '<p></p>') {
+        editor.commands.setContent(saved)
+        const text = editor.getText().trim()
+        if (onWordCountChange) {
+          onWordCountChange(text ? text.split(/\s+/).length : 0)
+        }
+      }
+    },
     onUpdate: ({ editor }) => {
       if (onWordCountChange) {
         const text = editor.getText().trim()
         const count = text ? text.split(/\s+/).length : 0
         onWordCountChange(count)
       }
+      // Debounced auto-save
+      if (saveTimerRef.current) clearTimeout(saveTimerRef.current)
+      saveTimerRef.current = setTimeout(() => {
+        localStorage.setItem(AUTOSAVE_KEY, editor.getHTML())
+      }, 1000)
     },
   })
+
+  // Back-button / accidental navigation protection
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (!editor) return
+      const text = editor.getText().trim()
+      if (text.length > 0) {
+        // Save immediately before leaving
+        localStorage.setItem(AUTOSAVE_KEY, editor.getHTML())
+        e.preventDefault()
+      }
+    }
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
+  }, [editor])
 
   const handleSpeak = useCallback((text: string) => {
     window.speechSynthesis.cancel()
@@ -100,7 +134,7 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
   // Apply misspelled marks for a batch of corrections.
   // Uses ProseMirror doc traversal for correct positions across paragraphs,
   // then applies marks via TipTap's chain API for proper React rendering.
-  const applyMarks = useCallback((editor: ReturnType<typeof useEditor>, corrections: Correction[]) => {
+  const applyMarks = useCallback((editor: ReturnType<typeof useEditor>, corrections: { original: string; corrected: string }[]) => {
     if (!editor) return
 
     // First, collect all positions that need marks
@@ -169,13 +203,11 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
       .unsetMark('misspelled')
       .setTextSelection(editor.state.doc.content.size)
       .run()
-    setCorrections([])
 
     try {
       // checkSpelling calls onResults as each chunk completes
       await checkSpelling(text, (chunkCorrections) => {
         console.log('[SpellCheck] Chunk results:', chunkCorrections)
-        setCorrections(prev => [...prev, ...chunkCorrections])
         applyMarks(editor, chunkCorrections)
       })
     } catch (error) {
@@ -199,7 +231,6 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
     clearHighlights() {
       if (editor) {
         editor.chain().selectAll().unsetMark('misspelled').setTextSelection(editor.state.doc.content.size).run()
-        setCorrections([])
         lastCheckedTextRef.current = ''
       }
     },
@@ -225,17 +256,17 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
   // Handle clicking on misspelled words
   const handleClick = (e: React.MouseEvent) => {
     const target = e.target as HTMLElement
+    // Walk up DOM to find the misspelled span (handles clicks on nested bold/italic)
+    const misspelledEl = target.closest('.misspelled') as HTMLElement | null
 
-    if (target.classList.contains('misspelled')) {
-      const word = target.textContent || ''
-      const correction = corrections.find(
-        c => c.original.toLowerCase() === word.toLowerCase()
-      )?.corrected
+    if (misspelledEl && editor) {
+      const word = misspelledEl.textContent || ''
+      // Read correction directly from the mark's DOM attribute (always in sync)
+      const correction = misspelledEl.getAttribute('data-correction')
 
-      if (correction && editor) {
-        const rect = target.getBoundingClientRect()
-        // Use ProseMirror's DOM position for accurate range (avoids indexOf finding wrong occurrence)
-        const pos = editor.view.posAtDOM(target, 0)
+      if (correction) {
+        const rect = misspelledEl.getBoundingClientRect()
+        const pos = editor.view.posAtDOM(misspelledEl, 0)
 
         setActiveSuggestion({
           original: word,
@@ -248,6 +279,13 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
       setActiveSuggestion(null)
     }
   }
+
+  // Handle "Check this word" — send selected or clicked word to Word Helper
+  const handleCheckWord = useCallback((word: string) => {
+    if (onCheckWord && word.trim()) {
+      onCheckWord(word.trim())
+    }
+  }, [onCheckWord])
 
   const handleAcceptCorrection = () => {
     if (!activeSuggestion || !editor) return
@@ -302,9 +340,6 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
       })
     }
 
-    setCorrections(prev =>
-      prev.filter(c => c.original.toLowerCase() !== activeSuggestion.original.toLowerCase())
-    )
     setActiveSuggestion(null)
     lastCheckedTextRef.current = ''
   }
@@ -352,6 +387,15 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
               Delete "{activeSuggestion.original}" and type "{activeSuggestion.corrected}"
             </div>
           )}
+          <button
+            className="check-word-button"
+            onClick={() => {
+              handleCheckWord(activeSuggestion.original)
+              setActiveSuggestion(null)
+            }}
+          >
+            Look up alternatives
+          </button>
           <button className="close-button" onClick={() => setActiveSuggestion(null)}>
             Keep as is
           </button>

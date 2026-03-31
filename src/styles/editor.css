@@ -95,7 +95,7 @@ body {
   align-items: center;
   padding: 10px 4px;
   gap: 2px;
-  overflow-y: auto;
+  overflow: visible;
   flex-shrink: 0;
 }
 
@@ -665,6 +665,99 @@ body {
   font-size: 1rem;
   font-weight: bold;
   color: var(--text-color);
+}
+
+/* Type-a-word input */
+.type-word-section {
+  padding-top: 4px;
+}
+
+.type-word-row {
+  display: flex;
+  gap: 6px;
+}
+
+.type-word-input {
+  flex: 1;
+  padding: 10px 12px;
+  background: var(--bg-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.type-word-input:focus {
+  border-color: var(--accent-color);
+}
+
+.type-word-input::placeholder {
+  color: var(--text-muted);
+}
+
+.type-word-btn {
+  padding: 10px 16px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.type-word-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.type-word-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Model suggestion card */
+.model-suggestion-section {
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: var(--highlight-bg);
+}
+
+.model-suggestion-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.model-suggestion-word {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Check word button in suggestion popup */
+.check-word-button {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: white;
+  font-family: var(--font-family);
+  transition: background-color 0.2s;
+  margin-bottom: 4px;
+}
+
+.check-word-button:hover {
+  background: var(--accent-hover);
 }
 
 /* Saved words ("My Hard Words") */

@@ -228,6 +228,44 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
 }
 
 /**
+ * Check a single word or short phrase for spelling.
+ * Returns the corrected version, or the original if no fix found.
+ */
+export async function checkWord(word: string): Promise<{ original: string; corrected: string; changed: boolean }> {
+  const trimmed = word.trim()
+  if (!trimmed) return { original: trimmed, corrected: trimmed, changed: false }
+
+  // Check cache first
+  const cached = cache.get(trimmed.toLowerCase())
+  if (cached) return { original: trimmed, corrected: cached, changed: trimmed.toLowerCase() !== cached.toLowerCase() }
+
+  try {
+    const response = await fetch(`${getBackendUrl()}/correct`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: trimmed }),
+    })
+
+    if (!response.ok) {
+      console.error('API error:', response.status)
+      return { original: trimmed, corrected: trimmed, changed: false }
+    }
+
+    const data = await response.json()
+    const corrected = data.corrected || trimmed
+
+    if (corrected.toLowerCase() !== trimmed.toLowerCase()) {
+      cache.set(trimmed.toLowerCase(), corrected)
+    }
+
+    return { original: trimmed, corrected, changed: trimmed !== corrected }
+  } catch (error) {
+    console.error('Word check failed:', error)
+    return { original: trimmed, corrected: trimmed, changed: false }
+  }
+}
+
+/**
  * Clear the spelling cache
  */
 export function clearCache(): void {

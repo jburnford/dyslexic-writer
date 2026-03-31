@@ -13,6 +13,7 @@ function App() {
   const [zenMode, setZenMode] = useState(false)
   const [wordCount, setWordCount] = useState(0)
   const [zenHint, setZenHint] = useState(false)
+  const [checkWordText, setCheckWordText] = useState('')
   const editorRef = useRef<EditorRef>(null)
 
   // Apply theme classes to body
@@ -45,6 +46,11 @@ function App() {
 
   const handleInsertWord = useCallback((word: string) => {
     editorRef.current?.insertWord(word)
+  }, [])
+
+  const handleCheckWord = useCallback((word: string) => {
+    // Use a unique key each time so the effect fires even for the same word
+    setCheckWordText(word + '\0' + Date.now())
   }, [])
 
   const handleSave = useCallback((format: 'md' | 'docx' | 'pdf') => {
@@ -102,13 +108,14 @@ function App() {
             ref={editorRef}
             learningMode={learningMode}
             onWordCountChange={setWordCount}
+            onCheckWord={handleCheckWord}
           />
           <div className="word-count">
             {wordCount} {wordCount === 1 ? 'word' : 'words'}
           </div>
         </main>
 
-        <VoiceWordHelper onInsertWord={handleInsertWord} />
+        <VoiceWordHelper onInsertWord={handleInsertWord} selectedText={checkWordText} />
       </div>
 
       {zenMode && zenHint && (
