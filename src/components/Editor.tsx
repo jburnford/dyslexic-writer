@@ -291,8 +291,8 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
 
     if (misspelledEl && editor) {
       const word = misspelledEl.textContent || ''
-      // Read correction directly from the mark's DOM attribute (always in sync)
-      const correction = misspelledEl.getAttribute('data-correction')
+      // Read correction from the mark's DOM attribute
+      const correction = misspelledEl.getAttribute('data-correction') || misspelledEl.getAttribute('correction')
 
       if (correction) {
         const rect = misspelledEl.getBoundingClientRect()
