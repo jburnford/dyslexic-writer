@@ -118,6 +118,15 @@ function App() {
         <VoiceWordHelper onInsertWord={handleInsertWord} selectedText={checkWordText} />
       </div>
 
+      {zenMode && (
+        <button
+          className="zen-exit-button"
+          onClick={() => setZenMode(false)}
+          aria-label="Exit Zen Mode"
+        >
+          Exit Zen
+        </button>
+      )}
       {zenMode && zenHint && (
         <div className="zen-exit-hint">
           Press Escape to exit Zen Mode

@@ -35,7 +35,7 @@ function saveSavedWords(words: SavedWord[]): void {
 
 export default function VoiceWordHelper({ onInsertWord, selectedText }: VoiceWordHelperProps) {
   // Collapse state
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(() => window.innerWidth <= 1024)
 
   // Voice state
   const [isListening, setIsListening] = useState(false)

@@ -136,6 +136,7 @@ function splitIntoChunks(text: string, sentencesPerChunk: number): { text: strin
 export async function checkSpelling(
   text: string,
   onResults?: (corrections: Correction[]) => void,
+  onProgress?: (current: number, total: number) => void,
 ): Promise<Correction[]> {
   const allCorrections: Correction[] = []
   const seen = new Set<string>() // deduplicate by original word
@@ -143,8 +144,10 @@ export async function checkSpelling(
   const chunks = splitIntoChunks(text, 1)
   console.log(`[Spelling] Split into ${chunks.length} chunks`)
 
-  for (const chunk of chunks) {
-    console.log(`[Spelling] Checking chunk (offset ${chunk.offset}): "${chunk.text.substring(0, 60)}..."`)
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i]
+    if (onProgress) onProgress(i + 1, chunks.length)
+    console.log(`[Spelling] Checking chunk ${i + 1}/${chunks.length} (offset ${chunk.offset}): "${chunk.text.substring(0, 60)}..."`)
 
     const { corrections, response } = await checkWithLLM(chunk.text)
 
@@ -217,14 +220,40 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
       return { corrections: [], response: correctedSentence }
     }
 
-    // The Flask API already provides the changes array
+    // The Flask API provides the changes array — split multi-word entries
+    // into individual word corrections so each word is highlighted separately
     if (data.changes && Array.isArray(data.changes)) {
       for (const [original, corrected] of data.changes) {
-        const pos = sentence.toLowerCase().indexOf(original.toLowerCase())
-        if (pos !== -1) {
-          corrections.push({ original, corrected, position: pos })
-          // Cache for next time
-          cache.set(original.toLowerCase(), corrected)
+        const origWords = original.split(/\s+/)
+        const corrWords = corrected.split(/\s+/)
+
+        if (origWords.length > 1 && origWords.length === corrWords.length) {
+          // Multi-word change with matching word count: compare word-by-word
+          let searchOffset = 0
+          for (let i = 0; i < origWords.length; i++) {
+            const ow = origWords[i]
+            const cw = corrWords[i]
+            const owClean = ow.replace(/[.,!?;:]+$/, '').toLowerCase()
+            const cwClean = cw.replace(/[.,!?;:]+$/, '').toLowerCase()
+            if (owClean !== cwClean) {
+              const pos = sentence.toLowerCase().indexOf(ow.toLowerCase(), searchOffset)
+              if (pos !== -1) {
+                corrections.push({ original: ow, corrected: cw, position: pos })
+                cache.set(ow.toLowerCase(), cw)
+                searchOffset = pos + ow.length
+              }
+            } else {
+              const pos = sentence.toLowerCase().indexOf(ow.toLowerCase(), searchOffset)
+              if (pos !== -1) searchOffset = pos + ow.length
+            }
+          }
+        } else {
+          // Single word or mismatched word count: use as-is
+          const pos = sentence.toLowerCase().indexOf(original.toLowerCase())
+          if (pos !== -1) {
+            corrections.push({ original, corrected, position: pos })
+            cache.set(original.toLowerCase(), corrected)
+          }
         }
       }
     }

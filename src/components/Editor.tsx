@@ -61,6 +61,7 @@ const AUTOSAVE_KEY = 'dyslexic-writer-draft'
 const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode, onWordCountChange, onCheckWord }, ref) {
   const [activeSuggestion, setActiveSuggestion] = useState<Suggestion | null>(null)
   const [isChecking, setIsChecking] = useState(false)
+  const [checkProgress, setCheckProgress] = useState('')
   const editorRef = useRef<HTMLDivElement>(null)
   const isCheckingRef = useRef(false)
   const lastCheckedTextRef = useRef('')
@@ -192,6 +193,7 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
 
     isCheckingRef.current = true
     setIsChecking(true)
+    setCheckProgress('')
     lastCheckedTextRef.current = text
     console.log('[SpellCheck] Checking:', text)
 
@@ -203,26 +205,55 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
       .setTextSelection(editor.state.doc.content.size)
       .run()
 
+    const timeoutId = setTimeout(() => {
+      if (isCheckingRef.current) {
+        isCheckingRef.current = false
+        setIsChecking(false)
+        setCheckProgress('')
+        console.warn('[SpellCheck] Timed out after 20 seconds')
+      }
+    }, 20000)
+
     try {
-      // checkSpelling calls onResults as each chunk completes
-      await checkSpelling(text, (chunkCorrections) => {
-        console.log('[SpellCheck] Chunk results:', chunkCorrections)
-        applyMarks(editor, chunkCorrections)
-      })
+      await checkSpelling(
+        text,
+        (chunkCorrections) => {
+          console.log('[SpellCheck] Chunk results:', chunkCorrections)
+          applyMarks(editor, chunkCorrections)
+        },
+        (current, total) => {
+          if (total > 1) setCheckProgress(`Checking ${current}/${total}...`)
+        },
+      )
     } catch (error) {
       console.error('[SpellCheck] Error:', error)
     } finally {
+      clearTimeout(timeoutId)
       isCheckingRef.current = false
       setIsChecking(false)
+      setCheckProgress('')
     }
   }, [editor, applyMarks])
 
   // Expose methods to parent via ref
   useImperativeHandle(ref, () => ({
     insertWord(word: string) {
-      if (editor) {
-        editor.chain().focus().insertContent(word + ' ').run()
-      }
+      if (!editor) return
+      // Clear any misspelled mark at cursor before inserting
+      const { from } = editor.state.selection
+      editor.commands.command(({ tr, dispatch }) => {
+        const $pos = tr.doc.resolve(from)
+        if ($pos.marks().some(m => m.type.name === 'misspelled')) {
+          const nodeStart = from - $pos.textOffset
+          const node = $pos.parent.childAfter($pos.parentOffset - $pos.textOffset >= 0 ? 0 : 0)
+          if (node.node) {
+            tr.removeMark(nodeStart, nodeStart + $pos.parent.content.size, editor.schema.marks.misspelled)
+          }
+        }
+        if (dispatch) dispatch(tr)
+        return true
+      })
+      editor.chain().focus().insertContent(word + ' ').run()
     },
     runSpellCheck() {
       runSpellCheck()
@@ -356,7 +387,7 @@ const Editor = forwardRef<EditorRef, EditorProps>(function Editor({ learningMode
 
       {isChecking && (
         <div className="checking-indicator">
-          Checking spelling...
+          {checkProgress || 'Checking spelling...'}
         </div>
       )}
 

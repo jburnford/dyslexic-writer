@@ -978,6 +978,27 @@ body {
   padding: 24px 10%;
 }
 
+.zen-exit-button {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-secondary);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  font-family: var(--font-family);
+  cursor: pointer;
+  opacity: 0.15;
+  transition: opacity 0.3s;
+  z-index: 200;
+}
+
+.zen-exit-button:hover {
+  opacity: 1;
+}
+
 .zen-exit-hint {
   position: fixed;
   top: 20px;
@@ -1003,11 +1024,15 @@ body {
 
 /* ===== Responsive ===== */
 
-/* Tablet: collapse voice panel by default */
+/* Tablet: start voice panel collapsed, but allow toggle to expand */
 @media (max-width: 1024px) {
-  .voice-panel {
+  .voice-panel[data-collapsed="true"] {
     width: 56px;
     min-width: 56px;
+  }
+  .voice-panel[data-collapsed="false"] {
+    width: 280px;
+    min-width: 280px;
   }
 }
 
