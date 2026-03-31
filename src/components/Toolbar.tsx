@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 interface ToolbarProps {
   // Editor actions
@@ -127,8 +128,15 @@ export default function Toolbar({
         >
           Save
         </button>
-        {saveOpen && (
-          <div className="save-dropdown">
+        {saveOpen && createPortal(
+          <div
+            className="save-dropdown"
+            style={{
+              position: 'fixed',
+              left: saveRef.current ? saveRef.current.getBoundingClientRect().right + 6 : 0,
+              top: saveRef.current ? saveRef.current.getBoundingClientRect().top : 0,
+            }}
+          >
             <button className="save-option" onClick={() => { onSave('md'); setSaveOpen(false) }}>
               Markdown (.md)
             </button>
@@ -138,7 +146,8 @@ export default function Toolbar({
             <button className="save-option" onClick={() => { onSave('pdf'); setSaveOpen(false) }}>
               PDF (.pdf)
             </button>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
 
