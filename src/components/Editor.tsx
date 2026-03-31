@@ -5,7 +5,6 @@ import { Mark, mergeAttributes } from '@tiptap/core'
 import { useState, useRef, useEffect, forwardRef, useImperativeHandle, useCallback } from 'react'
 import { checkSpelling } from '../services/spelling'
 import FormatBar from './FormatBar'
-import LearnPopup from './LearnPopup'
 
 // Preserve the case pattern of the original word in the correction
 function preserveCase(original: string, correction: string): string {
