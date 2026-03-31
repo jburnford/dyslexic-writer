@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import { createPortal } from 'react-dom'
 
 interface ToolbarProps {
   // Editor actions
@@ -43,17 +42,12 @@ export default function Toolbar({
 }: ToolbarProps) {
   const [saveOpen, setSaveOpen] = useState(false)
   const saveRef = useRef<HTMLDivElement>(null)
-  const dropdownRef = useRef<HTMLDivElement>(null)
 
   // Close save dropdown when clicking outside
   useEffect(() => {
     if (!saveOpen) return
     const handleClickOutside = (e: MouseEvent) => {
-      const target = e.target as Node
-      if (
-        saveRef.current && !saveRef.current.contains(target) &&
-        dropdownRef.current && !dropdownRef.current.contains(target)
-      ) {
+      if (saveRef.current && !saveRef.current.contains(e.target as Node)) {
         setSaveOpen(false)
       }
     }
@@ -133,16 +127,8 @@ export default function Toolbar({
         >
           Save
         </button>
-        {saveOpen && createPortal(
-          <div
-            ref={dropdownRef}
-            className="save-dropdown"
-            style={{
-              position: 'fixed',
-              left: saveRef.current ? saveRef.current.getBoundingClientRect().right + 6 : 0,
-              top: saveRef.current ? saveRef.current.getBoundingClientRect().top : 0,
-            }}
-          >
+        {saveOpen && (
+          <div className="save-dropdown">
             <button className="save-option" onClick={() => { onSave('md'); setSaveOpen(false) }}>
               Markdown (.md)
             </button>
@@ -152,8 +138,7 @@ export default function Toolbar({
             <button className="save-option" onClick={() => { onSave('pdf'); setSaveOpen(false) }}>
               PDF (.pdf)
             </button>
-          </div>,
-          document.body
+          </div>
         )}
       </div>
 
