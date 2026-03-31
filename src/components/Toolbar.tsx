@@ -43,12 +43,17 @@ export default function Toolbar({
 }: ToolbarProps) {
   const [saveOpen, setSaveOpen] = useState(false)
   const saveRef = useRef<HTMLDivElement>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   // Close save dropdown when clicking outside
   useEffect(() => {
     if (!saveOpen) return
     const handleClickOutside = (e: MouseEvent) => {
-      if (saveRef.current && !saveRef.current.contains(e.target as Node)) {
+      const target = e.target as Node
+      if (
+        saveRef.current && !saveRef.current.contains(target) &&
+        dropdownRef.current && !dropdownRef.current.contains(target)
+      ) {
         setSaveOpen(false)
       }
     }
@@ -130,6 +135,7 @@ export default function Toolbar({
         </button>
         {saveOpen && createPortal(
           <div
+            ref={dropdownRef}
             className="save-dropdown"
             style={{
               position: 'fixed',
