@@ -236,11 +236,14 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
             const owClean = ow.replace(/[.,!?;:]+$/, '').toLowerCase()
             const cwClean = cw.replace(/[.,!?;:]+$/, '').toLowerCase()
             if (owClean !== cwClean) {
-              const pos = sentence.toLowerCase().indexOf(ow.toLowerCase(), searchOffset)
+              // Use cleaned versions (no trailing punctuation) for the correction
+              const owStripped = ow.replace(/[.,!?;:]+$/, '')
+              const cwStripped = cw.replace(/[.,!?;:]+$/, '')
+              const pos = sentence.toLowerCase().indexOf(owStripped.toLowerCase(), searchOffset)
               if (pos !== -1) {
-                corrections.push({ original: ow, corrected: cw, position: pos })
-                cache.set(ow.toLowerCase(), cw)
-                searchOffset = pos + ow.length
+                corrections.push({ original: owStripped, corrected: cwStripped, position: pos })
+                cache.set(owStripped.toLowerCase(), cwStripped)
+                searchOffset = pos + owStripped.length
               }
             } else {
               const pos = sentence.toLowerCase().indexOf(ow.toLowerCase(), searchOffset)
@@ -248,11 +251,16 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
             }
           }
         } else {
-          // Single word or mismatched word count: use as-is
-          const pos = sentence.toLowerCase().indexOf(original.toLowerCase())
-          if (pos !== -1) {
-            corrections.push({ original, corrected, position: pos })
-            cache.set(original.toLowerCase(), corrected)
+          // Single word or mismatched word count
+          // Strip trailing punctuation so marks only cover the actual word
+          const origClean = original.replace(/[.,!?;:]+$/, '')
+          const corrClean = corrected.replace(/[.,!?;:]+$/, '')
+          if (origClean && corrClean && origClean.toLowerCase() !== corrClean.toLowerCase()) {
+            const pos = sentence.toLowerCase().indexOf(origClean.toLowerCase())
+            if (pos !== -1) {
+              corrections.push({ original: origClean, corrected: corrClean, position: pos })
+              cache.set(origClean.toLowerCase(), corrClean)
+            }
           }
         }
       }
