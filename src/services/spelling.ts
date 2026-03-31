@@ -140,7 +140,7 @@ export async function checkSpelling(
   const allCorrections: Correction[] = []
   const seen = new Set<string>() // deduplicate by original word
 
-  const chunks = splitIntoChunks(text, 2)
+  const chunks = splitIntoChunks(text, 1)
   console.log(`[Spelling] Split into ${chunks.length} chunks`)
 
   for (const chunk of chunks) {
@@ -207,6 +207,15 @@ async function checkWithLLM(sentence: string): Promise<{ corrections: Correction
 
     const data = await response.json()
     const correctedSentence = data.corrected || ''
+
+    // Truncation guard: if the model returned significantly less text,
+    // it dropped content — reject these corrections to prevent data loss
+    const inputWords = sentence.trim().split(/\s+/).length
+    const outputWords = correctedSentence.trim().split(/\s+/).length
+    if (inputWords > 3 && outputWords < inputWords * 0.5) {
+      console.warn(`[Spelling] Truncation detected: input ${inputWords} words, output ${outputWords} words. Skipping corrections.`)
+      return { corrections: [], response: correctedSentence }
+    }
 
     // The Flask API already provides the changes array
     if (data.changes && Array.isArray(data.changes)) {
